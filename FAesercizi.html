@@ -74,29 +74,11 @@
             color: #2563eb;
             font-weight: 600;
             cursor: pointer;
-            list-style: none;
             user-select: none;
-        }
-
-        .solution-title::-webkit-details-marker {
-            display: none;
-        }
-
-        .solution-title::before {
-            content: "🔒";
-            display: inline-block;
-            margin-right: 8px;
-        }
-
-        .solution-details.unlocked .solution-title::before {
-            content: "›";
-            font-size: 22px;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-
-        .solution-details.unlocked[open] .solution-title::before {
-            transform: rotate(90deg);
+            background: transparent;
+            border: 0;
+            padding: 0;
+            font-size: 16px;
         }
 
         .solution-box {
@@ -250,8 +232,8 @@
         <!-- SVOLGIMENTO CLICCABILE -->
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -264,7 +246,7 @@
                 <div class="formula-step">\[\frac{x^4(x^2+1)}{x^3}=x(x^2+1)\]</div>
                 <div class="result-box text-center">\[\boxed{x^3+x}\]</div>
             </div>
-        </details>
+        </div>
 
 
     </div>
@@ -298,8 +280,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -312,7 +294,7 @@
                 <div class="formula-step">\[\frac{x\cancel{(x+2)}}{8\cancel{(x+2)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x}{8}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -345,8 +327,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -359,7 +341,7 @@
                 <div class="formula-step">\[\frac{x^5\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{x^5}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -393,8 +375,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -407,7 +389,7 @@
                 <div class="formula-step">\[\frac{3x\cancel{(2x+1)}}{9(2x-1)\cancel{(2x+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x}{3(2x-1)}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -441,8 +423,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -455,7 +437,7 @@
                 <div class="formula-step">\[\frac{\cancel{(2x+1)}}{2\cancel{(2x+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac12}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -489,8 +471,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -503,7 +485,7 @@
                 <div class="formula-step">\[\frac{\cancel{(x-5)}(x-5)}{\cancel{(x-5)}(x+5)}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x-5}{x+5}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -537,8 +519,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -551,7 +533,7 @@
                 <div class="formula-step">\[\frac{\cancel{(x-1)}(x+1)}{x\cancel{(x-1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x+1}{x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -585,8 +567,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -599,7 +581,7 @@
                 <div class="formula-step">\[\frac{\cancel{(2x-5)}(2x+5)}{2\cancel{(2x-5)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{2x+5}{2}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -633,8 +615,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -647,7 +629,7 @@
                 <div class="formula-step">\[\frac{\cancel{(2x-1)}(2x-1)}{x\cancel{(2x-1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{2x-1}{x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -681,8 +663,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -695,7 +677,7 @@
                 <div class="formula-step">\[\frac{2(x^2-1)\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{2(x^2-1)}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -729,8 +711,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -743,7 +725,7 @@
                 <div class="formula-step">\[\frac{2(3x-1)\cancel{(3x+1)}}{\cancel{(3x+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{6x-2}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -777,8 +759,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -791,7 +773,7 @@
                 <div class="formula-step">\[\frac{(5-x)(x+5)}{(x-5)^2}=\frac{-(x-5)(x+5)}{(x-5)^2}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x+5}{5-x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -825,8 +807,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -839,7 +821,7 @@
                 <div class="formula-step">\[\frac{\cancel{(x-1)}(x-2)}{2\cancel{(x-1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x-2}{2}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -874,8 +856,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -888,7 +870,7 @@
                 <div class="formula-step">\[\frac{(x-1)^2}{(x+1)^2}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{(x-1)^2}{(x+1)^2}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -922,8 +904,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -936,7 +918,7 @@
                 <div class="formula-step">\[\frac{\cancel{(x-2)}(x-2)}{x\cancel{(x-2)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x-2}{x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -970,8 +952,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -984,7 +966,7 @@
                 <div class="formula-step">\[\frac{\cancel{(x+1)}(x+4)}{\cancel{(x+1)}(x+1)}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x+4}{x+1}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1018,8 +1000,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1032,7 +1014,7 @@
                 <div class="formula-step">\[\frac{x\cancel{(x-2)}}{(x+3)\cancel{(x-2)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x}{x+3}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1066,8 +1048,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1080,7 +1062,7 @@
                 <div class="formula-step">\[\frac{\cancel{(3x+1)}(3x+1)}{x\cancel{(3x+1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{3x+1}{x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1114,8 +1096,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1128,7 +1110,7 @@
                 <div class="formula-step">\[\frac{5\cancel{(x+3)}}{(x-3)\cancel{(x+3)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{5}{x-3}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1162,8 +1144,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1176,7 +1158,7 @@
                 <div class="formula-step">\[\frac{(2x-5)\cancel{(2x+5)}}{x\cancel{(2x+5)}}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{2x-5}{x}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1210,8 +1192,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1224,7 +1206,7 @@
                 <div class="formula-step">\[\frac{x^2\cancel{(x^2+2)}}{\cancel{(x^2+2)}(x^2+2)}\]</div>
                 <div class="result-box text-center">\[\boxed{\frac{x^2}{x^2+2}}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1258,8 +1240,8 @@
         </div>
 
 
-        <details class="solution-details locked" data-solution>
-            <summary class="solution-title">Mostra svolgimento</summary>
+        <div class="solution-details locked" data-solution>
+            <button class="solution-title" type="button">🔒 Mostra svolgimento</button>
             <div class="code-panel">
                 <span>Inserisci il codice:</span>
                 <input class="code-input" type="password" autocomplete="off">
@@ -1272,7 +1254,7 @@
                 <div class="formula-step">\[\frac{x\cancel{(2x-1)}}{-x^2\cancel{(2x-1)}}\]</div>
                 <div class="result-box text-center">\[\boxed{-\frac1x}\]</div>
             </div>
-        </details>
+        </div>
 
     </div>
 
@@ -1303,53 +1285,67 @@
 
     function unlockAllSolutions() {
         solutionsUnlocked = true;
-        document.querySelectorAll("[data-solution]").forEach(details => {
-            details.classList.remove("locked");
-            details.classList.add("unlocked");
-            details.querySelector(".code-panel").classList.remove("show");
-            details.querySelector(".solution-box").hidden = false;
-            details.querySelector(".solution-title").textContent = "Mostra svolgimento";
+
+        document.querySelectorAll("[data-solution]").forEach(item => {
+            item.classList.remove("locked");
+            item.classList.add("unlocked");
+
+            const panel = item.querySelector(".code-panel");
+            const button = item.querySelector(".solution-title");
+
+            panel.classList.remove("show");
+            button.textContent = "Mostra svolgimento";
         });
     }
 
-    document.querySelectorAll("[data-solution]").forEach(details => {
-        const summary = details.querySelector(".solution-title");
-        const panel = details.querySelector(".code-panel");
-        const input = details.querySelector(".code-input");
-        const button = details.querySelector(".code-button");
-        const error = details.querySelector(".code-error");
-        const box = details.querySelector(".solution-box");
+    document.querySelectorAll("[data-solution]").forEach(item => {
+        const showButton = item.querySelector(".solution-title");
+        const panel = item.querySelector(".code-panel");
+        const input = item.querySelector(".code-input");
+        const unlockButton = item.querySelector(".code-button");
+        const error = item.querySelector(".code-error");
+        const solutionBox = item.querySelector(".solution-box");
 
-        summary.addEventListener("click", function(event) {
+        showButton.addEventListener("click", function () {
             if (!solutionsUnlocked) {
-                event.preventDefault();
                 panel.classList.toggle("show");
-                if (panel.classList.contains("show")) input.focus();
+                error.style.display = "none";
+
+                if (panel.classList.contains("show")) {
+                    input.focus();
+                }
+                return;
+            }
+
+            const isHidden = solutionBox.hidden;
+            solutionBox.hidden = !isHidden;
+            showButton.textContent = isHidden
+                ? "Nascondi svolgimento"
+                : "Mostra svolgimento";
+
+            if (isHidden && window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([solutionBox]);
             }
         });
 
-        button.addEventListener("click", function() {
-            if (input.value === SOLUTION_CODE) {
+        unlockButton.addEventListener("click", function () {
+            if (input.value.trim() === SOLUTION_CODE) {
                 unlockAllSolutions();
-                details.open = true;
-                box.hidden = false;
+
+                solutionBox.hidden = false;
+                showButton.textContent = "Nascondi svolgimento";
+
                 if (window.MathJax && MathJax.typesetPromise) {
-                    MathJax.typesetPromise();
+                    MathJax.typesetPromise([solutionBox]);
                 }
             } else {
                 error.style.display = "block";
             }
         });
 
-        input.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") button.click();
-        });
-
-        details.addEventListener("toggle", function() {
-            if (solutionsUnlocked) {
-                summary.textContent = details.open
-                    ? "Nascondi svolgimento"
-                    : "Mostra svolgimento";
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                unlockButton.click();
             }
         });
     });
