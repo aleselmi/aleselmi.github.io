@@ -3,349 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometria Interattiva: Binomio, Trinomio e Cubo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            options: {
-                processHtmlClass: 'mathjax-process'
-            }
-        };
-    </script>
+    <title>Guida alle Scomposizioni di Polinomi</title>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-        canvas { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 12px; 
-            cursor: move;
-            touch-action: none;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
         }
-        .control-panel { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
-        .mode-btn.active { background-color: #1e293b; color: white; border-color: #1e293b; }
-        .hidden-element { display: none; }
-        .mode-btn mjx-container { margin: 0 !important; display: inline-block !important; vertical-align: middle; }
+        .step-card {
+            transition: transform 0.2s;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .formula-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .example-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            top: 2px;
+            left: 10px;
+        }
+        .label-formula { color: #3b82f6; }
+        .label-example { color: #22c55e; }
         
-        /* Evidenziatori con colori fedeli al grafico (Alpha 0.4 per leggibilità testo) */
-        .term-a2, .term-a3 { background-color: rgba(59, 130, 246, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.6); }
-        .term-b2, .term-b3 { background-color: rgba(239, 68, 68, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(239, 68, 68, 0.6); }
-        .term-c2 { background-color: rgba(34, 197, 94, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(34, 197, 94, 0.6); }
-        .term-ab, .term-a2b { background-color: rgba(234, 179, 8, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(234, 179, 8, 0.6); }
-        .term-ac { background-color: rgba(168, 85, 247, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(168, 85, 247, 0.6); }
-        .term-bc, .term-ab2 { background-color: rgba(249, 115, 22, 0.4); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(249, 115, 22, 0.6); }
+        details summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        details summary::-webkit-details-marker { display: none; }
         
-        /* Correzione per MathJax inline dentro gli span evidenziati */
-        .mathjax-process span mjx-container { margin: 0 !important; }
+        .ruffini-table {
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+        .ruffini-table td {
+            padding: 8px 15px;
+            text-align: center;
+            border: none;
+        }
+        /* Linea verticale a destra della prima colonna */
+        .ruffini-v-left { border-right: 2px solid #fff !important; }
+        /* Linea verticale a sinistra dell'ultima colonna */
+        .ruffini-v-right { border-left: 2px solid #fff !important; }
+        /* Linea orizzontale sopra l'ultima riga */
+        .ruffini-h-bottom td { border-top: 2px solid #fff !important; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 mathjax-process">
-    <a href="https://lbomben.github.io" class="text-blue-500 hover:underline mb-4">Homepage</a>
-    
-    <div class="max-w-6xl w-full">
-        <header class="text-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Prodotti Notevoli Interattivi</h1>
-            <div id="math-header" class="text-xl text-gray-900 font-semibold h-24 flex items-center justify-center">
-                <!-- Caricato via JS -->
-            </div>
-        </header>
+<body class="bg-gray-50 text-gray-800">
 
-        <div class="flex flex-wrap justify-center mb-6 gap-3">
-            <button id="btnBinomio" class="mode-btn active px-5 py-2 rounded-full border border-slate-300 hover:bg-slate-100 transition shadow-sm flex items-center">
-                <span class="mr-1">Binomio:</span> <span>$(a+b)^2$</span>
-            </button>
-            <button id="btnTrinomio" class="mode-btn px-5 py-2 rounded-full border border-slate-300 hover:bg-slate-100 transition shadow-sm flex items-center">
-                <span class="mr-1">Trinomio:</span> <span>$(a+b+c)^2$</span>
-            </button>
-            <button id="btnCubo" class="mode-btn px-5 py-2 rounded-full border border-slate-300 hover:bg-slate-100 transition shadow-sm flex items-center">
-                <span class="mr-1">Cubo:</span> <span>$(a+b)^3$</span>
-            </button>
+    <header class="bg-blue-600 text-white py-10 shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-extrabold mb-2">Algoritmo delle Scomposizioni</h1>
+            <p class="text-xl opacity-90">Una guida sistematica per scomporre i polinomi</p>
         </div>
+    </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <div class="flex flex-col items-center bg-white p-4 rounded-xl shadow-inner relative">
-                <canvas id="geometryCanvas" width="500" height="500"></canvas>
-                <p id="canvasCaption" class="mt-4 text-sm text-gray-500 italic"></p>
-                <div id="rotationHint" class="absolute bottom-6 right-6 text-xs bg-slate-100 px-2 py-1 rounded border hidden"> Trascina per ruotare </div>
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        
+        <!-- Fase 1 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <span class="bg-blue-600 text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">1</span>
+                <h2 class="text-2xl font-bold">Raccoglimento Totale (M.C.D.)</h2>
             </div>
-
-            <div class="control-panel">
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Dimensione <strong>a</strong>: <span id="valA" class="text-blue-600 font-bold"></span></label>
-                    <input type="range" id="sliderA" min="80" max="220" value="160" class="w-full h-2 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-600">
+            <div class="bg-white p-6 rounded-xl shadow-md step-card border border-gray-200">
+                <p class="mb-4 text-gray-700">La prima domanda da porsi è sempre: <strong>"C'è un fattore comune a tutti i termini?"</strong>. Se sì, raccoglilo. Nella parte numerica prendi il MCD, in quella letterale l'esponente più basso tra quelli che appaiono.</p>
+                
+                <div class="example-box">
+                    <span class="label label-example">Esempio 1</span>
+                    <p class="mt-2">$$6x^3 + 12x^2 = 6x^2(x + 2)$$</p>
                 </div>
-
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Dimensione <strong>b</strong>: <span id="valB" class="text-red-600 font-bold"></span></label>
-                    <input type="range" id="sliderB" min="40" max="140" value="90" class="w-full h-2 bg-red-100 rounded-lg appearance-none cursor-pointer accent-red-600">
-                </div>
-
-                <div id="containerC" class="mb-6 hidden-element">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Dimensione <strong>c</strong>: <span id="valC" class="text-green-600 font-bold"></span></label>
-                    <input type="range" id="sliderC" min="30" max="100" value="60" class="w-full h-2 bg-green-100 rounded-lg appearance-none cursor-pointer accent-green-600">
-                </div>
-
-                <div id="resultsTable" class="space-y-2 border-t pt-4 text-sm mb-4"></div>
-
-                <div class="p-4 bg-slate-800 rounded-lg shadow-lg text-white">
-                    <div id="math-result" class="text-center text-lg overflow-x-auto min-h-[4rem] flex items-center justify-center"></div>
+                <div class="example-box">
+                    <span class="label label-example">Esempio 2</span>
+                    <p class="mt-2">$$15a^4b^2 - 10a^2b^3 = 5a^2b^2(3a^2 - 2b)$$</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Fase 2 -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <span class="bg-blue-600 text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">2</span>
+                <h2 class="text-2xl font-bold">Conto del numero di termini</h2>
+            </div>
+            <p class="mb-8 italic text-gray-600">In base a quanti termini compongono il polinomio (o quello che resta dopo il raccoglimento), scegliamo la strada corretta:</p>
+
+            <!-- 2 Termini -->
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-600 mb-4">Se i termini sono 2</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700">Differenza di quadrati</h4>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formula</span>
+                            <p class="mt-2">$$a^2 - b^2 = (a - b)(a + b)$$</p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$9x^2 - 16 = (3x - 4)(3x + 4)$$</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Somma / Differenza di cubi</h4>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formule</span>
+                            <p class="mt-2">
+                                $$a^3 + b^3 = (a + b)(a^2 - ab + b^2)$$
+                                $$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$$
+                            </p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$x^3 + 8 = (x + 2)(x^2 - 2x + 4)$$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Termini -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-purple-500">
+                    <h3 class="text-xl font-bold text-purple-600 mb-4">Se i termini sono 3</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700">Quadrato di binomio</h4>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formula</span>
+                            <p class="mt-2">$$a^2 \pm 2ab + b^2 = (a \pm b)^2$$</p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$x^2 - 6x + 9 = (x - 3)^2$$</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Trinomio caratteristico (Somma e Prodotto)</h4>
+                        <p class="text-sm text-gray-600">I due numeri vanno cercati tra i sottomultipli del termine noto (quello senza x).</p>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formula</span>
+                            <p class="mt-2">$$x^2 + sx + p = (x + a)(x + b) \quad \text{con } a+b=s, ab=p$$</p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$x^2 + 5x + 6 = (x + 2)(x + 3)$$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Termini -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-teal-500">
+                    <h3 class="text-xl font-bold text-teal-600 mb-4">Se i termini sono 4</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700">Cubo di binomio</h4>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formula</span>
+                            <p class="mt-2">$$a^3 + 3a^2b + 3ab^2 + b^3 = (a + b)^3$$</p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$x^3 + 3x^2 + 3x + 1 = (x + 1)^3$$</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Raccoglimento parziale</h4>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio (Due passaggi)</span>
+                            <div class="mt-2">
+                                <p class="font-mono text-blue-700">Passaggio 1 (Raccoglimento a gruppi):</p>
+                                <p>$$x^3 + x^2 + 2x + 2 = x^2(x + 1) + 2(x + 1)$$</p>
+                                <p class="font-mono text-blue-700 mt-2">Passaggio 2 (Raccoglimento della parentesi comune):</p>
+                                <p>$$= (x + 1)(x^2 + 2)$$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 Termini -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-8 border-red-500">
+                    <h3 class="text-xl font-bold text-red-600 mb-4">Se i termini sono 6</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700">Quadrato di trinomio</h4>
+                        <div class="formula-box">
+                            <span class="label label-formula">Formula</span>
+                            <p class="mt-2">$$a^2+b^2+c^2+2ab+2ac+2bc = (a+b+c)^2$$</p>
+                        </div>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio</span>
+                            <p class="mt-2">$$x^2 + y^2 + 1 + 2xy + 2x + 2y = (x + y + 1)^2$$</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-gray-700">Raccoglimento parziale</h4>
+                        <div class="example-box">
+                            <span class="label label-example">Esempio (Due passaggi)</span>
+                            <div class="mt-2">
+                                <p>$$ax+ay+bx+by+cx+cy$$</p>
+                                <p>$$= x(a+b+c) + y(a+b+c)$$</p>
+                                <p>$$= (a+b+c)(x+y)$$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ruffini -->
+                <div class="bg-gray-800 text-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Ultima spiaggia: Regola di Ruffini</h3>
+                    <p class="mb-4">Se nessuno dei metodi precedenti è applicabile, cerca uno zero del polinomio tra i divisori (sottomultipli) del termine noto, considerandoli con segno \(\pm\).</p>
+                    
+                    <details class="bg-gray-700 rounded-lg p-4">
+                        <summary class="font-bold text-yellow-200">
+                            <span class="mr-2">▶</span> Visualizza Esempio e Schema: \(P(x) = x^3 - 4x + 3\)
+                        </summary>
+                        <div class="mt-4 overflow-x-auto text-center">
+                            <p class="mb-4 text-sm">Gli zeri vanno cercati tra i sottomultipli del termine noto (\(3\)), con segno \(\pm\).<br>Si prova quindi tra: \(\{+1, -1, +3, -3\}\).</p>
+                            <p class="mb-4">Troviamo che \(P(1) = 1 - 4 + 3 = 0\). Lo zero è \(1\).</p>
+                            <p class="mb-4 text-gray-300 italic">Prima di procedere, completiamo il polinomio aggiungendo uno \(0\) per i gradi mancanti: \(x^3 + 0x^2 - 4x + 3\).</p>
+                            <p class="mb-4 text-sm text-blue-200 text-left px-4">Disponiamo i numeri: lo zero trovato va a sinistra fuori dalle linee verticali, i coefficienti del polinomio vanno in alto (l'ultimo, il termine noto, va a destra della seconda linea) e i risultati dei calcoli andranno nell'ultima riga.</p>
+                            <table class="ruffini-table text-white mx-auto">
+                                <tr>
+                                    <td class="ruffini-v-left"></td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>-4</td>
+                                    <td class="ruffini-v-right">3</td>
+                                </tr>
+                                <tr>
+                                    <td class="ruffini-v-left font-bold text-yellow-400">1</td>
+                                    <td></td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td class="ruffini-v-right">-3</td>
+                                </tr>
+                                <tr class="ruffini-h-bottom">
+                                    <td class="ruffini-v-left"></td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>-3</td>
+                                    <td class="ruffini-v-right font-bold text-red-400">0</td>
+                                </tr>
+                            </table>
+                            <p class="mt-6">Risultato: $$(x - 1)(x^2 + x - 3)$$</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fase 3 -->
+        <section>
+            <div class="flex items-center mb-6">
+                <span class="bg-blue-600 text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">3</span>
+                <h2 class="text-2xl font-bold">Analisi Ricorsiva</h2>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md border-2 border-dashed border-blue-300">
+                <p class="text-lg">Controlla <strong>ogni fattore (parentesi) ottenuto</strong>: è ancora scomponibile?</p>
+                <p class="mt-2 text-gray-600 italic text-center">Se sì, torna al punto 2 per quella parentesi finché non arrivi a fattori irriducibili.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-200 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-600 text-sm">
+            Guida interattiva creata per scopi didattici. Le formule sono renderizzate con MathJax.
         </div>
-        
-        <footer class="mt-8 text-center text-gray-500 text-sm max-w-2xl mx-auto">
-            <p id="explanationText"></p>
-        </footer>
-    </div>
+    </footer>
 
-    <script>
-        const canvas = document.getElementById('geometryCanvas');
-        const ctx = canvas.getContext('2d');
-        const sliders = { a: document.getElementById('sliderA'), b: document.getElementById('sliderB'), c: document.getElementById('sliderC') };
-        const mathHeader = document.getElementById('math-header');
-        const mathResult = document.getElementById('math-result');
-        const resultsTable = document.getElementById('resultsTable');
-        const explanationText = document.getElementById('explanationText');
-        const canvasCaption = document.getElementById('canvasCaption');
-        const containerC = document.getElementById('containerC');
-
-        let mode = 'binomio';
-        let angleX = -0.5, angleY = 0.5;
-        let isDragging = false, lastMouseX, lastMouseY;
-
-        const COLORS = {
-            a: 'rgba(59, 130, 246, 0.75)', b: 'rgba(239, 68, 68, 0.75)', c: 'rgba(34, 197, 94, 0.75)',
-            ab: 'rgba(234, 179, 8, 0.65)', ac: 'rgba(168, 85, 247, 0.65)', bc: 'rgba(249, 115, 22, 0.65)',
-            a3: 'rgba(59, 130, 246, 0.8)', b3: 'rgba(239, 68, 68, 0.8)',
-            a2b: 'rgba(234, 179, 8, 0.7)', ab2: 'rgba(249, 115, 22, 0.7)',
-            stroke: '#0f172a'
-        };
-
-        function updateUI() {
-            const a = parseInt(sliders.a.value), b = parseInt(sliders.b.value), c = parseInt(sliders.c.value);
-            document.getElementById('valA').textContent = a;
-            document.getElementById('valB').textContent = b;
-            document.getElementById('valC').textContent = c;
-
-            const hint = document.getElementById('rotationHint');
-            hint.classList.toggle('hidden', mode !== 'cubo');
-
-            if (mode === 'binomio') {
-                containerC.classList.add('hidden-element');
-                mathHeader.innerHTML = `$(a + b)^2 = $ <span class="term-a2">$a^2$</span> $+$ <span class="term-ab">$2ab$</span> $+$ <span class="term-b2">$b^2$</span>`;
-                explanationText.textContent = "Scomposizione dell'area in due quadrati e due rettangoli.";
-                canvasCaption.textContent = "Vista 2D: Area del Quadrato";
-                resultsTable.innerHTML = `<div class="flex justify-between"><span>Area $a^2$:</span> <strong>${a*a}</strong></div><div class="flex justify-between"><span>Area $b^2$:</span> <strong>${b*b}</strong></div><div class="flex justify-between"><span>Area $2ab$:</span> <strong>${2*a*b}</strong></div>`;
-                mathResult.innerHTML = `$$(${a}+${b})^2 = ${a*a}+${2*a*b}+${b*b} = ${(a+b)**2}$$`;
-            } else if (mode === 'trinomio') {
-                containerC.classList.remove('hidden-element');
-                mathHeader.innerHTML = `$(a + b + c)^2 = $ <span class="term-a2">$a^2$</span> $+$ <span class="term-b2">$b^2$</span> $+$ <span class="term-c2">$c^2$</span> $+$ <span class="term-ab">$2ab$</span> $+$ <span class="term-ac">$2ac$</span> $+$ <span class="term-bc">$2bc$</span>`;
-                explanationText.textContent = "Scomposizione in tre quadrati e tre coppie di rettangoli.";
-                canvasCaption.textContent = "Vista 2D: Area del Quadrato";
-                resultsTable.innerHTML = `<div class="flex justify-between"><span>Quadrati ($a^2+b^2+c^2$):</span> <strong>${a*a+b*b+c*c}</strong></div><div class="flex justify-between"><span>Doppi prodotti:</span> <strong>${2*(a*b+a*c+b*c)}</strong></div>`;
-                mathResult.innerHTML = `$$(${a}+${b}+${c})^2 = ${(a+b+c)**2}$$`;
-            } else {
-                containerC.classList.add('hidden-element');
-                mathHeader.innerHTML = `$(a + b)^3 = $ <span class="term-a3">$a^3$</span> $+$ <span class="term-a2b">$3a^2b$</span> $+$ <span class="term-ab2">$3ab^2$</span> $+$ <span class="term-b3">$b^3$</span>`;
-                explanationText.textContent = "Scomposizione del volume in due cubi e sei parallelepipedi.";
-                canvasCaption.textContent = "Vista 3D: Volume del Cubo (Trascina per ruotare)";
-                resultsTable.innerHTML = `<div class="flex justify-between"><span>Somma cubi ($a^3 + b^3$):</span> <strong>${a**3 + b**3}</strong></div><div class="flex justify-between"><span>Somma parallelepipedi:</span> <strong>${3*(a**2)*b + 3*a*(b**2)}</strong></div>`;
-                mathResult.innerHTML = `$$(${a}+${b})^3 = ${(a+b)**3}$$`;
-            }
-
-            // Forza il ricaricamento di MathJax per gli elementi dinamici
-            if (window.MathJax && MathJax.typesetPromise) {
-                MathJax.typesetPromise([mathHeader, mathResult, resultsTable]);
-            }
-            draw();
-        }
-
-        function drawDimension(x1, y1, x2, y2, label, side = 'top') {
-            ctx.strokeStyle = '#64748b';
-            ctx.fillStyle = '#64748b';
-            ctx.lineWidth = 1;
-            ctx.font = "italic 13px serif";
-            ctx.textAlign = "center";
-            
-            const offset = 30;
-            ctx.beginPath();
-            
-            if (side === 'top') {
-                ctx.moveTo(x1, y1 - 5); ctx.lineTo(x1, y1 - offset);
-                ctx.moveTo(x2, y1 - 5); ctx.lineTo(x2, y1 - offset);
-                ctx.moveTo(x1, y1 - offset + 8); ctx.lineTo(x2, y1 - offset + 8);
-                ctx.stroke();
-                ctx.fillText(label, (x1 + x2) / 2, y1 - offset - 2);
-            } else if (side === 'left') {
-                ctx.moveTo(x1 - 5, y1); ctx.lineTo(x1 - offset, y1);
-                ctx.moveTo(x1 - 5, y2); ctx.lineTo(x1 - offset, y2);
-                ctx.moveTo(x1 - offset + 8, y1); ctx.lineTo(x1 - offset + 8, y2);
-                ctx.stroke();
-                ctx.save();
-                ctx.translate(x1 - offset - 5, (y1 + y2) / 2);
-                ctx.rotate(-Math.PI / 2);
-                ctx.fillText(label, 0, 0);
-                ctx.restore();
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const a = parseInt(sliders.a.value), b = parseInt(sliders.b.value);
-            const c = (mode === 'trinomio') ? parseInt(sliders.c.value) : 0;
-
-            if (mode === 'cubo') draw3D(a, b);
-            else draw2D(a, b, c);
-        }
-
-        function draw2D(a, b, c) {
-            const scale = 360 / (a + b + c);
-            const sA = a * scale, sB = b * scale, sC = c * scale;
-            const x = [70, 70 + sA, 70 + sA + sB, 70 + sA + sB + sC];
-            const y = [70, 70 + sA, 70 + sA + sB, 70 + sA + sB + sC];
-
-            const drawBox = (ix, iy, w, h, color, label) => {
-                if (w <= 1 || h <= 1) return;
-                ctx.fillStyle = color;
-                ctx.fillRect(ix, iy, w, h);
-                ctx.strokeStyle = COLORS.stroke;
-                ctx.lineWidth = 2;
-                ctx.strokeRect(ix, iy, w, h);
-                ctx.fillStyle = '#000';
-                ctx.font = "bold 13px sans-serif";
-                ctx.textAlign = "center";
-                ctx.fillText(label, ix + w/2, iy + h/2 + 5);
-            };
-
-            // Disegno quote lati esterne
-            drawDimension(x[0], y[0], x[1], y[0], "a", "top");
-            drawDimension(x[1], y[0], x[2], y[0], "b", "top");
-            drawDimension(x[0], y[0], x[0], y[1], "a", "left");
-            drawDimension(x[0], y[1], x[0], y[2], "b", "left");
-
-            if (mode === 'trinomio') {
-                drawDimension(x[2], y[0], x[3], y[0], "c", "top");
-                drawDimension(x[0], y[2], x[0], y[3], "c", "left");
-            }
-
-            drawBox(x[0], y[0], sA, sA, COLORS.a, "a²");
-            drawBox(x[1], y[0], sB, sA, COLORS.ab, "ab");
-            drawBox(x[0], y[1], sA, sB, COLORS.ab, "ab");
-            drawBox(x[1], y[1], sB, sB, COLORS.b, "b²");
-
-            if (mode === 'trinomio') {
-                drawBox(x[2], y[0], sC, sA, COLORS.ac, "ac");
-                drawBox(x[2], y[1], sC, sB, COLORS.bc, "bc");
-                drawBox(x[0], y[2], sA, sC, COLORS.ac, "ac");
-                drawBox(x[1], y[2], sB, sC, COLORS.bc, "bc");
-                drawBox(x[2], y[2], sC, sC, COLORS.c, "c²");
-            }
-        }
-
-        function draw3D(a, b) {
-            const scale = 180 / (a + b);
-            const sA = a * scale, sB = b * scale;
-            
-            const blocks = [
-                { x: 0, y: sB, z: 0, w: sA, h: sA, d: sA, col: COLORS.a3, label: "a³" },
-                { x: sA, y: sB, z: 0, w: sB, h: sA, d: sA, col: COLORS.a2b, label: "a²b" },
-                { x: 0, y: 0, z: 0, w: sA, h: sB, d: sA, col: COLORS.a2b, label: "a²b" },
-                { x: sA, y: 0, z: 0, w: sB, h: sB, d: sA, col: COLORS.ab2, label: "ab²" },
-                { x: 0, y: sB, z: sA, w: sA, h: sA, d: sB, col: COLORS.a2b, label: "a²b" },
-                { x: sA, y: sB, z: sA, w: sB, h: sA, d: sB, col: COLORS.ab2, label: "ab²" },
-                { x: 0, y: 0, z: sA, w: sA, h: sB, d: sB, col: COLORS.ab2, label: "ab²" },
-                { x: sA, y: 0, z: sA, w: sB, h: sB, d: sB, col: COLORS.b3, label: "b³" }
-            ];
-
-            blocks.forEach(blk => {
-                const cx = blk.x + blk.w/2 - (sA+sB)/2;
-                const cy = blk.y + blk.h/2 - (sA+sB)/2;
-                const cz = blk.z + blk.d/2 - (sA+sB)/2;
-                blk.depth = cz * Math.cos(angleX) * Math.cos(angleY) - cx * Math.sin(angleY) + cy * Math.sin(angleX);
-            });
-            blocks.sort((a, b) => a.depth - b.depth);
-
-            blocks.forEach(blk => drawIsoBox(blk, (sA+sB)/2));
-        }
-
-        function drawIsoBox(blk, offset) {
-            const project = (x, y, z) => {
-                let nx = x - offset, ny = y - offset, nz = z - offset;
-                let tx = nx * Math.cos(angleY) + nz * Math.sin(angleY);
-                let tz = -nx * Math.sin(angleY) + nz * Math.cos(angleY);
-                let ty = ny * Math.cos(angleX) - tz * Math.sin(angleX);
-                return { x: 250 + tx, y: 250 - ty };
-            };
-
-            const p = [
-                project(blk.x, blk.y, blk.z), project(blk.x+blk.w, blk.y, blk.z),
-                project(blk.x+blk.w, blk.y+blk.h, blk.z), project(blk.x, blk.y+blk.h, blk.z),
-                project(blk.x, blk.y, blk.z+blk.d), project(blk.x+blk.w, blk.y, blk.z+blk.d),
-                project(blk.x+blk.w, blk.y+blk.h, blk.z+blk.d), project(blk.x, blk.y+blk.h, blk.z+blk.d)
-            ];
-
-            const drawFace = (indices) => {
-                ctx.fillStyle = blk.col;
-                ctx.beginPath();
-                ctx.moveTo(p[indices[0]].x, p[indices[0]].y);
-                indices.slice(1).forEach(i => ctx.lineTo(p[i].x, p[i].y));
-                ctx.closePath();
-                ctx.fill();
-                ctx.strokeStyle = COLORS.stroke;
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            };
-
-            [ [0,1,2,3], [4,5,6,7], [0,1,5,4], [2,3,7,6], [0,3,7,4], [1,2,6,5] ].forEach(f => drawFace(f));
-            
-            const center = project(blk.x + blk.w/2, blk.y + blk.h/2, blk.z + blk.d/2);
-            ctx.fillStyle = "#000";
-            ctx.font = "bold 11px sans-serif";
-            ctx.textAlign = "center";
-            ctx.fillText(blk.label, center.x, center.y + 4);
-        }
-
-        canvas.onmousedown = (e) => { isDragging = true; lastMouseX = e.clientX; lastMouseY = e.clientY; };
-        window.onmouseup = () => isDragging = false;
-        window.onmousemove = (e) => {
-            if (!isDragging || mode !== 'cubo') return;
-            angleY += (e.clientX - lastMouseX) * 0.01;
-            angleX += (e.clientY - lastMouseY) * 0.01;
-            lastMouseX = e.clientX; lastMouseY = e.clientY;
-            draw();
-        };
-
-        canvas.ontouchstart = (e) => { isDragging = true; lastMouseX = e.touches[0].clientX; lastMouseY = e.touches[0].clientY; };
-        canvas.ontouchend = () => isDragging = false;
-        canvas.ontouchmove = (e) => {
-            if (!isDragging || mode !== 'cubo') return;
-            angleY += (e.touches[0].clientX - lastMouseX) * 0.01;
-            angleX += (e.touches[0].clientY - lastMouseY) * 0.01;
-            lastMouseX = e.touches[0].clientX; lastMouseY = e.touches[0].clientY;
-            draw();
-        };
-
-        const setActiveBtn = (id) => {
-            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        };
-
-        document.getElementById('btnBinomio').onclick = () => { mode = 'binomio'; setActiveBtn('btnBinomio'); updateUI(); };
-        document.getElementById('btnTrinomio').onclick = () => { mode = 'trinomio'; setActiveBtn('btnTrinomio'); updateUI(); };
-        document.getElementById('btnCubo').onclick = () => { mode = 'cubo'; setActiveBtn('btnCubo'); updateUI(); };
-
-        Object.values(sliders).forEach(s => s.oninput = updateUI);
-        
-        // Inizializzazione
-        window.onload = () => {
-            updateUI();
-        };
-    </script>
 </body>
 </html>
