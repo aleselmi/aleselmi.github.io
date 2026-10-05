@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Frazioni algebriche: esercizi</title>
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            loader: { load: ['[tex]/cancel'] },
+            tex: {
+                packages: { '[+]': ['cancel'] }
+            }
+        };
+    </script>
+
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .navy-text {
+            color: #0b2a4a;
+        }
+
+        /* CARD ESERCIZIO */
+
+        .exercise-card {
+            background: white;
+            border: 1px solid #dbe3ec;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* RISULTATO */
+
+        .result-box {
+            background-color: #ecfdf5;
+            border: 1px solid #86efac;
+            border-radius: 14px;
+            padding: 10px 18px;
+            color: #047857;
+            font-weight: 600;
+        }
+
+        /* SVOLGIMENTO */
+
+        .solution-details {
+            margin-top: 18px;
+            border-top: 1px solid #dbe3ec;
+            padding-top: 14px;
+        }
+
+        .solution-title {
+            color: #2563eb;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+
+        .solution-title::-webkit-details-marker {
+            display: none;
+        }
+
+        /* FRECCIA */
+
+        .solution-title::before {
+            content: "›";
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .solution-details[open] .solution-title::before {
+            transform: rotate(90deg);
+        }
+
+        /* CAMBIO TESTO QUANDO APERTO */
+
+        .solution-details[open] .solution-title {
+            font-size: 0;
+        }
+
+        .solution-details[open] .solution-title::before {
+            font-size: 22px;
+        }
+
+        .solution-details[open] .solution-title::after {
+            content: "Nascondi svolgimento passo-passo";
+            font-size: 16px;
+        }
+
+        /* RIQUADRO SVOLGIMENTO */
+
+        .solution-box {
+            margin-top: 18px;
+            padding: 22px;
+            border: 1px solid #dbe3ec;
+            border-radius: 14px;
+            background-color: white;
+        }
+
+        .step {
+            margin: 20px 0;
+        }
+
+        /* FORMULE DELLO SVOLGIMENTO */
+
+        .formula-step {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            margin: 14px 0;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="text-gray-800">
+
+
+<!-- ==================================================
+     HEADER
+     ================================================== -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4 text-center">
+
+        <h1 class="text-4xl font-extrabold mb-2">
+            Frazioni algebriche: esercizi
+        </h1>
+
+        <p class="text-xl opacity-90">
+            Semplificazione di frazioni algebriche
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container mx-auto px-4 py-12 max-w-5xl">
+
+
+    <!-- ==================================================
+         CONSEGNA
+         ================================================== -->
+
+    <div class="mb-8">
+
+        <h2 class="text-3xl font-bold navy-text mb-2">
+            Esercizi
+        </h2>
+
+        <p class="text-lg text-gray-600">
+            Scomponi in fattori numeratore e denominatore
+            e riduci ai minimi termini.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO A
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row
+                    md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">
+                    a.
+                </span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^6+x^4}{x^3}
+                    \]
+                </div>
+
+            </div>
+
+
+            <div class="result-box">
+
+                <div class="flex items-center gap-3">
+                    <span>Risultato:</span>
+                    <span>\(x^3+x\)</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SVOLGIMENTO CLICCABILE -->
+
+        <details class="solution-details">
+
+            <summary class="solution-title">
+                Mostra svolgimento passo-passo
+            </summary>
+
+
+            <div class="solution-box">
+
+                <p class="font-bold navy-text text-lg mb-5">
+                    Svolgimento guidato:
+                </p>
+
+
+                <!-- PASSO 1 -->
+
+                <div class="step">
+
+                    <strong>1. Scomponiamo il numeratore.</strong>
+
+                    <p class="mt-2">
+                        Nel numeratore possiamo raccogliere \(x^4\):
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        x^6+x^4
+                        =
+                        x^4(x^2+1)
+                        \]
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 2 -->
+
+                <div class="step">
+
+                    <strong>2. Consideriamo il denominatore.</strong>
+
+                    <p class="mt-2">
+                        Il denominatore è già scritto come potenza:
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        x^3
+                        \]
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 3 -->
+
+                <div class="step">
+
+                    <strong>
+                        3. Calcoliamo le Condizioni di Esistenza.
+                    </strong>
+
+                    <p class="mt-2">
+                        Il denominatore deve essere diverso da zero:
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        x^3\neq0
+                        \]
+
+                        \[
+                        x\neq0
+                        \]
+
+                    </div>
+
+                    <p>
+                        Quindi:
+                        <strong>C.E. \(x\neq0\)</strong>
+                    </p>
+
+                </div>
+
+
+                <!-- PASSO 4 -->
+
+                <div class="step">
+
+                    <strong>
+                        4. Riscriviamo la frazione scomposta.
+                    </strong>
+
+                    <div class="formula-step">
+
+                        \[
+                        \frac{x^4(x^2+1)}{x^3}
+                        \]
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 5 -->
+
+                <div class="step">
+
+                    <strong>
+                        5. Semplifichiamo i fattori comuni.
+                    </strong>
+
+                    <p class="mt-2">
+                        Scriviamo:
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        x^4=x^3\cdot x
+                        \]
+
+                    </div>
+
+                    <p>
+                        Quindi:
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        \frac{x^3\cdot x(x^2+1)}
+                             {x^3}
+                        \]
+
+                    </div>
+
+                    <p>
+                        Possiamo semplificare il fattore \(x^3\):
+                    </p>
+
+                    <div class="formula-step">
+
+                        \[
+                        \frac{\cancel{x^3}\cdot x(x^2+1)}
+                             {\cancel{x^3}}
+                        =
+                        x(x^2+1)
+                        \]
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 6 -->
+
+                <div class="step">
+
+                    <strong>
+                        6. Eseguiamo il prodotto.
+                    </strong>
+
+                    <div class="formula-step">
+
+                        \[
+                        x(x^2+1)
+                        =
+                        x^3+x
+                        \]
+
+                    </div>
+
+                </div>
+
+
+                <!-- RISULTATO FINALE -->
+
+                <div class="result-box mt-6 text-center">
+
+                    <strong>Risultato finale:</strong>
+
+                    \[
+                    \boxed{x^3+x}
+                    \qquad
+                    (x\neq0)
+                    \]
+
+                </div>
+
+            </div>
+
+        </details>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO B
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">b.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2+2x}{8x+16}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato: \(\displaystyle \frac{x}{8}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO C
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">c.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^7+x^5}{x^2+1}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato: \(x^5\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO D
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">d.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{6x^2+3x}{36x^2-9}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x}{3(2x-1)}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO E
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">e.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{2x+1}{4x+2}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{1}{2}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO F
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">f.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-10x+25}{x^2-25}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x-5}{x+5}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO G
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">g.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-1}{x^2-x}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x+1}{x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO H
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">h.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{4x^2-25}{4x-10}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{2x+5}{2}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO I
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">i.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{4x^2-4x+1}{2x^2-x}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{2x-1}{2x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO J
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">j.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{2x^4-2}{x^2+1}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(2(x^2-1)\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO K
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">k.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{18x^2-2}{3x+1}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(6x-2\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO L
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">l.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{25-x^2}{x^2-10x+25}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x+5}{5-x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO M
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">m.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-3x+2}{2x-2}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x-2}{2}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO N
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">n.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-2x+1}{x^2+2x+1}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle
+                \frac{(x-1)^2}{(x+1)^2}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO O
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">o.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-4x+4}{x^2-2x}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x-2}{x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO P
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">p.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2+5x+4}{x^2+2x+1}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x+4}{x+1}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO Q
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">q.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^2-2x}{x^2+x-6}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x}{x+3}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO R
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">r.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{9x^2+6x+1}{3x^2+x}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{3x+1}{x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO S
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">s.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{5x+15}{x^2-9}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{5}{x-3}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO T
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">t.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{4x^2-25}{2x^2+5x}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{2x-5}{x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO U
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">u.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{x^4+2x^2}{x^4+4x^2+4}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle \frac{x^2}{x^2+2}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ESERCIZIO V
+         ================================================== -->
+
+    <div class="exercise-card">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div class="flex items-center gap-5">
+
+                <span class="font-bold navy-text text-lg">v.</span>
+
+                <div class="text-xl">
+                    \[
+                    \frac{2x^2-x}{x^2-2x^3}
+                    \]
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                Risultato:
+                \(\displaystyle -\frac{1}{x}\)
+            </div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4 text-center text-sm opacity-90">
+        Matematica · Frazioni algebriche
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
