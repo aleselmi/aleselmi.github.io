@@ -62,7 +62,7 @@
             font-weight: 600;
         }
 
-        /* SVOLGIMENTO */
+        /* SVOLGIMENTI PROTETTI */
 
         .solution-details {
             margin-top: 18px;
@@ -82,37 +82,22 @@
             display: none;
         }
 
-        /* FRECCIA */
-
         .solution-title::before {
-            content: "›";
+            content: "🔒";
             display: inline-block;
             margin-right: 8px;
+        }
+
+        .solution-details.unlocked .solution-title::before {
+            content: "›";
             font-size: 22px;
             font-weight: bold;
             transition: transform 0.2s;
         }
 
-        .solution-details[open] .solution-title::before {
+        .solution-details.unlocked[open] .solution-title::before {
             transform: rotate(90deg);
         }
-
-        /* CAMBIO TESTO QUANDO APERTO */
-
-        .solution-details[open] .solution-title {
-            font-size: 0;
-        }
-
-        .solution-details[open] .solution-title::before {
-            font-size: 22px;
-        }
-
-        .solution-details[open] .solution-title::after {
-            content: "Nascondi svolgimento passo-passo";
-            font-size: 16px;
-        }
-
-        /* RIQUADRO SVOLGIMENTO */
 
         .solution-box {
             margin-top: 18px;
@@ -122,17 +107,54 @@
             background-color: white;
         }
 
-        .step {
-            margin: 20px 0;
-        }
-
-        /* FORMULE DELLO SVOLGIMENTO */
-
         .formula-step {
             background-color: #f8fafc;
             border-left: 4px solid #3b82f6;
             padding: 12px 16px;
             margin: 14px 0;
+        }
+
+        .ce-line {
+            margin: 12px 0;
+            font-weight: 600;
+            color: #0b2a4a;
+        }
+
+        .code-panel {
+            display: none;
+            margin-top: 14px;
+            padding: 16px;
+            border: 1px solid #dbe3ec;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+
+        .code-panel.show {
+            display: block;
+        }
+
+        .code-input {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 8px 10px;
+            margin-right: 8px;
+        }
+
+        .code-button {
+            background: #0b2a4a;
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .code-error {
+            color: #b91c1c;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: none;
         }
 
     </style>
@@ -227,204 +249,23 @@
 
         <!-- SVOLGIMENTO CLICCABILE -->
 
-        <details class="solution-details">
 
-            <summary class="solution-title">
-                Mostra svolgimento passo-passo
-            </summary>
-
-
-            <div class="solution-box">
-
-                <p class="font-bold navy-text text-lg mb-5">
-                    Svolgimento guidato:
-                </p>
-
-
-                <!-- PASSO 1 -->
-
-                <div class="step">
-
-                    <strong>1. Scomponiamo il numeratore.</strong>
-
-                    <p class="mt-2">
-                        Nel numeratore possiamo raccogliere \(x^4\):
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        x^6+x^4
-                        =
-                        x^4(x^2+1)
-                        \]
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSO 2 -->
-
-                <div class="step">
-
-                    <strong>2. Consideriamo il denominatore.</strong>
-
-                    <p class="mt-2">
-                        Il denominatore è già scritto come potenza:
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        x^3
-                        \]
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSO 3 -->
-
-                <div class="step">
-
-                    <strong>
-                        3. Calcoliamo le Condizioni di Esistenza.
-                    </strong>
-
-                    <p class="mt-2">
-                        Il denominatore deve essere diverso da zero:
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        x^3\neq0
-                        \]
-
-                        \[
-                        x\neq0
-                        \]
-
-                    </div>
-
-                    <p>
-                        Quindi:
-                        <strong>C.E. \(x\neq0\)</strong>
-                    </p>
-
-                </div>
-
-
-                <!-- PASSO 4 -->
-
-                <div class="step">
-
-                    <strong>
-                        4. Riscriviamo la frazione scomposta.
-                    </strong>
-
-                    <div class="formula-step">
-
-                        \[
-                        \frac{x^4(x^2+1)}{x^3}
-                        \]
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSO 5 -->
-
-                <div class="step">
-
-                    <strong>
-                        5. Semplifichiamo i fattori comuni.
-                    </strong>
-
-                    <p class="mt-2">
-                        Scriviamo:
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        x^4=x^3\cdot x
-                        \]
-
-                    </div>
-
-                    <p>
-                        Quindi:
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        \frac{x^3\cdot x(x^2+1)}
-                             {x^3}
-                        \]
-
-                    </div>
-
-                    <p>
-                        Possiamo semplificare il fattore \(x^3\):
-                    </p>
-
-                    <div class="formula-step">
-
-                        \[
-                        \frac{\cancel{x^3}\cdot x(x^2+1)}
-                             {\cancel{x^3}}
-                        =
-                        x(x^2+1)
-                        \]
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSO 6 -->
-
-                <div class="step">
-
-                    <strong>
-                        6. Eseguiamo il prodotto.
-                    </strong>
-
-                    <div class="formula-step">
-
-                        \[
-                        x(x^2+1)
-                        =
-                        x^3+x
-                        \]
-
-                    </div>
-
-                </div>
-
-
-                <!-- RISULTATO FINALE -->
-
-                <div class="result-box mt-6 text-center">
-
-                    <strong>Risultato finale:</strong>
-
-                    \[
-                    \boxed{x^3+x}
-                    \qquad
-                    (x\neq0)
-                    \]
-
-                </div>
-
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
             </div>
-
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^6+x^4=x^4(x^2+1)\]</div>
+                <div class="ce-line">C.E. \(x\neq0\)</div>
+                <div class="formula-step">\[\frac{x^4(x^2+1)}{x^3}=x(x^2+1)\]</div>
+                <div class="result-box text-center">\[\boxed{x^3+x}\]</div>
+            </div>
         </details>
+
 
     </div>
 
@@ -456,6 +297,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2+2x=x(x+2),\qquad 8x+16=8(x+2)\]</div>
+                <div class="ce-line">C.E. \(x\neq-2\)</div>
+                <div class="formula-step">\[\frac{x\cancel{(x+2)}}{8\cancel{(x+2)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x}{8}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -485,6 +343,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^7+x^5=x^5(x^2+1)\]</div>
+                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
+                <div class="formula-step">\[\frac{x^5\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{x^5}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -517,6 +392,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[6x^2+3x=3x(2x+1),\qquad 36x^2-9=9(2x-1)(2x+1)\]</div>
+                <div class="ce-line">C.E. \(x\neq\frac12,\quad x\neq-\frac12\)</div>
+                <div class="formula-step">\[\frac{3x\cancel{(2x+1)}}{9(2x-1)\cancel{(2x+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x}{3(2x-1)}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -547,6 +439,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[4x+2=2(2x+1)\]</div>
+                <div class="ce-line">C.E. \(x\neq-\frac12\)</div>
+                <div class="formula-step">\[\frac{\cancel{(2x+1)}}{2\cancel{(2x+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac12}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -579,6 +488,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-10x+25=(x-5)^2,\qquad x^2-25=(x-5)(x+5)\]</div>
+                <div class="ce-line">C.E. \(x\neq5,\quad x\neq-5\)</div>
+                <div class="formula-step">\[\frac{\cancel{(x-5)}(x-5)}{\cancel{(x-5)}(x+5)}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x-5}{x+5}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -609,6 +535,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-1=(x-1)(x+1),\qquad x^2-x=x(x-1)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq1\)</div>
+                <div class="formula-step">\[\frac{\cancel{(x-1)}(x+1)}{x\cancel{(x-1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x+1}{x}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -641,6 +584,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[4x^2-25=(2x-5)(2x+5),\qquad 4x-10=2(2x-5)\]</div>
+                <div class="ce-line">C.E. \(x\neq\frac52\)</div>
+                <div class="formula-step">\[\frac{\cancel{(2x-5)}(2x+5)}{2\cancel{(2x-5)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{2x+5}{2}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -667,10 +627,27 @@
 
             <div class="result-box">
                 Risultato:
-                \(\displaystyle \frac{2x-1}{2x}\)
+                \(\displaystyle \frac{2x-1}{x}\)
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[4x^2-4x+1=(2x-1)^2,\qquad 2x^2-x=x(2x-1)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq\frac12\)</div>
+                <div class="formula-step">\[\frac{\cancel{(2x-1)}(2x-1)}{x\cancel{(2x-1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{2x-1}{x}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -703,6 +680,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[2x^4-2=2(x^4-1)=2(x^2-1)(x^2+1)\]</div>
+                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
+                <div class="formula-step">\[\frac{2(x^2-1)\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{2(x^2-1)}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -733,6 +727,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[18x^2-2=2(9x^2-1)=2(3x-1)(3x+1)\]</div>
+                <div class="ce-line">C.E. \(x\neq-\frac13\)</div>
+                <div class="formula-step">\[\frac{2(3x-1)\cancel{(3x+1)}}{\cancel{(3x+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{6x-2}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -765,6 +776,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[25-x^2=(5-x)(5+x),\qquad x^2-10x+25=(x-5)^2\]</div>
+                <div class="ce-line">C.E. \(x\neq5\)</div>
+                <div class="formula-step">\[\frac{(5-x)(x+5)}{(x-5)^2}=\frac{-(x-5)(x+5)}{(x-5)^2}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x+5}{5-x}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -795,6 +823,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-3x+2=(x-1)(x-2),\qquad 2x-2=2(x-1)\]</div>
+                <div class="ce-line">C.E. \(x\neq1\)</div>
+                <div class="formula-step">\[\frac{\cancel{(x-1)}(x-2)}{2\cancel{(x-1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x-2}{2}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -828,6 +873,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-2x+1=(x-1)^2,\qquad x^2+2x+1=(x+1)^2\]</div>
+                <div class="ce-line">C.E. \(x\neq-1\)</div>
+                <div class="formula-step">\[\frac{(x-1)^2}{(x+1)^2}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{(x-1)^2}{(x+1)^2}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -858,6 +920,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-4x+4=(x-2)^2,\qquad x^2-2x=x(x-2)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq2\)</div>
+                <div class="formula-step">\[\frac{\cancel{(x-2)}(x-2)}{x\cancel{(x-2)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x-2}{x}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -890,6 +969,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2+5x+4=(x+1)(x+4),\qquad x^2+2x+1=(x+1)^2\]</div>
+                <div class="ce-line">C.E. \(x\neq-1\)</div>
+                <div class="formula-step">\[\frac{\cancel{(x+1)}(x+4)}{\cancel{(x+1)}(x+1)}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x+4}{x+1}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -920,6 +1016,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^2-2x=x(x-2),\qquad x^2+x-6=(x+3)(x-2)\]</div>
+                <div class="ce-line">C.E. \(x\neq-3,\quad x\neq2\)</div>
+                <div class="formula-step">\[\frac{x\cancel{(x-2)}}{(x+3)\cancel{(x-2)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x}{x+3}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -952,6 +1065,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[9x^2+6x+1=(3x+1)^2,\qquad 3x^2+x=x(3x+1)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq-\frac13\)</div>
+                <div class="formula-step">\[\frac{\cancel{(3x+1)}(3x+1)}{x\cancel{(3x+1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{3x+1}{x}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -982,6 +1112,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[5x+15=5(x+3),\qquad x^2-9=(x-3)(x+3)\]</div>
+                <div class="ce-line">C.E. \(x\neq3,\quad x\neq-3\)</div>
+                <div class="formula-step">\[\frac{5\cancel{(x+3)}}{(x-3)\cancel{(x+3)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{5}{x-3}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -1014,6 +1161,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[4x^2-25=(2x-5)(2x+5),\qquad 2x^2+5x=x(2x+5)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq-\frac52\)</div>
+                <div class="formula-step">\[\frac{(2x-5)\cancel{(2x+5)}}{x\cancel{(2x+5)}}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{2x-5}{x}}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -1044,6 +1208,23 @@
             </div>
 
         </div>
+
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[x^4+2x^2=x^2(x^2+2),\qquad x^4+4x^2+4=(x^2+2)^2\]</div>
+                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
+                <div class="formula-step">\[\frac{x^2\cancel{(x^2+2)}}{\cancel{(x^2+2)}(x^2+2)}\]</div>
+                <div class="result-box text-center">\[\boxed{\frac{x^2}{x^2+2}}\]</div>
+            </div>
+        </details>
 
     </div>
 
@@ -1076,6 +1257,23 @@
 
         </div>
 
+
+        <details class="solution-details locked" data-solution>
+            <summary class="solution-title">Mostra svolgimento</summary>
+            <div class="code-panel">
+                <span>Inserisci il codice:</span>
+                <input class="code-input" type="password" autocomplete="off">
+                <button class="code-button" type="button">Sblocca</button>
+                <div class="code-error">Codice non corretto.</div>
+            </div>
+            <div class="solution-box" hidden>
+                <div class="formula-step">\[2x^2-x=x(2x-1),\qquad x^2-2x^3=x^2(1-2x)=-x^2(2x-1)\]</div>
+                <div class="ce-line">C.E. \(x\neq0,\quad x\neq\frac12\)</div>
+                <div class="formula-step">\[\frac{x\cancel{(2x-1)}}{-x^2\cancel{(2x-1)}}\]</div>
+                <div class="result-box text-center">\[\boxed{-\frac1x}\]</div>
+            </div>
+        </details>
+
     </div>
 
 
@@ -1095,6 +1293,67 @@
 
 </footer>
 
+
+
+<script>
+    // CAMBIA QUI IL CODICE DI ACCESSO
+    const SOLUTION_CODE = "POLLO";
+
+    let solutionsUnlocked = false;
+
+    function unlockAllSolutions() {
+        solutionsUnlocked = true;
+        document.querySelectorAll("[data-solution]").forEach(details => {
+            details.classList.remove("locked");
+            details.classList.add("unlocked");
+            details.querySelector(".code-panel").classList.remove("show");
+            details.querySelector(".solution-box").hidden = false;
+            details.querySelector(".solution-title").textContent = "Mostra svolgimento";
+        });
+    }
+
+    document.querySelectorAll("[data-solution]").forEach(details => {
+        const summary = details.querySelector(".solution-title");
+        const panel = details.querySelector(".code-panel");
+        const input = details.querySelector(".code-input");
+        const button = details.querySelector(".code-button");
+        const error = details.querySelector(".code-error");
+        const box = details.querySelector(".solution-box");
+
+        summary.addEventListener("click", function(event) {
+            if (!solutionsUnlocked) {
+                event.preventDefault();
+                panel.classList.toggle("show");
+                if (panel.classList.contains("show")) input.focus();
+            }
+        });
+
+        button.addEventListener("click", function() {
+            if (input.value === SOLUTION_CODE) {
+                unlockAllSolutions();
+                details.open = true;
+                box.hidden = false;
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise();
+                }
+            } else {
+                error.style.display = "block";
+            }
+        });
+
+        input.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") button.click();
+        });
+
+        details.addEventListener("toggle", function() {
+            if (solutionsUnlocked) {
+                summary.textContent = details.open
+                    ? "Nascondi svolgimento"
+                    : "Mostra svolgimento";
+            }
+        });
+    });
+</script>
 
 </body>
 
