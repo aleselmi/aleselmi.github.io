@@ -193,883 +193,134 @@
 
 <main class="container mx-auto px-4 py-12 max-w-4xl">
 
-
-    <!-- ==================================================
-         TUTORIAL
-         ================================================== -->
-
-    <section class="mb-12">
-
-
+    <!-- PROCEDIMENTO -->
+    <section class="mb-10">
         <div class="flex items-center mb-6">
-
-            <span class="navy-bg text-white rounded-full
-                         h-10 w-10 flex items-center
-                         justify-center font-bold mr-4">
-
-                ?
-
-            </span>
-
-
+            <span class="navy-bg text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">✓</span>
             <h2 class="text-2xl font-bold navy-text">
-
-                Tutorial: semplificazione di una frazione algebrica
-
+                Come si semplifica una frazione algebrica
             </h2>
-
         </div>
 
+        <div class="navy-bg text-white p-6 rounded-xl shadow-md">
+            <div class="space-y-4">
 
+                <div class="flex items-start">
+                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</span>
+                    <p><strong>Scomponi in fattori</strong> il numeratore e il denominatore.</p>
+                </div>
+
+                <div class="flex items-start">
+                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</span>
+                    <p><strong>Trova le C.E.</strong> imponendo: <strong>DENOMINATORE ≠ 0</strong>.</p>
+                </div>
+
+                <div class="flex items-start">
+                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">3</span>
+                    <p><strong>Semplifica</strong> i fattori comuni tra numeratore e denominatore.</p>
+                </div>
+
+                <div class="flex items-start">
+                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">4</span>
+                    <p><strong>Scrivi il risultato</strong> mantenendo le C.E. della frazione iniziale.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ESEMPIO COMPATTO -->
+    <section class="mb-10">
+
+        <div class="flex items-center mb-6">
+            <span class="navy-bg text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">1</span>
+            <h2 class="text-2xl font-bold navy-text">
+                Esempio guidato
+            </h2>
+        </div>
 
         <div class="bg-white p-6 rounded-xl shadow-md">
 
-
-            <p class="text-lg mb-4">
-
-                Vediamo passo per passo come semplificare
-                la seguente frazione algebrica:
-
-            </p>
-
-
             <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Esempio
-
-                </div>
-
+                <div class="label label-example">Esempio</div>
 
                 \[
                 \frac{x^2-2x}{x^4-4x^2}
                 \]
-
-
             </div>
 
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         PASSAGGIO 1
-         ================================================== -->
-
-    <section class="mb-12">
-
-
-        <div class="flex items-center mb-6">
-
-
-            <span class="navy-bg text-white rounded-full
-                         h-10 w-10 flex items-center
-                         justify-center font-bold mr-4">
-
-                1
-
-            </span>
-
-
-            <h2 class="text-2xl font-bold navy-text">
-
-                Scomponi in fattori
-
-            </h2>
-
-        </div>
-
-
-
-        <div class="bg-white p-6 rounded-xl shadow-md
-                    step-card border-l-8 navy-border">
-
-
-            <p class="mb-6">
-
-                Per prima cosa dobbiamo scomporre completamente
-                <strong>il polinomio al numeratore</strong>
-                e <strong>quello al denominatore</strong>.
-
-            </p>
-
-
-
-            <!-- NUMERATORE -->
-
-            <h3 class="font-bold navy-text text-xl mb-2">
-
-                Numeratore
-
-            </h3>
-
-
-            <p>
-
-                Partiamo dal numeratore:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2-2x
-                \]
-
-            </div>
-
-
-            <p>
-
-                I due termini hanno \(x\) come fattore comune.
-                Eseguiamo quindi un raccoglimento totale:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2-2x=x(x-2)
-                \]
-
-            </div>
-
-
-
-            <!-- DENOMINATORE -->
-
-            <h3 class="font-bold navy-text text-xl mt-8 mb-2">
-
-                Denominatore
-
-            </h3>
-
-
-            <p>
-
-                Passiamo al denominatore:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^4-4x^2
-                \]
-
-            </div>
-
-
-            <p>
-
-                Tutti i termini contengono \(x^2\).
-                Lo raccogliamo:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^4-4x^2
-                =
-                x^2(x^2-4)
-                \]
-
-            </div>
-
-
-            <p>
-
-                All'interno della parentesi abbiamo una
-                <strong>differenza di quadrati</strong>:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2-4
-                =
-                x^2-2^2
-                =
-                (x+2)(x-2)
-                \]
-
-            </div>
-
-
-            <p>
-
-                Quindi il denominatore completamente scomposto è:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^4-4x^2
-                =
-                x^2(x+2)(x-2)
-                \]
-
-            </div>
-
-
-
-            <!-- FRAZIONE SCOMPOSTA -->
-
-            <h3 class="font-bold navy-text text-xl mt-8 mb-2">
-
-                Riscriviamo la frazione
-
-            </h3>
-
-
-            <p>
-
-                Ora sostituiamo numeratore e denominatore
-                con le rispettive scomposizioni:
-
-            </p>
-
-
-            <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Frazione scomposta
-
-                </div>
-
-
-                \[
-                \frac{x^2-2x}{x^4-4x^2}
-                =
-                \frac{x(x-2)}
-                     {x^2(x+2)(x-2)}
-                \]
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         PASSAGGIO 2 - C.E.
-         ================================================== -->
-
-    <section class="mb-12">
-
-
-        <div class="flex items-center mb-6">
-
-
-            <span class="navy-bg text-white rounded-full
-                         h-10 w-10 flex items-center
-                         justify-center font-bold mr-4">
-
-                2
-
-            </span>
-
-
-            <h2 class="text-2xl font-bold navy-text">
-
-                Trova le C.E.
-
-            </h2>
-
-        </div>
-
-
-
-        <div class="bg-white p-6 rounded-xl shadow-md
-                    step-card border-l-8 navy-border">
-
-
-            <p class="mb-4">
-
-                Prima di eseguire le semplificazioni dobbiamo
-                trovare le
-                <strong>Condizioni di Esistenza (C.E.)</strong>
-                della frazione algebrica.
-
-            </p>
-
-
-
-            <!-- REGOLA FONDAMENTALE -->
-
-            <div class="ce-rule">
-
-
-                <p class="text-sm font-bold navy-text uppercase mb-2">
-
-                    Regola fondamentale
-
+            <div class="space-y-4 mt-6">
+
+                <p>
+                    <strong>1. Scomponiamo il numeratore:</strong>
+                    \(x^2-2x=x(x-2)\).
                 </p>
 
-
-                <p class="text-2xl font-extrabold navy-text">
-
-                    DENOMINATORE ≠ 0
-
+                <p>
+                    <strong>2. Scomponiamo il denominatore:</strong>
+                    \(x^4-4x^2=x^2(x^2-4)=x^2(x+2)(x-2)\).
                 </p>
 
-
-            </div>
-
-
-
-            <p class="mb-4">
-
-                Il denominatore di una frazione algebrica
-                deve essere sempre
-                <strong>diverso da zero</strong>.
-
-            </p>
-
-
-            <p>
-
-                Il denominatore scomposto è:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2(x+2)(x-2)
-                \]
-
-            </div>
-
-
-            <p>
-
-                Perciò imponiamo:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2(x+2)(x-2)\neq0
-                \]
-
-            </div>
-
-
-            <p class="mb-5">
-
-                Per calcolare le C.E. consideriamo
-                separatamente ogni fattore.
-
-            </p>
-
-
-
-            <!-- PRIMA CE -->
-
-            <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Prima condizione
-
+                <div>
+                    <p><strong>3. Condizioni di Esistenza:</strong></p>
+                    <div class="formula-box">
+                        \[
+                        x^2(x+2)(x-2)\neq0
+                        \quad\Longrightarrow\quad
+                        x\neq0,\;-2,\;2
+                        \]
+                    </div>
                 </div>
 
-
-                \[
-                x^2\neq0
-                \]
-
-                \[
-                x\neq0
-                \]
-
-
-            </div>
-
-
-
-            <!-- SECONDA CE -->
-
-            <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Seconda condizione
-
+                <div>
+                    <p><strong>4. Semplifichiamo i fattori comuni:</strong></p>
+                    <div class="formula-box">
+                        \[
+                        \frac{x\cancel{(x-2)}}{x^2(x+2)\cancel{(x-2)}}
+                        =
+                        \frac{\cancel{x}}{\cancel{x}\,x(x+2)}
+                        =
+                        \frac{1}{x(x+2)}
+                        \]
+                    </div>
                 </div>
 
-
-                \[
-                x+2\neq0
-                \]
-
-                \[
-                x\neq-2
-                \]
-
-
             </div>
 
-
-
-            <!-- TERZA CE -->
-
-            <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Terza condizione
-
-                </div>
-
+            <div class="example-box mt-6">
+                <div class="label label-example">Risultato</div>
 
                 \[
-                x-2\neq0
+                \boxed{\frac{1}{x(x+2)}}
+                \qquad
+                x\neq0,\;-2,\;2
                 \]
-
-                \[
-                x\neq2
-                \]
-
-
-            </div>
-
-
-
-            <!-- RISULTATO C.E. -->
-
-            <h3 class="font-bold navy-text text-xl mt-8">
-
-                Condizioni di Esistenza
-
-            </h3>
-
-
-            <div class="formula-box">
-
-                \[
-                \boxed{
-                x\neq0,\qquad
-                x\neq-2,\qquad
-                x\neq2
-                }
-                \]
-
-            </div>
-
-
-            <p>
-
-                Il dominio della frazione è quindi:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                D=
-                \mathbb{R}
-                \setminus
-                \{-2,0,2\}
-                \]
-
             </div>
 
         </div>
-
     </section>
 
 
-
-    <!-- ==================================================
-         PASSAGGIO 3
-         ================================================== -->
-
-    <section class="mb-12">
-
-
-        <div class="flex items-center mb-6">
-
-
-            <span class="navy-bg text-white rounded-full
-                         h-10 w-10 flex items-center
-                         justify-center font-bold mr-4">
-
-                3
-
-            </span>
-
-
-            <h2 class="text-2xl font-bold navy-text">
-
-                Semplifica la frazione
-
-            </h2>
-
-        </div>
-
-
-
-        <div class="bg-white p-6 rounded-xl shadow-md
-                    step-card border-l-8 navy-border">
-
-
-            <p class="mb-5">
-
-                Dopo aver calcolato le C.E. possiamo finalmente
-                semplificare la frazione algebrica.
-
-            </p>
-
-
-            <p>
-
-                Ripartiamo dalla frazione completamente scomposta:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                \frac{x(x-2)}
-                     {x^2(x+2)(x-2)}
-                \]
-
-            </div>
-
-
-            <p>
-
-                Il fattore \((x-2)\) compare sia al numeratore
-                sia al denominatore.
-
-                Possiamo quindi semplificarlo:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                \frac{x\cancel{(x-2)}}
-                     {x^2(x+2)\cancel{(x-2)}}
-                \]
-
-            </div>
-
-
-            <p>
-
-                Otteniamo:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                \frac{x}
-                     {x^2(x+2)}
-                \]
-
-            </div>
-
-
-            <p>
-
-                Ricordiamo che:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                x^2=x\cdot x
-                \]
-
-            </div>
-
-
-            <p>
-
-                Possiamo quindi semplificare un fattore \(x\)
-                al numeratore con un fattore \(x\)
-                al denominatore:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                \frac{\cancel{x}}
-                     {\cancel{x}\,x(x+2)}
-                \]
-
-            </div>
-
-
-            <p>
-
-                Rimane:
-
-            </p>
-
-
-            <div class="example-box">
-
-
-                <div class="label label-example">
-
-                    Risultato finale
-
-                </div>
-
-
-                \[
-                \boxed{
-                \frac{1}{x(x+2)}
-                }
-                \]
-
-
-            </div>
-
-
-
-            <p class="mt-6 font-semibold">
-
-                Il risultato deve essere sempre accompagnato
-                dalle C.E. trovate sulla frazione iniziale:
-
-            </p>
-
-
-            <div class="formula-box">
-
-                \[
-                \boxed{
-                x\neq0,\qquad
-                x\neq-2,\qquad
-                x\neq2
-                }
-                \]
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         ATTENZIONE
-         ================================================== -->
-
-    <section class="mb-12">
-
-
+    <!-- ATTENZIONE -->
+    <section class="mb-10">
         <div class="warning-box rounded-xl shadow-sm">
 
-
             <div class="label label-warning text-lg mb-3">
-
                 ⚠ ATTENZIONE
-
             </div>
 
-
-            <p class="text-xl font-bold text-red-700 mb-4">
-
-                Si possono eseguire semplificazioni
-                soltanto tra FATTORI, mai tra ADDENDI.
-
+            <p class="text-xl font-bold text-red-700 mb-3">
+                Si possono eseguire semplificazioni soltanto tra FATTORI, mai tra ADDENDI.
             </p>
-
 
             <p>
-
-                Per questo motivo bisogna prima
-                <strong>scomporre completamente i polinomi</strong>
-                e solo dopo cercare i fattori comuni
-                tra numeratore e denominatore.
-
+                Prima si scompongono completamente i polinomi,
+                poi si semplificano i fattori comuni tra numeratore e denominatore.
             </p>
 
-
         </div>
-
     </section>
-
-
-
-    <!-- ==================================================
-         RIEPILOGO
-         ================================================== -->
-
-    <section class="mb-12">
-
-
-        <div class="navy-bg text-white p-7 rounded-xl shadow-md">
-
-
-            <h2 class="text-2xl font-bold mb-6">
-
-                Riepilogo del procedimento
-
-            </h2>
-
-
-
-            <div class="space-y-5">
-
-
-                <!-- 1 -->
-
-                <div class="flex items-start">
-
-
-                    <span class="bg-white navy-text rounded-full
-                                 h-8 w-8 flex items-center justify-center
-                                 font-bold mr-4 flex-shrink-0">
-
-                        1
-
-                    </span>
-
-
-                    <p>
-
-                        <strong>Scomponi in fattori</strong>
-                        completamente il numeratore
-                        e il denominatore.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <!-- 2 -->
-
-                <div class="flex items-start">
-
-
-                    <span class="bg-white navy-text rounded-full
-                                 h-8 w-8 flex items-center justify-center
-                                 font-bold mr-4 flex-shrink-0">
-
-                        2
-
-                    </span>
-
-
-                    <p>
-
-                        <strong>Calcola le C.E.</strong>
-                        imponendo:
-
-                        <strong>DENOMINATORE ≠ 0</strong>.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <!-- 3 -->
-
-                <div class="flex items-start">
-
-
-                    <span class="bg-white navy-text rounded-full
-                                 h-8 w-8 flex items-center justify-center
-                                 font-bold mr-4 flex-shrink-0">
-
-                        3
-
-                    </span>
-
-
-                    <p>
-
-                        <strong>Semplifica</strong>
-                        i fattori comuni tra numeratore
-                        e denominatore.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <!-- ATTENZIONE -->
-
-                <div class="flex items-start">
-
-
-                    <span class="bg-white navy-text rounded-full
-                                 h-8 w-8 flex items-center justify-center
-                                 font-bold mr-4 flex-shrink-0">
-
-                        !
-
-                    </span>
-
-
-                    <p>
-
-                        Ricorda:
-
-                        <strong>
-                            si semplificano i fattori,
-                            non gli addendi.
-                        </strong>
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
 
 </main>
 
