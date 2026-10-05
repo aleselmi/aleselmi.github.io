@@ -8,7 +8,11 @@
 
     <title>Frazioni algebriche</title>
 
-    <!-- MATHJAX -->
+
+    <!-- ==================================================
+         MATHJAX
+         ================================================== -->
+
     <script>
         window.MathJax = {
             loader: { load: ['[tex]/cancel'] },
@@ -22,8 +26,13 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
-    <!-- TAILWIND CSS -->
+
+    <!-- ==================================================
+         TAILWIND CSS
+         ================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
+
 
     <style>
 
@@ -32,7 +41,10 @@
             line-height: 1.6;
         }
 
-        /* COLORI PRINCIPALI */
+
+        /* =========================
+           COLORI PRINCIPALI
+           ========================= */
 
         .navy-bg {
             background-color: #0b2a4a;
@@ -50,7 +62,10 @@
             border-color: #0b2a4a;
         }
 
-        /* FORMULE */
+
+        /* =========================
+           FORMULE
+           ========================= */
 
         .formula-box {
             background-color: #f8fafc;
@@ -59,7 +74,10 @@
             border-radius: 8px;
         }
 
-        /* ESEMPI */
+
+        /* =========================
+           ESEMPI - VERDE
+           ========================= */
 
         .example-box {
             background-color: #f0fdf4;
@@ -68,7 +86,10 @@
             margin: 1rem 0;
         }
 
-        /* ATTENZIONE */
+
+        /* =========================
+           ATTENZIONE - ROSSO
+           ========================= */
 
         .warning-box {
             background-color: #fef2f2;
@@ -77,7 +98,10 @@
             margin: 1.5rem 0;
         }
 
-        /* ETICHETTE */
+
+        /* =========================
+           ETICHETTE
+           ========================= */
 
         .label {
             font-size: 0.75rem;
@@ -94,9 +118,118 @@
             color: #dc2626;
         }
 
+
+        /* =========================
+           PULSANTE STAMPA / PDF
+           ========================= */
+
+        .print-button {
+            background-color: white;
+            color: #0b2a4a;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 8px 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .print-button:hover {
+            background-color: #f3f4f6;
+        }
+
+
+        /* ==================================================
+           VERSIONE STAMPA / PDF
+           ================================================== */
+
+        @media print {
+
+            @page {
+                size: A4;
+                margin: 1.4cm;
+            }
+
+            body {
+                background: white !important;
+                color: #1f2937 !important;
+                font-size: 10.5pt;
+                line-height: 1.45;
+            }
+
+
+            /* Nasconde i pulsanti */
+
+            .no-print {
+                display: none !important;
+            }
+
+
+            /* Header più compatto */
+
+            header {
+                padding-top: 16px !important;
+                padding-bottom: 16px !important;
+                box-shadow: none !important;
+            }
+
+            header h1 {
+                font-size: 24pt !important;
+            }
+
+
+            /* Contenuto */
+
+            main {
+                padding-top: 22px !important;
+                padding-bottom: 10px !important;
+                max-width: 100% !important;
+            }
+
+
+            section {
+                margin-bottom: 30px !important;
+            }
+
+
+            /* Evita di spezzare i riquadri */
+
+            .example-box,
+            .formula-box,
+            .warning-box {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+
+            /* Cerca di tenere il titolo con ciò che segue */
+
+            h2 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+
+            /* Mantiene i colori */
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+
+            /* Nasconde il footer */
+
+            footer {
+                display: none !important;
+            }
+
+        }
+
     </style>
 
 </head>
+
 
 
 <body class="bg-gray-50 text-gray-800">
@@ -108,22 +241,52 @@
 
 <header class="navy-bg text-white py-10 shadow-lg">
 
-    <a href="index.html"
-       class="inline-block ml-6 mb-4 px-4 py-2
-              bg-white text-[#0b2a4a] font-semibold
-              rounded-lg shadow hover:bg-gray-100 transition">
-        ← Home
-    </a>
+
+    <!-- PULSANTI -->
+
+    <div class="no-print flex flex-wrap gap-3 ml-6 mb-4">
+
+
+        <!-- HOME -->
+
+        <a href="index.html"
+           class="inline-block px-4 py-2
+                  bg-white text-[#0b2a4a] font-semibold
+                  rounded-lg shadow hover:bg-gray-100 transition">
+
+            ← Home
+
+        </a>
+
+
+        <!-- STAMPA / PDF -->
+
+        <button onclick="window.print()"
+                class="print-button">
+
+            🖨 Stampa / Salva PDF
+
+        </button>
+
+
+    </div>
+
+
+    <!-- TITOLO -->
 
     <div class="container mx-auto px-4 text-center">
 
         <h1 class="text-4xl font-extrabold">
+
             Frazioni algebriche
+
         </h1>
 
     </div>
 
+
 </header>
+
 
 
 <main class="container mx-auto px-4 py-12 max-w-4xl">
@@ -135,118 +298,214 @@
 
 <section class="mb-16">
 
+
+    <!-- TITOLO SEZIONE -->
+
     <div class="flex items-center mb-6">
 
         <span class="navy-bg text-white rounded-full h-10 w-10
                      flex items-center justify-center font-bold mr-4">
+
             1
+
         </span>
 
         <h2 class="text-2xl font-bold navy-text">
+
             Semplificazione di frazioni algebriche
+
         </h2>
 
     </div>
 
 
-    <!-- PROCEDIMENTO -->
+
+    <!-- ==================================================
+         SPECCHIETTO PROCEDIMENTO
+         ================================================== -->
 
     <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
 
         <div class="space-y-4">
 
+
+            <!-- PASSAGGIO 1 -->
+
             <div class="flex items-start">
+
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">1</span>
+                             mr-4 flex-shrink-0">
+
+                    1
+
+                </span>
 
                 <p>
+
                     <strong>Scomponi in fattori</strong>
                     il numeratore e il denominatore.
+
                 </p>
+
             </div>
 
+
+            <!-- PASSAGGIO 2 -->
+
             <div class="flex items-start">
+
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">2</span>
+                             mr-4 flex-shrink-0">
+
+                    2
+
+                </span>
 
                 <p>
+
                     <strong>Trova le C.E.</strong>
                     imponendo:
+
                     <strong>DENOMINATORE ≠ 0</strong>.
+
                 </p>
+
             </div>
 
+
+            <!-- PASSAGGIO 3 -->
+
             <div class="flex items-start">
+
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">3</span>
+                             mr-4 flex-shrink-0">
+
+                    3
+
+                </span>
 
                 <p>
+
                     <strong>Semplifica</strong>
                     i fattori comuni tra numeratore e denominatore.
+
                 </p>
+
             </div>
+
+
+            <!-- PASSAGGIO 4 -->
 
             <div class="flex items-start">
+
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">4</span>
+                             mr-4 flex-shrink-0">
+
+                    4
+
+                </span>
 
                 <p>
+
                     <strong>Scrivi il risultato</strong>
                     mantenendo le C.E. della frazione iniziale.
+
                 </p>
+
             </div>
+
 
         </div>
 
     </div>
 
 
-    <!-- ESEMPIO -->
+
+    <!-- ==================================================
+         ESEMPIO SEMPLIFICAZIONE
+         ================================================== -->
 
     <div class="bg-white p-6 rounded-xl shadow-md">
+
+
+        <!-- FRAZIONE -->
 
         <div class="example-box">
 
             <div class="label label-example">
+
                 Esempio
+
             </div>
+
 
             \[
             \frac{x^2-2x}{x^4-4x^2}
             \]
 
+
         </div>
+
 
 
         <div class="space-y-5 mt-6">
 
+
+            <!-- PASSAGGIO 1 -->
+
             <p>
-                <strong>1. Scomponiamo il numeratore:</strong>
+
+                <strong>
+                    1. Scomponiamo il numeratore:
+                </strong>
+
                 \(x^2-2x=x(x-2)\).
+
             </p>
+
+
+
+            <!-- PASSAGGIO 2 -->
 
             <p>
-                <strong>2. Scomponiamo il denominatore:</strong>
+
+                <strong>
+                    2. Scomponiamo il denominatore:
+                </strong>
+
                 \(x^4-4x^2=x^2(x^2-4)=x^2(x+2)(x-2)\).
+
             </p>
 
+
+
+            <!-- PASSAGGIO 3 -->
 
             <div>
 
                 <p>
-                    <strong>3. Condizioni di Esistenza:</strong>
-                    applichiamo la legge di annullamento del prodotto.
+
+                    <strong>
+                        3. Condizioni di Esistenza:
+                    </strong>
+
+                    applichiamo la
+                    <strong>legge di annullamento del prodotto</strong>.
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     x^2(x+2)(x-2)\neq0
                     \]
+
 
                     \[
                     x\neq0,\qquad
@@ -254,18 +513,28 @@
                     x\neq2
                     \]
 
+
                 </div>
 
             </div>
 
 
+
+            <!-- PASSAGGIO 4 -->
+
             <div>
 
                 <p>
-                    <strong>4. Semplifichiamo i fattori comuni:</strong>
+
+                    <strong>
+                        4. Semplifichiamo i fattori comuni:
+                    </strong>
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     \frac{x\cancel{(x-2)}}
@@ -277,22 +546,31 @@
                     \frac{1}{x(x+2)}
                     \]
 
+
                 </div>
 
             </div>
 
+
         </div>
 
+
+
+        <!-- RISULTATO -->
 
         <div class="example-box mt-6">
 
             <div class="label label-example">
+
                 Risultato
+
             </div>
+
 
             \[
             \boxed{\frac{1}{x(x+2)}}
             \]
+
 
             \[
             \text{C.E.: }
@@ -301,31 +579,47 @@
             x\neq2
             \]
 
+
         </div>
+
 
     </div>
 
 
-    <!-- ATTENZIONE -->
+
+    <!-- ==================================================
+         ATTENZIONE
+         ================================================== -->
 
     <div class="warning-box rounded-xl shadow-sm mt-8">
 
+
         <div class="label label-warning text-lg mb-3">
+
             ⚠ ATTENZIONE
+
         </div>
 
+
         <p class="text-xl font-bold text-red-700 mb-3">
+
             Si possono eseguire semplificazioni soltanto
             tra FATTORI, mai tra ADDENDI.
+
         </p>
 
+
         <p>
+
             Prima si scompongono completamente i polinomi,
             poi si semplificano i fattori comuni
             tra numeratore e denominatore.
+
         </p>
 
+
     </div>
+
 
 </section>
 
@@ -337,116 +631,167 @@
 
 <section class="mb-16">
 
+
+    <!-- TITOLO SEZIONE -->
+
     <div class="flex items-center mb-6">
 
         <span class="navy-bg text-white rounded-full h-10 w-10
                      flex items-center justify-center font-bold mr-4">
+
             2
+
         </span>
 
+
         <h2 class="text-2xl font-bold navy-text">
+
             Somma e differenza di frazioni algebriche
+
         </h2>
+
 
     </div>
 
 
-    <!-- SPECCHIETTO PROCEDIMENTO -->
+
+    <!-- ==================================================
+         SPECCHIETTO PROCEDIMENTO
+         ================================================== -->
 
     <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
 
         <div class="space-y-4">
 
 
+            <!-- 1 -->
+
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     1
+
                 </span>
 
                 <p>
+
                     <strong>Scomponi in fattori</strong>
                     tutti i denominatori.
+
                 </p>
 
             </div>
 
+
+            <!-- 2 -->
 
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     2
+
                 </span>
 
                 <p>
+
                     <strong>Trova le C.E.</strong>
                     imponendo che i denominatori siano diversi da zero.
+
                 </p>
 
             </div>
 
+
+            <!-- 3 -->
 
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     3
+
                 </span>
 
                 <p>
-                    Trova il <strong>m.c.m. dei denominatori</strong>.
+
+                    Trova il
+                    <strong>m.c.m. dei denominatori</strong>.
+
                 </p>
 
             </div>
 
+
+            <!-- 4 -->
 
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     4
+
                 </span>
 
                 <p>
-                    <strong>Riduci le frazioni allo stesso denominatore</strong>.
+
+                    <strong>
+                        Riduci le frazioni allo stesso denominatore
+                    </strong>.
+
                 </p>
 
             </div>
 
+
+            <!-- 5 -->
 
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     5
+
                 </span>
 
                 <p>
+
                     <strong>Somma o sottrai i numeratori</strong>
                     e mantieni il denominatore comune.
+
                 </p>
 
             </div>
 
+
+            <!-- 6 -->
 
             <div class="flex items-start">
 
                 <span class="bg-white navy-text rounded-full h-8 w-8
                              flex items-center justify-center font-bold
                              mr-4 flex-shrink-0">
+
                     6
+
                 </span>
 
                 <p>
+
                     <strong>Semplifica il risultato</strong>,
                     se possibile, mantenendo le C.E.
+
                 </p>
 
             </div>
@@ -458,16 +803,23 @@
 
 
 
-    <!-- ESEMPIO -->
+    <!-- ==================================================
+         ESEMPIO SOMMA E DIFFERENZA
+         ================================================== -->
 
     <div class="bg-white p-6 rounded-xl shadow-md">
 
 
+        <!-- ESPRESSIONE -->
+
         <div class="example-box">
 
             <div class="label label-example">
+
                 Esempio
+
             </div>
+
 
             \[
             \frac{1}{x-1}
@@ -477,44 +829,61 @@
             \frac{2x}{x^2-1}
             \]
 
+
         </div>
+
 
 
         <div class="space-y-5 mt-6">
 
 
-            <!-- 1 -->
-
-            <p>
-
-                <strong>
-                    1. Scomponiamo i denominatori:
-                </strong>
-
-                \[
-                x^2-1=(x-1)(x+1)
-                \]
-
-            </p>
-
-
-            <!-- 2 -->
+            <!-- PASSAGGIO 1 -->
 
             <div>
 
                 <p>
+
+                    <strong>
+                        1. Scomponiamo i denominatori:
+                    </strong>
+
+                </p>
+
+
+                <div class="formula-box">
+
+                    \[
+                    x^2-1=(x-1)(x+1)
+                    \]
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSAGGIO 2 -->
+
+            <div>
+
+                <p>
+
                     <strong>
                         2. Condizioni di Esistenza:
                     </strong>
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     x-1\neq0,
                     \qquad
                     x+1\neq0
                     \]
+
 
                     \[
                     \boxed{
@@ -523,20 +892,25 @@
                     }
                     \]
 
+
                 </div>
 
             </div>
 
 
-            <!-- 3 -->
+
+            <!-- PASSAGGIO 3 -->
 
             <div>
 
                 <p>
+
                     <strong>
                         3. Troviamo il m.c.m. dei denominatori:
                     </strong>
+
                 </p>
+
 
                 <div class="formula-box">
 
@@ -549,17 +923,22 @@
             </div>
 
 
-            <!-- 4 -->
+
+            <!-- PASSAGGIO 4 -->
 
             <div>
 
                 <p>
+
                     <strong>
                         4. Riduciamo le frazioni allo stesso denominatore:
                     </strong>
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     \frac{1}{x-1}
@@ -568,6 +947,7 @@
                     -
                     \frac{2x}{(x-1)(x+1)}
                     \]
+
 
                     \[
                     =
@@ -581,27 +961,34 @@
                          {(x-1)(x+1)}
                     \]
 
+
                 </div>
 
             </div>
 
 
-            <!-- 5 -->
+
+            <!-- PASSAGGIO 5 -->
 
             <div>
 
                 <p>
+
                     <strong>
                         5. Eseguiamo le operazioni al numeratore:
                     </strong>
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     \frac{(x+1)+2(x-1)-2x}
                          {(x-1)(x+1)}
                     \]
+
 
                     \[
                     =
@@ -609,28 +996,35 @@
                          {(x-1)(x+1)}
                     \]
 
+
                     \[
                     =
                     \frac{x-1}
                          {(x-1)(x+1)}
                     \]
 
+
                 </div>
 
             </div>
 
 
-            <!-- 6 -->
+
+            <!-- PASSAGGIO 6 -->
 
             <div>
 
                 <p>
+
                     <strong>
                         6. Semplifichiamo:
                     </strong>
+
                 </p>
 
+
                 <div class="formula-box">
+
 
                     \[
                     \frac{\cancel{x-1}}
@@ -639,6 +1033,7 @@
                     \frac{1}{x+1}
                     \]
 
+
                 </div>
 
             </div>
@@ -647,17 +1042,23 @@
         </div>
 
 
+
         <!-- RISULTATO -->
 
         <div class="example-box mt-6">
 
+
             <div class="label label-example">
+
                 Risultato
+
             </div>
+
 
             \[
             \boxed{\frac{1}{x+1}}
             \]
+
 
             \[
             \text{C.E.: }
@@ -665,10 +1066,12 @@
             x\neq-1
             \]
 
+
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -683,12 +1086,14 @@
 
 <footer class="navy-bg text-white py-6 mt-12">
 
+
     <div class="container mx-auto px-4
                 text-center text-sm opacity-90">
 
         Matematica · Frazioni algebriche
 
     </div>
+
 
 </footer>
 
