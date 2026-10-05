@@ -139,6 +139,32 @@
             display: none;
         }
 
+
+        /* SVOLGIMENTO GUIDATO */
+
+        .guided-title {
+            font-weight: 700;
+            color: #0b2a4a;
+            margin-bottom: 10px;
+        }
+
+        .guided-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin: 8px 0;
+            color: #334155;
+        }
+
+        .guided-number {
+            flex: 0 0 auto;
+        }
+
+        .guided-formula {
+            margin-top: 5px;
+            color: #0b2a4a;
+        }
+
     </style>
 
 </head>
@@ -247,10 +273,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^6+x^4=x^4(x^2+1)\]</div>
-                <div class="ce-line">C.E. \(x\neq0\)</div>
-                <div class="formula-step">\[\frac{x^4(x^2+1)}{x^3}=x(x^2+1)\]</div>
-                <div class="result-box text-center">\[\boxed{x^3+x}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^6+x^4=x^4(x^2+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Il denominatore è \(x^3\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x^3\neq0 \;\Longrightarrow\; x\neq0\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo i fattori comuni:
+                        <div class="guided-formula">
+                            \[
+\frac{x^4(x^2+1)}{x^3}=x(x^2+1)=x^3+x
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -295,10 +341,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2+2x=x(x+2),\qquad 8x+16=8(x+2)\]</div>
-                <div class="ce-line">C.E. \(x\neq-2\)</div>
-                <div class="formula-step">\[\frac{x\cancel{(x+2)}}{8\cancel{(x+2)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x}{8}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2+2x=x(x+2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(8x+16=8(x+2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(8(x+2)\neq0 \;\Longrightarrow\; x\neq-2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x+2)\):
+                        <div class="guided-formula">
+                            \[
+\frac{x\cancel{(x+2)}}{8\cancel{(x+2)}}=\frac{x}{8}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -342,10 +408,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^7+x^5=x^5(x^2+1)\]</div>
-                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
-                <div class="formula-step">\[\frac{x^5\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{x^5}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^7+x^5=x^5(x^2+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Il denominatore è \(x^2+1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x^2+1\neq0\). Non ci sono esclusioni reali.</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x^2+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{x^5\cancel{(x^2+1)}}{\cancel{(x^2+1)}}=x^5
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -390,10 +476,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[6x^2+3x=3x(2x+1),\qquad 36x^2-9=9(2x-1)(2x+1)\]</div>
-                <div class="ce-line">C.E. \(x\neq\frac12,\quad x\neq-\frac12\)</div>
-                <div class="formula-step">\[\frac{3x\cancel{(2x+1)}}{9(2x-1)\cancel{(2x+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x}{3(2x-1)}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(6x^2+3x=3x(2x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(36x^2-9=9(2x-1)(2x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(9(2x-1)(2x+1)\neq0 \;\Longrightarrow\; x\neq\frac12,\;x\neq-\frac12\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((2x+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{3x\cancel{(2x+1)}}{9(2x-1)\cancel{(2x+1)}}=\frac{x}{3(2x-1)}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -438,10 +544,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[4x+2=2(2x+1)\]</div>
-                <div class="ce-line">C.E. \(x\neq-\frac12\)</div>
-                <div class="formula-step">\[\frac{\cancel{(2x+1)}}{2\cancel{(2x+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac12}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Il numeratore è \(2x+1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(4x+2=2(2x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(2(2x+1)\neq0 \;\Longrightarrow\; x\neq-\frac12\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((2x+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(2x+1)}}{2\cancel{(2x+1)}}=\frac12
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -486,10 +612,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-10x+25=(x-5)^2,\qquad x^2-25=(x-5)(x+5)\]</div>
-                <div class="ce-line">C.E. \(x\neq5,\quad x\neq-5\)</div>
-                <div class="formula-step">\[\frac{\cancel{(x-5)}(x-5)}{\cancel{(x-5)}(x+5)}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x-5}{x+5}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-10x+25=(x-5)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-25=(x-5)(x+5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x-5)(x+5)\neq0 \;\Longrightarrow\; x\neq5,\;x\neq-5\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x-5)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(x-5)}(x-5)}{\cancel{(x-5)}(x+5)}=\frac{x-5}{x+5}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -534,10 +680,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-1=(x-1)(x+1),\qquad x^2-x=x(x-1)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq1\)</div>
-                <div class="formula-step">\[\frac{\cancel{(x-1)}(x+1)}{x\cancel{(x-1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x+1}{x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-1=(x-1)(x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-x=x(x-1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x(x-1)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x-1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(x-1)}(x+1)}{x\cancel{(x-1)}}=\frac{x+1}{x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -582,10 +748,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[4x^2-25=(2x-5)(2x+5),\qquad 4x-10=2(2x-5)\]</div>
-                <div class="ce-line">C.E. \(x\neq\frac52\)</div>
-                <div class="formula-step">\[\frac{\cancel{(2x-5)}(2x+5)}{2\cancel{(2x-5)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{2x+5}{2}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(4x^2-25=(2x-5)(2x+5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(4x-10=2(2x-5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(2(2x-5)\neq0 \;\Longrightarrow\; x\neq\frac52\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((2x-5)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(2x-5)}(2x+5)}{2\cancel{(2x-5)}}=\frac{2x+5}{2}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -630,10 +816,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[4x^2-4x+1=(2x-1)^2,\qquad 2x^2-x=x(2x-1)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq\frac12\)</div>
-                <div class="formula-step">\[\frac{\cancel{(2x-1)}(2x-1)}{x\cancel{(2x-1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{2x-1}{x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(4x^2-4x+1=(2x-1)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(2x^2-x=x(2x-1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x(2x-1)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq\frac12\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((2x-1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(2x-1)}(2x-1)}{x\cancel{(2x-1)}}=\frac{2x-1}{x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -678,10 +884,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[2x^4-2=2(x^4-1)=2(x^2-1)(x^2+1)\]</div>
-                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
-                <div class="formula-step">\[\frac{2(x^2-1)\cancel{(x^2+1)}}{\cancel{(x^2+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{2(x^2-1)}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(2x^4-2=2(x^4-1)=2(x^2-1)(x^2+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Il denominatore è \(x^2+1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x^2+1\neq0\). Non ci sono esclusioni reali.</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x^2+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{2(x^2-1)\cancel{(x^2+1)}}{\cancel{(x^2+1)}}=2(x^2-1)
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -726,10 +952,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[18x^2-2=2(9x^2-1)=2(3x-1)(3x+1)\]</div>
-                <div class="ce-line">C.E. \(x\neq-\frac13\)</div>
-                <div class="formula-step">\[\frac{2(3x-1)\cancel{(3x+1)}}{\cancel{(3x+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{6x-2}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(18x^2-2=2(3x-1)(3x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Il denominatore è \(3x+1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(3x+1\neq0 \;\Longrightarrow\; x\neq-\frac13\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((3x+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{2(3x-1)\cancel{(3x+1)}}{\cancel{(3x+1)}}=6x-2
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -774,10 +1020,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[25-x^2=(5-x)(5+x),\qquad x^2-10x+25=(x-5)^2\]</div>
-                <div class="ce-line">C.E. \(x\neq5\)</div>
-                <div class="formula-step">\[\frac{(5-x)(x+5)}{(x-5)^2}=\frac{-(x-5)(x+5)}{(x-5)^2}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x+5}{5-x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(25-x^2=(5-x)(x+5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-10x+25=(x-5)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x-5)^2\neq0 \;\Longrightarrow\; x\neq5\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Poiché \(5-x=-(x-5)\), semplifichiamo:
+                        <div class="guided-formula">
+                            \[
+\frac{(5-x)(x+5)}{(x-5)^2}=\frac{x+5}{5-x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -822,10 +1088,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-3x+2=(x-1)(x-2),\qquad 2x-2=2(x-1)\]</div>
-                <div class="ce-line">C.E. \(x\neq1\)</div>
-                <div class="formula-step">\[\frac{\cancel{(x-1)}(x-2)}{2\cancel{(x-1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x-2}{2}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-3x+2=(x-1)(x-2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(2x-2=2(x-1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(2(x-1)\neq0 \;\Longrightarrow\; x\neq1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x-1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(x-1)}(x-2)}{2\cancel{(x-1)}}=\frac{x-2}{2}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -871,10 +1157,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-2x+1=(x-1)^2,\qquad x^2+2x+1=(x+1)^2\]</div>
-                <div class="ce-line">C.E. \(x\neq-1\)</div>
-                <div class="formula-step">\[\frac{(x-1)^2}{(x+1)^2}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{(x-1)^2}{(x+1)^2}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-2x+1=(x-1)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2+2x+1=(x+1)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x+1)^2\neq0 \;\Longrightarrow\; x\neq-1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Non ci sono fattori comuni da semplificare:
+                        <div class="guided-formula">
+                            \[
+\frac{(x-1)^2}{(x+1)^2}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -919,10 +1225,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-4x+4=(x-2)^2,\qquad x^2-2x=x(x-2)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq2\)</div>
-                <div class="formula-step">\[\frac{\cancel{(x-2)}(x-2)}{x\cancel{(x-2)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x-2}{x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-4x+4=(x-2)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-2x=x(x-2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x(x-2)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x-2)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(x-2)}(x-2)}{x\cancel{(x-2)}}=\frac{x-2}{x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -967,10 +1293,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2+5x+4=(x+1)(x+4),\qquad x^2+2x+1=(x+1)^2\]</div>
-                <div class="ce-line">C.E. \(x\neq-1\)</div>
-                <div class="formula-step">\[\frac{\cancel{(x+1)}(x+4)}{\cancel{(x+1)}(x+1)}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x+4}{x+1}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2+5x+4=(x+1)(x+4)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2+2x+1=(x+1)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x+1)^2\neq0 \;\Longrightarrow\; x\neq-1\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo un fattore \((x+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(x+1)}(x+4)}{\cancel{(x+1)}(x+1)}=\frac{x+4}{x+1}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1015,10 +1361,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^2-2x=x(x-2),\qquad x^2+x-6=(x+3)(x-2)\]</div>
-                <div class="ce-line">C.E. \(x\neq-3,\quad x\neq2\)</div>
-                <div class="formula-step">\[\frac{x\cancel{(x-2)}}{(x+3)\cancel{(x-2)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x}{x+3}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^2-2x=x(x-2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2+x-6=(x+3)(x-2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x+3)(x-2)\neq0 \;\Longrightarrow\; x\neq-3,\;x\neq2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x-2)\):
+                        <div class="guided-formula">
+                            \[
+\frac{x\cancel{(x-2)}}{(x+3)\cancel{(x-2)}}=\frac{x}{x+3}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1063,10 +1429,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[9x^2+6x+1=(3x+1)^2,\qquad 3x^2+x=x(3x+1)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq-\frac13\)</div>
-                <div class="formula-step">\[\frac{\cancel{(3x+1)}(3x+1)}{x\cancel{(3x+1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{3x+1}{x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(9x^2+6x+1=(3x+1)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(3x^2+x=x(3x+1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x(3x+1)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq-\frac13\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((3x+1)\):
+                        <div class="guided-formula">
+                            \[
+\frac{\cancel{(3x+1)}(3x+1)}{x\cancel{(3x+1)}}=\frac{3x+1}{x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1111,10 +1497,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[5x+15=5(x+3),\qquad x^2-9=(x-3)(x+3)\]</div>
-                <div class="ce-line">C.E. \(x\neq3,\quad x\neq-3\)</div>
-                <div class="formula-step">\[\frac{5\cancel{(x+3)}}{(x-3)\cancel{(x+3)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{5}{x-3}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(5x+15=5(x+3)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-9=(x-3)(x+3)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x-3)(x+3)\neq0 \;\Longrightarrow\; x\neq3,\;x\neq-3\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((x+3)\):
+                        <div class="guided-formula">
+                            \[
+\frac{5\cancel{(x+3)}}{(x-3)\cancel{(x+3)}}=\frac{5}{x-3}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1159,10 +1565,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[4x^2-25=(2x-5)(2x+5),\qquad 2x^2+5x=x(2x+5)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq-\frac52\)</div>
-                <div class="formula-step">\[\frac{(2x-5)\cancel{(2x+5)}}{x\cancel{(2x+5)}}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{2x-5}{x}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(4x^2-25=(2x-5)(2x+5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(2x^2+5x=x(2x+5)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(x(2x+5)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq-\frac52\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo il fattore comune \((2x+5)\):
+                        <div class="guided-formula">
+                            \[
+\frac{(2x-5)\cancel{(2x+5)}}{x\cancel{(2x+5)}}=\frac{2x-5}{x}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1207,10 +1633,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[x^4+2x^2=x^2(x^2+2),\qquad x^4+4x^2+4=(x^2+2)^2\]</div>
-                <div class="ce-line">C.E. \(\text{nessuna esclusione reale}\)</div>
-                <div class="formula-step">\[\frac{x^2\cancel{(x^2+2)}}{\cancel{(x^2+2)}(x^2+2)}\]</div>
-                <div class="result-box text-center">\[\boxed{\frac{x^2}{x^2+2}}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(x^4+2x^2=x^2(x^2+2)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^4+4x^2+4=(x^2+2)^2\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \((x^2+2)^2\neq0\). Non ci sono esclusioni reali.</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo un fattore \((x^2+2)\):
+                        <div class="guided-formula">
+                            \[
+\frac{x^2\cancel{(x^2+2)}}{\cancel{(x^2+2)}(x^2+2)}=\frac{x^2}{x^2+2}
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1255,10 +1701,30 @@
                 <div class="code-error">Codice non corretto.</div>
             </div>
             <div class="solution-box" hidden>
-                <div class="formula-step">\[2x^2-x=x(2x-1),\qquad x^2-2x^3=x^2(1-2x)=-x^2(2x-1)\]</div>
-                <div class="ce-line">C.E. \(x\neq0,\quad x\neq\frac12\)</div>
-                <div class="formula-step">\[\frac{x\cancel{(2x-1)}}{-x^2\cancel{(2x-1)}}\]</div>
-                <div class="result-box text-center">\[\boxed{-\frac1x}\]</div>
+                <p class="guided-title">Svolgimento guidato:</p>
+                <div class="guided-step">
+                    <span class="guided-number">1.</span>
+                    <div>Scomponiamo il numeratore: \(2x^2-x=x(2x-1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">2.</span>
+                    <div>Scomponiamo il denominatore: \(x^2-2x^3=-x^2(2x-1)\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">3.</span>
+                    <div>Condizioni di Esistenza: \(-x^2(2x-1)\neq0 \;\Longrightarrow\; x\neq0,\;x\neq\frac12\).</div>
+                </div>
+                <div class="guided-step">
+                    <span class="guided-number">4.</span>
+                    <div>
+                        Semplifichiamo i fattori comuni:
+                        <div class="guided-formula">
+                            \[
+\frac{x\cancel{(2x-1)}}{-x^2\cancel{(2x-1)}}=-\frac1x
+\]
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
