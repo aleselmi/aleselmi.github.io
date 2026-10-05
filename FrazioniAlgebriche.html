@@ -74,7 +74,6 @@
 
         /* =========================
            FORMULE
-           niente banda azzurra
            ========================= */
 
         .formula-box {
@@ -193,152 +192,326 @@
 
 <main class="container mx-auto px-4 py-12 max-w-4xl">
 
-    <!-- PROCEDIMENTO -->
+
+    <!-- ==================================================
+         PROCEDIMENTO
+         ================================================== -->
+
     <section class="mb-10">
+
         <div class="flex items-center mb-6">
-            <span class="navy-bg text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">✓</span>
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                ✓
+            </span>
+
             <h2 class="text-2xl font-bold navy-text">
                 Come si semplifica una frazione algebrica
             </h2>
+
         </div>
+
 
         <div class="navy-bg text-white p-6 rounded-xl shadow-md">
+
             <div class="space-y-4">
 
-                <div class="flex items-start">
-                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</span>
-                    <p><strong>Scomponi in fattori</strong> il numeratore e il denominatore.</p>
-                </div>
+
+                <!-- PASSAGGIO 1 -->
 
                 <div class="flex items-start">
-                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</span>
-                    <p><strong>Trova le C.E.</strong> imponendo: <strong>DENOMINATORE ≠ 0</strong>.</p>
+
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
+                        1
+                    </span>
+
+                    <p>
+                        <strong>Scomponi in fattori</strong>
+                        il numeratore e il denominatore.
+                    </p>
+
                 </div>
 
-                <div class="flex items-start">
-                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">3</span>
-                    <p><strong>Semplifica</strong> i fattori comuni tra numeratore e denominatore.</p>
-                </div>
+
+                <!-- PASSAGGIO 2 -->
 
                 <div class="flex items-start">
-                    <span class="bg-white navy-text rounded-full h-8 w-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">4</span>
-                    <p><strong>Scrivi il risultato</strong> mantenendo le C.E. della frazione iniziale.</p>
+
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
+                        2
+                    </span>
+
+                    <p>
+                        <strong>Trova le C.E.</strong>
+                        imponendo:
+                        <strong>DENOMINATORE ≠ 0</strong>.
+                    </p>
+
                 </div>
+
+
+                <!-- PASSAGGIO 3 -->
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
+                        3
+                    </span>
+
+                    <p>
+                        <strong>Semplifica</strong>
+                        i fattori comuni tra numeratore e denominatore.
+                    </p>
+
+                </div>
+
+
+                <!-- PASSAGGIO 4 -->
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
+                        4
+                    </span>
+
+                    <p>
+                        <strong>Scrivi il risultato</strong>
+                        mantenendo le C.E. della frazione iniziale.
+                    </p>
+
+                </div>
+
 
             </div>
+
         </div>
+
     </section>
 
 
-    <!-- ESEMPIO COMPATTO -->
+
+    <!-- ==================================================
+         ESEMPIO GUIDATO
+         ================================================== -->
+
     <section class="mb-10">
 
+
         <div class="flex items-center mb-6">
-            <span class="navy-bg text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-4">1</span>
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                1
+            </span>
+
             <h2 class="text-2xl font-bold navy-text">
                 Esempio guidato
             </h2>
+
         </div>
+
+
 
         <div class="bg-white p-6 rounded-xl shadow-md">
 
+
+            <!-- FRAZIONE DI PARTENZA -->
+
             <div class="example-box">
-                <div class="label label-example">Esempio</div>
+
+                <div class="label label-example">
+                    Esempio
+                </div>
 
                 \[
                 \frac{x^2-2x}{x^4-4x^2}
                 \]
+
             </div>
 
-            <div class="space-y-4 mt-6">
+
+
+            <div class="space-y-5 mt-6">
+
+
+                <!-- PASSAGGIO 1 -->
 
                 <p>
-                    <strong>1. Scomponiamo il numeratore:</strong>
+
+                    <strong>
+                        1. Scomponiamo il numeratore:
+                    </strong>
+
                     \(x^2-2x=x(x-2)\).
+
                 </p>
+
+
+
+                <!-- PASSAGGIO 2 -->
 
                 <p>
-                    <strong>2. Scomponiamo il denominatore:</strong>
+
+                    <strong>
+                        2. Scomponiamo il denominatore:
+                    </strong>
+
                     \(x^4-4x^2=x^2(x^2-4)=x^2(x+2)(x-2)\).
+
                 </p>
 
-                <div>
-    <p>
-        <strong>3. Condizioni di Esistenza:</strong>
-        applichiamo la <strong>legge di annullamento del prodotto</strong>.
-    </p>
 
-    <div class="formula-box">
-        \[
-        x^2(x+2)(x-2)\neq0
-        \]
 
-        \[
-        x^2\neq0
-        \;\vee\;
-        x+2\neq0
-        \;\vee\;
-        x-2\neq0
-        \]
-
-        \[
-        x\neq0
-        \;\vee\;
-        x\neq-2
-        \;\vee\;
-        x\neq2
-        \]
-    </div>
-</div>
+                <!-- PASSAGGIO 3 - C.E. -->
 
                 <div>
-                    <p><strong>4. Semplifichiamo i fattori comuni:</strong></p>
+
+                    <p>
+                        <strong>
+                            3. Condizioni di Esistenza:
+                        </strong>
+
+                        cerchiamo i valori che annullano il denominatore
+                        applicando la
+                        <strong>legge di annullamento del prodotto</strong>.
+                    </p>
+
+
                     <div class="formula-box">
+
                         \[
-                        \frac{x\cancel{(x-2)}}{x^2(x+2)\cancel{(x-2)}}
+                        x^2(x+2)(x-2)=0
+                        \]
+
+                        \[
+                        x=0,\qquad x=-2,\qquad x=2
+                        \]
+
+                        <p class="text-center navy-text font-semibold mt-4">
+                            Questi valori devono essere esclusi.
+                        </p>
+
+                        \[
+                        \boxed{
+                        \text{C.E.: }
+                        x\neq0,\qquad
+                        x\neq-2,\qquad
+                        x\neq2
+                        }
+                        \]
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSAGGIO 4 - SEMPLIFICAZIONE -->
+
+                <div>
+
+                    <p>
+                        <strong>
+                            4. Semplifichiamo i fattori comuni:
+                        </strong>
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        \[
+                        \frac{x\cancel{(x-2)}}
+                             {x^2(x+2)\cancel{(x-2)}}
                         =
-                        \frac{\cancel{x}}{\cancel{x}\,x(x+2)}
+                        \frac{\cancel{x}}
+                             {\cancel{x}\,x(x+2)}
                         =
                         \frac{1}{x(x+2)}
                         \]
+
                     </div>
+
                 </div>
+
 
             </div>
 
+
+
+            <!-- RISULTATO -->
+
             <div class="example-box mt-6">
-                <div class="label label-example">Risultato</div>
+
+                <div class="label label-example">
+                    Risultato
+                </div>
 
                 \[
                 \boxed{\frac{1}{x(x+2)}}
-                \qquad
-                x\neq0,\;-2,\;2
                 \]
+
+                \[
+                \text{C.E.: }
+                x\neq0,\qquad
+                x\neq-2,\qquad
+                x\neq2
+                \]
+
             </div>
 
+
         </div>
+
     </section>
 
 
-    <!-- ATTENZIONE -->
+
+    <!-- ==================================================
+         ATTENZIONE
+         ================================================== -->
+
     <section class="mb-10">
+
         <div class="warning-box rounded-xl shadow-sm">
 
+
             <div class="label label-warning text-lg mb-3">
+
                 ⚠ ATTENZIONE
+
             </div>
 
+
             <p class="text-xl font-bold text-red-700 mb-3">
-                Si possono eseguire semplificazioni soltanto tra FATTORI, mai tra ADDENDI.
+
+                Si possono eseguire semplificazioni soltanto
+                tra FATTORI, mai tra ADDENDI.
+
             </p>
+
 
             <p>
+
                 Prima si scompongono completamente i polinomi,
-                poi si semplificano i fattori comuni tra numeratore e denominatore.
+                poi si semplificano i fattori comuni
+                tra numeratore e denominatore.
+
             </p>
 
+
         </div>
+
     </section>
+
 
 </main>
 
