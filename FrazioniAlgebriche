@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Frazioni algebriche: esercizi</title>
+
+    <!-- MathJax + pacchetto cancel per mostrare le semplificazioni -->
+    <script>
+        window.MathJax = {
+            loader: { load: ['[tex]/cancel'] },
+            tex: {
+                packages: { '[+]': ['cancel'] }
+            }
+        };
+    </script>
+
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           COLORI PRINCIPALI
+           ========================= */
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .navy-bg-light {
+            background-color: #163f68;
+        }
+
+        .navy-text {
+            color: #0b2a4a;
+        }
+
+        .navy-border {
+            border-color: #0b2a4a;
+        }
+
+
+        /* =========================
+           CARD
+           ========================= */
+
+        .step-card {
+            transition: transform 0.2s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FORMULE - BLU
+           ========================= */
+
+        .formula-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+
+
+        /* =========================
+           ESEMPI - VERDE
+           ========================= */
+
+        .example-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+
+
+        /* =========================
+           ATTENZIONE - ROSSO
+           ========================= */
+
+        .warning-box {
+            background-color: #fef2f2;
+            border-left: 5px solid #ef4444;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .label-formula {
+            color: #3b82f6;
+        }
+
+        .label-example {
+            color: #22c55e;
+        }
+
+        .label-warning {
+            color: #dc2626;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="bg-gray-50 text-gray-800">
+
+
+<!-- ==================================================
+     HEADER
+     ================================================== -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4 text-center">
+
+        <h1 class="text-4xl font-extrabold mb-2">
+            Frazioni algebriche: esercizi
+        </h1>
+
+        <p class="text-xl opacity-90">
+            Tutorial ed esercizi svolti passo per passo
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container mx-auto px-4 py-12 max-w-4xl">
+
+
+    <!-- ==================================================
+         TUTORIAL
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="flex items-center mb-6">
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                ?
+            </span>
+
+            <h2 class="text-2xl font-bold navy-text">
+                Tutorial: semplificazione di una frazione algebrica
+            </h2>
+
+        </div>
+
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+
+            <p class="text-lg mb-4">
+
+                Vediamo passo per passo come semplificare
+                la seguente frazione algebrica:
+
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Esempio
+                </div>
+
+                \[
+                \frac{x^2-2x}{x^4-4x^2}
+                \]
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PASSAGGIO 1
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="flex items-center mb-6">
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                1
+            </span>
+
+            <h2 class="text-2xl font-bold navy-text">
+                Scomponi in fattori
+            </h2>
+
+        </div>
+
+
+        <div class="bg-white p-6 rounded-xl shadow-md step-card
+                    border-l-8 navy-border">
+
+
+            <p class="mb-6">
+
+                Per prima cosa dobbiamo scomporre completamente
+                <strong>il polinomio al numeratore</strong>
+                e <strong>quello al denominatore</strong>.
+
+            </p>
+
+
+
+            <!-- NUMERATORE -->
+
+            <h3 class="font-bold navy-text text-xl mb-2">
+                Numeratore
+            </h3>
+
+
+            <p>
+                Partiamo dal numeratore:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="label label-formula">
+                    Numeratore
+                </div>
+
+                \[
+                x^2-2x
+                \]
+
+            </div>
+
+
+            <p>
+
+                I due termini hanno \(x\) come fattore comune.
+                Eseguiamo quindi un raccoglimento totale:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^2-2x=x(x-2)
+                \]
+
+            </div>
+
+
+
+            <!-- DENOMINATORE -->
+
+            <h3 class="font-bold navy-text text-xl mt-8 mb-2">
+                Denominatore
+            </h3>
+
+
+            <p>
+                Passiamo al denominatore:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^4-4x^2
+                \]
+
+            </div>
+
+
+            <p>
+                Tutti i termini contengono \(x^2\).
+                Lo raccogliamo:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^4-4x^2
+                =
+                x^2(x^2-4)
+                \]
+
+            </div>
+
+
+            <p>
+
+                All'interno della parentesi abbiamo una
+                <strong>differenza di quadrati</strong>:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^2-4
+                =
+                x^2-2^2
+                =
+                (x+2)(x-2)
+                \]
+
+            </div>
+
+
+            <p>
+                Quindi il denominatore completamente scomposto è:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^4-4x^2
+                =
+                x^2(x+2)(x-2)
+                \]
+
+            </div>
+
+
+
+            <!-- FRAZIONE SCOMPOSTA -->
+
+            <h3 class="font-bold navy-text text-xl mt-8 mb-2">
+                Riscriviamo la frazione
+            </h3>
+
+
+            <p>
+
+                Ora sostituiamo numeratore e denominatore
+                con le rispettive scomposizioni:
+
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Frazione scomposta
+                </div>
+
+                \[
+                \frac{x^2-2x}{x^4-4x^2}
+                =
+                \frac{x(x-2)}
+                     {x^2(x+2)(x-2)}
+                \]
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PASSAGGIO 2
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="flex items-center mb-6">
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                2
+            </span>
+
+            <h2 class="text-2xl font-bold navy-text">
+                Trova le C.E.
+            </h2>
+
+        </div>
+
+
+        <div class="bg-white p-6 rounded-xl shadow-md step-card
+                    border-l-8 navy-border">
+
+
+            <p class="mb-4">
+
+                Prima di eseguire le semplificazioni dobbiamo
+                trovare le <strong>Condizioni di Esistenza (C.E.)</strong>
+                della frazione algebrica.
+
+            </p>
+
+
+            <p class="mb-4">
+
+                Ricordiamo che il denominatore di una frazione
+                <strong>non può mai essere uguale a zero</strong>.
+
+            </p>
+
+
+            <p>
+                Il denominatore scomposto è:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^2(x+2)(x-2)
+                \]
+
+            </div>
+
+
+            <p>
+                Perciò imponiamo:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^2(x+2)(x-2)\neq0
+                \]
+
+            </div>
+
+
+            <p class="mb-5">
+
+                Per calcolare le C.E. utilizziamo la
+                <strong>legge di annullamento del prodotto</strong>
+                e consideriamo separatamente ogni fattore.
+
+            </p>
+
+
+
+            <!-- PRIMA CE -->
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Prima condizione
+                </div>
+
+                \[
+                x^2\neq0
+                \]
+
+                \[
+                x\neq0
+                \]
+
+            </div>
+
+
+
+            <!-- SECONDA CE -->
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Seconda condizione
+                </div>
+
+                \[
+                x+2\neq0
+                \]
+
+                \[
+                x\neq-2
+                \]
+
+            </div>
+
+
+
+            <!-- TERZA CE -->
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Terza condizione
+                </div>
+
+                \[
+                x-2\neq0
+                \]
+
+                \[
+                x\neq2
+                \]
+
+            </div>
+
+
+
+            <!-- RISULTATO CE -->
+
+            <h3 class="font-bold navy-text text-xl mt-8">
+                Condizioni di Esistenza
+            </h3>
+
+
+            <div class="formula-box">
+
+                \[
+                \boxed{
+                x\neq0,\qquad
+                x\neq-2,\qquad
+                x\neq2
+                }
+                \]
+
+            </div>
+
+
+            <p>
+                Il dominio della frazione è quindi:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                D=
+                \mathbb{R}
+                \setminus
+                \{-2,0,2\}
+                \]
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PASSAGGIO 3
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="flex items-center mb-6">
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                3
+            </span>
+
+            <h2 class="text-2xl font-bold navy-text">
+                Semplifica la frazione
+            </h2>
+
+        </div>
+
+
+        <div class="bg-white p-6 rounded-xl shadow-md step-card
+                    border-l-8 navy-border">
+
+
+            <p class="mb-5">
+
+                Dopo aver calcolato le C.E. possiamo finalmente
+                semplificare la frazione algebrica.
+
+            </p>
+
+
+            <p>
+                Ripartiamo dalla frazione completamente scomposta:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                \frac{x(x-2)}
+                     {x^2(x+2)(x-2)}
+                \]
+
+            </div>
+
+
+            <p>
+
+                Il fattore \((x-2)\) compare sia al numeratore
+                sia al denominatore.
+
+                Possiamo quindi semplificarlo:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                \frac{x\cancel{(x-2)}}
+                     {x^2(x+2)\cancel{(x-2)}}
+                \]
+
+            </div>
+
+
+            <p>
+                Otteniamo:
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                \frac{x}
+                     {x^2(x+2)}
+                \]
+
+            </div>
+
+
+            <p>
+
+                Ricordiamo che:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                x^2=x\cdot x
+                \]
+
+            </div>
+
+
+            <p>
+
+                Possiamo quindi semplificare un fattore \(x\)
+                al numeratore con un fattore \(x\)
+                al denominatore:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                \frac{\cancel{x}}
+                     {\cancel{x}\,x(x+2)}
+                \]
+
+            </div>
+
+
+            <p>
+                Rimane:
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Risultato finale
+                </div>
+
+                \[
+                \boxed{
+                \frac{1}{x(x+2)}
+                }
+                \]
+
+            </div>
+
+
+
+            <p class="mt-6 font-semibold">
+
+                Il risultato deve essere sempre accompagnato
+                dalle C.E. trovate sulla frazione iniziale:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                \boxed{
+                x\neq0,\qquad
+                x\neq-2,\qquad
+                x\neq2
+                }
+                \]
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ATTENZIONE
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="warning-box rounded-xl shadow-sm">
+
+            <div class="label label-warning text-lg mb-3">
+                ⚠ ATTENZIONE
+            </div>
+
+
+            <p class="text-xl font-bold text-red-700 mb-4">
+
+                Si possono eseguire semplificazioni
+                soltanto tra FATTORI, mai tra ADDENDI.
+
+            </p>
+
+
+            <p>
+
+                Per questo motivo bisogna prima
+                <strong>scomporre completamente i polinomi</strong>
+                e solo dopo cercare i fattori comuni
+                tra numeratore e denominatore.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         RIEPILOGO
+         ================================================== -->
+
+    <section class="mb-12">
+
+        <div class="navy-bg text-white p-7 rounded-xl shadow-md">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Riepilogo del procedimento
+            </h2>
+
+
+            <div class="space-y-5">
+
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full
+                                 h-8 w-8 flex items-center justify-center
+                                 font-bold mr-4 flex-shrink-0">
+                        1
+                    </span>
+
+                    <p>
+
+                        <strong>Scomponi in fattori</strong>
+                        completamente il numeratore e il denominatore.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full
+                                 h-8 w-8 flex items-center justify-center
+                                 font-bold mr-4 flex-shrink-0">
+                        2
+                    </span>
+
+                    <p>
+
+                        <strong>Calcola le C.E.</strong>
+                        imponendo che tutti i fattori
+                        del denominatore siano diversi da zero.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full
+                                 h-8 w-8 flex items-center justify-center
+                                 font-bold mr-4 flex-shrink-0">
+                        3
+                    </span>
+
+                    <p>
+
+                        <strong>Semplifica</strong>
+                        i fattori comuni tra numeratore e denominatore.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full
+                                 h-8 w-8 flex items-center justify-center
+                                 font-bold mr-4 flex-shrink-0">
+                        !
+                    </span>
+
+                    <p>
+
+                        Ricorda:
+                        <strong>
+                            si semplificano i fattori,
+                            non gli addendi.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ESERCIZI
+         ================================================== -->
+
+    <section>
+
+        <div class="flex items-center mb-6">
+
+            <span class="navy-bg text-white rounded-full h-10 w-10
+                         flex items-center justify-center font-bold mr-4">
+                ✎
+            </span>
+
+            <h2 class="text-2xl font-bold navy-text">
+                Esercizi
+            </h2>
+
+        </div>
+
+
+        <div class="bg-white p-8 rounded-xl shadow-md text-center">
+
+            <p class="text-gray-600 italic">
+                Gli esercizi verranno inseriti qui.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4 text-center text-sm opacity-90">
+
+        Matematica · Frazioni algebriche
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
