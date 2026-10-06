@@ -139,6 +139,48 @@
         }
 
 
+        /* =========================
+           MOSTRA / NASCONDI
+           ========================= */
+
+        .topic-content {
+            display: none;
+        }
+
+        .topic-content.open {
+            display: block;
+        }
+
+        .toggle-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 9px 16px;
+            background-color: white;
+            color: #0b2a4a;
+            border: 2px solid #0b2a4a;
+            border-radius: 9px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #0b2a4a;
+            color: white;
+        }
+
+        .toggle-arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-button.open .toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+
         /* ==================================================
            VERSIONE STAMPA / PDF
            ================================================== */
@@ -159,6 +201,15 @@
 
             .no-print {
                 display: none !important;
+            }
+
+            .toggle-button {
+                display: none !important;
+            }
+
+            /* NEL PDF MOSTRA SEMPRE TUTTE LE SPIEGAZIONI */
+            .topic-content {
+                display: block !important;
             }
 
             header {
@@ -274,7 +325,7 @@
 
     <!-- TITOLO -->
 
-    <div class="flex items-center mb-6">
+    <div class="flex items-center mb-4">
 
         <span class="navy-bg text-white rounded-full h-10 w-10
                      flex items-center justify-center font-bold mr-4">
@@ -292,211 +343,254 @@
     </div>
 
 
+    <!-- PULSANTE MOSTRA SPIEGAZIONE -->
 
-    <!-- ==================================================
-         PROCEDIMENTO
-         ================================================== -->
+    <button class="toggle-button no-print"
+            onclick="toggleTopic('semplificazione', this)">
 
-    <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
+        <span class="toggle-text">Mostra spiegazione</span>
+        <span class="toggle-arrow">▼</span>
 
-        <div class="space-y-4">
-
-
-            <div class="flex items-start">
-
-                <span class="bg-white navy-text rounded-full h-8 w-8
-                             flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">
-
-                    1
-
-                </span>
-
-                <p>
-
-                    <strong>Scomponi in fattori</strong>
-                    il numeratore e il denominatore.
-
-                </p>
-
-            </div>
+    </button>
 
 
-            <div class="flex items-start">
+    <!-- CONTENUTO APRIBILE -->
 
-                <span class="bg-white navy-text rounded-full h-8 w-8
-                             flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">
-
-                    2
-
-                </span>
-
-                <p>
-
-                    <strong>Trova le C.E.</strong>
-                    imponendo:
-
-                    <strong>DENOMINATORE ≠ 0</strong>.
-
-                </p>
-
-            </div>
+    <div id="semplificazione" class="topic-content">
 
 
-            <div class="flex items-start">
+        <!-- ==================================================
+             PROCEDIMENTO
+             ================================================== -->
 
-                <span class="bg-white navy-text rounded-full h-8 w-8
-                             flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">
+        <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
 
-                    3
-
-                </span>
-
-                <p>
-
-                    <strong>Semplifica</strong>
-                    i fattori comuni tra numeratore e denominatore.
-
-                </p>
-
-            </div>
+            <div class="space-y-4">
 
 
-            <div class="flex items-start">
+                <div class="flex items-start">
 
-                <span class="bg-white navy-text rounded-full h-8 w-8
-                             flex items-center justify-center font-bold
-                             mr-4 flex-shrink-0">
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
 
-                    4
+                        1
 
-                </span>
+                    </span>
 
-                <p>
+                    <p>
 
-                    <strong>Scrivi il risultato</strong>
-                    mantenendo le C.E. della frazione iniziale.
+                        <strong>Scomponi in fattori</strong>
+                        il numeratore e il denominatore.
 
-                </p>
+                    </p>
 
-            </div>
-
-
-        </div>
-
-    </div>
+                </div>
 
 
+                <div class="flex items-start">
 
-    <!-- ==================================================
-         ESEMPIO
-         ================================================== -->
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
 
-    <div class="bg-white p-6 rounded-xl shadow-md">
+                        2
+
+                    </span>
+
+                    <p>
+
+                        <strong>Trova le C.E.</strong>
+                        imponendo:
+
+                        <strong>DENOMINATORE ≠ 0</strong>.
+
+                    </p>
+
+                </div>
 
 
-        <div class="example-box">
+                <div class="flex items-start">
 
-            <div class="label label-example">
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
 
-                Esempio
+                        3
+
+                    </span>
+
+                    <p>
+
+                        <strong>Semplifica</strong>
+                        i fattori comuni tra numeratore e denominatore.
+
+                    </p>
+
+                </div>
+
+
+                <div class="flex items-start">
+
+                    <span class="bg-white navy-text rounded-full h-8 w-8
+                                 flex items-center justify-center font-bold
+                                 mr-4 flex-shrink-0">
+
+                        4
+
+                    </span>
+
+                    <p>
+
+                        <strong>Scrivi il risultato</strong>
+                        mantenendo le C.E. della frazione iniziale.
+
+                    </p>
+
+                </div>
+
 
             </div>
-
-            \[
-            \frac{x^2-2x}{x^4-4x^2}
-            \]
 
         </div>
 
 
 
-        <div class="space-y-5 mt-6">
+        <!-- ==================================================
+             ESEMPIO
+             ================================================== -->
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
 
 
-            <p>
+            <div class="example-box">
 
-                <strong>
-                    1. Scomponiamo il numeratore:
-                </strong>
+                <div class="label label-example">
 
-                \(x^2-2x=x(x-2)\).
+                    Esempio
 
-            </p>
+                </div>
 
+                \[
+                \frac{x^2-2x}{x^4-4x^2}
+                \]
 
-
-            <p>
-
-                <strong>
-                    2. Scomponiamo il denominatore:
-                </strong>
-
-                \(x^4-4x^2=x^2(x^2-4)=x^2(x+2)(x-2)\).
-
-            </p>
+            </div>
 
 
 
-            <div>
+            <div class="space-y-5 mt-6">
+
 
                 <p>
 
                     <strong>
-                        3. Condizioni di Esistenza:
+                        1. Scomponiamo il numeratore:
                     </strong>
 
-                    applichiamo la
-                    <strong>legge di annullamento del prodotto</strong>.
+                    \(x^2-2x=x(x-2)\).
 
                 </p>
 
 
-                <div class="formula-box">
-
-                    \[
-                    x^2(x+2)(x-2)\neq0
-                    \]
-
-                    \[
-                    x\neq0,\qquad
-                    x\neq-2,\qquad
-                    x\neq2
-                    \]
-
-                </div>
-
-            </div>
-
-
-
-            <div>
 
                 <p>
 
                     <strong>
-                        4. Semplifichiamo i fattori comuni:
+                        2. Scomponiamo il denominatore:
                     </strong>
+
+                    \(x^4-4x^2=x^2(x^2-4)=x^2(x+2)(x-2)\).
 
                 </p>
 
 
-                <div class="formula-box">
 
-                    \[
-                    \frac{x\cancel{(x-2)}}
-                         {x^2(x+2)\cancel{(x-2)}}
-                    =
-                    \frac{\cancel{x}}
-                         {\cancel{x}\,x(x+2)}
-                    =
-                    \frac{1}{x(x+2)}
-                    \]
+                <div>
+
+                    <p>
+
+                        <strong>
+                            3. Condizioni di Esistenza:
+                        </strong>
+
+                        applichiamo la
+                        <strong>legge di annullamento del prodotto</strong>.
+
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        \[
+                        x^2(x+2)(x-2)\neq0
+                        \]
+
+                        \[
+                        x\neq0,\qquad
+                        x\neq-2,\qquad
+                        x\neq2
+                        \]
+
+                    </div>
 
                 </div>
 
+
+
+                <div>
+
+                    <p>
+
+                        <strong>
+                            4. Semplifichiamo i fattori comuni:
+                        </strong>
+
+                    </p>
+
+
+                    <div class="formula-box">
+
+                        \[
+                        \frac{x\cancel{(x-2)}}
+                             {x^2(x+2)\cancel{(x-2)}}
+                        =
+                        \frac{\cancel{x}}
+                             {\cancel{x}\,x(x+2)}
+                        =
+                        \frac{1}{x(x+2)}
+                        \]
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RISULTATO -->
+
+            <div class="example-box mt-6">
+
+                <div class="label label-example">
+
+                    Risultato
+
+                </div>
+
+                \[
+                \boxed{\frac{1}{x(x+2)}}
+                \]
+
+                \[
+                \text{C.E.: }
+                x\neq0,\qquad
+                x\neq-2,\qquad
+                x\neq2
+                \]
+
             </div>
 
 
@@ -504,65 +598,40 @@
 
 
 
-        <!-- RISULTATO -->
+        <!-- ATTENZIONE -->
 
-        <div class="example-box mt-6">
+        <div class="warning-box rounded-xl shadow-sm mt-8">
 
-            <div class="label label-example">
+            <div class="label label-warning text-lg mb-3">
 
-                Risultato
+                ⚠ ATTENZIONE
 
             </div>
 
-            \[
-            \boxed{\frac{1}{x(x+2)}}
-            \]
 
-            \[
-            \text{C.E.: }
-            x\neq0,\qquad
-            x\neq-2,\qquad
-            x\neq2
-            \]
+            <p class="text-xl font-bold text-red-700 mb-3">
+
+                Si possono eseguire semplificazioni soltanto
+                tra FATTORI, mai tra ADDENDI.
+
+            </p>
+
+
+            <p>
+
+                Prima si scompongono completamente i polinomi,
+                poi si semplificano i fattori comuni
+                tra numeratore e denominatore.
+
+            </p>
 
         </div>
 
 
     </div>
-
-
-
-    <!-- ATTENZIONE -->
-
-    <div class="warning-box rounded-xl shadow-sm mt-8">
-
-        <div class="label label-warning text-lg mb-3">
-
-            ⚠ ATTENZIONE
-
-        </div>
-
-
-        <p class="text-xl font-bold text-red-700 mb-3">
-
-            Si possono eseguire semplificazioni soltanto
-            tra FATTORI, mai tra ADDENDI.
-
-        </p>
-
-
-        <p>
-
-            Prima si scompongono completamente i polinomi,
-            poi si semplificano i fattori comuni
-            tra numeratore e denominatore.
-
-        </p>
-
-    </div>
-
 
 </section>
+
 
 
 <!-- ==================================================
@@ -574,7 +643,7 @@
 
     <!-- TITOLO -->
 
-    <div class="flex items-center mb-6">
+    <div class="flex items-center mb-4">
 
         <span class="navy-bg text-white rounded-full h-10 w-10
                      flex items-center justify-center font-bold mr-4">
@@ -588,278 +657,293 @@
     </div>
 
 
+    <!-- PULSANTE MOSTRA SPIEGAZIONE -->
 
-    <!-- ==================================================
-         REGOLA GENERALE
-         ================================================== -->
+    <button class="toggle-button no-print"
+            onclick="toggleTopic('ce', this)">
 
-    <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8 print-keep">
+        <span class="toggle-text">Mostra spiegazione</span>
+        <span class="toggle-arrow">▼</span>
 
-        <p class="text-lg text-center mb-3">
-
-            Per calcolare le
-            <strong>Condizioni di Esistenza</strong>
-            di una frazione algebrica dobbiamo porre:
-
-        </p>
-
-        <div class="text-center text-xl font-bold">
-
-            \[
-            \boxed{\text{DENOMINATORE}\neq0}
-            \]
-
-        </div>
-
-    </div>
+    </button>
 
 
+    <!-- CONTENUTO APRIBILE -->
 
-    <!-- ==================================================
-         CASO 1
-         ================================================== -->
-
-    <div class="bg-white p-6 rounded-xl shadow-md mb-6 print-keep">
+    <div id="ce" class="topic-content">
 
 
-        <h3 class="text-lg font-bold navy-text mb-4">
+        <!-- ==================================================
+             REGOLA GENERALE
+             ================================================== -->
 
-            Caso 1 — Il coefficiente di \(x\) è 1
+        <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8 print-keep">
 
-        </h3>
+            <p class="text-lg text-center mb-3">
 
+                Per calcolare le
+                <strong>Condizioni di Esistenza</strong>
+                di una frazione algebrica dobbiamo porre:
 
-        <div class="example-box">
+            </p>
 
-            <div class="label label-example">
-                Esempio
+            <div class="text-center text-xl font-bold">
+
+                \[
+                \boxed{\text{DENOMINATORE}\neq0}
+                \]
+
             </div>
 
-            \[
-            \frac{1}{x-3}
-            \]
-
         </div>
 
 
-        <p class="mb-3">
 
-            Poniamo il denominatore diverso da zero:
+        <!-- ==================================================
+             CASO 1
+             ================================================== -->
 
-        </p>
-
-
-        <div class="formula-box">
-
-            \[
-            x-3\neq0
-            \]
-
-        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md mb-6 print-keep">
 
 
-        <p class="font-semibold navy-text mb-3">
-            Per risolvere:
-        </p>
+            <h3 class="text-lg font-bold navy-text mb-4">
+
+                Caso 1 — Il coefficiente di \(x\) è 1
+
+            </h3>
 
 
-        <div class="space-y-2 ml-4">
+            <div class="example-box">
 
-            <p>
-                <strong>1.</strong>
-                Teniamo la \(x\) a sinistra.
-            </p>
+                <div class="label label-example">
+                    Esempio
+                </div>
 
-            <p>
-                <strong>2.</strong>
-                Spostiamo il numero a destra
-                <strong>cambiando il segno</strong>.
-            </p>
+                \[
+                \frac{1}{x-3}
+                \]
 
-        </div>
-
-
-        <div class="formula-box">
-
-            \[
-            x-3\neq0
-            \]
-
-            \[
-            x\neq+3
-            \]
-
-            \[
-            \boxed{\text{C.E.: }x\neq3}
-            \]
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- ==================================================
-         CASO 2
-         ================================================== -->
-
-    <div class="bg-white p-6 rounded-xl shadow-md mb-6 print-keep">
-
-
-        <h3 class="text-lg font-bold navy-text mb-4">
-
-            Caso 2 — Il coefficiente di \(x\) è diverso da 1
-
-        </h3>
-
-
-        <div class="example-box">
-
-            <div class="label label-example">
-                Esempio
             </div>
 
-            \[
-            \frac{1}{2x-1}
-            \]
 
-        </div>
+            <p class="mb-3">
 
+                Poniamo il denominatore diverso da zero:
 
-        <p class="mb-3">
-
-           Nel nostro caso, il coefficiente della x è 2. Poniamo il denominatore diverso da zero:
-
-        </p>
-
-
-        <div class="formula-box">
-
-            \[
-            2x-1\neq0
-            \]
-
-        </div>
-
-
-        <p class="font-semibold navy-text mb-3">
-            Per risolvere:
-        </p>
-
-
-        <div class="space-y-2 ml-4">
-
-            <p>
-                <strong>1.</strong>
-                Teniamo la \(x\) a sinistra e spostiamo
-                il numero a destra
-                <strong>cambiando il segno</strong>.
             </p>
 
-            <p>
-                <strong>2.</strong>
-                Dividiamo a destra e a sinistra
-                per il <strong>coefficiente di \(x\)</strong>.
+
+            <div class="formula-box">
+
+                \[
+                x-3\neq0
+                \]
+
+            </div>
+
+
+            <p class="font-semibold navy-text mb-3">
+                Per risolvere:
             </p>
+
+
+            <div class="space-y-2 ml-4">
+
+                <p>
+                    <strong>1.</strong>
+                    Teniamo la \(x\) a sinistra.
+                </p>
+
+                <p>
+                    <strong>2.</strong>
+                    Spostiamo il numero a destra
+                    <strong>cambiando il segno</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                \[
+                x-3\neq0
+                \]
+
+                \[
+                x\neq+3
+                \]
+
+                \[
+                \boxed{\text{C.E.: }x\neq3}
+                \]
+
+            </div>
+
 
         </div>
 
 
-        <div class="formula-box">
 
-            \[
-            2x-1\neq0
-            \]
+        <!-- ==================================================
+             CASO 2
+             ================================================== -->
 
-            \[
-            2x\neq1
-            \]
+        <div class="bg-white p-6 rounded-xl shadow-md mb-6 print-keep">
 
-            \[
-            x\neq\frac{1}{2}
-            \]
 
-            \[
-            \boxed{\text{C.E.: }x\neq\frac{1}{2}}
-            \]
+            <h3 class="text-lg font-bold navy-text mb-4">
+
+                Caso 2 — Il coefficiente di \(x\) è diverso da 1
+
+            </h3>
+
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Esempio
+                </div>
+
+                \[
+                \frac{1}{2x-1}
+                \]
+
+            </div>
+
+
+            <p class="mb-3">
+
+                Nel nostro caso, il coefficiente della x è 2. Poniamo il denominatore diverso da zero:
+
+            </p>
+
+
+            <div class="formula-box">
+
+                \[
+                2x-1\neq0
+                \]
+
+            </div>
+
+
+            <p class="font-semibold navy-text mb-3">
+                Per risolvere:
+            </p>
+
+
+            <div class="space-y-2 ml-4">
+
+                <p>
+                    <strong>1.</strong>
+                    Teniamo la \(x\) a sinistra e spostiamo
+                    il numero a destra
+                    <strong>cambiando il segno</strong>.
+                </p>
+
+                <p>
+                    <strong>2.</strong>
+                    Dividiamo a destra e a sinistra
+                    per il <strong>coefficiente di \(x\)</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                \[
+                2x-1\neq0
+                \]
+
+                \[
+                2x\neq1
+                \]
+
+                \[
+                x\neq\frac{1}{2}
+                \]
+
+                \[
+                \boxed{\text{C.E.: }x\neq\frac{1}{2}}
+                \]
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             ATTENZIONE
+             ================================================== -->
+
+        <div class="bg-orange-50 border-l-4 border-orange-500
+                    p-6 rounded-xl shadow-sm mb-6 print-keep">
+
+
+            <div class="text-orange-600 font-bold text-lg mb-3">
+
+                ⚠ ATTENZIONE
+
+            </div>
+
+
+            <p class="font-bold text-orange-700 mb-4">
+
+                Un'espressione del tipo \(x^2+\text{numero positivo}\)
+                non può mai essere uguale a zero.
+
+            </p>
+
+
+            <div class="bg-white rounded-lg p-5">
+
+                <p class="text-center mb-3">
+                    Per esempio:
+                </p>
+
+                \[
+                x^2+1
+                \]
+
+                <p class="text-center mt-4 font-semibold">
+                    Il denominatore non potrà mai essere zero. Quindi:
+                </p>
+
+                \[
+                \boxed{\text{C.E.: } \forall x\in\mathbb{R}}
+                \]
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             CASO 3 - PIÙ FATTORI
+             ================================================== -->
+
+        <div class="bg-white p-6 rounded-xl shadow-md print-keep">
+
+
+            <h3 class="text-lg font-bold navy-text mb-4">
+
+                Ricorda! Se il denominatore è formato da più fattori, usiamo la
+                <strong>legge di annullamento del prodotto</strong>:
+                poniamo <strong>ogni fattore diverso da zero</strong>
+                e risolviamo.
+
+            </h3>
+
 
         </div>
 
 
     </div>
-
-
-
-    <!-- ==================================================
-         ATTENZIONE
-         ================================================== -->
-
-    <div class="bg-orange-50 border-l-4 border-orange-500
-                p-6 rounded-xl shadow-sm mb-6 print-keep">
-
-
-        <div class="text-orange-600 font-bold text-lg mb-3">
-
-            ⚠ ATTENZIONE
-
-        </div>
-
-
-        <p class="font-bold text-orange-700 mb-4">
-
-            Un'espressione del tipo \(x^2+\text{numero positivo}\)
-            non può mai essere uguale a zero.
-
-        </p>
-
-
-        <div class="bg-white rounded-lg p-5">
-
-            <p class="text-center mb-3">
-                Per esempio:
-            </p>
-
-            \[
-            x^2+1
-            \]
-
-            <p class="text-center mt-4 font-semibold">
-                Il denominatore non potrà mai essere zero. Quindi:
-            </p>
-
-            \[
-            \boxed{\text{C.E.: } \forall x\in\mathbb{R}}
-            \]
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- ==================================================
-         CASO 3 - PIÙ FATTORI
-         ================================================== -->
-
-    <div class="bg-white p-6 rounded-xl shadow-md print-keep">
-
-
-        <h3 class="text-lg font-bold navy-text mb-4">
-
-            Ricorda! Se il denominatore è formato da più fattori, usiamo la <strong>legge di annullamento del prodotto</strong>:
-            poniamo <strong>ogni fattore diverso da zero</strong>
-            e risolviamo.
-
-        </h3>
-
-
-    
-
-
-    </div>
-
 
 </section>
 
@@ -882,6 +966,47 @@
     </div>
 
 </footer>
+
+
+
+<!-- ==================================================
+     SCRIPT MOSTRA / NASCONDI
+     ================================================== -->
+
+<script>
+
+    function toggleTopic(id, button) {
+
+        const content = document.getElementById(id);
+        const text = button.querySelector('.toggle-text');
+
+        const isOpen = content.classList.contains('open');
+
+        if (isOpen) {
+
+            content.classList.remove('open');
+            button.classList.remove('open');
+            text.textContent = 'Mostra spiegazione';
+
+        } else {
+
+            content.classList.add('open');
+            button.classList.add('open');
+            text.textContent = 'Nascondi spiegazione';
+
+            /*
+             * Quando una parte nascosta viene aperta,
+             * chiediamo a MathJax di ridisegnare le formule.
+             */
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([content]);
+            }
+
+        }
+
+    }
+
+</script>
 
 
 </body>
