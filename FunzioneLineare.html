@@ -24,7 +24,7 @@
             color: #0b2a4a;
         }
 
-        /* COLORI DI m E q */
+        /* COLORI m E q */
 
         .m-color {
             color: #B45309;
@@ -58,7 +58,95 @@
             color: #0b2a4a;
             font-size: 2.6rem;
             font-weight: 600;
-            margin: 12px 0 28px;
+            margin: 10px 0 26px;
+        }
+
+        /* GRAFICO + TABELLA */
+
+        .graph-table-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            max-width: 780px;
+            margin: 0 auto 28px;
+        }
+
+        .graph-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .axis {
+            stroke: #64748b;
+            stroke-width: 1.6;
+        }
+
+        .grid-line {
+            stroke: #e2e8f0;
+            stroke-width: 1;
+        }
+
+        .function-line {
+            stroke: #0b2a4a;
+            stroke-width: 3.5;
+        }
+
+        .axis-label {
+            fill: #475569;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .tick-label {
+            fill: #64748b;
+            font-size: 12px;
+        }
+
+        .point {
+            fill: #0F766E;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .point-label {
+            fill: #0F766E;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* TABELLA */
+
+        .values-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .values-table th {
+            background: #0b2a4a;
+            color: white;
+            padding: 9px;
+        }
+
+        .values-table td {
+            padding: 9px;
+            border: 1px solid #dbe3ec;
+            font-weight: 600;
+        }
+
+        .values-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        .example-equation {
+            color: #0b2a4a;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
         }
 
         /* m E q */
@@ -89,69 +177,19 @@
             margin-bottom: 4px;
         }
 
-        /* GRAFICO */
-
-        .graph-wrapper {
-            max-width: 600px;
-            margin: 0 auto 24px;
-            text-align: center;
-        }
-
-        .graph-svg {
-            width: 100%;
-            max-width: 520px;
-            height: auto;
-        }
-
-        .axis {
-            stroke: #64748b;
-            stroke-width: 1.6;
-        }
-
-        .grid-line {
-            stroke: #e2e8f0;
-            stroke-width: 1;
-        }
-
-        .line-function {
-            stroke: #0b2a4a;
-            stroke-width: 3.5;
-        }
-
-        .axis-label {
-            fill: #475569;
-            font-size: 15px;
-        }
-
-        .m-svg {
-            fill: #B45309;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .q-svg {
-            fill: #0F766E;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .q-point {
-            fill: #0F766E;
-        }
-
-        /* CRESCENTE / DECRESCENTE */
+        /* SEGNO DI m */
 
         .m-cases {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .m-case {
             background: #f8fafc;
             border-radius: 12px;
-            padding: 16px;
+            padding: 15px;
             text-align: center;
         }
 
@@ -160,7 +198,7 @@
             font-size: 1.15rem;
         }
 
-        /* BOX SEMPLICI */
+        /* BOX */
 
         .info-grid {
             display: grid;
@@ -172,7 +210,16 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 18px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .relation-symbol {
+            color: #0b2a4a;
+            font-size: 2.3rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
         .info-title {
@@ -180,8 +227,6 @@
             font-weight: 700;
             margin-bottom: 8px;
         }
-
-        /* FORMULE SECONDARIE */
 
         .small-formula {
             text-align: center;
@@ -193,23 +238,18 @@
 
         /* ESEMPI */
 
-        .examples-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
         .example {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 18px;
+            border-left: 5px solid #0F766E;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
         }
 
         .example-title {
             color: #0b2a4a;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
 
         /* PROPORZIONALITÀ */
@@ -226,12 +266,16 @@
             .parameter-grid,
             .m-cases,
             .info-grid,
-            .examples-grid {
+            .graph-table-container {
                 grid-template-columns: 1fr;
             }
 
             .main-equation {
                 font-size: 2.1rem;
+            }
+
+            .graph-table-container {
+                max-width: 500px;
             }
         }
     </style>
@@ -271,7 +315,7 @@
 <main class="container mx-auto px-4 py-10 max-w-5xl">
 
 
-    <!-- EQUAZIONE E GRAFICO -->
+    <!-- EQUAZIONE, GRAFICO E PARAMETRI -->
 
     <section class="section-card">
 
@@ -285,112 +329,228 @@
         </div>
 
 
-        <!-- GRAFICO -->
+        <!-- ESEMPIO NUMERICO -->
 
-        <div class="graph-wrapper">
-
-            <svg class="graph-svg"
-                 viewBox="0 0 520 300"
-                 xmlns="http://www.w3.org/2000/svg">
+        <div class="example-equation">
+            Esempio: f(x) = 2x + 1
+        </div>
 
 
-                <!-- GRIGLIA -->
-
-                <line x1="60" y1="60" x2="470" y2="60"
-                      class="grid-line"/>
-
-                <line x1="60" y1="120" x2="470" y2="120"
-                      class="grid-line"/>
-
-                <line x1="60" y1="180" x2="470" y2="180"
-                      class="grid-line"/>
-
-                <line x1="60" y1="240" x2="470" y2="240"
-                      class="grid-line"/>
+        <div class="graph-table-container">
 
 
-                <line x1="120" y1="30" x2="120" y2="270"
-                      class="grid-line"/>
+            <!-- GRAFICO -->
 
-                <line x1="200" y1="30" x2="200" y2="270"
-                      class="grid-line"/>
+            <div>
 
-                <line x1="280" y1="30" x2="280" y2="270"
-                      class="grid-line"/>
-
-                <line x1="360" y1="30" x2="360" y2="270"
-                      class="grid-line"/>
-
-                <line x1="440" y1="30" x2="440" y2="270"
-                      class="grid-line"/>
+                <svg class="graph-svg"
+                     viewBox="0 0 500 340"
+                     xmlns="http://www.w3.org/2000/svg">
 
 
-                <!-- ASSI -->
+                    <!-- GRIGLIA ORIZZONTALE -->
 
-                <line x1="45" y1="210"
-                      x2="485" y2="210"
-                      class="axis"/>
+                    <line x1="50" y1="50" x2="455" y2="50"
+                          class="grid-line"/>
 
-                <line x1="200" y1="275"
-                      x2="200" y2="25"
-                      class="axis"/>
+                    <line x1="50" y1="100" x2="455" y2="100"
+                          class="grid-line"/>
+
+                    <line x1="50" y1="150" x2="455" y2="150"
+                          class="grid-line"/>
+
+                    <line x1="50" y1="200" x2="455" y2="200"
+                          class="grid-line"/>
+
+                    <line x1="50" y1="250" x2="455" y2="250"
+                          class="grid-line"/>
+
+                    <line x1="50" y1="300" x2="455" y2="300"
+                          class="grid-line"/>
 
 
-                <!-- FRECCE -->
+                    <!-- GRIGLIA VERTICALE -->
 
-                <polyline points="476,205 485,210 476,215"
-                          fill="none"
+                    <line x1="100" y1="30" x2="100" y2="310"
+                          class="grid-line"/>
+
+                    <line x1="175" y1="30" x2="175" y2="310"
+                          class="grid-line"/>
+
+                    <line x1="250" y1="30" x2="250" y2="310"
+                          class="grid-line"/>
+
+                    <line x1="325" y1="30" x2="325" y2="310"
+                          class="grid-line"/>
+
+                    <line x1="400" y1="30" x2="400" y2="310"
+                          class="grid-line"/>
+
+
+                    <!-- ASSI -->
+
+                    <line x1="40" y1="250"
+                          x2="465" y2="250"
                           class="axis"/>
 
-                <polyline points="195,34 200,25 205,34"
-                          fill="none"
+                    <line x1="250" y1="315"
+                          x2="250" y2="20"
                           class="axis"/>
 
 
-                <!-- x / y -->
+                    <!-- FRECCE -->
 
-                <text x="470" y="198"
-                      class="axis-label">x</text>
+                    <polyline points="456,245 465,250 456,255"
+                              fill="none"
+                              class="axis"/>
 
-                <text x="212" y="38"
-                      class="axis-label">y</text>
-
-
-                <!-- RETTA -->
-
-                <line x1="80" y1="255"
-                      x2="450" y2="70"
-                      class="line-function"/>
+                    <polyline points="245,29 250,20 255,29"
+                              fill="none"
+                              class="axis"/>
 
 
-                <!-- q -->
+                    <!-- NOMI ASSI -->
 
-                <circle cx="200"
-                        cy="195"
-                        r="6"
-                        class="q-point"/>
+                    <text x="450"
+                          y="237"
+                          class="axis-label">
+                        x
+                    </text>
 
-                <text x="174"
-                      y="188"
-                      class="q-svg">
-
-                    q
-
-                </text>
-
-
-                <!-- m -->
-
-                <text x="345"
-                      y="105"
-                      class="m-svg">
-
-                    m
-
-                </text>
+                    <text x="260"
+                          y="32"
+                          class="axis-label">
+                        f(x)
+                    </text>
 
 
-            </svg>
+                    <!-- VALORI x -->
+
+                    <text x="171" y="270"
+                          class="tick-label">−1</text>
+
+                    <text x="246" y="270"
+                          class="tick-label">0</text>
+
+                    <text x="322" y="270"
+                          class="tick-label">1</text>
+
+
+                    <!-- VALORI f(x) -->
+
+                    <text x="228" y="305"
+                          class="tick-label">−1</text>
+
+                    <text x="232" y="205"
+                          class="tick-label">1</text>
+
+                    <text x="232" y="105"
+                          class="tick-label">3</text>
+
+
+                    <!-- RETTA f(x)=2x+1 -->
+
+                    <line x1="135" y1="325"
+                          x2="355" y2="30"
+                          class="function-line"/>
+
+
+                    <!-- PUNTO (-1,-1) -->
+
+                    <circle cx="175"
+                            cy="300"
+                            r="7"
+                            class="point"/>
+
+                    <text x="112"
+                          y="298"
+                          class="point-label">
+                        (−1, −1)
+                    </text>
+
+
+                    <!-- PUNTO (0,1) = q -->
+
+                    <circle cx="250"
+                            cy="200"
+                            r="7"
+                            class="point"/>
+
+                    <text x="260"
+                          y="192"
+                          class="point-label">
+                        (0, 1)
+                    </text>
+
+
+                    <!-- q SULL'ASSE -->
+
+                    <text x="215"
+                          y="190"
+                          style="
+                              fill:#0F766E;
+                              font-size:16px;
+                              font-weight:700;">
+                        q
+                    </text>
+
+
+                    <!-- PUNTO (1,3) -->
+
+                    <circle cx="325"
+                            cy="100"
+                            r="7"
+                            class="point"/>
+
+                    <text x="337"
+                          y="95"
+                          class="point-label">
+                        (1, 3)
+                    </text>
+
+
+                </svg>
+
+            </div>
+
+
+            <!-- TABELLA -->
+
+            <div>
+
+                <table class="values-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>x</th>
+                            <th>f(x)</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>−1</td>
+                            <td>−1</td>
+                        </tr>
+
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
 
         </div>
 
@@ -398,6 +558,7 @@
         <!-- SIGNIFICATO m E q -->
 
         <div class="parameter-grid">
+
 
             <div class="parameter parameter-m">
 
@@ -420,7 +581,7 @@
 
                 <p>
                     Indica il punto in cui la retta
-                    incontra l'asse y.
+                    incontra l'asse f(x).
                 </p>
 
             </div>
@@ -435,7 +596,7 @@
                 <strong>m &gt; 0</strong>
 
                 <div>
-                    retta crescente ↗
+                    funzione crescente ↗
                 </div>
 
             </div>
@@ -446,7 +607,7 @@
                 <strong>m &lt; 0</strong>
 
                 <div>
-                    retta decrescente ↘
+                    funzione decrescente ↘
                 </div>
 
             </div>
@@ -466,8 +627,7 @@
         </h2>
 
         <p>
-            La funzione lineare è definita
-            per ogni valore reale di x.
+            La funzione lineare è definita per ogni valore reale di x.
         </p>
 
         <div class="small-formula">
@@ -490,7 +650,13 @@
         <div class="info-grid">
 
 
+            <!-- PARALLELE -->
+
             <div class="info-box">
+
+                <div class="relation-symbol">
+                    ∥
+                </div>
 
                 <div class="info-title">
                     Rette parallele
@@ -507,19 +673,25 @@
             </div>
 
 
+            <!-- PERPENDICOLARI -->
+
             <div class="info-box">
+
+                <div class="relation-symbol">
+                    ⊥
+                </div>
 
                 <div class="info-title">
                     Rette perpendicolari
                 </div>
 
                 <p>
-                    Il prodotto dei coefficienti angolari
-                    è −1.
+                    I coefficienti angolari sono
+                    opposti e reciproci.
                 </p>
 
                 <div class="small-formula">
-                    m₁ · m₂ = −1
+                    m₁ = − 1/m₂
                 </div>
 
             </div>
@@ -540,53 +712,76 @@
         </h2>
 
 
-        <div class="examples-grid">
+        <div class="example">
 
-
-            <div class="example">
-
-                <div class="example-title">
-                    Interesse semplice
-                </div>
-
-                <p>
-                    Il capitale cresce nel tempo
-                    con un interesse calcolato
-                    sempre sul capitale iniziale.
-                </p>
-
+            <div class="example-title">
+                Interesse semplice a tasso fisso
             </div>
 
-
-            <div class="example">
-
-                <div class="example-title">
-                    Velocità costante
-                </div>
-
-                <p>
-                    A intervalli di tempo uguali
-                    corrispondono spostamenti uguali.
-                </p>
-
-            </div>
-
-
-            <div class="example">
-
-                <div class="example-title">
-                    Ore lavorate
-                </div>
-
-                <p>
-                    Lo stipendio cresce in funzione
-                    del numero di ore lavorate.
-                </p>
-
-            </div>
-
+            <p>
+                Il capitale cresce nel tempo con un interesse
+                calcolato sempre sul capitale iniziale.
+            </p>
 
         </div>
+
+
+        <div class="example">
+
+            <div class="example-title">
+                Moto a velocità costante
+            </div>
+
+            <p>
+                A intervalli di tempo uguali corrispondono
+                spostamenti uguali.
+            </p>
+
+        </div>
+
+
+        <div class="example">
+
+            <div class="example-title">
+                Stipendio e ore lavorate
+            </div>
+
+            <p>
+                Lo stipendio varia in funzione del numero
+                di ore lavorate, con una paga oraria costante.
+            </p>
+
+        </div>
+
+
+        <div class="example">
+
+            <div class="example-title">
+                Costo di un taxi
+            </div>
+
+            <p>
+                Il costo totale può essere formato da una quota
+                fissa iniziale e da un costo costante
+                per ogni chilometro percorso.
+            </p>
+
+        </div>
+
+
+        <div class="example">
+
+            <div class="example-title">
+                Conversione di temperatura
+            </div>
+
+            <p>
+                La conversione tra alcune scale di temperatura
+                è descritta da una relazione lineare.
+            </p>
+
+        </div>
+
 
     </section>
 
@@ -604,7 +799,7 @@
         <div class="direct-box">
 
             <div class="main-equation"
-                 style="margin: 0 0 12px 0;">
+                 style="margin:0 0 12px 0;">
 
                 f(x) =
                 <span class="m-color">m</span>x
@@ -649,4 +844,3 @@
 
 </body>
 </html>
-
