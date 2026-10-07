@@ -685,21 +685,483 @@
 
     <section class="section-card">
 
-        <h2 class="section-title">
-            Esempi di proporzionalità inversa
-        </h2>
+        <!-- ESEMPIO: VELOCITÀ E TEMPO -->
+<div class="example">
 
+    <div class="flex items-center justify-between gap-4">
 
-        <div class="example">
-
+        <div>
             <div class="example-title">
                 Velocità e tempo di percorrenza
             </div>
 
-            <p>
-                A parità di distanza, aumentando la velocità
-                diminuisce il tempo necessario per percorrerla.
+            <div class="text-gray-700">
+                A distanza fissa, aumentando la velocità diminuisce
+                il tempo di percorrenza.
+            </div>
+        </div>
+
+        <button
+            onclick="openSpeedModal()"
+            class="shrink-0 bg-green-700 hover:bg-green-800
+                   text-white font-semibold px-4 py-2
+                   rounded-lg transition cursor-pointer">
+            Vedi esempio
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================
+     FINESTRA ESEMPIO VELOCITÀ
+     ================================== -->
+
+<div id="speedModal"
+     class="fixed inset-0 bg-black/50 z-50
+            hidden items-center justify-center p-4">
+
+    <div class="bg-white rounded-2xl shadow-2xl
+                w-full max-w-5xl max-h-[92vh]
+                overflow-y-auto relative">
+
+        <!-- Intestazione -->
+        <div class="sticky top-0 bg-white border-b border-gray-200
+                    px-6 py-4 flex items-center justify-between z-10">
+
+            <h2 class="navy-text text-xl md:text-2xl font-bold">
+                Velocità e tempo di percorrenza
+            </h2>
+
+            <button
+                onclick="closeSpeedModal()"
+                class="text-gray-500 hover:text-gray-800
+                       text-3xl leading-none cursor-pointer"
+                aria-label="Chiudi">
+                &times;
+            </button>
+
+        </div>
+
+
+        <div class="p-6 md:p-8">
+
+            <!-- Introduzione -->
+            <p class="text-gray-700 text-lg mb-3">
+                Consideriamo un percorso di
+                <strong>120 km</strong> a velocità costante.
             </p>
+
+            <div class="text-center navy-text
+                        text-2xl md:text-3xl font-bold mb-8">
+                t(v) = 120 / v
+            </div>
+
+
+            <!-- TABELLA -->
+            <div class="overflow-x-auto mb-10">
+
+                <table class="w-full border-collapse text-center">
+
+                    <thead>
+                        <tr class="bg-gray-100 navy-text">
+                            <th class="border border-gray-300 p-3">
+                                Velocità
+                            </th>
+                            <th class="border border-gray-300 p-3">
+                                Tempo
+                            </th>
+                            <th class="border border-gray-300 p-3">
+                                Tempo risparmiato
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-gray-700">
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">30 km/h</td>
+                            <td class="border border-gray-300 p-3">4 h</td>
+                            <td class="border border-gray-300 p-3">—</td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">60 km/h</td>
+                            <td class="border border-gray-300 p-3">2 h</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                2 h
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">90 km/h</td>
+                            <td class="border border-gray-300 p-3">1 h 20 min</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                40 min
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">120 km/h</td>
+                            <td class="border border-gray-300 p-3">1 h</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                20 min
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">150 km/h</td>
+                            <td class="border border-gray-300 p-3">48 min</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                12 min
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">180 km/h</td>
+                            <td class="border border-gray-300 p-3">40 min</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                8 min
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">210 km/h</td>
+                            <td class="border border-gray-300 p-3">circa 34 min</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                circa 6 min
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="border border-gray-300 p-3">240 km/h</td>
+                            <td class="border border-gray-300 p-3">30 min</td>
+                            <td class="border border-gray-300 p-3 font-bold text-green-700">
+                                circa 4 min
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- GRAFICO -->
+            <div class="bg-gray-50 rounded-xl p-3 md:p-6 mb-7">
+
+                <svg viewBox="0 0 700 440"
+                     class="w-full h-auto"
+                     role="img"
+                     aria-label="Grafico del tempo di percorrenza in funzione della velocità">
+
+                    <!-- GRIGLIA ORIZZONTALE -->
+                    <g stroke="#e2e8f0" stroke-width="1">
+                        <line x1="80" y1="350" x2="650" y2="350"/>
+                        <line x1="80" y1="275" x2="650" y2="275"/>
+                        <line x1="80" y1="200" x2="650" y2="200"/>
+                        <line x1="80" y1="125" x2="650" y2="125"/>
+                        <line x1="80" y1="50"  x2="650" y2="50"/>
+                    </g>
+
+                    <!-- GRIGLIA VERTICALE -->
+                    <g stroke="#e2e8f0" stroke-width="1">
+                        <line x1="150" y1="50" x2="150" y2="350"/>
+                        <line x1="220" y1="50" x2="220" y2="350"/>
+                        <line x1="290" y1="50" x2="290" y2="350"/>
+                        <line x1="360" y1="50" x2="360" y2="350"/>
+                        <line x1="430" y1="50" x2="430" y2="350"/>
+                        <line x1="500" y1="50" x2="500" y2="350"/>
+                        <line x1="570" y1="50" x2="570" y2="350"/>
+                        <line x1="640" y1="50" x2="640" y2="350"/>
+                    </g>
+
+
+                    <!-- ASSI -->
+                    <line x1="80" y1="350"
+                          x2="660" y2="350"
+                          stroke="#475569"
+                          stroke-width="2"/>
+
+                    <line x1="80" y1="360"
+                          x2="80" y2="40"
+                          stroke="#475569"
+                          stroke-width="2"/>
+
+
+                    <!-- ETICHETTE ASSE Y -->
+                    <g fill="#475569"
+                       font-size="14"
+                       font-family="Segoe UI, sans-serif"
+                       text-anchor="end">
+
+                        <text x="68" y="355">0</text>
+                        <text x="68" y="280">1</text>
+                        <text x="68" y="205">2</text>
+                        <text x="68" y="130">3</text>
+                        <text x="68" y="55">4</text>
+
+                    </g>
+
+
+                    <!-- ETICHETTE ASSE X -->
+                    <g fill="#475569"
+                       font-size="13"
+                       font-family="Segoe UI, sans-serif"
+                       text-anchor="middle">
+
+                        <text x="150" y="375">30</text>
+                        <text x="220" y="375">60</text>
+                        <text x="290" y="375">90</text>
+                        <text x="360" y="375">120</text>
+                        <text x="430" y="375">150</text>
+                        <text x="500" y="375">180</text>
+                        <text x="570" y="375">210</text>
+                        <text x="640" y="375">240</text>
+
+                    </g>
+
+
+                    <!-- TITOLI ASSI -->
+                    <text x="370"
+                          y="420"
+                          fill="#0b2a4a"
+                          font-size="16"
+                          font-weight="600"
+                          font-family="Segoe UI, sans-serif"
+                          text-anchor="middle">
+                        velocità (km/h)
+                    </text>
+
+                    <text x="22"
+                          y="195"
+                          fill="#0b2a4a"
+                          font-size="16"
+                          font-weight="600"
+                          font-family="Segoe UI, sans-serif"
+                          text-anchor="middle"
+                          transform="rotate(-90 22 195)">
+                        tempo (h)
+                    </text>
+
+
+                    <!-- CURVA t(v) = 120/v -->
+                    <path id="speedCurve"
+                          fill="none"
+                          stroke="#0b2a4a"
+                          stroke-width="4"
+                          stroke-linecap="round"/>
+
+
+                    <!--
+                         DIFFERENZE DI ALTEZZA
+
+                         30 km/h -> 4 h
+                         60 km/h -> 2 h
+                         differenza = 2 h
+                    -->
+                    <line x1="185" y1="50"
+                          x2="185" y2="200"
+                          stroke="#15803D"
+                          stroke-width="5"
+                          stroke-linecap="round"/>
+
+                    <line x1="177" y1="50"
+                          x2="193" y2="50"
+                          stroke="#15803D"
+                          stroke-width="3"/>
+
+                    <line x1="177" y1="200"
+                          x2="193" y2="200"
+                          stroke="#15803D"
+                          stroke-width="3"/>
+
+                    <text x="198"
+                          y="130"
+                          fill="#15803D"
+                          font-size="15"
+                          font-weight="700"
+                          font-family="Segoe UI, sans-serif">
+                        2 h
+                    </text>
+
+
+                    <!--
+                         60 km/h -> 2 h
+                         90 km/h -> 1 h 20 min
+                         differenza = 40 min
+                    -->
+                    <line x1="255" y1="200"
+                          x2="255" y2="250"
+                          stroke="#15803D"
+                          stroke-width="5"
+                          stroke-linecap="round"/>
+
+                    <line x1="247" y1="200"
+                          x2="263" y2="200"
+                          stroke="#15803D"
+                          stroke-width="3"/>
+
+                    <line x1="247" y1="250"
+                          x2="263" y2="250"
+                          stroke="#15803D"
+                          stroke-width="3"/>
+
+                    <text x="267"
+                          y="230"
+                          fill="#15803D"
+                          font-size="15"
+                          font-weight="700"
+                          font-family="Segoe UI, sans-serif">
+                        40 min
+                    </text>
+
+
+                    <!-- PUNTI DELLA TABELLA -->
+                    <g fill="#3b82f6"
+                       stroke="white"
+                       stroke-width="3">
+
+                        <!-- 30 km/h, 4 h -->
+                        <circle cx="150" cy="50" r="7"/>
+
+                        <!-- 60 km/h, 2 h -->
+                        <circle cx="220" cy="200" r="7"/>
+
+                        <!-- 90 km/h, 1.333 h -->
+                        <circle cx="290" cy="250" r="7"/>
+
+                        <!-- 120 km/h, 1 h -->
+                        <circle cx="360" cy="275" r="7"/>
+
+                        <!-- 150 km/h, 0.8 h -->
+                        <circle cx="430" cy="290" r="7"/>
+
+                        <!-- 180 km/h, 0.667 h -->
+                        <circle cx="500" cy="300" r="7"/>
+
+                        <!-- 210 km/h, 0.571 h -->
+                        <circle cx="570" cy="307.1" r="7"/>
+
+                        <!-- 240 km/h, 0.5 h -->
+                        <circle cx="640" cy="312.5" r="7"/>
+
+                    </g>
+
+                </svg>
+
+            </div>
+
+
+            <!-- SPIEGAZIONE -->
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+
+                Il <strong>tempo risparmiato</strong> si ottiene confrontando
+                <strong>l'altezza di due punti consecutivi del grafico</strong>.
+                Aumentando ogni volta la velocità di 30 km/h, queste differenze
+                diventano sempre più piccole.
+                <strong>La relazione non è lineare:</strong>
+                all'aumentare della velocità, il tempo diminuisce,
+                ma non diminuisce sempre della stessa quantità.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+/* ==================================
+   FINESTRA ESEMPIO VELOCITÀ
+   ================================== */
+
+function openSpeedModal() {
+    const modal = document.getElementById("speedModal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+}
+
+function closeSpeedModal() {
+    const modal = document.getElementById("speedModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+}
+
+/* Chiude la finestra cliccando sullo sfondo */
+document.getElementById("speedModal").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeSpeedModal();
+    }
+});
+
+/* Chiude la finestra con ESC */
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeSpeedModal();
+    }
+});
+
+
+/* ==================================
+   GRAFICO t(v) = 120 / v
+   ================================== */
+
+(function () {
+
+    /*
+       Coordinate del grafico:
+
+       velocità 30 km/h  -> x = 150
+       velocità 240 km/h -> x = 640
+
+       tempo 0 h -> y = 350
+       tempo 4 h -> y = 50
+    */
+
+    function graphX(v) {
+        return 150 + ((v - 30) / 30) * 70;
+    }
+
+    function graphY(t) {
+        return 350 - t * 75;
+    }
+
+    let path = "";
+    let firstPoint = true;
+
+    /*
+       Calcoliamo molti punti reali della funzione
+       t(v) = 120/v, così la curva non è disegnata
+       "a occhio".
+    */
+    for (let v = 30; v <= 240; v += 0.5) {
+
+        const t = 120 / v;
+
+        const x = graphX(v);
+        const y = graphY(t);
+
+        if (firstPoint) {
+            path += "M " + x.toFixed(2) + " " + y.toFixed(2);
+            firstPoint = false;
+        } else {
+            path += " L " + x.toFixed(2) + " " + y.toFixed(2);
+        }
+    }
+
+    document
+        .getElementById("speedCurve")
+        .setAttribute("d", path);
+
+})();
+</script>
 
         </div>
 
