@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Proporzionalità inversa · Matematica</title>
+    <title>Proporzionalità inversa</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
 
+    <script
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        async>
+    </script>
+
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             background-color: #f8fafc;
+            color: #0b2a4a;
         }
 
         .navy-bg {
@@ -25,1383 +38,1173 @@
             color: #0b2a4a;
         }
 
-        .section-card {
+        .green-text {
+            color: #15803D;
+        }
+
+        .green-bg-light {
+            background-color: #f0fdf4;
+        }
+
+        .content-card {
             background-color: white;
             border-radius: 16px;
-            padding: 26px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.10);
         }
 
-        .section-title {
-            color: #0b2a4a;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+        /* CARD DEGLI ESEMPI */
+        .example-card {
+            background-color: white;
+            border: 2px solid #0b2a4a;
+            border-radius: 14px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .main-equation {
-            text-align: center;
-            color: #0b2a4a;
-            font-size: 2.7rem;
-            font-weight: 600;
-            margin: 8px 0 30px;
+        .example-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(11, 42, 74, 0.14);
         }
 
-        /* GRAFICO + TABELLA */
-
-        .graph-table-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 32px;
-            align-items: center;
-            max-width: 850px;
-            margin: 0 auto 30px;
-        }
-
-        .graph-svg {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            display: block;
-            margin: auto;
-        }
-
-        /* TABELLA */
-
-        .values-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-        }
-
-        .values-table th {
+        .example-button {
+            margin-top: 14px;
             background-color: #0b2a4a;
             color: white;
-            padding: 10px;
-            border: 1px solid #0b2a4a;
-        }
-
-        .values-table td {
-            padding: 10px;
-            border: 1px solid #dbe3ec;
             font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
         }
 
-        .values-table tr:nth-child(even) td {
-            background-color: #f8fafc;
+        .example-button:hover {
+            background-color: #163f68;
         }
 
-        /* PROPRIETÀ */
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        .property-box {
-            background-color: #f0fdf4;
-            border-radius: 12px;
-            padding: 18px;
-            border-left: 5px solid #15803D;
-        }
-
-        .property-title {
-            color: #15803D;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        /* DOMINIO */
-
-        .warning-box {
-            background-color: #fef2f2;
-            border-left: 6px solid #dc2626;
-            border-radius: 12px;
+        /* MODALE */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background-color: rgba(15, 23, 42, 0.65);
             padding: 20px;
-            margin-top: 15px;
+            overflow-y: auto;
         }
 
-        .warning-title {
-            color: #dc2626;
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: 8px;
+        .modal.show {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
 
-        .domain-formula {
-            color: #0b2a4a;
+        .modal-content {
+            background-color: white;
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: #0b2a4a;
+            color: white;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-button {
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+
+        .formula {
+            font-size: 1.8rem;
             text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 16px 0 8px;
-        }
-
-        /* ESEMPI */
-
-        .example {
-            background-color: #f0fdf4;
-            border-left: 5px solid #15803D;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin-bottom: 12px;
-        }
-
-        .example-title {
-            color: #15803D;
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-
-        .more-examples {
-            text-align: center;
+            font-weight: 600;
+            margin: 25px 0;
             color: #0b2a4a;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-top: 6px;
         }
 
-        @media (max-width: 700px) {
-
-            .graph-table-container {
-                grid-template-columns: 1fr;
-            }
-
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .main-equation {
-                font-size: 2.2rem;
-            }
-
+        .main-graph {
+            width: 100%;
+            max-width: 540px;
+            height: auto;
         }
 
+        .speed-graph {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+            }
+
+            .content-card {
+                box-shadow: none;
+            }
+        }
     </style>
-
 </head>
 
+<body>
 
-<body class="text-gray-800">
+    <!-- HEADER -->
+    <header class="navy-bg text-white py-8">
+        <div class="max-w-6xl mx-auto px-5">
 
+            <a href="FunzioniElementari.html"
+               class="inline-block mb-5 text-sm font-semibold hover:underline">
+                ← Funzioni elementari
+            </a>
 
-<!-- ==================================
-     HEADER
-     ================================== -->
-
-<header class="navy-bg text-white py-10 shadow-lg">
-
-    <div class="container mx-auto px-4">
-
-        <a href="FunzioniElementari.html"
-           class="inline-block mb-6 px-4 py-2
-                  bg-white text-[#0b2a4a]
-                  font-semibold rounded-lg shadow
-                  hover:bg-gray-100 transition">
-
-            ← Funzioni elementari
-
-        </a>
-
-        <div class="text-center">
-
-            <h1 class="text-4xl font-extrabold">
+            <h1 class="text-3xl md:text-4xl font-bold">
                 Proporzionalità inversa
             </h1>
 
+            <p class="mt-2 text-blue-100">
+                La funzione \(f(x)=\frac{1}{x}\)
+            </p>
+
         </div>
-
-    </div>
-
-</header>
+    </header>
 
 
+    <main class="max-w-6xl mx-auto px-5 py-10">
 
-<!-- ==================================
-     CONTENUTO
-     ================================== -->
-
-<main class="container mx-auto px-4 py-10 max-w-5xl">
-
-
-    <!-- FORMULA E GRAFICO -->
-
-    <section class="section-card">
-
-        <div class="main-equation">
-            f(x) = 1/x
+        <!-- FORMULA -->
+        <div class="text-center mb-10">
+            <div class="text-3xl md:text-4xl font-bold navy-text">
+                \(f(x)=\frac{1}{x}\)
+            </div>
         </div>
 
 
-        <div class="graph-table-container">
+        <!-- GRAFICO + TABELLA -->
+        <section class="content-card p-6 md:p-8 mb-8">
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
 
+                <!-- GRAFICO -->
+                <div class="flex justify-center">
 
-            <!-- ==========================
-                 GRAFICO
-                 ========================== -->
+                    <svg
+                        id="inverseGraph"
+                        class="main-graph"
+                        viewBox="0 0 500 500"
+                        aria-label="Grafico della funzione f(x)=1/x">
+
+                        <!-- GRIGLIA -->
+                        <g stroke="#e2e8f0" stroke-width="1">
+
+                            <line x1="50" y1="50" x2="50" y2="450"/>
+                            <line x1="100" y1="50" x2="100" y2="450"/>
+                            <line x1="150" y1="50" x2="150" y2="450"/>
+                            <line x1="200" y1="50" x2="200" y2="450"/>
+                            <line x1="250" y1="50" x2="250" y2="450"/>
+                            <line x1="300" y1="50" x2="300" y2="450"/>
+                            <line x1="350" y1="50" x2="350" y2="450"/>
+                            <line x1="400" y1="50" x2="400" y2="450"/>
+                            <line x1="450" y1="50" x2="450" y2="450"/>
 
-            <div>
+                            <line x1="50" y1="50" x2="450" y2="50"/>
+                            <line x1="50" y1="100" x2="450" y2="100"/>
+                            <line x1="50" y1="150" x2="450" y2="150"/>
+                            <line x1="50" y1="200" x2="450" y2="200"/>
+                            <line x1="50" y1="250" x2="450" y2="250"/>
+                            <line x1="50" y1="300" x2="450" y2="300"/>
+                            <line x1="50" y1="350" x2="450" y2="350"/>
+                            <line x1="50" y1="400" x2="450" y2="400"/>
+                            <line x1="50" y1="450" x2="450" y2="450"/>
 
-                <svg id="inverseGraph"
-                     class="graph-svg"
-                     viewBox="0 0 500 500"
-                     xmlns="http://www.w3.org/2000/svg">
+                        </g>
 
 
-                    <!-- GRIGLIA -->
+                        <!-- ASSI -->
+                        <g stroke="#64748b" stroke-width="2">
+                            <line x1="50" y1="250" x2="460" y2="250"/>
+                            <line x1="250" y1="460" x2="250" y2="40"/>
+                        </g>
 
-                    <g stroke="#e2e8f0"
-                       stroke-width="1">
 
-                        <!-- verticali -->
+                        <!-- FRECCE -->
+                        <polygon points="460,250 450,245 450,255"
+                                 fill="#64748b"/>
 
-                        <line x1="50" y1="50"
-                              x2="50" y2="450"/>
+                        <polygon points="250,40 245,50 255,50"
+                                 fill="#64748b"/>
 
-                        <line x1="100" y1="50"
-                              x2="100" y2="450"/>
 
-                        <line x1="150" y1="50"
-                              x2="150" y2="450"/>
+                        <!-- ETICHETTE ASSI -->
+                        <text x="466" y="255"
+                              fill="#475569"
+                              font-size="15">
+                            x
+                        </text>
 
-                        <line x1="200" y1="50"
-                              x2="200" y2="450"/>
+                        <text x="260" y="35"
+                              fill="#475569"
+                              font-size="15">
+                            f(x)
+                        </text>
 
-                        <line x1="250" y1="50"
-                              x2="250" y2="450"/>
 
-                        <line x1="300" y1="50"
-                              x2="300" y2="450"/>
+                        <!-- NUMERI ASSE X -->
+                        <g fill="#64748b"
+                           font-size="12"
+                           text-anchor="middle">
 
-                        <line x1="350" y1="50"
-                              x2="350" y2="450"/>
+                            <text x="50" y="270">−4</text>
+                            <text x="100" y="270">−3</text>
+                            <text x="150" y="270">−2</text>
+                            <text x="200" y="270">−1</text>
 
-                        <line x1="400" y1="50"
-                              x2="400" y2="450"/>
+                            <text x="300" y="270">1</text>
+                            <text x="350" y="270">2</text>
+                            <text x="400" y="270">3</text>
+                            <text x="450" y="270">4</text>
 
-                        <line x1="450" y1="50"
-                              x2="450" y2="450"/>
+                        </g>
 
 
-                        <!-- orizzontali -->
+                        <!-- NUMERI ASSE f(x) -->
+                        <g fill="#64748b"
+                           font-size="12"
+                           text-anchor="end">
+
+                            <text x="242" y="454">−4</text>
+                            <text x="242" y="404">−3</text>
+                            <text x="242" y="354">−2</text>
+                            <text x="242" y="304">−1</text>
+
+                            <text x="242" y="204">1</text>
+                            <text x="242" y="154">2</text>
+                            <text x="242" y="104">3</text>
+                            <text x="242" y="54">4</text>
+
+                        </g>
 
-                        <line x1="50" y1="50"
-                              x2="450" y2="50"/>
 
-                        <line x1="50" y1="100"
-                              x2="450" y2="100"/>
+                        <!-- CURVA GENERATA DA JAVASCRIPT -->
+                        <path id="leftBranch"
+                              fill="none"
+                              stroke="#0b2a4a"
+                              stroke-width="3"
+                              stroke-linecap="round"/>
 
-                        <line x1="50" y1="150"
-                              x2="450" y2="150"/>
+                        <path id="rightBranch"
+                              fill="none"
+                              stroke="#0b2a4a"
+                              stroke-width="3"
+                              stroke-linecap="round"/>
 
-                        <line x1="50" y1="200"
-                              x2="450" y2="200"/>
 
-                        <line x1="50" y1="250"
-                              x2="450" y2="250"/>
+                        <!-- PUNTI -->
+                        <g fill="#3b82f6">
 
-                        <line x1="50" y1="300"
-                              x2="450" y2="300"/>
+                            <!-- (-2,-1/2) -->
+                            <circle cx="150" cy="275" r="6"/>
 
-                        <line x1="50" y1="350"
-                              x2="450" y2="350"/>
+                            <!-- (-1,-1) -->
+                            <circle cx="200" cy="300" r="6"/>
 
-                        <line x1="50" y1="400"
-                              x2="450" y2="400"/>
+                            <!-- (1,1) -->
+                            <circle cx="300" cy="200" r="6"/>
 
-                        <line x1="50" y1="450"
-                              x2="450" y2="450"/>
+                            <!-- (2,1/2) -->
+                            <circle cx="350" cy="225" r="6"/>
 
-                    </g>
+                        </g>
 
+                    </svg>
 
-                    <!-- ASSI CARTESIANI -->
+                </div>
 
-                    <g stroke="#475569"
-                       stroke-width="2">
 
-                        <line x1="40" y1="250"
-                              x2="465" y2="250"/>
+                <!-- TABELLA -->
+                <div>
 
-                        <line x1="250" y1="465"
-                              x2="250" y2="35"/>
+                    <h2 class="text-xl font-bold mb-4">
+                        Alcuni punti del grafico
+                    </h2>
 
-                    </g>
+                    <div class="overflow-x-auto">
 
+                        <table class="w-full text-center border-collapse">
 
-                    <!-- FRECCE -->
+                            <thead>
+                                <tr class="navy-bg text-white">
+                                    <th class="p-3 border border-slate-300">
+                                        \(x\)
+                                    </th>
+                                    <th class="p-3 border border-slate-300">
+                                        \(f(x)\)
+                                    </th>
+                                </tr>
+                            </thead>
 
-                    <g fill="#475569">
+                            <tbody>
 
-                        <polygon points="465,250 455,245 455,255"/>
+                                <tr>
+                                    <td class="p-3 border border-slate-300">
+                                        \(-2\)
+                                    </td>
+                                    <td class="p-3 border border-slate-300">
+                                        \(-\frac12\)
+                                    </td>
+                                </tr>
 
-                        <polygon points="250,35 245,45 255,45"/>
+                                <tr>
+                                    <td class="p-3 border border-slate-300">
+                                        \(-1\)
+                                    </td>
+                                    <td class="p-3 border border-slate-300">
+                                        \(-1\)
+                                    </td>
+                                </tr>
 
-                    </g>
+                                <tr>
+                                    <td class="p-3 border border-slate-300">
+                                        \(1\)
+                                    </td>
+                                    <td class="p-3 border border-slate-300">
+                                        \(1\)
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td class="p-3 border border-slate-300">
+                                        \(2\)
+                                    </td>
+                                    <td class="p-3 border border-slate-300">
+                                        \(\frac12\)
+                                    </td>
+                                </tr>
 
-                    <!-- NUMERI ASSE x -->
+                            </tbody>
 
-                    <g fill="#64748b"
-                       font-size="13"
-                       font-family="Segoe UI, sans-serif"
-                       text-anchor="middle">
+                        </table>
 
-                        <text x="50" y="270">−4</text>
-                        <text x="100" y="270">−3</text>
-                        <text x="150" y="270">−2</text>
-                        <text x="200" y="270">−1</text>
+                    </div>
 
-                        <text x="300" y="270">1</text>
-                        <text x="350" y="270">2</text>
-                        <text x="400" y="270">3</text>
-                        <text x="450" y="270">4</text>
-
-                    </g>
-
-
-                    <!-- NUMERI ASSE f(x) -->
-
-                    <g fill="#64748b"
-                       font-size="13"
-                       font-family="Segoe UI, sans-serif"
-                       text-anchor="end">
-
-                        <text x="240" y="55">4</text>
-                        <text x="240" y="105">3</text>
-                        <text x="240" y="155">2</text>
-                        <text x="240" y="205">1</text>
-
-                        <text x="240" y="305">−1</text>
-                        <text x="240" y="355">−2</text>
-                        <text x="240" y="405">−3</text>
-                        <text x="240" y="455">−4</text>
-
-                    </g>
-
-
-                    <!-- ORIGINE -->
-
-                    <text x="236"
-                          y="269"
-                          fill="#64748b"
-                          font-size="13"
-                          font-family="Segoe UI, sans-serif">
-
-                        0
-
-                    </text>
-
-
-                    <!-- NOMI ASSI -->
-
-                    <text x="466"
-                          y="238"
-                          fill="#0b2a4a"
-                          font-size="16"
-                          font-weight="700"
-                          font-family="Segoe UI, sans-serif">
-
-                        x
-
-                    </text>
-
-
-                    <text x="262"
-                          y="38"
-                          fill="#0b2a4a"
-                          font-size="16"
-                          font-weight="700"
-                          font-family="Segoe UI, sans-serif">
-
-                        f(x)
-
-                    </text>
-
-
-                    <!-- RAMI DELL'IPERBOLE -->
-
-                    <path id="branchNegative"
-                          fill="none"
-                          stroke="#0b2a4a"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-
-
-                    <path id="branchPositive"
-                          fill="none"
-                          stroke="#0b2a4a"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-
-
-                    <!-- PUNTI DELLA TABELLA -->
-
-
-                    <!-- (-2, -1/2) -->
-
-                    <circle cx="150"
-                            cy="275"
-                            r="6"
-                            fill="#3b82f6"
-                            stroke="white"
-                            stroke-width="2"/>
-
-
-                    <!-- (-1, -1) -->
-
-                    <circle cx="200"
-                            cy="300"
-                            r="6"
-                            fill="#3b82f6"
-                            stroke="white"
-                            stroke-width="2"/>
-
-
-                    <!-- (1, 1) -->
-
-                    <circle cx="300"
-                            cy="200"
-                            r="6"
-                            fill="#3b82f6"
-                            stroke="white"
-                            stroke-width="2"/>
-
-
-                    <!-- (2, 1/2) -->
-
-                    <circle cx="350"
-                            cy="225"
-                            r="6"
-                            fill="#3b82f6"
-                            stroke="white"
-                            stroke-width="2"/>
-
-                </svg>
+                </div>
 
             </div>
 
+        </section>
 
 
-            <!-- ==========================
-                 TABELLA
-                 ========================== -->
+        <!-- PROPRIETÀ -->
+        <section class="grid md:grid-cols-2 gap-6 mb-8">
 
-            <div>
-
-                <table class="values-table">
-
-                    <thead>
-
-                        <tr>
-                            <th>x</th>
-                            <th>f(x)</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>−2</td>
-                            <td>−1/2</td>
-                        </tr>
-
-                        <tr>
-                            <td>−1</td>
-                            <td>−1</td>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>1/2</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- CARATTERISTICHE -->
-
-        <div class="property-grid">
-
-            <div class="property-box">
-
-                <div class="property-title">
+            <div class="content-card p-6">
+                <h2 class="text-xl font-bold mb-2">
                     Iperbole equilatera
-                </div>
+                </h2>
 
                 <p>
-                    Il grafico della funzione è
-                    un'iperbole equilatera.
+                    Il grafico della funzione
+                    \(f(x)=\frac{1}{x}\)
+                    è un'iperbole equilatera.
                 </p>
-
             </div>
 
 
-            <div class="property-box">
-
-                <div class="property-title">
+            <div class="content-card p-6">
+                <h2 class="text-xl font-bold mb-2">
                     Simmetria
-                </div>
+                </h2>
 
                 <p>
-                    Il grafico è simmetrico
-                    rispetto all'origine.
+                    Il grafico è simmetrico rispetto all'origine.
                 </p>
-
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
+        <!-- DOMINIO -->
+        <section class="content-card p-6 md:p-8 mb-8">
 
-    <!-- ==================================
-         DOMINIO
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-            Dominio
-        </h2>
-
-
-        <div class="warning-box">
-
-            <div class="warning-title">
-                Attenzione: non si può dividere per zero!
-            </div>
-
-            <p>
-                Nella funzione
-                <strong>f(x) = 1/x</strong>
-                la variabile x si trova al denominatore.
-            </p>
-
-
-            <p class="mt-3">
-
-                Il denominatore deve quindi essere
-                <strong>diverso da zero</strong>:
-
-            </p>
-
-
-            <div class="domain-formula">
-                x ≠ 0
-            </div>
-
-
-            <p class="text-center">
-                Il valore 0 deve essere escluso dal dominio.
-            </p>
-
-
-            <div class="domain-formula">
-                D = ℝ \ {0}
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         COME VARIA
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-            Come varia la funzione?
-        </h2>
-
-
-        <p class="mb-5">
-
-            Nella proporzionalità inversa,
-            quando una grandezza aumenta,
-            l'altra diminuisce.
-
-        </p>
-
-
-        <div class="property-grid">
-
-            <div class="property-box">
-
-                <div class="property-title">
-                    x aumenta ↑
-                </div>
-
-                <p>
-                    Per x positivo, aumentando x,
-                    il valore di f(x) diminuisce.
-                </p>
-
-            </div>
-
-
-            <div class="property-box">
-
-                <div class="property-title">
-                    f(x) diminuisce ↓
-                </div>
-
-                <p>
-                    Per esempio, se x raddoppia,
-                    f(x) si dimezza.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         ESEMPI
-         ================================== -->
-
-    <section class="section-card">
-
-        <!-- ESEMPIO: VELOCITÀ E TEMPO -->
-<div class="example">
-
-    <div class="flex items-center justify-between gap-4">
-
-        <div>
-            <div class="example-title">
-                Velocità e tempo di percorrenza
-            </div>
-
-            <div class="text-gray-700">
-                A distanza fissa, aumentando la velocità diminuisce
-                il tempo di percorrenza.
-            </div>
-        </div>
-
-        <button
-            onclick="openSpeedModal()"
-            class="shrink-0 bg-green-700 hover:bg-green-800
-                   text-white font-semibold px-4 py-2
-                   rounded-lg transition cursor-pointer">
-            Vedi esempio
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ==================================
-     FINESTRA ESEMPIO VELOCITÀ
-     ================================== -->
-
-<div id="speedModal"
-     class="fixed inset-0 bg-black/50 z-50
-            hidden items-center justify-center p-4">
-
-    <div class="bg-white rounded-2xl shadow-2xl
-                w-full max-w-5xl max-h-[92vh]
-                overflow-y-auto relative">
-
-        <!-- Intestazione -->
-        <div class="sticky top-0 bg-white border-b border-gray-200
-                    px-6 py-4 flex items-center justify-between z-10">
-
-            <h2 class="navy-text text-xl md:text-2xl font-bold">
-                Velocità e tempo di percorrenza
+            <h2 class="text-2xl font-bold mb-4">
+                Dominio
             </h2>
 
-            <button
-                onclick="closeSpeedModal()"
-                class="text-gray-500 hover:text-gray-800
-                       text-3xl leading-none cursor-pointer"
-                aria-label="Chiudi">
-                &times;
-            </button>
+            <div class="green-bg-light border-l-4 border-green-700 p-5 rounded-r-xl">
 
-        </div>
+                <p class="font-semibold mb-2">
+                    Non è possibile dividere per zero.
+                </p>
+
+                <p class="text-xl green-text font-bold mb-2">
+                    \(x \neq 0\)
+                </p>
+
+                <p class="text-xl font-bold">
+                    \(D=\mathbb{R}\setminus\{0\}\)
+                </p>
+
+            </div>
+
+        </section>
 
 
-        <div class="p-6 md:p-8">
+        <!-- COME VARIA -->
+        <section class="content-card p-6 md:p-8 mb-8">
 
-            <!-- Introduzione -->
-            <p class="text-gray-700 text-lg mb-3">
-                Consideriamo un percorso di
-                <strong>120 km</strong> a velocità costante.
+            <h2 class="text-2xl font-bold mb-4">
+                Come varia?
+            </h2>
+
+            <p class="mb-4">
+                Nella proporzionalità inversa, quando una grandezza
+                aumenta, l'altra diminuisce.
             </p>
 
-            <div class="text-center navy-text
-                        text-2xl md:text-3xl font-bold mb-8">
-                t(v) = 120 / v
-            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
 
+                <div class="green-bg-light rounded-xl p-5 text-center">
+                    <div class="text-2xl font-bold green-text mb-2">
+                        x aumenta ↑
+                    </div>
+                    <p>
+                        Per valori positivi di \(x\),
+                        \(f(x)\) diminuisce.
+                    </p>
+                </div>
 
-            <!-- TABELLA -->
-            <div class="overflow-x-auto mb-10">
-
-                <table class="w-full border-collapse text-center">
-
-                    <thead>
-                        <tr class="bg-gray-100 navy-text">
-                            <th class="border border-gray-300 p-3">
-                                Velocità
-                            </th>
-                            <th class="border border-gray-300 p-3">
-                                Tempo
-                            </th>
-                            <th class="border border-gray-300 p-3">
-                                Tempo risparmiato
-                            </th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="text-gray-700">
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">30 km/h</td>
-                            <td class="border border-gray-300 p-3">4 h</td>
-                            <td class="border border-gray-300 p-3">—</td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">60 km/h</td>
-                            <td class="border border-gray-300 p-3">2 h</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                2 h
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">90 km/h</td>
-                            <td class="border border-gray-300 p-3">1 h 20 min</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                40 min
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">120 km/h</td>
-                            <td class="border border-gray-300 p-3">1 h</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                20 min
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">150 km/h</td>
-                            <td class="border border-gray-300 p-3">48 min</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                12 min
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">180 km/h</td>
-                            <td class="border border-gray-300 p-3">40 min</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                8 min
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">210 km/h</td>
-                            <td class="border border-gray-300 p-3">circa 34 min</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                circa 6 min
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="border border-gray-300 p-3">240 km/h</td>
-                            <td class="border border-gray-300 p-3">30 min</td>
-                            <td class="border border-gray-300 p-3 font-bold text-green-700">
-                                circa 4 min
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
+                <div class="green-bg-light rounded-xl p-5 text-center">
+                    <div class="text-2xl font-bold green-text mb-2">
+                        x raddoppia ×2
+                    </div>
+                    <p>
+                        \(f(x)\) si dimezza ÷2.
+                    </p>
+                </div>
 
             </div>
 
-
-            <!-- GRAFICO -->
-            <div class="bg-gray-50 rounded-xl p-3 md:p-6 mb-7">
-
-                <svg viewBox="0 0 700 440"
-                     class="w-full h-auto"
-                     role="img"
-                     aria-label="Grafico del tempo di percorrenza in funzione della velocità">
-
-                    <!-- GRIGLIA ORIZZONTALE -->
-                    <g stroke="#e2e8f0" stroke-width="1">
-                        <line x1="80" y1="350" x2="650" y2="350"/>
-                        <line x1="80" y1="275" x2="650" y2="275"/>
-                        <line x1="80" y1="200" x2="650" y2="200"/>
-                        <line x1="80" y1="125" x2="650" y2="125"/>
-                        <line x1="80" y1="50"  x2="650" y2="50"/>
-                    </g>
-
-                    <!-- GRIGLIA VERTICALE -->
-                    <g stroke="#e2e8f0" stroke-width="1">
-                        <line x1="150" y1="50" x2="150" y2="350"/>
-                        <line x1="220" y1="50" x2="220" y2="350"/>
-                        <line x1="290" y1="50" x2="290" y2="350"/>
-                        <line x1="360" y1="50" x2="360" y2="350"/>
-                        <line x1="430" y1="50" x2="430" y2="350"/>
-                        <line x1="500" y1="50" x2="500" y2="350"/>
-                        <line x1="570" y1="50" x2="570" y2="350"/>
-                        <line x1="640" y1="50" x2="640" y2="350"/>
-                    </g>
+        </section>
 
 
-                    <!-- ASSI -->
-                    <line x1="80" y1="350"
-                          x2="660" y2="350"
-                          stroke="#475569"
-                          stroke-width="2"/>
+        <!-- ESEMPI -->
+        <section class="mb-8">
 
-                    <line x1="80" y1="360"
-                          x2="80" y2="40"
-                          stroke="#475569"
-                          stroke-width="2"/>
+            <h2 class="text-2xl font-bold mb-5">
+                Esempi nella realtà
+            </h2>
 
 
-                    <!-- ETICHETTE ASSE Y -->
-                    <g fill="#475569"
-                       font-size="14"
-                       font-family="Segoe UI, sans-serif"
-                       text-anchor="end">
+            <div class="grid md:grid-cols-2 gap-5">
 
-                        <text x="68" y="355">0</text>
-                        <text x="68" y="280">1</text>
-                        <text x="68" y="205">2</text>
-                        <text x="68" y="130">3</text>
-                        <text x="68" y="55">4</text>
+                <!-- VELOCITÀ -->
+                <div class="example-card">
 
-                    </g>
+                    <h3 class="text-lg font-bold mb-2">
+                        Velocità e tempo di percorrenza
+                    </h3>
 
+                    <p>
+                        A distanza fissata, aumentando la velocità
+                        diminuisce il tempo necessario per percorrerla.
+                    </p>
 
-                    <!-- ETICHETTE ASSE X -->
-                    <g fill="#475569"
-                       font-size="13"
-                       font-family="Segoe UI, sans-serif"
-                       text-anchor="middle">
+                    <button
+                        class="example-button"
+                        onclick="openSpeedModal()">
+                        Vedi esempio
+                    </button>
 
-                        <text x="150" y="375">30</text>
-                        <text x="220" y="375">60</text>
-                        <text x="290" y="375">90</text>
-                        <text x="360" y="375">120</text>
-                        <text x="430" y="375">150</text>
-                        <text x="500" y="375">180</text>
-                        <text x="570" y="375">210</text>
-                        <text x="640" y="375">240</text>
-
-                    </g>
+                </div>
 
 
-                    <!-- TITOLI ASSI -->
-                    <text x="370"
-                          y="420"
-                          fill="#0b2a4a"
-                          font-size="16"
-                          font-weight="600"
-                          font-family="Segoe UI, sans-serif"
-                          text-anchor="middle">
-                        velocità (km/h)
-                    </text>
+                <!-- LAVORATORI -->
+                <div class="example-card">
 
-                    <text x="22"
-                          y="195"
-                          fill="#0b2a4a"
-                          font-size="16"
-                          font-weight="600"
-                          font-family="Segoe UI, sans-serif"
-                          text-anchor="middle"
-                          transform="rotate(-90 22 195)">
-                        tempo (h)
-                    </text>
+                    <h3 class="text-lg font-bold mb-2">
+                        Numero di lavoratori e tempo
+                    </h3>
+
+                    <p>
+                        A parità di lavoro e di produttività,
+                        aumentando il numero di lavoratori
+                        diminuisce il tempo necessario.
+                    </p>
+
+                </div>
 
 
-                    <!-- CURVA t(v) = 120/v -->
-                    <path id="speedCurve"
-                          fill="none"
-                          stroke="#0b2a4a"
-                          stroke-width="4"
-                          stroke-linecap="round"/>
+                <!-- PERSONE -->
+                <div class="example-card">
+
+                    <h3 class="text-lg font-bold mb-2">
+                        Numero di persone e quantità per persona
+                    </h3>
+
+                    <p>
+                        Se una quantità totale è fissata,
+                        aumentando il numero di persone
+                        diminuisce la quantità disponibile per ciascuna.
+                    </p>
+
+                </div>
 
 
-                    <!--
-                         DIFFERENZE DI ALTEZZA
+                <!-- RETTANGOLO -->
+                <div class="example-card">
 
-                         30 km/h -> 4 h
-                         60 km/h -> 2 h
-                         differenza = 2 h
-                    -->
-                    <line x1="185" y1="50"
-                          x2="185" y2="200"
-                          stroke="#15803D"
-                          stroke-width="5"
-                          stroke-linecap="round"/>
+                    <h3 class="text-lg font-bold mb-2">
+                        Larghezza e lunghezza di un rettangolo
+                    </h3>
 
-                    <line x1="177" y1="50"
-                          x2="193" y2="50"
-                          stroke="#15803D"
-                          stroke-width="3"/>
+                    <p>
+                        Se l'area è fissata,
+                        aumentando una dimensione
+                        l'altra deve diminuire.
+                    </p>
 
-                    <line x1="177" y1="200"
-                          x2="193" y2="200"
-                          stroke="#15803D"
-                          stroke-width="3"/>
-
-                    <text x="198"
-                          y="130"
-                          fill="#15803D"
-                          font-size="15"
-                          font-weight="700"
-                          font-family="Segoe UI, sans-serif">
-                        2 h
-                    </text>
-
-
-                    <!--
-                         60 km/h -> 2 h
-                         90 km/h -> 1 h 20 min
-                         differenza = 40 min
-                    -->
-                    <line x1="255" y1="200"
-                          x2="255" y2="250"
-                          stroke="#15803D"
-                          stroke-width="5"
-                          stroke-linecap="round"/>
-
-                    <line x1="247" y1="200"
-                          x2="263" y2="200"
-                          stroke="#15803D"
-                          stroke-width="3"/>
-
-                    <line x1="247" y1="250"
-                          x2="263" y2="250"
-                          stroke="#15803D"
-                          stroke-width="3"/>
-
-                    <text x="267"
-                          y="230"
-                          fill="#15803D"
-                          font-size="15"
-                          font-weight="700"
-                          font-family="Segoe UI, sans-serif">
-                        40 min
-                    </text>
-
-
-                    <!-- PUNTI DELLA TABELLA -->
-                    <g fill="#3b82f6"
-                       stroke="white"
-                       stroke-width="3">
-
-                        <!-- 30 km/h, 4 h -->
-                        <circle cx="150" cy="50" r="7"/>
-
-                        <!-- 60 km/h, 2 h -->
-                        <circle cx="220" cy="200" r="7"/>
-
-                        <!-- 90 km/h, 1.333 h -->
-                        <circle cx="290" cy="250" r="7"/>
-
-                        <!-- 120 km/h, 1 h -->
-                        <circle cx="360" cy="275" r="7"/>
-
-                        <!-- 150 km/h, 0.8 h -->
-                        <circle cx="430" cy="290" r="7"/>
-
-                        <!-- 180 km/h, 0.667 h -->
-                        <circle cx="500" cy="300" r="7"/>
-
-                        <!-- 210 km/h, 0.571 h -->
-                        <circle cx="570" cy="307.1" r="7"/>
-
-                        <!-- 240 km/h, 0.5 h -->
-                        <circle cx="640" cy="312.5" r="7"/>
-
-                    </g>
-
-                </svg>
+                </div>
 
             </div>
 
 
-            <!-- SPIEGAZIONE -->
-            <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-
-                Il <strong>tempo risparmiato</strong> si ottiene confrontando
-                <strong>l'altezza di due punti consecutivi del grafico</strong>.
-                Aumentando ogni volta la velocità di 30 km/h, queste differenze
-                diventano sempre più piccole.
-                <strong>La relazione non è lineare:</strong>
-                all'aumentare della velocità, il tempo diminuisce,
-                ma non diminuisce sempre della stessa quantità.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-/* ==================================
-   FINESTRA ESEMPIO VELOCITÀ
-   ================================== */
-
-function openSpeedModal() {
-    const modal = document.getElementById("speedModal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    document.body.style.overflow = "hidden";
-}
-
-function closeSpeedModal() {
-    const modal = document.getElementById("speedModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    document.body.style.overflow = "";
-}
-
-/* Chiude la finestra cliccando sullo sfondo */
-document.getElementById("speedModal").addEventListener("click", function(event) {
-    if (event.target === this) {
-        closeSpeedModal();
-    }
-});
-
-/* Chiude la finestra con ESC */
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-        closeSpeedModal();
-    }
-});
-
-
-/* ==================================
-   GRAFICO t(v) = 120 / v
-   ================================== */
-
-(function () {
-
-    /*
-       Coordinate del grafico:
-
-       velocità 30 km/h  -> x = 150
-       velocità 240 km/h -> x = 640
-
-       tempo 0 h -> y = 350
-       tempo 4 h -> y = 50
-    */
-
-    function graphX(v) {
-        return 150 + ((v - 30) / 30) * 70;
-    }
-
-    function graphY(t) {
-        return 350 - t * 75;
-    }
-
-    let path = "";
-    let firstPoint = true;
-
-    /*
-       Calcoliamo molti punti reali della funzione
-       t(v) = 120/v, così la curva non è disegnata
-       "a occhio".
-    */
-    for (let v = 30; v <= 240; v += 0.5) {
-
-        const t = 120 / v;
-
-        const x = graphX(v);
-        const y = graphY(t);
-
-        if (firstPoint) {
-            path += "M " + x.toFixed(2) + " " + y.toFixed(2);
-            firstPoint = false;
-        } else {
-            path += " L " + x.toFixed(2) + " " + y.toFixed(2);
-        }
-    }
-
-    document
-        .getElementById("speedCurve")
-        .setAttribute("d", path);
-
-})();
-</script>
-
-        </div>
-
-
-        <div class="example">
-
-            <div class="example-title">
-                Numero di lavoratori e tempo
+            <div class="text-center text-2xl font-bold mt-5">
+                …
             </div>
 
-            <p>
-                Se tutti lavorano allo stesso ritmo,
-                aumentando il numero di lavoratori
-                diminuisce il tempo necessario
-                per completare un lavoro.
-            </p>
+        </section>
 
-        </div>
+    </main>
 
 
-        <div class="example">
-
-            <div class="example-title">
-                Numero di persone e quantità per persona
-            </div>
-
-            <p>
-                Se una quantità totale viene divisa
-                in parti uguali, aumentando il numero
-                di persone diminuisce la quantità
-                assegnata a ciascuna.
-            </p>
-
-        </div>
-
-
-        <div class="example">
-
-            <div class="example-title">
-                Larghezza e lunghezza di un rettangolo
-            </div>
-
-            <p>
-                A parità di area, aumentando la larghezza
-                deve diminuire la lunghezza.
-            </p>
-
-        </div>
-
-
-        <div class="more-examples">
-            …
-        </div>
-
-    </section>
-
-
-</main>
-
-
-
-<!-- ==================================
-     FOOTER
-     ================================== -->
-
-<footer class="navy-bg text-white py-6 mt-12">
-
-    <div class="container mx-auto px-4
-                text-center text-sm opacity-80">
-
+    <!-- FOOTER -->
+    <footer class="navy-bg text-white text-center py-6 mt-10">
         Matematica · Alessia Selmi · A.S. 2026–2027
+    </footer>
+
+
+    <!-- ===================================================== -->
+    <!-- MODALE: VELOCITÀ E TEMPO                              -->
+    <!-- ===================================================== -->
+
+    <div id="speedModal"
+         class="modal"
+         onclick="backgroundClose(event)">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2 class="text-2xl font-bold">
+                        Velocità e tempo di percorrenza
+                    </h2>
+
+                    <p class="text-blue-100 mt-1">
+                        Distanza fissata: 120 km
+                    </p>
+                </div>
+
+                <button
+                    class="close-button"
+                    onclick="closeSpeedModal()"
+                    aria-label="Chiudi">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="p-6 md:p-8">
+
+                <p>
+                    Consideriamo un percorso lungo
+                    <strong>120 km</strong>.
+                    Il tempo di percorrenza dipende dalla velocità:
+                </p>
+
+
+                <div class="formula">
+                    \(t(v)=\frac{120}{v}\)
+                </div>
+
+
+                <!-- TABELLA VELOCITÀ -->
+                <div class="overflow-x-auto mb-8">
+
+                    <table class="w-full text-center border-collapse">
+
+                        <thead>
+                            <tr class="navy-bg text-white">
+
+                                <th class="border border-slate-300 p-3">
+                                    Velocità
+                                </th>
+
+                                <th class="border border-slate-300 p-3">
+                                    Tempo di percorrenza
+                                </th>
+
+                                <th class="border border-slate-300 p-3">
+                                    Tempo risparmiato
+                                </th>
+
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td class="border border-slate-300 p-3">
+                                    30 km/h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    4 h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    —
+                                </td>
+                            </tr>
+
+
+                            <!-- 60 km/h -->
+                            <tr class="bg-green-50 font-bold">
+
+                                <td class="border border-slate-300 p-3">
+                                    60 km/h
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    2 h
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    2 h
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td class="border border-slate-300 p-3">
+                                    90 km/h
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    1 h 20 min
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    40 min
+                                </td>
+
+                            </tr>
+
+
+                            <!-- 120 km/h -->
+                            <tr class="bg-green-50 font-bold">
+
+                                <td class="border border-slate-300 p-3">
+                                    120 km/h
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    1 h
+                                </td>
+
+                                <td class="border border-slate-300 p-3">
+                                    20 min
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td class="border border-slate-300 p-3">
+                                    150 km/h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    48 min
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    12 min
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="border border-slate-300 p-3">
+                                    180 km/h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    40 min
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    8 min
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="border border-slate-300 p-3">
+                                    210 km/h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    circa 34 min
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    circa 6 min
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="border border-slate-300 p-3">
+                                    240 km/h
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    30 min
+                                </td>
+                                <td class="border border-slate-300 p-3">
+                                    circa 4 min
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- OSSERVAZIONE RADDOPPIO -->
+                <div class="green-bg-light border-l-4 border-green-700
+                            rounded-r-xl p-4 mb-8">
+
+                    <strong class="green-text">
+                        60 km/h → 120 km/h:
+                    </strong>
+
+                    la velocità raddoppia e il tempo
+                    si dimezza da <strong>2 h</strong> a
+                    <strong>1 h</strong>.
+
+                </div>
+
+
+                <!-- GRAFICO -->
+                <div class="flex justify-center mb-6">
+
+                    <svg
+                        id="speedGraph"
+                        class="speed-graph"
+                        viewBox="0 0 720 420"
+                        aria-label="Grafico del tempo di percorrenza in funzione della velocità">
+
+                        <!-- GRIGLIA -->
+                        <g stroke="#e2e8f0" stroke-width="1">
+
+                            <!-- orizzontali -->
+                            <line x1="150" y1="50" x2="660" y2="50"/>
+                            <line x1="150" y1="125" x2="660" y2="125"/>
+                            <line x1="150" y1="200" x2="660" y2="200"/>
+                            <line x1="150" y1="275" x2="660" y2="275"/>
+                            <line x1="150" y1="350" x2="660" y2="350"/>
+
+                            <!-- verticali -->
+                            <line x1="150" y1="50" x2="150" y2="350"/>
+                            <line x1="220" y1="50" x2="220" y2="350"/>
+                            <line x1="290" y1="50" x2="290" y2="350"/>
+                            <line x1="360" y1="50" x2="360" y2="350"/>
+                            <line x1="430" y1="50" x2="430" y2="350"/>
+                            <line x1="500" y1="50" x2="500" y2="350"/>
+                            <line x1="570" y1="50" x2="570" y2="350"/>
+                            <line x1="640" y1="50" x2="640" y2="350"/>
+
+                        </g>
+
+
+                        <!-- ASSI -->
+                        <g stroke="#64748b" stroke-width="2">
+
+                            <line x1="150"
+                                  y1="350"
+                                  x2="670"
+                                  y2="350"/>
+
+                            <line x1="150"
+                                  y1="360"
+                                  x2="150"
+                                  y2="35"/>
+
+                        </g>
+
+
+                        <!-- FRECCE -->
+                        <polygon points="670,350 660,345 660,355"
+                                 fill="#64748b"/>
+
+                        <polygon points="150,35 145,45 155,45"
+                                 fill="#64748b"/>
+
+
+                        <!-- ETICHETTA Y -->
+                        <text x="80"
+                              y="32"
+                              fill="#475569"
+                              font-size="14"
+                              font-weight="600">
+                            tempo (h)
+                        </text>
+
+
+                        <!-- ETICHETTA X -->
+                        <text x="530"
+                              y="405"
+                              fill="#475569"
+                              font-size="14"
+                              font-weight="600">
+                            velocità (km/h)
+                        </text>
+
+
+                        <!-- NUMERI Y -->
+                        <g fill="#64748b"
+                           font-size="12"
+                           text-anchor="end">
+
+                            <text x="140" y="354">0</text>
+                            <text x="140" y="279">1</text>
+                            <text x="140" y="204">2</text>
+                            <text x="140" y="129">3</text>
+                            <text x="140" y="54">4</text>
+
+                        </g>
+
+
+                        <!-- NUMERI X -->
+                        <g fill="#64748b"
+                           font-size="12"
+                           text-anchor="middle">
+
+                            <text x="150" y="370">30</text>
+                            <text x="220" y="370">60</text>
+                            <text x="290" y="370">90</text>
+                            <text x="360" y="370">120</text>
+                            <text x="430" y="370">150</text>
+                            <text x="500" y="370">180</text>
+                            <text x="570" y="370">210</text>
+                            <text x="640" y="370">240</text>
+
+                        </g>
+
+
+                        <!-- CURVA -->
+                        <path
+                            id="speedCurve"
+                            fill="none"
+                            stroke="#0b2a4a"
+                            stroke-width="3"
+                            stroke-linecap="round"/>
+
+
+                        <!-- PUNTI DELLA TABELLA -->
+                        <g fill="#3b82f6">
+
+                            <circle cx="150" cy="50" r="6"/>
+                            <circle cx="220" cy="200" r="6"/>
+                            <circle cx="290" cy="250" r="6"/>
+                            <circle cx="360" cy="275" r="6"/>
+                            <circle cx="430" cy="290" r="6"/>
+                            <circle cx="500" cy="300" r="6"/>
+                            <circle cx="570" cy="307.14" r="6"/>
+                            <circle cx="640" cy="312.5" r="6"/>
+
+                        </g>
+
+
+                        <!--
+                            DIFFERENZA DI TEMPO
+                            TRA 60 km/h E 120 km/h
+                        -->
+
+                        <!-- guida dal punto (60,2) -->
+                        <line
+                            x1="220"
+                            y1="200"
+                            x2="325"
+                            y2="200"
+                            stroke="#15803D"
+                            stroke-width="2"
+                            stroke-dasharray="6 5"/>
+
+                        <!-- guida dal punto (120,1) -->
+                        <line
+                            x1="360"
+                            y1="275"
+                            x2="325"
+                            y2="275"
+                            stroke="#15803D"
+                            stroke-width="2"
+                            stroke-dasharray="6 5"/>
+
+
+                        <!-- segmento verticale -->
+                        <line
+                            x1="325"
+                            y1="200"
+                            x2="325"
+                            y2="275"
+                            stroke="#15803D"
+                            stroke-width="5"
+                            stroke-linecap="round"/>
+
+
+                        <!-- estremi -->
+                        <line
+                            x1="317"
+                            y1="200"
+                            x2="333"
+                            y2="200"
+                            stroke="#15803D"
+                            stroke-width="3"/>
+
+                        <line
+                            x1="317"
+                            y1="275"
+                            x2="333"
+                            y2="275"
+                            stroke="#15803D"
+                            stroke-width="3"/>
+
+
+                        <!-- ETICHETTA DIFFERENZA -->
+                        <text
+                            x="338"
+                            y="242"
+                            fill="#15803D"
+                            font-size="15"
+                            font-weight="700">
+                            1 h
+                        </text>
+
+                    </svg>
+
+                </div>
+
+
+                <!-- FRASE FINALE -->
+                <p class="text-center max-w-3xl mx-auto">
+
+                    Il tempo risparmiato si ottiene confrontando
+                    <strong>l'altezza di due punti consecutivi del grafico</strong>.
+                    Aumentando ogni volta la velocità di 30 km/h,
+                    queste differenze diventano sempre più piccole.
+
+                    <strong>
+                        La relazione non è lineare:
+                    </strong>
+
+                    all'aumentare della velocità, il tempo diminuisce,
+                    ma non diminuisce sempre della stessa quantità.
+
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
-</footer>
+
+    <script>
+
+        /* =====================================================
+           GRAFICO f(x) = 1/x
+           ===================================================== */
+
+        function createInverseGraph() {
+
+            const leftPath =
+                document.getElementById("leftBranch");
+
+            const rightPath =
+                document.getElementById("rightBranch");
 
 
+            function graphX(x) {
+                return 250 + x * 50;
+            }
 
-<!-- ==================================
-     CALCOLO ACCURATO DEL GRAFICO
-     f(x) = 1/x
-     ================================== -->
-
-<script>
-
-(function () {
-
-    /*
-        Sistema cartesiano del grafico
-
-        origine:
-        (250, 250)
-
-        scala:
-        50 pixel = 1 unità
-
-        La scala è IDENTICA
-        sui due assi.
-    */
-
-    const originX = 250;
-    const originY = 250;
-    const scale = 50;
-
-
-    function svgX(x) {
-
-        return originX + x * scale;
-
-    }
-
-
-    function svgY(y) {
-
-        return originY - y * scale;
-
-    }
-
-
-    /*
-        Costruisce un ramo dell'iperbole
-        calcolando realmente:
-
-        y = 1/x
-    */
-
-    function createBranch(start, end, step) {
-
-        let path = "";
-        let firstPoint = true;
-
-
-        for (
-            let x = start;
-            x <= end;
-            x += step
-        ) {
-
-            const y = 1 / x;
-
-
-            /*
-                Disegniamo soltanto
-                la parte visibile:
-
-                -4 ≤ y ≤ 4
-            */
-
-            if (y < -4 || y > 4) {
-                continue;
+            function graphY(y) {
+                return 250 - y * 50;
             }
 
 
-            const px = svgX(x);
-            const py = svgY(y);
+            function makePath(start, end, step) {
 
+                let path = "";
+                let first = true;
 
-            if (firstPoint) {
+                for (let x = start; x <= end; x += step) {
 
-                path +=
-                    "M " +
-                    px.toFixed(2) +
-                    " " +
-                    py.toFixed(2);
+                    const y = 1 / x;
 
-                firstPoint = false;
+                    if (y < -4 || y > 4) {
+                        continue;
+                    }
 
+                    const px = graphX(x);
+                    const py = graphY(y);
+
+                    if (first) {
+                        path += `M ${px} ${py}`;
+                        first = false;
+                    } else {
+                        path += ` L ${px} ${py}`;
+                    }
+                }
+
+                return path;
             }
 
-            else {
 
-                path +=
-                    " L " +
-                    px.toFixed(2) +
-                    " " +
-                    py.toFixed(2);
+            leftPath.setAttribute(
+                "d",
+                makePath(-4, -0.25, 0.005)
+            );
 
-            }
-
+            rightPath.setAttribute(
+                "d",
+                makePath(0.25, 4, 0.005)
+            );
         }
 
 
-        return path;
+        /* =====================================================
+           GRAFICO t(v) = 120/v
+           ===================================================== */
 
-    }
+        function createSpeedGraph() {
+
+            const curve =
+                document.getElementById("speedCurve");
+
+            if (!curve) return;
 
 
+            function graphX(v) {
+                return 150 + ((v - 30) / 30) * 70;
+            }
 
-    /*
-        RAMO SINISTRO
+            function graphY(t) {
+                return 350 - t * 75;
+            }
 
-        Parte visibile:
-        da x = -4
-        a x = -0.25
-    */
 
-    const negativeBranch =
-        createBranch(
-            -4,
-            -0.25,
-            0.005
+            let path = "";
+            let first = true;
+
+
+            for (let v = 30; v <= 240; v += 0.5) {
+
+                const t = 120 / v;
+
+                const x = graphX(v);
+                const y = graphY(t);
+
+                if (first) {
+
+                    path += `M ${x} ${y}`;
+                    first = false;
+
+                } else {
+
+                    path += ` L ${x} ${y}`;
+
+                }
+            }
+
+
+            curve.setAttribute("d", path);
+        }
+
+
+        /* =====================================================
+           MODALE
+           ===================================================== */
+
+        function openSpeedModal() {
+
+            const modal =
+                document.getElementById("speedModal");
+
+            modal.classList.add("show");
+
+            document.body.style.overflow = "hidden";
+
+            createSpeedGraph();
+        }
+
+
+        function closeSpeedModal() {
+
+            const modal =
+                document.getElementById("speedModal");
+
+            modal.classList.remove("show");
+
+            document.body.style.overflow = "";
+        }
+
+
+        function backgroundClose(event) {
+
+            if (event.target.id === "speedModal") {
+                closeSpeedModal();
+            }
+        }
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+                    closeSpeedModal();
+                }
+
+            }
         );
 
 
-    /*
-        RAMO DESTRO
+        /* CREAZIONE GRAFICO PRINCIPALE */
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
 
-        Parte visibile:
-        da x = 0.25
-        a x = 4
-    */
+                createInverseGraph();
 
-    const positiveBranch =
-        createBranch(
-            0.25,
-            4,
-            0.005
+            }
         );
 
-
-    document
-        .getElementById("branchNegative")
-        .setAttribute(
-            "d",
-            negativeBranch
-        );
-
-
-    document
-        .getElementById("branchPositive")
-        .setAttribute(
-            "d",
-            positiveBranch
-        );
-
-})();
-
-</script>
-
+    </script>
 
 </body>
-
 </html>
