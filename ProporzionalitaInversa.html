@@ -788,37 +788,113 @@
 
         <!-- LAVORATORI -->
 
-        <div class="example">
+<div class="example">
 
-            <div class="example-title">
-                Numero di lavoratori e tempo
+    <div class="example-title">
+        Numero di lavoratori e tempo
+    </div>
+
+    <p>
+        A parità di lavoro e di produttività,
+        aumentando il numero di lavoratori
+        diminuisce il tempo necessario.
+    </p>
+
+    <button class="example-button"
+            onclick="openWorkersQuestion()">
+        Vedi esempio
+    </button>
+
+
+    <!-- QUESITO: inizialmente nascosto -->
+
+    <div id="workersQuestion"
+         style="display: none;
+                margin-top: 18px;
+                padding-top: 18px;
+                border-top: 1px solid #dbe3ec;">
+
+        <p style="color: #64748b;
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                  margin-bottom: 14px;">
+
+            Quesito tratto da un esame di qualifica · a.f. 2014/2015
+
+        </p>
+
+
+        <p class="mb-3">
+            Una impresa edile impiega i lavoratori di una cooperativa
+            per costruire capannoni.
+        </p>
+
+        <p class="mb-3">
+            Il tempo <strong>t</strong> impiegato per la costruzione
+            di un capannone è inversamente proporzionale al numero
+            <strong>n</strong> dei lavoratori utilizzati.
+        </p>
+
+        <p class="mb-5">
+            Se <strong>5 lavoratori impiegano 12 giorni</strong>
+            per costruirne uno, qual è la relazione che lega
+            <strong>t</strong> e <strong>n</strong>?
+        </p>
+
+
+        <div style="display: grid; gap: 8px;">
+
+            <div style="border: 1px solid #dbe3ec;
+                        border-radius: 8px;
+                        padding: 10px 14px;">
+                <strong>A.</strong> &nbsp; t = 60/n
             </div>
 
-            <p>
-                Se tutti lavorano allo stesso ritmo,
-                aumentando il numero di lavoratori
-                diminuisce il tempo necessario
-                per completare un lavoro.
-            </p>
+            <div style="border: 1px solid #dbe3ec;
+                        border-radius: 8px;
+                        padding: 10px 14px;">
+                <strong>B.</strong> &nbsp; t = 60n
+            </div>
+
+            <div style="border: 1px solid #dbe3ec;
+                        border-radius: 8px;
+                        padding: 10px 14px;">
+                <strong>C.</strong> &nbsp; t · n = 1/60
+            </div>
+
+            <div style="border: 1px solid #dbe3ec;
+                        border-radius: 8px;
+                        padding: 10px 14px;">
+                <strong>D.</strong> &nbsp; t/n = 60
+            </div>
 
         </div>
 
+    </div>
 
-        <!-- PERSONE -->
+</div>
 
-        <div class="example">
 
-            <div class="example-title">
-                Numero di persone e quantità per persona
-            </div>
+<script>
 
-            <p>
-                Se una quantità totale viene divisa
-                in parti uguali, aumentando il numero
-                di persone diminuisce la quantità
-                assegnata a ciascuna.
-            </p>
+function openWorkersQuestion() {
 
+    const question =
+        document.getElementById("workersQuestion");
+
+    if (question.style.display === "none") {
+
+        question.style.display = "block";
+
+    } else {
+
+        question.style.display = "none";
+
+    }
+
+}
+
+</script>
         </div>
 
 
