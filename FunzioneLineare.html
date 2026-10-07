@@ -2,34 +2,14 @@
 <html lang="it">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Funzione lineare · Matematica</title>
 
-    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- MATHJAX -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']]
-            }
-        };
-    </script>
-
-    <script defer
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-
-
     <style>
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -44,169 +24,228 @@
             color: #0b2a4a;
         }
 
+        /* COLORI DI m E q */
 
-        /* ================================
-           SEZIONI
-           ================================ */
-
-        .section-card {
-            background-color: white;
-            border-radius: 16px;
-            padding: 28px;
-            margin-bottom: 28px;
-
-            box-shadow:
-                0 4px 12px rgba(11, 42, 74, 0.08);
+        .m-color {
+            color: #B45309;
         }
 
+        .q-color {
+            color: #0F766E;
+        }
+
+        /* SEZIONI */
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+        }
 
         .section-title {
             color: #0b2a4a;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
+        /* EQUAZIONE PRINCIPALE */
 
-        /* ================================
-           FORMULE
-           ================================ */
-
-        .formula-box {
-            background-color: #eff6ff;
-            border-left: 6px solid #3b82f6;
-            border-radius: 12px;
-            padding: 18px;
-            margin: 20px 0;
+        .main-equation {
             text-align: center;
-            font-size: 1.25rem;
-        }
-
-
-        /* ================================
-           DOMINIO
-           ================================ */
-
-        .domain-box {
-            background-color: #ecfdf5;
-            border-left: 6px solid #22c55e;
-            border-radius: 12px;
-            padding: 18px;
-            margin-top: 18px;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-
-        /* ================================
-           GRAFICI
-           ================================ */
-
-        .graphs-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 24px;
-        }
-
-
-        .graph-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 18px;
-            text-align: center;
-            background: white;
-        }
-
-
-        .graph-title {
             color: #0b2a4a;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin: 12px 0 28px;
         }
 
+        /* m E q */
+
+        .parameter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .parameter {
+            border-radius: 12px;
+            padding: 16px 18px;
+            background: #f8fafc;
+        }
+
+        .parameter-m {
+            border-left: 5px solid #B45309;
+        }
+
+        .parameter-q {
+            border-left: 5px solid #0F766E;
+        }
+
+        .parameter-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* GRAFICO */
+
+        .graph-wrapper {
+            max-width: 600px;
+            margin: 0 auto 24px;
+            text-align: center;
+        }
 
         .graph-svg {
             width: 100%;
-            max-width: 330px;
+            max-width: 520px;
             height: auto;
         }
 
-
         .axis {
             stroke: #64748b;
-            stroke-width: 1.5;
+            stroke-width: 1.6;
         }
-
 
         .grid-line {
             stroke: #e2e8f0;
             stroke-width: 1;
         }
 
-
-        .function-line {
-            stroke: #3b82f6;
-            stroke-width: 3;
-            fill: none;
-            stroke-linecap: round;
+        .line-function {
+            stroke: #0b2a4a;
+            stroke-width: 3.5;
         }
-
 
         .axis-label {
             fill: #475569;
-            font-size: 14px;
+            font-size: 15px;
         }
 
+        .m-svg {
+            fill: #B45309;
+            font-size: 18px;
+            font-weight: 700;
+        }
 
-        /* ================================
-           ESEMPI
-           ================================ */
+        .q-svg {
+            fill: #0F766E;
+            font-size: 18px;
+            font-weight: 700;
+        }
 
-        .example {
-            background-color: #f8fafc;
+        .q-point {
+            fill: #0F766E;
+        }
+
+        /* CRESCENTE / DECRESCENTE */
+
+        .m-cases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .m-case {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .m-case strong {
+            color: #B45309;
+            font-size: 1.15rem;
+        }
+
+        /* BOX SEMPLICI */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .info-box {
+            background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 18px;
-            margin-top: 14px;
         }
 
+        .info-title {
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* FORMULE SECONDARIE */
+
+        .small-formula {
+            text-align: center;
+            color: #0b2a4a;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* ESEMPI */
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .example {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 18px;
+        }
 
         .example-title {
-            font-weight: 700;
             color: #0b2a4a;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 6px;
         }
 
+        /* PROPORZIONALITÀ */
+
+        .direct-box {
+            border-left: 6px solid #0F766E;
+            background: #f0fdfa;
+            border-radius: 12px;
+            padding: 20px;
+        }
 
         @media (max-width: 700px) {
 
-            .graphs-container {
+            .parameter-grid,
+            .m-cases,
+            .info-grid,
+            .examples-grid {
                 grid-template-columns: 1fr;
             }
 
+            .main-equation {
+                font-size: 2.1rem;
+            }
         }
-
     </style>
-
 </head>
-
 
 
 <body class="text-gray-800">
 
 
-<!-- ======================================
-     HEADER
-     ====================================== -->
-
 <header class="navy-bg text-white py-10 shadow-lg">
 
     <div class="container mx-auto px-4">
 
-
         <a href="FunzioniElementari.html"
-
            class="inline-block mb-6 px-4 py-2
                   bg-white text-[#0b2a4a]
                   font-semibold rounded-lg shadow
@@ -216,647 +255,139 @@
 
         </a>
 
-
         <div class="text-center">
 
-            <h1 class="text-4xl font-extrabold mb-2">
-
+            <h1 class="text-4xl font-extrabold">
                 Funzione lineare
-
             </h1>
 
-
-            <p class="text-lg opacity-85">
-
-                Caratteristiche e rappresentazione grafica
-
-            </p>
-
         </div>
-
 
     </div>
 
 </header>
 
 
-
-<!-- ======================================
-     CONTENUTO
-     ====================================== -->
-
 <main class="container mx-auto px-4 py-10 max-w-5xl">
 
 
-    <!-- ==================================
-         EQUAZIONE
-         ================================== -->
+    <!-- EQUAZIONE E GRAFICO -->
 
     <section class="section-card">
 
-        <h2 class="section-title">
 
-            Equazione della funzione lineare
+        <div class="main-equation">
 
-        </h2>
-
-
-        <div class="formula-box">
-
-            \[
-                \boxed{f(x)=mx+q}
-            \]
+            f(x) =
+            <span class="m-color">m</span>x +
+            <span class="q-color">q</span>
 
         </div>
 
 
-        <p class="mb-4">
+        <!-- GRAFICO -->
 
-            La rappresentazione grafica di una funzione lineare
-            è una <strong>retta</strong>.
-
-        </p>
-
-
-        <div class="grid md:grid-cols-2 gap-4 mt-5">
-
-
-            <div class="example">
-
-                <p class="example-title">
-
-                    \(m\) — coefficiente angolare
-
-                </p>
-
-                <p>
-
-                    Determina l'inclinazione della retta.
-
-                </p>
-
-            </div>
-
-
-            <div class="example">
-
-                <p class="example-title">
-
-                    \(q\) — ordinata all'origine
-
-                </p>
-
-                <p>
-
-                    È il valore \(f(0)\) e indica il punto
-                    in cui la retta incontra l'asse \(y\).
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         SEGNO DI m
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-
-            Il segno del coefficiente angolare
-
-        </h2>
-
-
-        <div class="graphs-container">
-
-
-            <!-- m POSITIVO -->
-
-            <div class="graph-card">
-
-                <p class="graph-title">
-
-                    \(m &gt; 0\) · funzione crescente
-
-                </p>
-
-
-                <svg class="graph-svg"
-                     viewBox="0 0 320 240"
-                     xmlns="http://www.w3.org/2000/svg">
-
-
-                    <!-- GRIGLIA -->
-
-                    <line x1="40" y1="40" x2="280" y2="40"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="90" x2="280" y2="90"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="140" x2="280" y2="140"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="190" x2="280" y2="190"
-                          class="grid-line"/>
-
-                    <line x1="80" y1="20" x2="80" y2="220"
-                          class="grid-line"/>
-
-                    <line x1="160" y1="20" x2="160" y2="220"
-                          class="grid-line"/>
-
-                    <line x1="240" y1="20" x2="240" y2="220"
-                          class="grid-line"/>
-
-
-                    <!-- ASSI -->
-
-                    <line x1="30" y1="140"
-                          x2="290" y2="140"
-                          class="axis"/>
-
-                    <line x1="160" y1="220"
-                          x2="160" y2="20"
-                          class="axis"/>
-
-
-                    <!-- FRECCE -->
-
-                    <polyline points="282,135 290,140 282,145"
-                              fill="none"
-                              class="axis"/>
-
-                    <polyline points="155,28 160,20 165,28"
-                              fill="none"
-                              class="axis"/>
-
-
-                    <!-- LETTERE -->
-
-                    <text x="278" y="130"
-                          class="axis-label">x</text>
-
-                    <text x="170" y="32"
-                          class="axis-label">y</text>
-
-
-                    <!-- RETTA CRESCENTE -->
-
-                    <line x1="65" y1="205"
-                          x2="260" y2="45"
-                          class="function-line"/>
-
-
-                </svg>
-
-            </div>
-
-
-
-            <!-- m NEGATIVO -->
-
-            <div class="graph-card">
-
-                <p class="graph-title">
-
-                    \(m &lt; 0\) · funzione decrescente
-
-                </p>
-
-
-                <svg class="graph-svg"
-                     viewBox="0 0 320 240"
-                     xmlns="http://www.w3.org/2000/svg">
-
-
-                    <!-- GRIGLIA -->
-
-                    <line x1="40" y1="40" x2="280" y2="40"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="90" x2="280" y2="90"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="140" x2="280" y2="140"
-                          class="grid-line"/>
-
-                    <line x1="40" y1="190" x2="280" y2="190"
-                          class="grid-line"/>
-
-                    <line x1="80" y1="20" x2="80" y2="220"
-                          class="grid-line"/>
-
-                    <line x1="160" y1="20" x2="160" y2="220"
-                          class="grid-line"/>
-
-                    <line x1="240" y1="20" x2="240" y2="220"
-                          class="grid-line"/>
-
-
-                    <!-- ASSI -->
-
-                    <line x1="30" y1="140"
-                          x2="290" y2="140"
-                          class="axis"/>
-
-                    <line x1="160" y1="220"
-                          x2="160" y2="20"
-                          class="axis"/>
-
-
-                    <!-- FRECCE -->
-
-                    <polyline points="282,135 290,140 282,145"
-                              fill="none"
-                              class="axis"/>
-
-                    <polyline points="155,28 160,20 165,28"
-                              fill="none"
-                              class="axis"/>
-
-
-                    <!-- LETTERE -->
-
-                    <text x="278" y="130"
-                          class="axis-label">x</text>
-
-                    <text x="170" y="32"
-                          class="axis-label">y</text>
-
-
-                    <!-- RETTA DECRESCENTE -->
-
-                    <line x1="60" y1="45"
-                          x2="260" y2="205"
-                          class="function-line"/>
-
-
-                </svg>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         DOMINIO
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-
-            Dominio
-
-        </h2>
-
-
-        <p>
-
-            La funzione lineare è definita per ogni valore reale
-            della variabile \(x\).
-
-        </p>
-
-
-        <div class="domain-box">
-
-            \[
-                \boxed{D=\mathbb{R}}
-            \]
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         PARALLELE E PERPENDICOLARI
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-
-            Rette parallele e perpendicolari
-
-        </h2>
-
-
-        <div class="grid md:grid-cols-2 gap-5">
-
-
-            <div class="example">
-
-                <p class="example-title">
-
-                    Rette parallele
-
-                </p>
-
-
-                <p>
-
-                    Due rette sono parallele se hanno
-                    lo stesso coefficiente angolare.
-
-                </p>
-
-
-                <div class="formula-box">
-
-                    \[
-                        \boxed{m_1=m_2}
-                    \]
-
-                </div>
-
-            </div>
-
-
-
-            <div class="example">
-
-                <p class="example-title">
-
-                    Rette perpendicolari
-
-                </p>
-
-
-                <p>
-
-                    Due rette sono perpendicolari se il prodotto
-                    dei loro coefficienti angolari è \(-1\).
-
-                </p>
-
-
-                <div class="formula-box">
-
-                    \[
-                        \boxed{m_1\cdot m_2=-1}
-                    \]
-
-                </div>
-
-
-                <p class="text-center">
-
-                    oppure
-
-                </p>
-
-
-                <div class="formula-box">
-
-                    \[
-                        m_2=-\frac{1}{m_1}
-                    \]
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==================================
-         ESEMPI REALI
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-
-            Esempi di relazioni lineari
-
-        </h2>
-
-
-
-        <div class="example">
-
-            <p class="example-title">
-
-                Interesse semplice a tasso fisso
-
-            </p>
-
-            <p>
-
-                Se l'interesse viene calcolato sempre sul capitale
-                iniziale, il capitale cresce linearmente nel tempo.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="example">
-
-            <p class="example-title">
-
-                Moto a velocità costante
-
-            </p>
-
-            <p>
-
-                La posizione di un corpo che si muove a velocità
-                costante può essere descritta da:
-
-            </p>
-
-            <div class="text-center text-lg mt-3">
-
-                \[
-                    s(t)=vt+s_0
-                \]
-
-            </div>
-
-        </div>
-
-
-
-        <div class="example">
-
-            <p class="example-title">
-
-                Stipendio e ore lavorate
-
-            </p>
-
-            <p>
-
-                Lo stipendio può dipendere linearmente
-                dal numero di ore lavorate:
-
-            </p>
-
-            <div class="text-center text-lg mt-3">
-
-                \[
-                    S(h)=ph+q
-                \]
-
-            </div>
-
-            <p>
-
-                dove \(p\) rappresenta la paga oraria
-                e \(q\) un eventuale compenso fisso.
-
-            </p>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ==================================
-         PROPORZIONALITÀ DIRETTA
-         ================================== -->
-
-    <section class="section-card">
-
-        <h2 class="section-title">
-
-            Caso particolare: \(q=0\)
-
-        </h2>
-
-
-        <p>
-
-            Se l'ordinata all'origine è nulla, cioè \(q=0\),
-            la funzione diventa:
-
-        </p>
-
-
-        <div class="formula-box">
-
-            \[
-                \boxed{f(x)=mx}
-            \]
-
-        </div>
-
-
-        <p>
-
-            In questo caso si ottiene una
-            <strong>legge di proporzionalità diretta</strong>.
-
-        </p>
-
-
-        <p class="mt-3">
-
-            Il grafico è una retta che
-            <strong>passa per l'origine</strong>.
-
-        </p>
-
-
-
-        <div class="graph-card mt-6 max-w-xl mx-auto">
-
-            <p class="graph-title">
-
-                Proporzionalità diretta
-
-            </p>
-
+        <div class="graph-wrapper">
 
             <svg class="graph-svg"
-                 viewBox="0 0 320 240"
+                 viewBox="0 0 520 300"
                  xmlns="http://www.w3.org/2000/svg">
 
 
                 <!-- GRIGLIA -->
 
-                <line x1="40" y1="40" x2="280" y2="40"
+                <line x1="60" y1="60" x2="470" y2="60"
                       class="grid-line"/>
 
-                <line x1="40" y1="90" x2="280" y2="90"
+                <line x1="60" y1="120" x2="470" y2="120"
                       class="grid-line"/>
 
-                <line x1="40" y1="140" x2="280" y2="140"
+                <line x1="60" y1="180" x2="470" y2="180"
                       class="grid-line"/>
 
-                <line x1="40" y1="190" x2="280" y2="190"
+                <line x1="60" y1="240" x2="470" y2="240"
                       class="grid-line"/>
 
-                <line x1="80" y1="20" x2="80" y2="220"
+
+                <line x1="120" y1="30" x2="120" y2="270"
                       class="grid-line"/>
 
-                <line x1="160" y1="20" x2="160" y2="220"
+                <line x1="200" y1="30" x2="200" y2="270"
                       class="grid-line"/>
 
-                <line x1="240" y1="20" x2="240" y2="220"
+                <line x1="280" y1="30" x2="280" y2="270"
+                      class="grid-line"/>
+
+                <line x1="360" y1="30" x2="360" y2="270"
+                      class="grid-line"/>
+
+                <line x1="440" y1="30" x2="440" y2="270"
                       class="grid-line"/>
 
 
                 <!-- ASSI -->
 
-                <line x1="30" y1="140"
-                      x2="290" y2="140"
+                <line x1="45" y1="210"
+                      x2="485" y2="210"
                       class="axis"/>
 
-                <line x1="160" y1="220"
-                      x2="160" y2="20"
+                <line x1="200" y1="275"
+                      x2="200" y2="25"
                       class="axis"/>
 
 
                 <!-- FRECCE -->
 
-                <polyline points="282,135 290,140 282,145"
+                <polyline points="476,205 485,210 476,215"
                           fill="none"
                           class="axis"/>
 
-                <polyline points="155,28 160,20 165,28"
+                <polyline points="195,34 200,25 205,34"
                           fill="none"
                           class="axis"/>
 
 
-                <!-- LETTERE -->
+                <!-- x / y -->
 
-                <text x="278" y="130"
+                <text x="470" y="198"
                       class="axis-label">x</text>
 
-                <text x="170" y="32"
+                <text x="212" y="38"
                       class="axis-label">y</text>
 
 
-                <!-- RETTA PASSANTE PER ORIGINE -->
+                <!-- RETTA -->
 
-                <line x1="65" y1="215"
-                      x2="255" y2="55"
-                      class="function-line"/>
+                <line x1="80" y1="255"
+                      x2="450" y2="70"
+                      class="line-function"/>
+
+
+                <!-- q -->
+
+                <circle cx="200"
+                        cy="195"
+                        r="6"
+                        class="q-point"/>
+
+                <text x="174"
+                      y="188"
+                      class="q-svg">
+
+                    q
+
+                </text>
+
+
+                <!-- m -->
+
+                <text x="345"
+                      y="105"
+                      class="m-svg">
+
+                    m
+
+                </text>
 
 
             </svg>
@@ -864,16 +395,245 @@
         </div>
 
 
+        <!-- SIGNIFICATO m E q -->
+
+        <div class="parameter-grid">
+
+            <div class="parameter parameter-m">
+
+                <div class="parameter-title m-color">
+                    m · coefficiente angolare
+                </div>
+
+                <p>
+                    Determina l'inclinazione della retta.
+                </p>
+
+            </div>
+
+
+            <div class="parameter parameter-q">
+
+                <div class="parameter-title q-color">
+                    q · ordinata all'origine
+                </div>
+
+                <p>
+                    Indica il punto in cui la retta
+                    incontra l'asse y.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="m-cases">
+
+            <div class="m-case">
+
+                <strong>m &gt; 0</strong>
+
+                <div>
+                    retta crescente ↗
+                </div>
+
+            </div>
+
+
+            <div class="m-case">
+
+                <strong>m &lt; 0</strong>
+
+                <div>
+                    retta decrescente ↘
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- DOMINIO -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Dominio
+        </h2>
+
+        <p>
+            La funzione lineare è definita
+            per ogni valore reale di x.
+        </p>
+
+        <div class="small-formula">
+            D = ℝ
+        </div>
+
+    </section>
+
+
+
+    <!-- PARALLELE E PERPENDICOLARI -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Rette parallele e perpendicolari
+        </h2>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-box">
+
+                <div class="info-title">
+                    Rette parallele
+                </div>
+
+                <p>
+                    Hanno lo stesso coefficiente angolare.
+                </p>
+
+                <div class="small-formula">
+                    m₁ = m₂
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-title">
+                    Rette perpendicolari
+                </div>
+
+                <p>
+                    Il prodotto dei coefficienti angolari
+                    è −1.
+                </p>
+
+                <div class="small-formula">
+                    m₁ · m₂ = −1
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ESEMPI -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Esempi di relazioni lineari
+        </h2>
+
+
+        <div class="examples-grid">
+
+
+            <div class="example">
+
+                <div class="example-title">
+                    Interesse semplice
+                </div>
+
+                <p>
+                    Il capitale cresce nel tempo
+                    con un interesse calcolato
+                    sempre sul capitale iniziale.
+                </p>
+
+            </div>
+
+
+            <div class="example">
+
+                <div class="example-title">
+                    Velocità costante
+                </div>
+
+                <p>
+                    A intervalli di tempo uguali
+                    corrispondono spostamenti uguali.
+                </p>
+
+            </div>
+
+
+            <div class="example">
+
+                <div class="example-title">
+                    Ore lavorate
+                </div>
+
+                <p>
+                    Lo stipendio cresce in funzione
+                    del numero di ore lavorate.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PROPORZIONALITÀ DIRETTA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Caso particolare: q = 0
+        </h2>
+
+
+        <div class="direct-box">
+
+            <div class="main-equation"
+                 style="margin: 0 0 12px 0;">
+
+                f(x) =
+                <span class="m-color">m</span>x
+
+            </div>
+
+
+            <p class="text-center">
+
+                Si ottiene una
+                <strong>legge di proporzionalità diretta</strong>.
+
+            </p>
+
+
+            <p class="text-center mt-2">
+
+                Il grafico è una retta
+                <strong>passante per l'origine</strong>.
+
+            </p>
+
+        </div>
+
     </section>
 
 
 </main>
 
-
-
-<!-- ======================================
-     FOOTER
-     ====================================== -->
 
 <footer class="navy-bg text-white py-6 mt-12">
 
@@ -888,5 +648,5 @@
 
 
 </body>
-
 </html>
+
