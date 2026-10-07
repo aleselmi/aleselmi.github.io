@@ -37,28 +37,28 @@
 
 
         /* ================================
-           ALGEBRA = BLU ACCESO
+           ALGEBRA = AZZURRO
            ================================ */
 
-        .algebra-text {
-            color: #2563eb;
+        .algebra-border {
+            border-left-color: #00D1FF !important;
         }
 
-        .algebra-border {
-            border-color: #2563eb;
+        .algebra-dot {
+            color: #00D1FF;
         }
 
 
         /* ================================
-           ANALISI = NERO
+           ANALISI = ROSA
            ================================ */
 
-        .analisi-text {
-            color: #000000;
+        .analisi-border {
+            border-left-color: #FF4D6D !important;
         }
 
-        .analisi-border {
-            border-color: #000000;
+        .analisi-dot {
+            color: #FF4D6D;
         }
 
 
@@ -67,8 +67,9 @@
            ================================ */
 
         .material-card {
-            transition: transform 0.2s,
-                        box-shadow 0.2s;
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
         }
 
         .material-card:hover {
@@ -153,39 +154,19 @@
        class="material-card block bg-white
               rounded-xl shadow-md
               border-l-8 algebra-border
-              p-6 mb-6 no-underline">
+              p-7 mb-6 no-underline">
 
 
         <div class="flex items-center justify-between">
 
 
-            <div>
+            <h2 class="text-2xl font-bold navy-text">
 
+                Algebra
+                <span class="algebra-dot">·</span>
+                primo biennio
 
-                <p class="text-sm font-bold
-                          algebra-text
-                          uppercase mb-1">
-
-                    Biennio
-
-                </p>
-
-
-                <h3 class="text-xl font-bold navy-text">
-
-                    Algebra
-
-                </h3>
-
-
-                <p class="text-gray-600 mt-2">
-
-                    Schemi, tutorial ed esercizi di algebra.
-
-                </p>
-
-
-            </div>
+            </h2>
 
 
             <span class="arrow navy-text
@@ -212,39 +193,19 @@
        class="material-card block bg-white
               rounded-xl shadow-md
               border-l-8 analisi-border
-              p-6 mb-6 no-underline">
+              p-7 mb-6 no-underline">
 
 
         <div class="flex items-center justify-between">
 
 
-            <div>
+            <h2 class="text-2xl font-bold navy-text">
 
+                Analisi
+                <span class="analisi-dot">·</span>
+                triennio
 
-                <p class="text-sm font-bold
-                          analisi-text
-                          uppercase mb-1">
-
-                    Triennio
-
-                </p>
-
-
-                <h3 class="text-xl font-bold navy-text">
-
-                    Analisi
-
-                </h3>
-
-
-                <p class="text-gray-600 mt-2">
-
-                    Funzioni e loro rappresentazione grafica.
-
-                </p>
-
-
-            </div>
+            </h2>
 
 
             <span class="arrow navy-text
