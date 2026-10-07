@@ -31,47 +31,52 @@
             background-color: #0b2a4a;
         }
 
-
-        /* ================================
-           CARD
-           ================================ */
-
-        .subject-card {
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-
-            min-height: 180px;
-        }
-
-
-        .subject-card:hover {
-
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 12px 28px
-                rgba(11, 42, 74, 0.20);
-        }
-
-
-        /* ================================
-           CARD ALGEBRA
-           ================================ */
-
-        .algebra-card {
-            background-color: #dbeafe;
+        .navy-text {
             color: #0b2a4a;
         }
 
 
         /* ================================
-           CARD ANALISI
+           ALGEBRA = BLU ACCESO
            ================================ */
 
-        .analisi-card {
-            background-color: #111827;
-            color: white;
+        .algebra-text {
+            color: #2563eb;
+        }
+
+        .algebra-border {
+            border-color: #2563eb;
+        }
+
+
+        /* ================================
+           ANALISI = NERO
+           ================================ */
+
+        .analisi-text {
+            color: #000000;
+        }
+
+        .analisi-border {
+            border-color: #000000;
+        }
+
+
+        /* ================================
+           CARD
+           ================================ */
+
+        .material-card {
+            transition: transform 0.2s,
+                        box-shadow 0.2s;
+        }
+
+        .material-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(11, 42, 74, 0.15);
         }
 
 
@@ -83,9 +88,8 @@
             transition: transform 0.2s;
         }
 
-
-        .subject-card:hover .arrow {
-            transform: translateX(6px);
+        .material-card:hover .arrow {
+            transform: translateX(5px);
         }
 
     </style>
@@ -137,7 +141,7 @@
      CONTENUTO
      ====================================== -->
 
-<main class="container mx-auto px-4 py-14 max-w-4xl">
+<main class="container mx-auto px-4 py-12 max-w-4xl">
 
 
     <!-- ==================================
@@ -146,26 +150,35 @@
 
     <a href="Algebra.html"
 
-       class="subject-card algebra-card
-              block rounded-2xl shadow-md
-              p-8 mb-8 no-underline">
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 algebra-border
+              p-6 mb-6 no-underline">
 
 
-        <div class="flex items-center
-                    justify-between h-full">
+        <div class="flex items-center justify-between">
 
 
             <div>
 
 
-                <h2 class="text-3xl font-extrabold">
+                <p class="text-sm font-bold
+                          algebra-text
+                          uppercase mb-1">
 
-                    Algebra · biennio
+                    Biennio
 
-                </h2>
+                </p>
 
 
-                <p class="mt-3 text-lg opacity-80">
+                <h3 class="text-xl font-bold navy-text">
+
+                    Algebra
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
 
                     Schemi, tutorial ed esercizi di algebra.
 
@@ -175,7 +188,8 @@
             </div>
 
 
-            <span class="arrow text-4xl ml-6">
+            <span class="arrow navy-text
+                         text-3xl ml-6">
 
                 →
 
@@ -195,26 +209,35 @@
 
     <a href="FunzioniElementari.html"
 
-       class="subject-card analisi-card
-              block rounded-2xl shadow-md
-              p-8 mb-8 no-underline">
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 analisi-border
+              p-6 mb-6 no-underline">
 
 
-        <div class="flex items-center
-                    justify-between h-full">
+        <div class="flex items-center justify-between">
 
 
             <div>
 
 
-                <h2 class="text-3xl font-extrabold">
+                <p class="text-sm font-bold
+                          analisi-text
+                          uppercase mb-1">
 
-                    Analisi · triennio
+                    Triennio
 
-                </h2>
+                </p>
 
 
-                <p class="mt-3 text-lg opacity-80">
+                <h3 class="text-xl font-bold navy-text">
+
+                    Analisi
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
 
                     Funzioni e loro rappresentazione grafica.
 
@@ -224,7 +247,8 @@
             </div>
 
 
-            <span class="arrow text-4xl ml-6">
+            <span class="arrow navy-text
+                         text-3xl ml-6">
 
                 →
 
