@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Algebra · Matematica al Pessina</title>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+
+        /* ================================
+           COLORI PRINCIPALI
+           ================================ */
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .navy-text {
+            color: #0b2a4a;
+        }
+
+
+        /* ================================
+           TUTORIAL = ROSA
+           ================================ */
+
+        .tutorial-text {
+            color: #E11D74;
+        }
+
+        .tutorial-border {
+            border-color: #E11D74;
+        }
+
+
+        /* ================================
+           ESERCIZI = VERDE
+           ================================ */
+
+        .exercise-text {
+            color: #15803d;
+        }
+
+        .exercise-border {
+            border-color: #15803d;
+        }
+
+
+        /* ================================
+           CARD
+           ================================ */
+
+        .material-card {
+            transition: transform 0.2s,
+                        box-shadow 0.2s;
+        }
+
+        .material-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(11, 42, 74, 0.15);
+        }
+
+
+        /* ================================
+           FRECCIA
+           ================================ */
+
+        .arrow {
+            transition: transform 0.2s;
+        }
+
+        .material-card:hover .arrow {
+            transform: translateX(5px);
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="text-gray-800">
+
+
+<!-- ======================================
+     HEADER
+     ====================================== -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+
+    <div class="container mx-auto px-4">
+
+
+        <!-- PULSANTE HOME -->
+
+        <a href="index.html"
+
+           class="inline-block mb-6 px-4 py-2
+                  bg-white text-[#0b2a4a]
+                  font-semibold rounded-lg shadow
+                  hover:bg-gray-100 transition">
+
+            ← Home
+
+        </a>
+
+
+        <div class="text-center">
+
+            <h1 class="text-4xl font-extrabold mb-2">
+
+                Algebra
+
+            </h1>
+
+
+            <p class="text-xl opacity-90">
+
+                Schemi, tutorial ed esercizi
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- ======================================
+     CONTENUTO
+     ====================================== -->
+
+<main class="container mx-auto px-4 py-12 max-w-4xl">
+
+
+    <div class="mb-8">
+
+        <h2 class="text-2xl font-bold navy-text">
+
+            Algebra · primo biennio
+
+        </h2>
+
+
+        <p class="text-gray-500 mt-1">
+
+            Materiali per lo studio e l'esercitazione
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================
+         TUTORIAL
+         SCOMPOSIZIONE DI POLINOMI
+         ================================== -->
+
+    <a href="SchemaScomposizioni.html"
+
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 tutorial-border
+              p-6 mb-6 no-underline">
+
+
+        <div class="flex items-center justify-between">
+
+
+            <div>
+
+
+                <p class="text-sm font-bold
+                          tutorial-text
+                          uppercase mb-1">
+
+                    Tutorial
+
+                </p>
+
+
+                <h3 class="text-xl font-bold navy-text">
+
+                    Scomposizione di polinomi
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
+
+                    Guida alle principali tecniche di scomposizione.
+
+                </p>
+
+
+            </div>
+
+
+            <span class="arrow navy-text
+                         text-3xl ml-6">
+
+                →
+
+            </span>
+
+
+        </div>
+
+
+    </a>
+
+
+
+    <!-- ==================================
+         TUTORIAL
+         FRAZIONI ALGEBRICHE
+         ================================== -->
+
+    <a href="FrazioniAlgebriche.html"
+
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 tutorial-border
+              p-6 mb-6 no-underline">
+
+
+        <div class="flex items-center justify-between">
+
+
+            <div>
+
+
+                <p class="text-sm font-bold
+                          tutorial-text
+                          uppercase mb-1">
+
+                    Tutorial
+
+                </p>
+
+
+                <h3 class="text-xl font-bold navy-text">
+
+                    Frazioni algebriche
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
+
+                    Operazioni con le frazioni algebriche.
+
+                </p>
+
+
+            </div>
+
+
+            <span class="arrow navy-text
+                         text-3xl ml-6">
+
+                →
+
+            </span>
+
+
+        </div>
+
+
+    </a>
+
+
+
+    <!-- ==================================
+         ESERCIZI
+         SEMPLIFICAZIONE FRAZIONI ALGEBRICHE
+         ================================== -->
+
+    <a href="FAesercizi.html"
+
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 exercise-border
+              p-6 mb-6 no-underline">
+
+
+        <div class="flex items-center justify-between">
+
+
+            <div>
+
+
+                <p class="text-sm font-bold
+                          exercise-text
+                          uppercase mb-1">
+
+                    Esercizi
+
+                </p>
+
+
+                <h3 class="text-xl font-bold navy-text">
+
+                    Semplificazione frazioni algebriche: esercizi
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
+
+                    Esercizi di semplificazione con svolgimento guidato.
+
+                </p>
+
+
+            </div>
+
+
+            <span class="arrow navy-text
+                         text-3xl ml-6">
+
+                →
+
+            </span>
+
+
+        </div>
+
+
+    </a>
+
+
+
+    <!-- ==================================
+         ESERCIZI
+         CONDIZIONI DI ESISTENZA
+         ================================== -->
+
+    <a href="CEesercizi.html"
+
+       class="material-card block bg-white
+              rounded-xl shadow-md
+              border-l-8 exercise-border
+              p-6 mb-6 no-underline">
+
+
+        <div class="flex items-center justify-between">
+
+
+            <div>
+
+
+                <p class="text-sm font-bold
+                          exercise-text
+                          uppercase mb-1">
+
+                    Esercizi
+
+                </p>
+
+
+                <h3 class="text-xl font-bold navy-text">
+
+                    Condizioni di Esistenza (C.E.) di frazioni algebriche
+
+                </h3>
+
+
+                <p class="text-gray-600 mt-2">
+
+                    Esercizi per determinare le condizioni di esistenza (C.E.) delle frazioni algebriche.
+
+                </p>
+
+
+            </div>
+
+
+            <span class="arrow navy-text
+                         text-3xl ml-6">
+
+                →
+
+            </span>
+
+
+        </div>
+
+
+    </a>
+
+
+</main>
+
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica al Pessina · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
