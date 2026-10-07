@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Proporzionalità inversa · Matematica</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .navy-text {
+            color: #0b2a4a;
+        }
+
+
+        /* ================================
+           SEZIONI
+           ================================ */
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 24px;
+
+            box-shadow:
+                0 4px 12px rgba(11, 42, 74, 0.08);
+        }
+
+        .section-title {
+            color: #0b2a4a;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+
+        /* ================================
+           FORMULA PRINCIPALE
+           ================================ */
+
+        .main-equation {
+            text-align: center;
+            color: #0b2a4a;
+            font-size: 2.7rem;
+            font-weight: 600;
+            margin: 8px 0 30px;
+        }
+
+
+        /* ================================
+           GRAFICO + TABELLA
+           ================================ */
+
+        .graph-table-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: center;
+            max-width: 820px;
+            margin: 0 auto 25px;
+        }
+
+        .graph-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .axis {
+            stroke: #64748b;
+            stroke-width: 1.6;
+        }
+
+        .grid-line {
+            stroke: #e2e8f0;
+            stroke-width: 1;
+        }
+
+        .function-line {
+            stroke: #0b2a4a;
+            stroke-width: 3.5;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .axis-label {
+            fill: #475569;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tick-label {
+            fill: #64748b;
+            font-size: 12px;
+        }
+
+        .point {
+            fill: #3b82f6;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+
+        /* ================================
+           TABELLA
+           ================================ */
+
+        .values-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .values-table th {
+            background: #0b2a4a;
+            color: white;
+            padding: 10px;
+            border: 1px solid #0b2a4a;
+        }
+
+        .values-table td {
+            padding: 10px;
+            border: 1px solid #dbe3ec;
+            font-weight: 600;
+        }
+
+        .values-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+
+        /* ================================
+           DOMINIO
+           ================================ */
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 6px solid #dc2626;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .warning-title {
+            color: #dc2626;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .domain-formula {
+            color: #0b2a4a;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 16px 0 8px;
+        }
+
+
+        /* ================================
+           CARATTERISTICHE
+           ================================ */
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .property-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 18px;
+            border-left: 5px solid #0F766E;
+        }
+
+        .property-title {
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+
+        /* ================================
+           ESEMPI
+           ================================ */
+
+        .example {
+            background: #f8fafc;
+            border-left: 5px solid #0F766E;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+        }
+
+        .example-title {
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .more-examples {
+            text-align: center;
+            color: #0b2a4a;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+
+        /* ================================
+           MOBILE
+           ================================ */
+
+        @media (max-width: 700px) {
+
+            .graph-table-container,
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-equation {
+                font-size: 2.2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="text-gray-800">
+
+
+<!-- ======================================
+     HEADER
+     ====================================== -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4">
+
+        <a href="FunzioniElementari.html"
+           class="inline-block mb-6 px-4 py-2
+                  bg-white text-[#0b2a4a]
+                  font-semibold rounded-lg shadow
+                  hover:bg-gray-100 transition">
+
+            ← Funzioni elementari
+
+        </a>
+
+
+        <div class="text-center">
+
+            <h1 class="text-4xl font-extrabold">
+
+                Proporzionalità inversa
+
+            </h1>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container mx-auto px-4 py-10 max-w-5xl">
+
+
+    <!-- ==================================
+         FORMULA E GRAFICO
+         ================================== -->
+
+    <section class="section-card">
+
+
+        <div class="main-equation">
+
+            f(x) = 1/x
+
+        </div>
+
+
+        <div class="graph-table-container">
+
+
+            <!-- ==========================
+                 GRAFICO
+                 ========================== -->
+
+            <div>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 500 400"
+                     xmlns="http://www.w3.org/2000/svg">
+
+
+                    <!-- GRIGLIA -->
+
+                    <g class="grid-line">
+
+                        <line x1="50" y1="50" x2="450" y2="50"/>
+                        <line x1="50" y1="100" x2="450" y2="100"/>
+                        <line x1="50" y1="150" x2="450" y2="150"/>
+                        <line x1="50" y1="200" x2="450" y2="200"/>
+                        <line x1="50" y1="250" x2="450" y2="250"/>
+                        <line x1="50" y1="300" x2="450" y2="300"/>
+                        <line x1="50" y1="350" x2="450" y2="350"/>
+
+                        <line x1="50" y1="30" x2="50" y2="370"/>
+                        <line x1="100" y1="30" x2="100" y2="370"/>
+                        <line x1="150" y1="30" x2="150" y2="370"/>
+                        <line x1="200" y1="30" x2="200" y2="370"/>
+                        <line x1="250" y1="30" x2="250" y2="370"/>
+                        <line x1="300" y1="30" x2="300" y2="370"/>
+                        <line x1="350" y1="30" x2="350" y2="370"/>
+                        <line x1="400" y1="30" x2="400" y2="370"/>
+                        <line x1="450" y1="30" x2="450" y2="370"/>
+
+                    </g>
+
+
+                    <!-- ASSI -->
+
+                    <line x1="40" y1="200"
+                          x2="465" y2="200"
+                          class="axis"/>
+
+                    <line x1="250" y1="375"
+                          x2="250" y2="20"
+                          class="axis"/>
+
+
+                    <!-- FRECCE -->
+
+                    <polyline
+                        points="456,195 465,200 456,205"
+                        fill="none"
+                        class="axis"/>
+
+                    <polyline
+                        points="245,29 250,20 255,29"
+                        fill="none"
+                        class="axis"/>
+
+
+                    <!-- NOMI ASSI -->
+
+                    <text x="450"
+                          y="188"
+                          class="axis-label">
+                        x
+                    </text>
+
+                    <text x="260"
+                          y="32"
+                          class="axis-label">
+                        f(x)
+                    </text>
+
+
+                    <!-- VALORI -->
+
+                    <text x="194" y="218" class="tick-label">−1</text>
+                    <text x="296" y="218" class="tick-label">1</text>
+
+                    <text x="230" y="154" class="tick-label">1</text>
+                    <text x="222" y="254" class="tick-label">−1</text>
+
+
+                    <!-- =================================
+                         IPERBOLE f(x)=1/x
+                         ================================= -->
+
+
+                    <!-- RAMO PRIMO QUADRANTE -->
+
+                    <path
+                        d="
+                        M 263 30
+                        C 266 55, 271 85, 280 115
+                        C 290 145, 310 165, 335 177
+                        C 365 188, 405 193, 450 195
+                        "
+                        class="function-line"/>
+
+
+                    <!-- RAMO TERZO QUADRANTE -->
+
+                    <path
+                        d="
+                        M 50 205
+                        C 95 207, 135 212, 165 223
+                        C 190 235, 210 255, 220 285
+                        C 229 315, 234 345, 237 370
+                        "
+                        class="function-line"/>
+
+
+                    <!-- PUNTI SIGNIFICATIVI -->
+
+                    <!-- (1,1) -->
+
+                    <circle cx="300"
+                            cy="150"
+                            r="7"
+                            class="point"/>
+
+
+                    <!-- (2,1/2) -->
+
+                    <circle cx="350"
+                            cy="175"
+                            r="7"
+                            class="point"/>
+
+
+                    <!-- (-1,-1) -->
+
+                    <circle cx="200"
+                            cy="250"
+                            r="7"
+                            class="point"/>
+
+
+                    <!-- (-2,-1/2) -->
+
+                    <circle cx="150"
+                            cy="225"
+                            r="7"
+                            class="point"/>
+
+
+                </svg>
+
+            </div>
+
+
+
+            <!-- ==========================
+                 TABELLA
+                 ========================== -->
+
+            <div>
+
+                <table class="values-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>x</th>
+                            <th>f(x)</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>−2</td>
+                            <td>−1/2</td>
+                        </tr>
+
+                        <tr>
+                            <td>−1</td>
+                            <td>−1</td>
+                        </tr>
+
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>1/2</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="property-grid">
+
+
+            <div class="property-box">
+
+                <div class="property-title">
+
+                    Iperbole equilatera
+
+                </div>
+
+                <p>
+
+                    Il grafico della funzione è
+                    un'iperbole equilatera.
+
+                </p>
+
+            </div>
+
+
+            <div class="property-box">
+
+                <div class="property-title">
+
+                    Simmetria
+
+                </div>
+
+                <p>
+
+                    Il grafico è simmetrico
+                    rispetto all'origine.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================
+         DOMINIO
+         ================================== -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+
+            Dominio
+
+        </h2>
+
+
+        <div class="warning-box">
+
+            <div class="warning-title">
+
+                Attenzione: non si può dividere per zero!
+
+            </div>
+
+
+            <p>
+
+                Nella funzione
+
+                <strong>f(x) = 1/x</strong>
+
+                la variabile x si trova al denominatore.
+
+            </p>
+
+
+            <p class="mt-3">
+
+                Il denominatore deve quindi essere
+                <strong>diverso da zero</strong>:
+
+            </p>
+
+
+            <div class="domain-formula">
+
+                x ≠ 0
+
+            </div>
+
+
+            <p class="text-center">
+
+                Il valore 0 deve essere escluso dal dominio.
+
+            </p>
+
+
+            <div class="domain-formula">
+
+                D = ℝ \ {0}
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         COME VARIANO x E f(x)
+         ================================== -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+
+            Come varia la funzione?
+
+        </h2>
+
+
+        <p class="mb-5">
+
+            Nella proporzionalità inversa, quando una grandezza
+            aumenta, l'altra diminuisce in modo che il loro
+            prodotto rimanga costante.
+
+        </p>
+
+
+        <div class="property-grid">
+
+
+            <div class="property-box">
+
+                <div class="property-title">
+
+                    x aumenta ↑
+
+                </div>
+
+                <p>
+
+                    Per x positivo, aumentando x,
+                    il valore di f(x) diminuisce.
+
+                </p>
+
+            </div>
+
+
+            <div class="property-box">
+
+                <div class="property-title">
+
+                    f(x) diminuisce ↓
+
+                </div>
+
+                <p>
+
+                    Per esempio, se x raddoppia,
+                    f(x) si dimezza.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="domain-formula">
+
+            x · f(x) = 1
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================
+         ESEMPI REALI
+         ================================== -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+
+            Esempi di proporzionalità inversa
+
+        </h2>
+
+
+
+        <div class="example">
+
+            <div class="example-title">
+
+                Velocità e tempo di percorrenza
+
+            </div>
+
+            <p>
+
+                A parità di distanza, aumentando la velocità
+                diminuisce il tempo necessario per percorrerla.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="example">
+
+            <div class="example-title">
+
+                Numero di lavoratori e tempo
+
+            </div>
+
+            <p>
+
+                Se tutti lavorano allo stesso ritmo,
+                aumentando il numero di lavoratori diminuisce
+                il tempo necessario per completare un lavoro.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="example">
+
+            <div class="example-title">
+
+                Numero di persone e quantità per persona
+
+            </div>
+
+            <p>
+
+                Se una quantità totale viene divisa in parti uguali,
+                aumentando il numero di persone diminuisce
+                la quantità assegnata a ciascuna.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="example">
+
+            <div class="example-title">
+
+                Larghezza e lunghezza di un rettangolo
+
+            </div>
+
+            <p>
+
+                A parità di area, aumentando la larghezza
+                deve diminuire la lunghezza.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="more-examples">
+
+            …
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
