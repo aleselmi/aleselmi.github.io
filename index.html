@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Matematica · Alessia Selmi</title>
+    <title>Matematica al Pessina · Alessia Selmi</title>
 
     <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -35,47 +35,22 @@
             color: #0b2a4a;
         }
 
-        .navy-border {
-            border-color: #0b2a4a;
-        }
-
-
-        /* ================================
-           TUTORIAL = ROSA
-           ================================ */
-
-        .tutorial-text {
-            color: #E11D74;
-        }
-
-        .tutorial-border {
-            border-color: #E11D74;
-        }
-
-
-        /* ================================
-           ESERCIZI = VERDE
-           ================================ */
-
-        .exercise-text {
-            color: #15803d;
-        }
-
-        .exercise-border {
-            border-color: #15803d;
-        }
-
 
         /* ================================
            CARD
            ================================ */
 
-        .material-card {
-            transition: transform 0.2s,
-                        box-shadow 0.2s;
+        .subject-card {
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+
+            border-left: 8px solid #0b2a4a;
         }
 
-        .material-card:hover {
+
+        .subject-card:hover {
+
             transform: translateY(-4px);
 
             box-shadow:
@@ -92,9 +67,11 @@
             transition: transform 0.2s;
         }
 
-        .material-card:hover .arrow {
+
+        .subject-card:hover .arrow {
             transform: translateX(5px);
         }
+
 
     </style>
 
@@ -113,9 +90,10 @@
 
     <div class="container mx-auto px-4 text-center">
 
+
         <h1 class="text-5xl font-extrabold mb-2">
 
-            Matematica
+            Matematica al Pessina
 
         </h1>
 
@@ -133,6 +111,7 @@
 
         </p>
 
+
     </div>
 
 </header>
@@ -146,22 +125,18 @@
 <main class="container mx-auto px-4 py-12 max-w-4xl">
 
 
-    <!-- ==================================
-         ALGEBRA
-         ================================== -->
-
     <div class="mb-8">
 
         <h2 class="text-2xl font-bold navy-text">
 
-            Algebra · primo biennio
+            Materiali di matematica
 
         </h2>
 
 
         <p class="text-gray-500 mt-1">
 
-            Schemi, tutorial ed esercizi di algebra
+            Scegli un argomento
 
         </p>
 
@@ -170,16 +145,14 @@
 
 
     <!-- ==================================
-         TUTORIAL
-         SCOMPOSIZIONE DI POLINOMI
+         ALGEBRA
          ================================== -->
 
-    <a href="SchemaScomposizioni.html"
+    <a href="Algebra.html"
 
-       class="material-card block bg-white
+       class="subject-card block bg-white
               rounded-xl shadow-md
-              border-l-8 tutorial-border
-              p-6 mb-6 no-underline">
+              p-7 mb-7 no-underline">
 
 
         <div class="flex items-center justify-between">
@@ -189,25 +162,23 @@
 
 
                 <p class="text-sm font-bold
-                          tutorial-text
-                          uppercase mb-1">
+                          navy-text uppercase mb-1">
 
-                    Tutorial
+                    Matematica
 
                 </p>
 
 
-                <h3 class="text-xl font-bold navy-text">
+                <h3 class="text-2xl font-bold navy-text">
 
-                    Scomposizione di polinomi
+                    Algebra
 
                 </h3>
 
 
                 <p class="text-gray-600 mt-2">
 
-                    Guida alle principali tecniche
-                    di scomposizione.
+                    Schemi, tutorial ed esercizi di algebra.
 
                 </p>
 
@@ -216,7 +187,7 @@
 
 
             <span class="arrow navy-text
-                         text-3xl ml-6">
+                         text-4xl ml-6">
 
                 →
 
@@ -231,16 +202,14 @@
 
 
     <!-- ==================================
-         TUTORIAL
-         FRAZIONI ALGEBRICHE
+         ANALISI
          ================================== -->
 
-    <a href="FrazioniAlgebriche.html"
+    <a href="FunzioniElementari.html"
 
-       class="material-card block bg-white
+       class="subject-card block bg-white
               rounded-xl shadow-md
-              border-l-8 tutorial-border
-              p-6 mb-6 no-underline">
+              p-7 mb-7 no-underline">
 
 
         <div class="flex items-center justify-between">
@@ -250,24 +219,23 @@
 
 
                 <p class="text-sm font-bold
-                          tutorial-text
-                          uppercase mb-1">
+                          navy-text uppercase mb-1">
 
-                    Tutorial
+                    Matematica
 
                 </p>
 
 
-                <h3 class="text-xl font-bold navy-text">
+                <h3 class="text-2xl font-bold navy-text">
 
-                    Frazioni algebriche
+                    Analisi
 
                 </h3>
 
 
                 <p class="text-gray-600 mt-2">
 
-                    Operazioni con le frazioni algebriche
+                    Funzioni e loro rappresentazione grafica.
 
                 </p>
 
@@ -276,124 +244,7 @@
 
 
             <span class="arrow navy-text
-                         text-3xl ml-6">
-
-                →
-
-            </span>
-
-
-        </div>
-
-
-    </a>
-
-
-
-    <!-- ==================================
-         ESERCIZI
-         FRAZIONI ALGEBRICHE
-         ================================== -->
-
-    <a href="FAesercizi.html"
-
-       class="material-card block bg-white
-              rounded-xl shadow-md
-              border-l-8 exercise-border
-              p-6 mb-6 no-underline">
-
-
-        <div class="flex items-center justify-between">
-
-
-            <div>
-
-
-                <p class="text-sm font-bold
-                          exercise-text
-                          uppercase mb-1">
-
-                    Esercizi
-
-                </p>
-
-
-                <h3 class="text-xl font-bold navy-text">
-
-                    Semplificazione frazioni algebriche: esercizi
-
-                </h3>
-
-
-                <p class="text-gray-600 mt-2">
-
-                    Esercizi di semplificazione con svolgimento guidato.
-
-                </p>
-
-
-            </div>
-
-
-            <span class="arrow navy-text
-                         text-3xl ml-6">
-
-                →
-
-            </span>
-
-
-        </div>
-
-
-    </a>
-     <!-- ==================================
-         ESERCIZI CE
-         FRAZIONI ALGEBRICHE
-         ================================== -->
-
-    <a href="CEesercizi.html"
-
-       class="material-card block bg-white
-              rounded-xl shadow-md
-              border-l-8 exercise-border
-              p-6 mb-6 no-underline">
-
-
-        <div class="flex items-center justify-between">
-
-
-            <div>
-
-
-                <p class="text-sm font-bold
-                          exercise-text
-                          uppercase mb-1">
-
-                    Esercizi
-
-                </p>
-
-
-                <h3 class="text-xl font-bold navy-text">
-
-                    Condizioni di Esistenza (C.E.) di frazioni algebriche
-
-                </h3>
-
-
-                <p class="text-gray-600 mt-2">
-
-                    Esercizi per determinare le condizioni di esistenza (C.E.) delle frazioni algebriche.
-
-                </p>
-
-
-            </div>
-
-
-            <span class="arrow navy-text
-                         text-3xl ml-6">
+                         text-4xl ml-6">
 
                 →
 
@@ -419,7 +270,7 @@
     <div class="container mx-auto px-4
                 text-center text-sm opacity-80">
 
-        Matematica · Alessia Selmi · A.S. 2026–2027
+        Matematica al Pessina · Alessia Selmi · A.S. 2026–2027
 
     </div>
 
