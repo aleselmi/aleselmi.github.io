@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Prodotti notevoli e scomposizioni · Matematica al Pessina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1f2937;
+        }
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 26px;
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+        }
+
+        .section-title {
+            color: #15803d;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .example {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .example-title {
+            color: #0b2a4a;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            color: #0b2a4a;
+            font-size: 1.45rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 14px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .step {
+            background: #f8fafc;
+            border-left: 4px solid #15803d;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 12px 0;
+        }
+
+        .result {
+            background: #f0fdf4;
+            border: 2px solid #15803d;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 14px;
+        }
+
+        .highlight {
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        .red {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .blue {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .note {
+            background: #f8fafc;
+            border-left: 5px solid #15803d;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .section-card {
+                padding: 20px;
+            }
+
+            .formula {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <a href="FunzioniElementari.html"
+           class="inline-block mb-6 px-4 py-2
+                  bg-white text-[#0b2a4a]
+                  font-semibold rounded-lg shadow
+                  hover:bg-gray-100 transition">
+            ← Funzioni elementari
+        </a>
+
+        <h1 class="text-4xl font-extrabold text-center mb-3">
+            Prodotti notevoli e scomposizioni
+        </h1>
+
+        <p class="text-center text-lg opacity-90">
+            Le tecniche utili per risolvere le equazioni di secondo grado
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container mx-auto px-4 py-10 max-w-5xl">
+
+    <!-- INTRODUZIONE -->
+
+    <section class="section-card">
+
+        <p class="text-lg">
+            Per risolvere le equazioni di secondo grado
+            è importante saper svolgere due operazioni:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mt-5">
+
+            <div class="step">
+                <strong class="highlight">
+                    Sviluppare
+                </strong>
+
+                <p class="mt-2">
+                    Eliminare le parentesi eseguendo
+                    le moltiplicazioni.
+                </p>
+
+                <div class="formula">
+                    (x + 2)² = x² + 4x + 4
+                </div>
+            </div>
+
+            <div class="step">
+                <strong class="highlight">
+                    Scomporre
+                </strong>
+
+                <p class="mt-2">
+                    Scrivere un polinomio come
+                    prodotto di fattori.
+                </p>
+
+                <div class="formula">
+                    x² + 4x + 4 = (x + 2)²
+                </div>
+            </div>
+
+        </div>
+
+        <p class="mt-4">
+            Sono due operazioni inverse.
+        </p>
+
+    </section>
+
+
+    <!-- PARTE 1 -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            1. Prodotti notevoli e moltiplicazioni
+        </h2>
+
+        <p>
+            Queste tecniche servono per
+            <strong>eliminare le parentesi</strong>
+            e semplificare le espressioni.
+        </p>
+
+
+        <!-- DISTRIBUTIVA -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                1.1 Moltiplicazione di un monomio per una parentesi
+            </h3>
+
+            <p>
+                Moltiplichiamo il termine fuori dalla parentesi
+                per <strong>ogni termine</strong> al suo interno.
+            </p>
+
+            <div class="formula">
+                3x(x + 2)
+            </div>
+
+            <div class="step">
+                Moltiplichiamo 3x per x
+                e poi 3x per 2.
+            </div>
+
+            <div class="formula">
+                3x · x + 3x · 2
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    3x² + 6x
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- DUE PARENTESI -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                1.2 Moltiplicazione di due parentesi
+            </h3>
+
+            <p>
+                Moltiplichiamo ogni termine della prima
+                parentesi per ogni termine della seconda.
+            </p>
+
+            <div class="formula">
+                (x + 2)(x + 3)
+            </div>
+
+            <div class="step">
+                Eseguiamo tutte le moltiplicazioni.
+            </div>
+
+            <div class="formula">
+                x² + 3x + 2x + 6
+            </div>
+
+            <div class="step">
+                Sommiamo i termini simili:
+                3x + 2x = 5x.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    x² + 5x + 6
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- SOMMA PER DIFFERENZA -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                1.3 Somma per differenza
+            </h3>
+
+            <p>
+                Quando due parentesi contengono gli stessi
+                termini, una con il segno + e l'altra
+                con il segno −, otteniamo una
+                <strong>differenza di quadrati</strong>.
+            </p>
+
+            <div class="formula">
+                (x + 3)(x − 3)
+            </div>
+
+            <div class="step">
+                Moltiplichiamo i termini.
+            </div>
+
+            <div class="formula">
+                x² − 3x + 3x − 9
+            </div>
+
+            <div class="step">
+                I termini −3x e +3x si annullano.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    x² − 9
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- QUADRATO DI BINOMIO -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                1.4 Quadrato di binomio
+            </h3>
+
+            <p>
+                Elevare una parentesi al quadrato
+                significa moltiplicarla per se stessa.
+            </p>
+
+            <div class="formula">
+                (x + 2)²
+            </div>
+
+            <div class="step">
+                Scriviamo due parentesi uguali.
+            </div>
+
+            <div class="formula">
+                (x + 2)(x + 2)
+            </div>
+
+            <div class="step">
+                Eseguiamo le moltiplicazioni.
+            </div>
+
+            <div class="formula">
+                x² + 2x + 2x + 4
+            </div>
+
+            <div class="step">
+                Sommiamo i termini simili.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    x² + 4x + 4
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Attenzione!</strong>
+
+                <p class="mt-2">
+                    Il quadrato di un binomio
+                    contiene anche il
+                    <strong>doppio prodotto</strong>.
+                </p>
+
+                <div class="formula">
+                    (x + 2)² ≠ x² + 4
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PARTE 2 -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            2. Scomposizioni
+        </h2>
+
+        <p>
+            Scomporre significa trasformare una somma
+            o una differenza in un
+            <strong>prodotto di fattori</strong>.
+        </p>
+
+
+        <!-- RACCOGLIMENTO -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                2.1 Raccoglimento a fattor comune
+            </h3>
+
+            <p>
+                Cerchiamo un fattore presente
+                in tutti i termini.
+            </p>
+
+            <div class="formula">
+                x² + 3x
+            </div>
+
+            <div class="step">
+                Entrambi i termini contengono x.
+                Mettiamo x fuori dalla parentesi.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    x(x + 3)
+                </div>
+            </div>
+
+            <p class="mt-3">
+                Possiamo controllare il risultato
+                svolgendo la moltiplicazione:
+            </p>
+
+            <div class="formula">
+                x(x + 3) = x² + 3x
+            </div>
+
+        </div>
+
+
+        <!-- DIFFERENZA DI QUADRATI -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                2.2 Differenza di quadrati
+            </h3>
+
+            <p>
+                Riconosciamo una sottrazione
+                tra due quadrati.
+            </p>
+
+            <div class="formula">
+                x² − 16
+            </div>
+
+            <div class="step">
+                Osserviamo che 16 = 4².
+            </div>
+
+            <div class="formula">
+                x² − 4²
+            </div>
+
+            <div class="step">
+                Scriviamo due parentesi:
+                una con il segno −
+                e una con il segno +.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    (x − 4)(x + 4)
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- QUADRATO DI BINOMIO -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                2.3 Riconoscimento del quadrato di binomio
+            </h3>
+
+            <p>
+                Cerchiamo due quadrati e il loro
+                doppio prodotto.
+            </p>
+
+            <div class="formula">
+                x² + 6x + 9
+            </div>
+
+            <div class="step">
+                x² è il quadrato di x.
+                <br>
+                9 è il quadrato di 3.
+            </div>
+
+            <div class="step">
+                Controlliamo il termine centrale:
+            </div>
+
+            <div class="formula">
+                2 · x · 3 = 6x
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    (x + 3)²
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- TRINOMIO CARATTERISTICO -->
+
+        <div class="example">
+
+            <h3 class="example-title">
+                2.4 Trinomio caratteristico
+            </h3>
+
+            <p>
+                Cerchiamo due numeri che abbiano:
+            </p>
+
+            <ul class="list-disc pl-6 mt-2 space-y-1">
+                <li>
+                    <strong>somma</strong> uguale al
+                    coefficiente della x;
+                </li>
+                <li>
+                    <strong>prodotto</strong> uguale
+                    al termine noto.
+                </li>
+            </ul>
+
+            <div class="formula">
+                x² − 5x + 6
+            </div>
+
+            <div class="step">
+                Cerchiamo due numeri con
+                somma −5 e prodotto +6.
+            </div>
+
+            <div class="formula">
+                <span class="red">−2</span>
+                +
+                <span class="blue">−3</span>
+                = −5
+            </div>
+
+            <div class="formula">
+                (<span class="red">−2</span>)
+                ·
+                (<span class="blue">−3</span>)
+                = +6
+            </div>
+
+            <div class="step">
+                I due numeri sono −2 e −3.
+                Li inseriamo nelle parentesi.
+            </div>
+
+            <div class="result">
+                <div class="formula">
+                    (x <span class="red">− 2</span>)
+                    (x <span class="blue">− 3</span>)
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Ricorda:</strong>
+
+                <p class="mt-2">
+                    Questo procedimento si applica
+                    direttamente ai trinomi
+                    con coefficiente di x² uguale a 1.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PARTE 3 -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            3. Dalle scomposizioni alle equazioni
+        </h2>
+
+        <p>
+            La scomposizione permette di risolvere
+            alcune equazioni di secondo grado usando
+            la <strong>legge di annullamento del prodotto</strong>.
+        </p>
+
+        <div class="note">
+
+            <strong class="highlight">
+                Legge di annullamento del prodotto
+            </strong>
+
+            <p class="mt-2">
+                Un prodotto è uguale a zero
+                se almeno uno dei suoi fattori è zero.
+            </p>
+
+        </div>
+
+        <div class="example">
+
+            <h3 class="example-title">
+                Esempio svolto
+            </h3>
+
+            <div class="formula">
+                x² − 9 = 0
+            </div>
+
+            <div class="step">
+                <strong>Passo 1.</strong>
+                Riconosciamo una differenza di quadrati.
+            </div>
+
+            <div class="formula">
+                (x − 3)(x + 3) = 0
+            </div>
+
+            <div class="step">
+                <strong>Passo 2.</strong>
+                Uguagliamo a zero ciascun fattore.
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mt-4">
+
+                <div class="text-center">
+                    <div class="formula">
+                        x − 3 = 0
+                    </div>
+
+                    <div class="formula">
+                        x = 3
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="formula">
+                        x + 3 = 0
+                    </div>
+
+                    <div class="formula">
+                        x = −3
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="result">
+                <p class="text-center font-semibold">
+                    Soluzioni
+                </p>
+
+                <div class="formula">
+                    x₁ = 3
+                    &nbsp;&nbsp;
+                    x₂ = −3
+                </div>
+            </div>
+
+        </div>
+
+        <p class="mt-6">
+            Per conoscere anche gli altri metodi
+            di risoluzione, consulta la scheda
+            sulle equazioni di secondo grado.
+        </p>
+
+        <div class="text-center mt-5">
+
+            <a href="EquazioniSecondoGrado.html"
+               class="inline-block bg-[#0b2a4a]
+                      text-white font-semibold
+                      px-6 py-3 rounded-lg
+                      hover:bg-[#163f68] transition">
+
+                Equazioni di secondo grado →
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica al Pessina · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+</body>
+</html>
