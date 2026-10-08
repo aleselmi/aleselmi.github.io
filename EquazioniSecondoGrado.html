@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Equazioni di secondo grado · Matematica</title>
+    <title>Equazioni di secondo grado · Matematica al Pessina</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -28,7 +29,7 @@
             border-radius: 16px;
             padding: 26px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 12px rgba(11,42,74,.08);
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
         }
 
         .section-title {
@@ -169,19 +170,21 @@
 
 <body>
 
-<!-- HEADER -->
+<!-- ======================================
+     HEADER
+     ====================================== -->
 
 <header class="navy-bg text-white py-10 shadow-lg">
 
     <div class="container mx-auto px-4">
 
-       
-<a href="Algebra.html"
-   class="inline-block mb-6 px-4 py-2 bg-white
-          text-[#0b2a4a] font-semibold rounded-lg
-          shadow hover:bg-gray-100 transition">
-    ← Algebra
-</a>
+        <a href="FunzioniElementari.html"
+           class="inline-block mb-6 px-4 py-2
+                  bg-white text-[#0b2a4a]
+                  font-semibold rounded-lg shadow
+                  hover:bg-gray-100 transition">
+            ← Funzioni elementari
+        </a>
 
         <h1 class="text-4xl font-extrabold text-center">
             Equazioni di secondo grado
@@ -191,9 +194,12 @@
 
 </header>
 
+
 <main class="container mx-auto px-4 py-10 max-w-5xl">
 
-    <!-- EQUAZIONE COMPLETA -->
+    <!-- ==================================
+         EQUAZIONE COMPLETA
+         ================================== -->
 
     <section class="section-card">
 
@@ -212,8 +218,8 @@
         <p class="mt-5">
             Prima di risolvere un'equazione di secondo grado,
             portiamo tutti i termini al primo membro,
-            riduciamo i termini simili e rendiamo
-            <strong>positivo il coefficiente a</strong>.
+            riduciamo i termini simili e, se necessario,
+            rendiamo <strong>positivo il coefficiente a</strong>.
         </p>
 
         <div class="note">
@@ -242,7 +248,10 @@
 
     </section>
 
-    <!-- PRIMO METODO -->
+
+    <!-- ==================================
+         PRIMO METODO
+         ================================== -->
 
     <section class="section-card">
 
@@ -337,7 +346,10 @@
 
     </section>
 
-    <!-- SECONDO METODO -->
+
+    <!-- ==================================
+         SECONDO METODO
+         ================================== -->
 
     <section class="section-card">
 
@@ -356,7 +368,7 @@
         </div>
 
         <p class="text-center mb-5">
-            con a &gt; 0
+            con a ≠ 0
         </p>
 
         <div class="formula">
@@ -375,16 +387,14 @@
         </div>
 
         <p class="text-center">
-            dove il <strong>discriminante</strong>
-            è:
+            dove il <strong>discriminante</strong> è:
         </p>
 
         <div class="formula">
             Δ = b² − 4ac
         </div>
 
-        <h3 class="text-xl font-bold text-[#0b2a4a]
-                   mt-8 mb-4">
+        <h3 class="text-xl font-bold text-[#0b2a4a] mt-8 mb-4">
             Nel nostro esempio
         </h3>
 
@@ -484,7 +494,10 @@
 
     </section>
 
-    <!-- DISCRIMINANTE E PARABOLA -->
+
+    <!-- ==================================
+         DISCRIMINANTE E PARABOLA
+         ================================== -->
 
     <section class="section-card">
 
@@ -510,7 +523,9 @@
 
         <div class="graph-grid">
 
-            <!-- DELTA POSITIVO -->
+            <!-- ==========================
+                 DELTA POSITIVO
+                 ========================== -->
 
             <div class="graph-box">
 
@@ -543,9 +558,13 @@
                         "/>
                     </g>
 
+                    <!-- Asse x -->
+
                     <line class="axis"
                           x1="20" y1="100"
                           x2="245" y2="100"/>
+
+                    <!-- Asse y -->
 
                     <line class="axis"
                           x1="50" y1="205"
@@ -557,24 +576,29 @@
                     <polygon fill="#64748b"
                              points="50,15 45,24 55,24"/>
 
-                    <!-- y = (x-1)(x-3), scala grafica -->
+                    <!--
+                        Curva quadratica esatta:
+                        il tracciato passa per
+                        (100,100) e (160,100).
+                        Vertice (130,145).
+                    -->
 
                     <path class="parabola"
                           d="M80 20
-                             Q130 200 180 20"/>
+                             Q130 270 180 20"/>
 
-                    <!-- Intersezioni corrette con y=100 -->
-
-                    <circle class="point"
-                            cx="96.67" cy="100" r="5"/>
+                    <!-- Intersezioni sull'asse x -->
 
                     <circle class="point"
-                            cx="163.33" cy="100" r="5"/>
+                            cx="100" cy="100" r="5"/>
 
-                    <text x="89" y="119"
+                    <circle class="point"
+                            cx="160" cy="100" r="5"/>
+
+                    <text x="92" y="119"
                           class="axis-label">x₁</text>
 
-                    <text x="157" y="119"
+                    <text x="152" y="119"
                           class="axis-label">x₂</text>
 
                     <text x="233" y="91"
@@ -593,7 +617,10 @@
 
             </div>
 
-            <!-- DELTA NULLO -->
+
+            <!-- ==========================
+                 DELTA NULLO
+                 ========================== -->
 
             <div class="graph-box">
 
@@ -625,9 +652,13 @@
                         "/>
                     </g>
 
+                    <!-- Asse x -->
+
                     <line class="axis"
                           x1="20" y1="150"
                           x2="245" y2="150"/>
+
+                    <!-- Asse y -->
 
                     <line class="axis"
                           x1="50" y1="205"
@@ -639,7 +670,10 @@
                     <polygon fill="#64748b"
                              points="50,15 45,24 55,24"/>
 
-                    <!-- Vertice sull'asse x -->
+                    <!--
+                        Vertice esattamente
+                        sull'asse x: (130,150).
+                    -->
 
                     <path class="parabola"
                           d="M80 25
@@ -667,7 +701,10 @@
 
             </div>
 
-            <!-- DELTA NEGATIVO -->
+
+            <!-- ==========================
+                 DELTA NEGATIVO
+                 ========================== -->
 
             <div class="graph-box">
 
@@ -700,9 +737,13 @@
                         "/>
                     </g>
 
+                    <!-- Asse x -->
+
                     <line class="axis"
                           x1="20" y1="175"
                           x2="245" y2="175"/>
+
+                    <!-- Asse y -->
 
                     <line class="axis"
                           x1="50" y1="205"
@@ -754,14 +795,17 @@
 
 </main>
 
-<!-- FOOTER -->
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
 
 <footer class="navy-bg text-white py-6 mt-12">
 
     <div class="container mx-auto px-4
                 text-center text-sm opacity-80">
 
-        Matematica · Alessia Selmi · A.S. 2026–2027
+        Matematica al Pessina · Alessia Selmi · A.S. 2026–2027
 
     </div>
 
