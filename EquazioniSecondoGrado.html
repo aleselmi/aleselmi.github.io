@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Equazioni di secondo grado · Matematica</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        .navy-bg {
+            background: #0b2a4a;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11,42,74,.08);
+        }
+
+        .section-title {
+            color: #0b2a4a;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .main-equation {
+            color: #0b2a4a;
+            font-size: 2.4rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 18px 0;
+        }
+
+        .formula {
+            color: #0b2a4a;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .step {
+            background: white;
+            border: 2px solid #0b2a4a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 14px 0;
+        }
+
+        .step strong {
+            color: #15803d;
+        }
+
+        .note {
+            border-left: 5px solid #15803d;
+            padding: 16px 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .graph-box {
+            border: 2px solid #0b2a4a;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .graph-box h3 {
+            color: #15803d;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .graph-svg {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            margin: 12px auto;
+        }
+
+        .axis {
+            stroke: #64748b;
+            stroke-width: 1.8;
+        }
+
+        .gridline {
+            stroke: #e2e8f0;
+            stroke-width: 1;
+        }
+
+        .parabola {
+            fill: none;
+            stroke: #0b2a4a;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+
+        .point {
+            fill: #3b82f6;
+            stroke: white;
+            stroke-width: 1.5;
+        }
+
+        .axis-label {
+            fill: #475569;
+            font-size: 13px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 1.3;
+            margin: 0 5px;
+        }
+
+        .fraction .top {
+            border-bottom: 2px solid currentColor;
+            padding: 0 10px 4px;
+        }
+
+        .fraction .bottom {
+            padding-top: 4px;
+        }
+
+        @media (max-width: 750px) {
+            .graph-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .main-equation {
+                font-size: 1.9rem;
+            }
+
+            .formula {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4">
+
+        <a href="index.html"
+           class="inline-block mb-6 px-4 py-2
+                  bg-white text-[#0b2a4a]
+                  font-semibold rounded-lg shadow
+                  hover:bg-gray-100 transition">
+            ← Home
+        </a>
+
+        <h1 class="text-4xl font-extrabold text-center">
+            Equazioni di secondo grado
+        </h1>
+
+    </div>
+
+</header>
+
+<main class="container mx-auto px-4 py-10 max-w-5xl">
+
+    <!-- EQUAZIONE COMPLETA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Equazione di secondo grado completa
+        </h2>
+
+        <div class="main-equation">
+            ax² + bx + c = 0
+        </div>
+
+        <p class="text-center">
+            con <strong>a ≠ 0</strong>
+        </p>
+
+        <p class="mt-5">
+            Prima di risolvere un'equazione di secondo grado,
+            portiamo tutti i termini al primo membro,
+            riduciamo i termini simili e rendiamo
+            <strong>positivo il coefficiente a</strong>.
+        </p>
+
+        <div class="note">
+
+            <strong>Ricorda</strong>
+
+            <p class="mt-2">
+                Se il coefficiente a è negativo,
+                possiamo moltiplicare entrambi i membri
+                per −1 senza cambiare le soluzioni.
+            </p>
+
+            <div class="formula">
+                −x² + 5x − 6 = 0
+            </div>
+
+            <div class="formula">
+                ↓
+            </div>
+
+            <div class="formula">
+                x² − 5x + 6 = 0
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRIMO METODO -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            1. Risoluzione mediante scomposizione
+        </h2>
+
+        <p>
+            Scomponiamo il polinomio utilizzando
+            i <strong>prodotti notevoli</strong>
+            o altri metodi di scomposizione.
+        </p>
+
+        <div class="step">
+
+            <strong>Esempio</strong>
+
+            <div class="formula">
+                x² − 5x + 6 = 0
+            </div>
+
+            <p>
+                Cerchiamo due numeri che abbiano
+                somma −5 e prodotto +6.
+                Sono −2 e −3.
+            </p>
+
+            <div class="formula">
+                (x − 2)(x − 3) = 0
+            </div>
+
+        </div>
+
+        <div class="note">
+
+            <strong>
+                Legge di annullamento del prodotto
+            </strong>
+
+            <p class="mt-2">
+                Un prodotto è uguale a zero
+                se almeno uno dei suoi fattori è zero.
+            </p>
+
+            <div class="formula">
+                A · B = 0
+            </div>
+
+            <p class="text-center font-semibold">
+                se A = 0 oppure B = 0
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>
+                Poniamo ogni fattore uguale a zero.
+            </strong>
+
+            <div class="formula">
+                x − 2 = 0
+            </div>
+
+            <div class="formula">
+                x = 2
+            </div>
+
+            <p class="text-center my-3">
+                oppure
+            </p>
+
+            <div class="formula">
+                x − 3 = 0
+            </div>
+
+            <div class="formula">
+                x = 3
+            </div>
+
+        </div>
+
+        <div class="note">
+
+            <strong>Soluzioni</strong>
+
+            <div class="formula">
+                x₁ = 2 &nbsp;&nbsp;&nbsp; x₂ = 3
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SECONDO METODO -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            2. Risoluzione mediante formula risolutiva
+        </h2>
+
+        <p>
+            Possiamo risolvere un'equazione
+            di secondo grado anche utilizzando
+            la <strong>formula risolutiva</strong>.
+        </p>
+
+        <div class="main-equation">
+            ax² + bx + c = 0
+        </div>
+
+        <p class="text-center mb-5">
+            con a &gt; 0
+        </p>
+
+        <div class="formula">
+
+            x₁,₂ =
+
+            <span class="fraction">
+                <span class="top">
+                    −b ± √Δ
+                </span>
+                <span class="bottom">
+                    2a
+                </span>
+            </span>
+
+        </div>
+
+        <p class="text-center">
+            dove il <strong>discriminante</strong>
+            è:
+        </p>
+
+        <div class="formula">
+            Δ = b² − 4ac
+        </div>
+
+        <h3 class="text-xl font-bold text-[#0b2a4a]
+                   mt-8 mb-4">
+            Nel nostro esempio
+        </h3>
+
+        <div class="step">
+
+            <strong>Equazione</strong>
+
+            <div class="formula">
+                x² − 5x + 6 = 0
+            </div>
+
+            <p>
+                Individuiamo i coefficienti:
+            </p>
+
+            <div class="formula">
+                a = 1, &nbsp; b = −5, &nbsp; c = 6
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Calcoliamo il discriminante.</strong>
+
+            <div class="formula">
+                Δ = (−5)² − 4 · 1 · 6
+            </div>
+
+            <div class="formula">
+                Δ = 25 − 24 = 1
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Applichiamo la formula.</strong>
+
+            <div class="formula">
+
+                x₁,₂ =
+
+                <span class="fraction">
+                    <span class="top">
+                        5 ± √1
+                    </span>
+                    <span class="bottom">
+                        2
+                    </span>
+                </span>
+
+            </div>
+
+            <div class="formula">
+
+                x₁ =
+
+                <span class="fraction">
+                    <span class="top">5 − 1</span>
+                    <span class="bottom">2</span>
+                </span>
+
+                = 2
+
+            </div>
+
+            <div class="formula">
+
+                x₂ =
+
+                <span class="fraction">
+                    <span class="top">5 + 1</span>
+                    <span class="bottom">2</span>
+                </span>
+
+                = 3
+
+            </div>
+
+        </div>
+
+        <div class="note">
+
+            <strong>Soluzioni</strong>
+
+            <div class="formula">
+                x₁ = 2 &nbsp;&nbsp;&nbsp; x₂ = 3
+            </div>
+
+            <p>
+                Abbiamo ottenuto le stesse soluzioni
+                trovate con il metodo delle scomposizioni.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- DISCRIMINANTE E PARABOLA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            I tre casi del discriminante
+        </h2>
+
+        <p class="mb-5">
+            Il discriminante ci permette di capire
+            quante soluzioni reali ha l'equazione.
+            Possiamo interpretarle graficamente
+            come le intersezioni della parabola
+            <strong>y = ax² + bx + c</strong>
+            con l'asse x.
+        </p>
+
+        <p class="mb-6">
+            Nei tre grafici consideriamo
+            <strong>a &gt; 0</strong>:
+            le parabole hanno tutte
+            concavità verso l'alto.
+        </p>
+
+        <div class="graph-grid">
+
+            <!-- DELTA POSITIVO -->
+
+            <div class="graph-box">
+
+                <h3>Δ &gt; 0</h3>
+
+                <p class="text-sm mt-1">
+                    Due soluzioni reali distinte
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 260 220"
+                     role="img"
+                     aria-label="Parabola che interseca
+                     l'asse x in due punti">
+
+                    <g class="gridline">
+                        <path d="
+                            M30 20V200
+                            M70 20V200
+                            M110 20V200
+                            M150 20V200
+                            M190 20V200
+                            M230 20V200
+
+                            M20 40H240
+                            M20 80H240
+                            M20 120H240
+                            M20 160H240
+                            M20 200H240
+                        "/>
+                    </g>
+
+                    <line class="axis"
+                          x1="20" y1="100"
+                          x2="245" y2="100"/>
+
+                    <line class="axis"
+                          x1="50" y1="205"
+                          x2="50" y2="15"/>
+
+                    <polygon fill="#64748b"
+                             points="245,100 237,95 237,105"/>
+
+                    <polygon fill="#64748b"
+                             points="50,15 45,24 55,24"/>
+
+                    <!-- y = (x-1)(x-3), scala grafica -->
+
+                    <path class="parabola"
+                          d="M80 20
+                             Q130 200 180 20"/>
+
+                    <!-- Intersezioni corrette con y=100 -->
+
+                    <circle class="point"
+                            cx="96.67" cy="100" r="5"/>
+
+                    <circle class="point"
+                            cx="163.33" cy="100" r="5"/>
+
+                    <text x="89" y="119"
+                          class="axis-label">x₁</text>
+
+                    <text x="157" y="119"
+                          class="axis-label">x₂</text>
+
+                    <text x="233" y="91"
+                          class="axis-label">x</text>
+
+                    <text x="58" y="22"
+                          class="axis-label">y</text>
+
+                </svg>
+
+                <p class="text-sm">
+                    La parabola interseca
+                    l'asse x in
+                    <strong>due punti distinti</strong>.
+                </p>
+
+            </div>
+
+            <!-- DELTA NULLO -->
+
+            <div class="graph-box">
+
+                <h3>Δ = 0</h3>
+
+                <p class="text-sm mt-1">
+                    Una soluzione reale doppia
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 260 220"
+                     role="img"
+                     aria-label="Parabola tangente all'asse x">
+
+                    <g class="gridline">
+                        <path d="
+                            M30 20V200
+                            M70 20V200
+                            M110 20V200
+                            M150 20V200
+                            M190 20V200
+                            M230 20V200
+
+                            M20 40H240
+                            M20 80H240
+                            M20 120H240
+                            M20 160H240
+                            M20 200H240
+                        "/>
+                    </g>
+
+                    <line class="axis"
+                          x1="20" y1="150"
+                          x2="245" y2="150"/>
+
+                    <line class="axis"
+                          x1="50" y1="205"
+                          x2="50" y2="15"/>
+
+                    <polygon fill="#64748b"
+                             points="245,150 237,145 237,155"/>
+
+                    <polygon fill="#64748b"
+                             points="50,15 45,24 55,24"/>
+
+                    <!-- Vertice sull'asse x -->
+
+                    <path class="parabola"
+                          d="M80 25
+                             Q130 275 180 25"/>
+
+                    <circle class="point"
+                            cx="130" cy="150" r="5"/>
+
+                    <text x="140" y="169"
+                          class="axis-label">x₁ = x₂</text>
+
+                    <text x="233" y="141"
+                          class="axis-label">x</text>
+
+                    <text x="58" y="22"
+                          class="axis-label">y</text>
+
+                </svg>
+
+                <p class="text-sm">
+                    La parabola è
+                    <strong>tangente all'asse x</strong>
+                    nel vertice.
+                </p>
+
+            </div>
+
+            <!-- DELTA NEGATIVO -->
+
+            <div class="graph-box">
+
+                <h3>Δ &lt; 0</h3>
+
+                <p class="text-sm mt-1">
+                    Nessuna soluzione reale
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 260 220"
+                     role="img"
+                     aria-label="Parabola sopra l'asse x
+                     senza intersezioni">
+
+                    <g class="gridline">
+                        <path d="
+                            M30 20V200
+                            M70 20V200
+                            M110 20V200
+                            M150 20V200
+                            M190 20V200
+                            M230 20V200
+
+                            M20 40H240
+                            M20 80H240
+                            M20 120H240
+                            M20 160H240
+                            M20 200H240
+                        "/>
+                    </g>
+
+                    <line class="axis"
+                          x1="20" y1="175"
+                          x2="245" y2="175"/>
+
+                    <line class="axis"
+                          x1="50" y1="205"
+                          x2="50" y2="15"/>
+
+                    <polygon fill="#64748b"
+                             points="245,175 237,170 237,180"/>
+
+                    <polygon fill="#64748b"
+                             points="50,15 45,24 55,24"/>
+
+                    <!-- Vertice sopra l'asse x -->
+
+                    <path class="parabola"
+                          d="M80 20
+                             Q130 220 180 20"/>
+
+                    <text x="233" y="166"
+                          class="axis-label">x</text>
+
+                    <text x="58" y="22"
+                          class="axis-label">y</text>
+
+                </svg>
+
+                <p class="text-sm">
+                    La parabola
+                    <strong>non interseca l'asse x</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="note">
+
+            <strong>In conclusione</strong>
+
+            <p class="mt-2">
+                Le soluzioni reali dell'equazione
+                di secondo grado corrispondono
+                alle ascisse dei punti
+                in cui la parabola incontra l'asse x.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+</body>
+</html>
