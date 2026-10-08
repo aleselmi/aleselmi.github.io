@@ -1,69 +1,921 @@
+
 <!DOCTYPE html>
 <html lang="it">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parabola · Matematica</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;background:#f8fafc;color:#1f2937}
-.navy-bg{background:#0b2a4a}.section-card{background:white;border-radius:16px;padding:26px;margin-bottom:24px;box-shadow:0 4px 12px rgba(11,42,74,.08)}.section-title{color:#0b2a4a;font-size:1.4rem;font-weight:700;margin-bottom:16px}.main-equation{text-align:center;color:#0b2a4a;font-size:2.5rem;font-weight:600;margin:8px 0 22px}.graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.graph-box{border:2px solid #0b2a4a;border-radius:12px;padding:16px;text-align:center}.graph-box h3{color:#15803d;font-weight:700;font-size:1.1rem}.graph-svg{width:100%;max-width:360px;height:auto;margin:auto}.info-table{width:100%;border-collapse:collapse;text-align:center}.info-table th{background:#0b2a4a;color:white;padding:11px;border:1px solid #0b2a4a}.info-table td{padding:12px;border:1px solid #dbe3ec}.info-table tr:nth-child(even) td{background:#f8fafc}.step{background:white;border:2px solid #0b2a4a;border-radius:12px;padding:16px 18px;margin:12px 0}.step strong{color:#15803d}.formula{font-size:1.35rem;color:#0b2a4a;font-weight:700;text-align:center;margin:14px 0}.note{border-left:5px solid #15803d;padding:15px 18px;background:#f8fafc;border-radius:8px;margin-top:20px}.axis{stroke:#64748b;stroke-width:1.8}.gridline{stroke:#e2e8f0;stroke-width:1}.parabola{fill:none;stroke:#0b2a4a;stroke-width:3;stroke-linecap:round}.symmetry{stroke:#15803d;stroke-width:2;stroke-dasharray:7 5}.vertex{fill:#3b82f6;stroke:white;stroke-width:2}.axis-label{fill:#475569;font-size:14px;font-family:'Segoe UI',sans-serif}@media(max-width:700px){.graph-grid{grid-template-columns:1fr}.main-equation{font-size:2rem}.section-card{padding:20px}}
-</style>
-</head>
-<body>
-<header class="navy-bg text-white py-10 shadow-lg"><div class="container mx-auto px-4"><a href="FunzioniElementari.html" class="inline-block mb-6 px-4 py-2 bg-white text-[#0b2a4a] font-semibold rounded-lg shadow hover:bg-gray-100 transition">← Funzioni elementari</a><h1 class="text-4xl font-extrabold text-center">Parabola</h1></div></header>
-<main class="container mx-auto px-4 py-10 max-w-5xl">
-<section class="section-card"><div class="main-equation">f(x) = ax² + bx + c</div><p class="text-center mb-7">con <strong>a ≠ 0</strong>. Il segno di <strong>a</strong> determina la concavità della parabola.</p>
-<div class="graph-grid">
-<div class="graph-box"><h3>Concavità verso l'alto · a &gt; 0</h3><p class="text-sm mb-2">Esempio: f(x) = x² − 2x + 2</p><svg class="graph-svg" viewBox="0 0 360 310" role="img" aria-label="Parabola rivolta verso l'alto, vertice (1, 1), asse di simmetria x uguale 1"><g class="gridline"><path d="M40 45V270 M80 45V270 M120 45V270 M160 45V270 M200 45V270 M240 45V270 M280 45V270 M320 45V270 M40 70H320 M40 110H320 M40 150H320 M40 190H320 M40 230H320 M40 270H320"/></g><line class="axis" x1="40" y1="190" x2="330" y2="190"/><line class="axis" x1="120" y1="280" x2="120" y2="35"/><polygon fill="#64748b" points="330,190 321,185 321,195"/><polygon fill="#64748b" points="120,35 115,45 125,45"/><line class="symmetry" x1="160" y1="40" x2="160" y2="280"/><path class="parabola" d="M76 13 Q160 355 244 13" transform="translate(0,0)" style="display:none"/><path id="upCurve" class="parabola"/><circle class="vertex" cx="160" cy="150" r="6"/><text x="172" y="165" fill="#0b2a4a" font-size="13" font-weight="700">V(1; 1)</text><text x="171" y="53" fill="#15803d" font-size="13" font-weight="700">x = 1</text><text x="331" y="183" class="axis-label">x</text><text x="128" y="33" class="axis-label">f(x)</text><text x="113" y="207" class="axis-label">0</text></svg></div>
-<div class="graph-box"><h3>Concavità verso il basso · a &lt; 0</h3><p class="text-sm mb-2">Esempio: f(x) = −x² + 2x + 2</p><svg class="graph-svg" viewBox="0 0 360 310" role="img" aria-label="Parabola rivolta verso il basso, vertice (1, 3), asse di simmetria x uguale 1"><g class="gridline"><path d="M40 45V270 M80 45V270 M120 45V270 M160 45V270 M200 45V270 M240 45V270 M280 45V270 M320 45V270 M40 70H320 M40 110H320 M40 150H320 M40 190H320 M40 230H320 M40 270H320"/></g><line class="axis" x1="40" y1="190" x2="330" y2="190"/><line class="axis" x1="120" y1="280" x2="120" y2="35"/><polygon fill="#64748b" points="330,190 321,185 321,195"/><polygon fill="#64748b" points="120,35 115,45 125,45"/><line class="symmetry" x1="160" y1="40" x2="160" y2="280"/><path id="downCurve" class="parabola"/><circle class="vertex" cx="160" cy="70" r="6"/><text x="172" y="63" fill="#0b2a4a" font-size="13" font-weight="700">V(1; 3)</text><text x="171" y="53" fill="#15803d" font-size="13" font-weight="700">x = 1</text><text x="331" y="183" class="axis-label">x</text><text x="128" y="33" class="axis-label">f(x)</text><text x="113" y="207" class="axis-label">0</text></svg></div>
-</div><p class="text-center mt-5">La retta tratteggiata verde è l'<strong>asse di simmetria</strong>: divide la parabola in due parti speculari.</p></section>
-<section class="section-card"><h2 class="section-title">Vertice e asse di simmetria</h2><div class="overflow-x-auto"><table class="info-table"><thead><tr><th>Elemento</th><th>Formula</th><th>Significato</th></tr></thead><tbody><tr><td><strong>Ascissa del vertice</strong></td><td> x<sub>V</sub> = −b/(2a) </td><td>Indica dove si trova il vertice sull'asse x.</td></tr><tr><td><strong>Ordinata del vertice</strong></td><td> y<sub>V</sub> = f(x<sub>V</sub>) </td><td>Si ottiene sostituendo x<sub>V</sub> nella funzione.</td></tr><tr><td><strong>Vertice</strong></td><td> V(x<sub>V</sub>; y<sub>V</sub>) </td><td>È il punto più basso se a &gt; 0, più alto se a &lt; 0.</td></tr><tr><td><strong>Asse di simmetria</strong></td><td> x = −b/(2a) </td><td>È la retta verticale che passa per il vertice.</td></tr></tbody></table></div></section>
-<section class="section-card">
-  <h2 class="section-title">Dominio</h2>
-  <div class="step">
-    <p>La funzione quadratica è definita per <strong>qualsiasi numero reale</strong>: possiamo sostituire a <strong>x</strong> qualunque valore reale.</p>
-    <div class="formula">D = ℝ</div>
-  </div>
-</section>
-<section class="section-card"><h2 class="section-title">Come si disegna una parabola?</h2><div class="step"><strong>1. Guarda il segno di a.</strong><p>Se a &gt; 0 la concavità è verso l'alto; se a &lt; 0 è verso il basso.</p></div><div class="step"><strong>2. Calcola il vertice.</strong><p>Trova x<sub>V</sub> = −b/(2a), poi calcola y<sub>V</sub> = f(x<sub>V</sub>).</p></div><div class="step"><strong>3. Disegna l'asse di simmetria.</strong><p>Traccia la retta verticale x = x<sub>V</sub>.</p></div><div class="step"><strong>4. Calcola altri due punti.</strong><p>Scegli due ascisse alla stessa distanza dal vertice: i punti avranno la stessa ordinata.</p></div><div class="step"><strong>5. Traccia la curva.</strong><p>Segna il vertice e i due punti, poi disegna una curva regolare e simmetrica rispetto all'asse.</p></div>
-<h3 class="text-xl font-bold text-[#0b2a4a] mt-8 mb-3">Esempio: f(x) = x² − 2x + 2</h3><p>Qui a = 1, b = −2, c = 2. Il vertice ha ascissa x<sub>V</sub> = 1 e ordinata y<sub>V</sub> = 1: quindi <strong>V(1; 1)</strong>. L'asse di simmetria è <strong>x = 1</strong>.</p><p class="mt-3 mb-3">Scegliamo due punti simmetrici, con ascisse 0 e 2:</p><table class="info-table"><thead><tr><th>x</th><th>f(x)</th><th>Punto</th></tr></thead><tbody><tr><td>0</td><td>2</td><td>A(0; 2)</td></tr><tr><td>1</td><td>1</td><td><strong>V(1; 1)</strong></td></tr><tr><td>2</td><td>2</td><td>B(2; 2)</td></tr></tbody></table><p class="mt-4">I punti A e B sono alla stessa distanza dall'asse x = 1: la parabola passa per A, V e B ed è simmetrica rispetto all'asse.</p></section>
 
-<section class="section-card">
-  <h2 class="section-title">Posizione reciproca tra una retta e una parabola</h2>
-  <p class="mb-4">Per capire come si incontrano una retta e una parabola, possiamo <strong>disegnare entrambe nello stesso piano cartesiano</strong> e osservare i punti in comune.</p>
-  <div class="graph-grid">
-    <div class="step"><strong>Secante</strong><p>La retta incontra la parabola in <strong>due punti</strong>.</p></div>
-    <div class="step"><strong>Tangente</strong><p>La retta tocca la parabola in <strong>un solo punto</strong>.</p></div>
-  </div>
-  <div class="step"><strong>Esterna</strong><p>La retta e la parabola <strong>non hanno punti in comune</strong>.</p></div>
-  <p class="mt-4 mb-3">Per approfondire, puoi consultare:</p>
-  <div class="flex flex-wrap gap-3">
-    <a href="https://www.youmath.it/formulari/formulari-di-geometria-analitica/444-posizioni-retta-parabola.html" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#0b2a4a] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#163f68] transition">YouMath · Retta e parabola ↗</a>
-    <a href="https://andreailmatematico.it/matematica/geometria-cartesiana/posizione-retta-e-parabola/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#0b2a4a] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#163f68] transition">Andrea il Matematico ↗</a>
-  </div>
-</section>
-</main><footer class="navy-bg text-white py-6 mt-12"><div class="container mx-auto px-4 text-center text-sm opacity-80">Matematica · Alessia Selmi · A.S. 2026–2027</div></footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parabola · Matematica</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        .navy-bg {
+            background: #0b2a4a;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11,42,74,.08);
+        }
+
+        .section-title {
+            color: #0b2a4a;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .main-equation {
+            text-align: center;
+            color: #0b2a4a;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 8px 0 22px;
+        }
+
+        .graph-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .graph-box {
+            border: 2px solid #0b2a4a;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .graph-box h3 {
+            color: #15803d;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .graph-svg {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            margin: auto;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .info-table th {
+            background: #0b2a4a;
+            color: white;
+            padding: 11px;
+            border: 1px solid #0b2a4a;
+        }
+
+        .info-table td {
+            padding: 12px;
+            border: 1px solid #dbe3ec;
+        }
+
+        .info-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        .step {
+            background: white;
+            border: 2px solid #0b2a4a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin: 12px 0;
+        }
+
+        .step strong {
+            color: #15803d;
+        }
+
+        .formula {
+            font-size: 1.35rem;
+            color: #0b2a4a;
+            font-weight: 700;
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .note {
+            border-left: 5px solid #15803d;
+            padding: 15px 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .axis {
+            stroke: #64748b;
+            stroke-width: 1.8;
+        }
+
+        .gridline {
+            stroke: #e2e8f0;
+            stroke-width: 1;
+        }
+
+        .parabola {
+            fill: none;
+            stroke: #0b2a4a;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+
+        .symmetry {
+            stroke: #15803d;
+            stroke-width: 2;
+            stroke-dasharray: 7 5;
+        }
+
+        .vertex {
+            fill: #3b82f6;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .axis-label {
+            fill: #475569;
+            font-size: 14px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        @media (max-width: 700px) {
+            .graph-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-equation {
+                font-size: 2rem;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4">
+
+        <a href="FunzioniElementari.html"
+           class="inline-block mb-6 px-4 py-2 bg-white
+                  text-[#0b2a4a] font-semibold rounded-lg
+                  shadow hover:bg-gray-100 transition">
+            ← Funzioni elementari
+        </a>
+
+        <h1 class="text-4xl font-extrabold text-center">
+            Parabola
+        </h1>
+
+    </div>
+
+</header>
+
+<main class="container mx-auto px-4 py-10 max-w-5xl">
+
+    <!-- FORMULA E GRAFICI -->
+
+    <section class="section-card">
+
+        <div class="main-equation">
+            f(x) = ax² + bx + c
+        </div>
+
+        <p class="text-center mb-7">
+            con <strong>a ≠ 0</strong>.
+            Il segno di <strong>a</strong>
+            determina la concavità della parabola.
+        </p>
+
+        <div class="graph-grid">
+
+            <!-- CONCAVITÀ VERSO L'ALTO -->
+
+            <div class="graph-box">
+
+                <h3>
+                    Concavità verso l'alto · a &gt; 0
+                </h3>
+
+                <p class="text-sm mb-2">
+                    Esempio: f(x) = x² − 2x + 2
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 360 310"
+                     role="img"
+                     aria-label="Parabola rivolta verso l'alto,
+                     vertice (1, 1), asse di simmetria x uguale 1">
+
+                    <g class="gridline">
+                        <path d="
+                            M40 45V270
+                            M80 45V270
+                            M120 45V270
+                            M160 45V270
+                            M200 45V270
+                            M240 45V270
+                            M280 45V270
+                            M320 45V270
+
+                            M40 70H320
+                            M40 110H320
+                            M40 150H320
+                            M40 190H320
+                            M40 230H320
+                            M40 270H320
+                        "/>
+                    </g>
+
+                    <!-- ASSI -->
+
+                    <line class="axis"
+                          x1="40" y1="190"
+                          x2="330" y2="190"/>
+
+                    <line class="axis"
+                          x1="120" y1="280"
+                          x2="120" y2="35"/>
+
+                    <polygon fill="#64748b"
+                             points="330,190 321,185 321,195"/>
+
+                    <polygon fill="#64748b"
+                             points="120,35 115,45 125,45"/>
+
+                    <!-- ASSE DI SIMMETRIA -->
+
+                    <line class="symmetry"
+                          x1="160" y1="40"
+                          x2="160" y2="280"/>
+
+                    <!-- PARABOLA -->
+
+                    <path id="upCurve" class="parabola"/>
+
+                    <!-- VERTICE -->
+
+                    <circle class="vertex"
+                            cx="160" cy="150" r="6"/>
+
+                    <text x="172" y="165"
+                          fill="#0b2a4a"
+                          font-size="13"
+                          font-weight="700">
+                        V(1; 1)
+                    </text>
+
+                    <text x="171" y="53"
+                          fill="#15803d"
+                          font-size="13"
+                          font-weight="700">
+                        x = 1
+                    </text>
+
+                    <text x="331" y="183"
+                          class="axis-label">x</text>
+
+                    <text x="128" y="33"
+                          class="axis-label">f(x)</text>
+
+                    <text x="113" y="207"
+                          class="axis-label">0</text>
+
+                </svg>
+
+            </div>
+
+            <!-- CONCAVITÀ VERSO IL BASSO -->
+
+            <div class="graph-box">
+
+                <h3>
+                    Concavità verso il basso · a &lt; 0
+                </h3>
+
+                <p class="text-sm mb-2">
+                    Esempio: f(x) = −x² + 2x + 2
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 360 310"
+                     role="img"
+                     aria-label="Parabola rivolta verso il basso,
+                     vertice (1, 3), asse di simmetria x uguale 1">
+
+                    <g class="gridline">
+                        <path d="
+                            M40 45V270
+                            M80 45V270
+                            M120 45V270
+                            M160 45V270
+                            M200 45V270
+                            M240 45V270
+                            M280 45V270
+                            M320 45V270
+
+                            M40 70H320
+                            M40 110H320
+                            M40 150H320
+                            M40 190H320
+                            M40 230H320
+                            M40 270H320
+                        "/>
+                    </g>
+
+                    <!-- ASSI -->
+
+                    <line class="axis"
+                          x1="40" y1="190"
+                          x2="330" y2="190"/>
+
+                    <line class="axis"
+                          x1="120" y1="280"
+                          x2="120" y2="35"/>
+
+                    <polygon fill="#64748b"
+                             points="330,190 321,185 321,195"/>
+
+                    <polygon fill="#64748b"
+                             points="120,35 115,45 125,45"/>
+
+                    <!-- ASSE DI SIMMETRIA -->
+
+                    <line class="symmetry"
+                          x1="160" y1="40"
+                          x2="160" y2="280"/>
+
+                    <!-- PARABOLA -->
+
+                    <path id="downCurve" class="parabola"/>
+
+                    <!-- VERTICE -->
+
+                    <circle class="vertex"
+                            cx="160" cy="70" r="6"/>
+
+                    <text x="172" y="63"
+                          fill="#0b2a4a"
+                          font-size="13"
+                          font-weight="700">
+                        V(1; 3)
+                    </text>
+
+                    <text x="171" y="53"
+                          fill="#15803d"
+                          font-size="13"
+                          font-weight="700">
+                        x = 1
+                    </text>
+
+                    <text x="331" y="183"
+                          class="axis-label">x</text>
+
+                    <text x="128" y="33"
+                          class="axis-label">f(x)</text>
+
+                    <text x="113" y="207"
+                          class="axis-label">0</text>
+
+                </svg>
+
+            </div>
+
+        </div>
+
+        <p class="text-center mt-5">
+            La retta tratteggiata verde è
+            l'<strong>asse di simmetria</strong>:
+            divide la parabola in due parti speculari.
+        </p>
+
+    </section>
+
+    <!-- DOMINIO -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Dominio
+        </h2>
+
+        <div class="step">
+
+            <p>
+                La funzione quadratica è definita
+                per <strong>qualsiasi numero reale</strong>:
+                possiamo sostituire a <strong>x</strong>
+                qualunque valore reale.
+            </p>
+
+            <div class="formula">
+                D = ℝ
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VERTICE E ASSE DI SIMMETRIA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Vertice e asse di simmetria
+        </h2>
+
+        <p class="mb-4">
+            Per disegnare una parabola,
+            calcoliamo prima le coordinate
+            del suo <strong>vertice</strong>.
+        </p>
+
+        <div class="step">
+
+            <strong>Ascissa del vertice</strong>
+
+            <div class="formula">
+                x<sub>V</sub> = −b / (2a)
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Ordinata del vertice</strong>
+
+            <p>
+                Si ottiene sostituendo
+                l'ascissa del vertice nella funzione.
+            </p>
+
+            <div class="formula">
+                y<sub>V</sub> = f(x<sub>V</sub>)
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Vertice e asse di simmetria</strong>
+
+            <div class="formula">
+                V(x<sub>V</sub>; y<sub>V</sub>)
+            </div>
+
+            <div class="formula">
+                x = x<sub>V</sub>
+            </div>
+
+            <p>
+                Il vertice è il punto più basso
+                della parabola se <strong>a &gt; 0</strong>
+                e il punto più alto se
+                <strong>a &lt; 0</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTERSEZIONI CON GLI ASSI -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Intersezioni con gli assi cartesiani
+        </h2>
+
+        <div class="step">
+
+            <strong>Intersezione con l'asse y</strong>
+
+            <p>
+                I punti dell'asse y hanno
+                <strong>x = 0</strong>.
+                Sostituiamo quindi x = 0 nella funzione:
+            </p>
+
+            <div class="formula">
+                f(0) = a · 0² + b · 0 + c = c
+            </div>
+
+            <p class="text-center">
+                La parabola incontra sempre
+                l'asse y nel punto:
+            </p>
+
+            <div class="formula">
+                (0; c)
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Intersezioni con l'asse x</strong>
+
+            <p>
+                I punti dell'asse x hanno
+                <strong>y = 0</strong>.
+                Dobbiamo quindi porre:
+            </p>
+
+            <div class="formula">
+                ax² + bx + c = 0
+            </div>
+
+            <p>
+                <strong>
+                    Calcolare le intersezioni
+                    della parabola con l'asse x
+                    significa risolvere
+                    l'equazione di secondo grado associata.
+                </strong>
+            </p>
+
+            <p class="mt-3">
+                Le eventuali soluzioni dell'equazione
+                sono le ascisse dei punti
+                in cui la parabola incontra l'asse x.
+            </p>
+
+        </div>
+
+        <div class="overflow-x-auto mt-5">
+
+            <table class="info-table">
+
+                <thead>
+                    <tr>
+                        <th>Soluzioni dell'equazione</th>
+                        <th>Intersezioni con l'asse x</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Due soluzioni reali distinte</td>
+                        <td>Due punti</td>
+                    </tr>
+
+                    <tr>
+                        <td>Una soluzione reale doppia</td>
+                        <td>Un punto (tangenza)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nessuna soluzione reale</td>
+                        <td>Nessun punto</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- COME DISEGNARE LA PARABOLA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Come si disegna una parabola?
+        </h2>
+
+        <div class="step">
+
+            <strong>1. Guarda il segno di a.</strong>
+
+            <p>
+                Se a &gt; 0 la concavità è verso l'alto;
+                se a &lt; 0 è verso il basso.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>2. Calcola il vertice.</strong>
+
+            <p>
+                Trova x<sub>V</sub> = −b/(2a),
+                poi calcola y<sub>V</sub> = f(x<sub>V</sub>).
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>3. Disegna l'asse di simmetria.</strong>
+
+            <p>
+                Traccia la retta verticale
+                x = x<sub>V</sub>.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>4. Calcola le intersezioni con gli assi.</strong>
+
+            <p>
+                Per l'asse y poni <strong>x = 0</strong>.
+                Per l'asse x poni <strong>y = 0</strong>
+                e risolvi l'equazione di secondo grado.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>5. Traccia la curva.</strong>
+
+            <p>
+                Segna il vertice e le eventuali
+                intersezioni con gli assi,
+                poi disegna una curva regolare,
+                rispettando la concavità
+                e la simmetria.
+            </p>
+
+            <p class="mt-2">
+                Se i punti non sono sufficienti
+                per uno schizzo preciso,
+                puoi calcolare un altro punto
+                e il suo simmetrico.
+            </p>
+
+        </div>
+
+        <!-- ESEMPIO -->
+
+        <h3 class="text-xl font-bold text-[#0b2a4a]
+                   mt-8 mb-3">
+            Esempio: f(x) = x² − 2x + 2
+        </h3>
+
+        <p>
+            In questo caso
+            <strong>a = 1</strong>,
+            <strong>b = −2</strong>,
+            <strong>c = 2</strong>.
+            La concavità è verso l'alto.
+        </p>
+
+        <div class="step">
+
+            <strong>Vertice</strong>
+
+            <div class="formula">
+                x<sub>V</sub> = −(−2)/(2 · 1) = 1
+            </div>
+
+            <div class="formula">
+                y<sub>V</sub> = 1² − 2 · 1 + 2 = 1
+            </div>
+
+            <p class="text-center">
+                Quindi il vertice è
+                <strong>V(1; 1)</strong>
+                e l'asse di simmetria è
+                <strong>x = 1</strong>.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Intersezione con l'asse y</strong>
+
+            <p>
+                Poniamo x = 0:
+            </p>
+
+            <div class="formula">
+                y = 0² − 2 · 0 + 2 = 2
+            </div>
+
+            <p class="text-center">
+                Otteniamo il punto
+                <strong>A(0; 2)</strong>.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Intersezioni con l'asse x</strong>
+
+            <p>
+                Poniamo y = 0 e risolviamo:
+            </p>
+
+            <div class="formula">
+                x² − 2x + 2 = 0
+            </div>
+
+            <div class="formula">
+                Δ = (−2)² − 4 · 1 · 2 = −4
+            </div>
+
+            <p>
+                Poiché <strong>Δ &lt; 0</strong>,
+                l'equazione non ha soluzioni reali.
+                La parabola quindi
+                <strong>non interseca l'asse x</strong>.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <strong>Disegno</strong>
+
+            <p>
+                Segniamo il vertice
+                <strong>V(1; 1)</strong>
+                e il punto
+                <strong>A(0; 2)</strong>.
+            </p>
+
+            <p class="mt-2">
+                Per simmetria rispetto alla retta
+                <strong>x = 1</strong>,
+                otteniamo anche
+                <strong>B(2; 2)</strong>.
+            </p>
+
+            <p class="mt-2">
+                Disegniamo infine la parabola
+                con concavità verso l'alto,
+                che passa per questi tre punti
+                e rimane sopra l'asse x.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- POSIZIONE RECIPROCA RETTA-PARABOLA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Posizione reciproca tra una retta e una parabola
+        </h2>
+
+        <p class="mb-4">
+            Per capire come si incontrano una retta
+            e una parabola, possiamo
+            <strong>
+                disegnare entrambe nello stesso
+                piano cartesiano
+            </strong>
+            e osservare i punti in comune.
+        </p>
+
+        <div class="graph-grid">
+
+            <div class="step">
+                <strong>Secante</strong>
+                <p>
+                    La retta incontra la parabola
+                    in <strong>due punti</strong>.
+                </p>
+            </div>
+
+            <div class="step">
+                <strong>Tangente</strong>
+                <p>
+                    La retta tocca la parabola
+                    in <strong>un solo punto</strong>.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="step">
+            <strong>Esterna</strong>
+            <p>
+                La retta e la parabola
+                <strong>non hanno punti in comune</strong>.
+            </p>
+        </div>
+
+        <p class="mt-4 mb-3">
+            Per approfondire, puoi consultare:
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+
+            <a href="https://www.youmath.it/formulari/formulari-di-geometria-analitica/444-posizioni-retta-parabola.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-block bg-[#0b2a4a] text-white
+                      font-semibold px-4 py-2 rounded-lg
+                      hover:bg-[#163f68] transition">
+                YouMath · Retta e parabola ↗
+            </a>
+
+            <a href="https://andreailmatematico.it/matematica/geometria-cartesiana/posizione-retta-e-parabola/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-block bg-[#0b2a4a] text-white
+                      font-semibold px-4 py-2 rounded-lg
+                      hover:bg-[#163f68] transition">
+                Andrea il Matematico ↗
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+<!-- DISEGNO DEI DUE GRAFICI -->
+
 <script>
 (function () {
+
     function draw(id, sign) {
+
         let path = '';
         let drawing = false;
+
         for (let x = -2.1; x <= 4.1; x += 0.01) {
+
             const y = sign * (x*x - 2*x) + 2;
+
             const px = 120 + x*40;
             const py = 190 - y*40;
-            if (px < 40 || px > 320 || py < 45 || py > 270) {
+
+            if (px < 40 || px > 320 ||
+                py < 45 || py > 270) {
+
                 drawing = false;
                 continue;
             }
-            path += (drawing ? ' L ' : ' M ') + px.toFixed(2) + ' ' + py.toFixed(2);
+
+            path += (drawing ? ' L ' : ' M ')
+                  + px.toFixed(2)
+                  + ' '
+                  + py.toFixed(2);
+
             drawing = true;
         }
-        document.getElementById(id).setAttribute('d', path);
+
+        document.getElementById(id)
+                .setAttribute('d', path);
     }
+
     draw('upCurve', 1);
     draw('downCurve', -1);
+
 })();
 </script>
-</body></html>
+
+</body>
+</html>
+
 
