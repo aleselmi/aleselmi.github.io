@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Funzione logaritmica · Matematica</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1f2937;
+        }
+
+        .navy-bg {
+            background-color: #0b2a4a;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11, 42, 74, 0.08);
+        }
+
+        .section-title {
+            color: #0b2a4a;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .main-equation {
+            text-align: center;
+            color: #0b2a4a;
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 12px 0 20px;
+        }
+
+        .graph-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .graph-box,
+        .step,
+        .example {
+            border: 2px solid #0b2a4a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            background-color: white;
+        }
+
+        .graph-box {
+            text-align: center;
+        }
+
+        .graph-box h3,
+        .step strong,
+        .example h3 {
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        .graph-box h3 {
+            font-size: 1.1rem;
+        }
+
+        .graph-svg {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            margin: auto;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .info-table th {
+            background-color: #0b2a4a;
+            color: white;
+            padding: 10px;
+            border: 1px solid #0b2a4a;
+        }
+
+        .info-table td {
+            padding: 10px;
+            border: 1px solid #dbe3ec;
+        }
+
+        .info-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        .formula {
+            font-size: 1.5rem;
+            color: #0b2a4a;
+            font-weight: 700;
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .axis {
+            stroke: #64748b;
+            stroke-width: 1.8;
+        }
+
+        .gridline {
+            stroke: #e2e8f0;
+            stroke-width: 1;
+        }
+
+        .curve {
+            fill: none;
+            stroke: #0b2a4a;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .point {
+            fill: #3b82f6;
+            stroke: white;
+            stroke-width: 1.5;
+        }
+
+        .axis-label {
+            fill: #475569;
+            font-size: 13px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .asymptote {
+            stroke: #15803d;
+            stroke-width: 1.8;
+            stroke-dasharray: 6 5;
+        }
+
+        @media (max-width: 700px) {
+            .graph-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+
+            .main-equation {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="navy-bg text-white py-10 shadow-lg">
+
+    <div class="container mx-auto px-4">
+
+        <a href="FunzioniElementari.html"
+           class="inline-block mb-6 px-4 py-2 bg-white
+                  text-[#0b2a4a] font-semibold rounded-lg
+                  shadow hover:bg-gray-100 transition">
+            ← Funzioni elementari
+        </a>
+
+        <h1 class="text-4xl font-extrabold text-center">
+            Funzione logaritmica
+        </h1>
+
+    </div>
+
+</header>
+
+<main class="container mx-auto px-4 py-10 max-w-5xl">
+
+    <!-- FUNZIONE LOGARITMICA E GRAFICI -->
+
+    <section class="section-card">
+
+        <div class="main-equation">
+            f(x) = log<sub>a</sub>(x)
+        </div>
+
+        <p class="text-center mb-4">
+            Si legge:
+            <strong>logaritmo in base a di x</strong>.
+        </p>
+
+        <p class="text-center mb-6">
+            La base deve essere positiva e diversa da 1:
+            <strong>a &gt; 0</strong> e
+            <strong>a ≠ 1</strong>.
+        </p>
+
+        <div class="graph-grid">
+
+            <!-- LOGARITMO CRESCENTE -->
+
+            <div class="graph-box">
+
+                <h3>
+                    Base maggiore di 1
+                </h3>
+
+                <p class="mb-2">
+                    Funzione crescente
+                </p>
+
+                <p class="mb-2">
+                    <strong>
+                        f(x) = log<sub>2</sub>(x)
+                    </strong>
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 360 290"
+                     role="img"
+                     aria-label="Grafico crescente del logaritmo in base 2">
+
+                    <defs>
+                        <clipPath id="clipLogUp">
+                            <rect x="38" y="25"
+                                  width="290" height="230"/>
+                        </clipPath>
+                    </defs>
+
+                    <g class="gridline">
+                        <path d="
+                            M70 25V255
+                            M110 25V255
+                            M150 25V255
+                            M190 25V255
+                            M230 25V255
+                            M270 25V255
+                            M310 25V255
+                            M38 55H328
+                            M38 95H328
+                            M38 135H328
+                            M38 175H328
+                            M38 215H328
+                            M38 255H328
+                        "/>
+                    </g>
+
+                    <line class="asymptote"
+                          x1="110" y1="25"
+                          x2="110" y2="255"/>
+
+                    <line class="axis"
+                          x1="38" y1="175"
+                          x2="333" y2="175"/>
+
+                    <line class="axis"
+                          x1="110" y1="260"
+                          x2="110" y2="20"/>
+
+                    <polygon points="333,175 324,170 324,180"
+                             fill="#64748b"/>
+
+                    <polygon points="110,20 105,30 115,30"
+                             fill="#64748b"/>
+
+                    <path id="curveLogUp"
+                          class="curve"
+                          clip-path="url(#clipLogUp)"/>
+
+                    <g id="pointsLogUp"></g>
+
+                    <text x="337" y="169" class="axis-label">x</text>
+                    <text x="118" y="18" class="axis-label">f(x)</text>
+
+                    <text x="96" y="191" class="axis-label">0</text>
+                    <text x="145" y="191" class="axis-label">1</text>
+                    <text x="185" y="191" class="axis-label">2</text>
+                    <text x="265" y="191" class="axis-label">4</text>
+
+                    <text x="95" y="139" class="axis-label">1</text>
+                    <text x="95" y="99" class="axis-label">2</text>
+                    <text x="87" y="219" class="axis-label">−1</text>
+
+                </svg>
+
+            </div>
+
+            <!-- LOGARITMO DECRESCENTE -->
+
+            <div class="graph-box">
+
+                <h3>
+                    Base compresa tra 0 e 1
+                </h3>
+
+                <p class="mb-2">
+                    Funzione decrescente
+                </p>
+
+                <p class="mb-2">
+                    <strong>
+                        f(x) = log<sub>1/2</sub>(x)
+                    </strong>
+                </p>
+
+                <svg class="graph-svg"
+                     viewBox="0 0 360 290"
+                     role="img"
+                     aria-label="Grafico decrescente del logaritmo in base un mezzo">
+
+                    <defs>
+                        <clipPath id="clipLogDown">
+                            <rect x="38" y="25"
+                                  width="290" height="230"/>
+                        </clipPath>
+                    </defs>
+
+                    <g class="gridline">
+                        <path d="
+                            M70 25V255
+                            M110 25V255
+                            M150 25V255
+                            M190 25V255
+                            M230 25V255
+                            M270 25V255
+                            M310 25V255
+                            M38 55H328
+                            M38 95H328
+                            M38 135H328
+                            M38 175H328
+                            M38 215H328
+                            M38 255H328
+                        "/>
+                    </g>
+
+                    <line class="asymptote"
+                          x1="110" y1="25"
+                          x2="110" y2="255"/>
+
+                    <line class="axis"
+                          x1="38" y1="175"
+                          x2="333" y2="175"/>
+
+                    <line class="axis"
+                          x1="110" y1="260"
+                          x2="110" y2="20"/>
+
+                    <polygon points="333,175 324,170 324,180"
+                             fill="#64748b"/>
+
+                    <polygon points="110,20 105,30 115,30"
+                             fill="#64748b"/>
+
+                    <path id="curveLogDown"
+                          class="curve"
+                          clip-path="url(#clipLogDown)"/>
+
+                    <g id="pointsLogDown"></g>
+
+                    <text x="337" y="169" class="axis-label">x</text>
+                    <text x="118" y="18" class="axis-label">f(x)</text>
+
+                    <text x="96" y="191" class="axis-label">0</text>
+                    <text x="145" y="191" class="axis-label">1</text>
+                    <text x="185" y="191" class="axis-label">2</text>
+                    <text x="265" y="191" class="axis-label">4</text>
+
+                    <text x="95" y="139" class="axis-label">1</text>
+                    <text x="95" y="99" class="axis-label">2</text>
+                    <text x="87" y="219" class="axis-label">−1</text>
+
+                </svg>
+
+            </div>
+
+        </div>
+
+        <p class="text-center mt-5">
+            Entrambe le curve passano per
+            <strong>(1; 0)</strong> e si avvicinano
+            all'asse y senza mai toccarlo.
+        </p>
+
+    </section>
+
+    <!-- DOMINIO -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Dominio
+        </h2>
+
+        <div class="step">
+
+            <p>
+                La funzione logaritmica è definita
+                soltanto per valori
+                <strong>positivi di x</strong>.
+            </p>
+
+            <div class="formula">
+                x &gt; 0
+            </div>
+
+            <div class="formula">
+                D = (0; +∞)
+            </div>
+
+            <p class="text-center">
+                Il logaritmo di zero e il logaritmo
+                di un numero negativo non sono definiti
+                nell'insieme dei numeri reali.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- TABELLA -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Tabella dei valori e disegno del grafico
+        </h2>
+
+        <p class="mb-4">
+            Per disegnare la funzione logaritmica
+            scegliamo alcuni valori positivi di x,
+            calcoliamo il logaritmo e riportiamo
+            i punti sul piano cartesiano.
+            Poi li uniamo con una curva regolare.
+        </p>
+
+        <div class="overflow-x-auto">
+
+            <table class="info-table">
+
+                <thead>
+                    <tr>
+                        <th>x</th>
+                        <th>log<sub>2</sub>(x)</th>
+                        <th>log<sub>1/2</sub>(x)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1/4</td>
+                        <td>−2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1/2</td>
+                        <td>−1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>−1</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>−2</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- DEFINIZIONE -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Definizione di logaritmo
+        </h2>
+
+        <div class="step">
+
+            <p>
+                Il <strong>logaritmo in base a di b</strong>
+                è l'esponente da dare alla base a
+                per ottenere b.
+            </p>
+
+            <div class="formula">
+                log<sub>a</sub>(b) = c
+                &nbsp; ⇔ &nbsp;
+                a<sup>c</sup> = b
+            </div>
+
+            <p class="text-center mb-4">
+                con a &gt; 0, a ≠ 1 e b &gt; 0.
+            </p>
+
+            <p class="mb-3">
+                <strong>Esempio</strong>
+            </p>
+
+            <div class="formula">
+                log<sub>10</sub>(1) = ?
+            </div>
+
+            <p class="text-center mb-3">
+                Ci chiediamo:
+                a quale esponente dobbiamo elevare 10
+                per ottenere 1?
+            </p>
+
+            <div class="formula">
+                10<sup>0</sup> = 1
+            </div>
+
+            <div class="formula">
+                log<sub>10</sub>(1) = 0
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOGARITMO NATURALE -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Logaritmo naturale
+        </h2>
+
+        <div class="step">
+
+            <p>
+                Esiste anche il
+                <strong>logaritmo naturale</strong>,
+                cioè il logaritmo in base
+                <strong>e</strong>, il numero di Nepero.
+            </p>
+
+            <div class="formula">
+                e ≈ 2,71828
+            </div>
+
+            <div class="formula">
+                ln(x) = log<sub>e</sub>(x)
+            </div>
+
+            <p>
+                Il logaritmo naturale è la funzione
+                inversa dell'esponenziale naturale
+                <strong>f(x) = e<sup>x</sup></strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ESEMPIO: DECIBEL -->
+
+    <section class="section-card">
+
+        <h2 class="section-title">
+            Esempio: i decibel
+        </h2>
+
+        <div class="example">
+
+            <p class="mb-3">
+                Il <strong>decibel (dB)</strong>
+                è un'unità utilizzata per esprimere
+                il livello sonoro.
+            </p>
+
+            <p class="mb-3">
+                Il livello di intensità sonora
+                si calcola con una formula
+                che contiene un
+                <strong>logaritmo in base 10</strong>:
+            </p>
+
+            <div class="formula">
+                L = 10 · log<sub>10</sub>(I / I<sub>0</sub>)
+            </div>
+
+            <p class="mb-3">
+                Dove <strong>I</strong> è l'intensità sonora
+                e <strong>I<sub>0</sub></strong>
+                è un'intensità di riferimento.
+            </p>
+
+            <p>
+                Se l'intensità sonora diventa
+                <strong>10 volte maggiore</strong>,
+                il livello aumenta di
+                <strong>10 dB</strong>.
+                Se diventa <strong>100 volte maggiore</strong>,
+                aumenta di <strong>20 dB</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="navy-bg text-white py-6 mt-12">
+
+    <div class="container mx-auto px-4
+                text-center text-sm opacity-80">
+
+        Matematica · Alessia Selmi · A.S. 2026–2027
+
+    </div>
+
+</footer>
+
+<!-- DISEGNO DEI GRAFICI -->
+
+<script>
+(function () {
+
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    function xToPx(x) {
+        return 110 + 40 * x;
+    }
+
+    function yToPx(y) {
+        return 175 - 40 * y;
+    }
+
+    function draw(curveId, pointsId, base) {
+
+        const curve = document.getElementById(curveId);
+        const group = document.getElementById(pointsId);
+
+        let d = '';
+
+        // Il logaritmo esiste solo per x > 0.
+
+        for (let x = 0.01; x <= 5.45; x += 0.01) {
+
+            const y = Math.log(x) / Math.log(base);
+
+            d += (d ? ' L ' : 'M ')
+                + xToPx(x).toFixed(2)
+                + ' '
+                + yToPx(y).toFixed(2);
+        }
+
+        curve.setAttribute('d', d);
+
+        // Punti della tabella.
+
+        [0.25, 0.5, 1, 2, 4].forEach(x => {
+
+            const y = Math.log(x) / Math.log(base);
+
+            const circle = document.createElementNS(
+                SVG_NS,
+                'circle'
+            );
+
+            circle.setAttribute('cx', xToPx(x));
+            circle.setAttribute('cy', yToPx(y));
+            circle.setAttribute('r', '4.5');
+            circle.setAttribute('class', 'point');
+
+            group.appendChild(circle);
+
+        });
+
+    }
+
+    draw('curveLogUp', 'pointsLogUp', 2);
+    draw('curveLogDown', 'pointsLogDown', 0.5);
+
+})();
+</script>
+
+</body>
+</html>
