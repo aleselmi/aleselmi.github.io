@@ -594,7 +594,7 @@
 
         </a>
 
-        <!-- ==============================
+            <!-- ==============================
              FUNZIONE LOGARITMICA
              ============================== -->
 
@@ -624,7 +624,7 @@
 
                     <!-- ASSI CARTESIANI -->
 
-                    <line x1="55" y1="120"
+                    <line x1="20" y1="120"
                           x2="240" y2="120"
                           class="axis"/>
 
@@ -643,19 +643,37 @@
                     <text x="228" y="110" class="axis-label">x</text>
                     <text x="90" y="32" class="axis-label">f(x)</text>
 
-                    <!-- CURVA LOGARITMICA CRESCENTE -->
+                    <!--
+                        GRAFICO DI f(x) = log_2(x)
 
-                    <path d="
-                        M 81 180
-                        C 82 158, 86 143, 92.5 140
-                        C 100 130, 112 120, 130 120
-                        C 155 107, 175 96, 180 90
-                        C 200 82, 220 73, 235 68
-                    "
-                    fill="none"
-                    stroke="#0b2a4a"
-                    stroke-width="3"
-                    stroke-linecap="round"/>
+                        Scala:
+                        50 pixel = 1 unità sull'asse x
+                        20 pixel = 1 unità sull'asse y
+
+                        Punti:
+                        (1/4; -2) = (92.5; 160)
+                        (1/2; -1) = (105; 140)
+                        (1; 0)    = (130; 120)
+                        (2; 1)    = (180; 100)
+                        (3; 1.585) circa (230; 88.3)
+                    -->
+
+                    <!-- CURVA LOGARITMICA -->
+
+                    <path
+                        d="
+                            M 81.56 180
+                            C 82.5 174, 87 165, 92.5 160
+                            C 96.5 153, 101 145, 105 140
+                            C 111 131, 119 124, 130 120
+                            C 145 111, 164 104, 180 100
+                            C 198 94, 215 90, 230 88.3
+                        "
+                        fill="none"
+                        stroke="#0b2a4a"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
 
                     <!-- PUNTI DEL GRAFICO -->
 
@@ -671,9 +689,6 @@
                     <circle cx="180" cy="100" r="4"
                             fill="#3b82f6"/>
 
-                    <circle cx="230" cy="80" r="4"
-                            fill="#3b82f6"/>
-
                 </svg>
 
             </div>
@@ -683,7 +698,6 @@
             </div>
 
         </a>
-
 
     </div>
 
