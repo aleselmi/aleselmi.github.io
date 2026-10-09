@@ -128,7 +128,7 @@
     .guided-formula {
         margin-top: 5px;
         color: #0b2a4a;
-        overflow-x: auto;
+        overflow-x: visible;
     }
 
     /* OPERAZIONE A SINISTRA, RISULTATO A DESTRA */
@@ -160,8 +160,8 @@
         color: #0b2a4a;
         font-size: 1.15rem;
         min-width: 0;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow-x: visible;
+        overflow-y: visible;
     }
 
     .result-box {
@@ -190,11 +190,11 @@
         padding: 20px;
         background: #f8fafc;
         border-radius: 12px;
-        overflow-x: auto;
+        overflow-x: visible;
     }
 
     .math-line {
-        overflow-x: auto;
+        overflow-x: visible;
     }
 
     @media (max-width: 600px) {
@@ -204,25 +204,28 @@
         }
 
         .exercise-row {
-            gap: 10px;
+            gap: 6px;
         }
 
         .exercise-left {
-            gap: 10px;
+            gap: 6px;
         }
 
         .exercise-formula {
-            font-size: 0.95rem;
+            font-size: 0.72rem;
         }
 
         .result-box {
-            padding: 8px 10px;
-            font-size: 0.85rem;
+            padding: 7px 8px;
+            font-size: 0.72rem;
         }
 
-        .solution-box {
-            padding: 16px;
-        }
+        .exercise-letter { font-size: 0.95rem; }
+        .exercise-card { padding: 12px; }
+        .exercise-row { gap: 5px; }
+        .exercise-formula mjx-container { font-size: 85% !important; }
+        .result-box mjx-container { font-size: 85% !important; }
+        .solution-box { padding: 16px; }
 
     }
 
