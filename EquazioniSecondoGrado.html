@@ -1429,9 +1429,747 @@ function creaEsercizio(es) {
 }
 
 
-// ======================================
-// INSERIMENTO DEGLI ESERCIZI
-// ======================================
+
+<!-- ==========================================
+     ESERCIZI EQUAZIONI DI SECONDO GRADO
+     ========================================== -->
+
+<section class="section-card" id="esercizi-equazioni">
+
+    <h2 class="section-title">
+        Esercizi
+    </h2>
+
+    <div id="elenco-equazioni"></div>
+
+</section>
+
+
+<!-- ==========================================
+     STILE ESERCIZI
+     ========================================== -->
+
+<style>
+
+    .exercise-card {
+        background: white;
+        border: 1px solid #dbe3ee;
+        border-radius: 14px;
+        padding: 22px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 10px rgba(11, 42, 74, 0.04);
+    }
+
+    .exercise-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .exercise-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .exercise-letter {
+        color: #0b2a4a;
+        font-size: 1.2rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .exercise-equation {
+        color: #0b2a4a;
+        font-size: 1.2rem;
+        font-weight: 600;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .exercise-short-result {
+        color: #2563eb;
+        font-size: 1.15rem;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-left: auto;
+    }
+
+    .exercise-card details {
+        border-top: 1px solid #e5e7eb;
+        margin-top: 18px;
+        padding-top: 16px;
+    }
+
+    .exercise-card summary {
+        color: #2563eb;
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .exercise-card summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .exercise-card summary::after {
+        content: " ▼";
+        font-size: 0.8rem;
+    }
+
+    .exercise-card details[open] summary::after {
+        content: " ▲";
+    }
+
+    .exercise-work {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 18px;
+        margin-top: 18px;
+    }
+
+    .exercise-work p {
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+
+    .exercise-math {
+        color: #0b2a4a;
+        font-size: 1.15rem;
+        text-align: center;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .exercise-result {
+        background: #ecfdf5;
+        border: 1px solid #86efac;
+        color: #15803d;
+        border-radius: 10px;
+        padding: 16px;
+        margin-top: 18px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .exercise-result .exercise-math {
+        color: #15803d;
+    }
+
+    @media (max-width: 600px) {
+
+        .exercise-card {
+            padding: 16px;
+        }
+
+        .exercise-heading {
+            gap: 8px;
+        }
+
+        .exercise-equation {
+            font-size: 1rem;
+        }
+
+        .exercise-short-result {
+            font-size: 1rem;
+        }
+
+    }
+
+</style>
+
+
+<!-- ==========================================
+     MATHJAX
+     ========================================== -->
+
+<script>
+
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        }
+    };
+
+</script>
+
+<script defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+<!-- ==========================================
+     ESERCIZI
+     ========================================== -->
+
+<script>
+
+const equazioni = [
+
+    // a
+
+    {
+        lettera: "a",
+
+        testo: "(x-3)(2x-5)=3",
+
+        risultatoBreve:
+            "\\left[\\frac32\\;;\\;4\\right]",
+
+        sviluppo: [
+            "2x^2-5x-6x+15=3",
+            "2x^2-11x+15-3=0"
+        ],
+
+        normale: "2x^2-11x+12=0",
+
+        a: 2,
+        b: -11,
+        c: 12,
+
+        delta:
+            "(-11)^2-4\\cdot2\\cdot12=25",
+
+        formula:
+            "x_{1,2}=\\frac{11\\pm\\sqrt{25}}4",
+
+        soluzioni:
+            "x_1=\\frac32,\\qquad x_2=4"
+    },
+
+    // b
+
+    {
+        lettera: "b",
+
+        testo: "(x+1)^2=(2x-3)^2",
+
+        risultatoBreve:
+            "\\left[\\frac23\\;;\\;4\\right]",
+
+        sviluppo: [
+            "x^2+2x+1=4x^2-12x+9",
+            "-3x^2+14x-8=0"
+        ],
+
+        normale: "3x^2-14x+8=0",
+
+        a: 3,
+        b: -14,
+        c: 8,
+
+        delta:
+            "(-14)^2-4\\cdot3\\cdot8=100",
+
+        formula:
+            "x_{1,2}=\\frac{14\\pm\\sqrt{100}}6",
+
+        soluzioni:
+            "x_1=\\frac23,\\qquad x_2=4"
+    },
+
+    // c
+
+    {
+        lettera: "c",
+
+        testo: "(2x-1)^2=3x(x-2)",
+
+        risultatoBreve:
+            "\\left[-1\\right]",
+
+        sviluppo: [
+            "4x^2-4x+1=3x^2-6x"
+        ],
+
+        normale: "x^2+2x+1=0",
+
+        a: 1,
+        b: 2,
+        c: 1,
+
+        delta:
+            "2^2-4\\cdot1\\cdot1=0",
+
+        formula:
+            "x=\\frac{-2}{2}",
+
+        soluzioni:
+            "x_1=x_2=-1"
+    },
+
+    // d
+
+    {
+        lettera: "d",
+
+        testo: "x(3-x)+x(2-x)=-25",
+
+        risultatoBreve:
+            "\\left[-\\frac52\\;;\\;5\\right]",
+
+        sviluppo: [
+            "3x-x^2+2x-x^2=-25",
+            "-2x^2+5x+25=0"
+        ],
+
+        normale: "2x^2-5x-25=0",
+
+        a: 2,
+        b: -5,
+        c: -25,
+
+        delta:
+            "(-5)^2-4\\cdot2\\cdot(-25)=225",
+
+        formula:
+            "x_{1,2}=\\frac{5\\pm\\sqrt{225}}4",
+
+        soluzioni:
+            "x_1=-\\frac52,\\qquad x_2=5"
+    },
+
+    // e
+
+    {
+        lettera: "e",
+
+        testo:
+            "(2x+1)(x-2)-(x-1)(x+1)=9",
+
+        risultatoBreve:
+            "\\left[-2\\;;\\;5\\right]",
+
+        sviluppo: [
+            "2x^2-3x-2-(x^2-1)=9",
+            "2x^2-3x-2-x^2+1-9=0"
+        ],
+
+        normale: "x^2-3x-10=0",
+
+        a: 1,
+        b: -3,
+        c: -10,
+
+        delta:
+            "(-3)^2-4\\cdot1\\cdot(-10)=49",
+
+        formula:
+            "x_{1,2}=\\frac{3\\pm\\sqrt{49}}2",
+
+        soluzioni:
+            "x_1=-2,\\qquad x_2=5"
+    },
+
+    // f
+
+    {
+        lettera: "f",
+
+        testo: "2x^2=(x+2)(x-3)+12",
+
+        risultatoBreve:
+            "\\left[-3\\;;\\;2\\right]",
+
+        sviluppo: [
+            "2x^2=x^2-x-6+12",
+            "2x^2-x^2+x-6=0"
+        ],
+
+        normale: "x^2+x-6=0",
+
+        a: 1,
+        b: 1,
+        c: -6,
+
+        delta:
+            "1^2-4\\cdot1\\cdot(-6)=25",
+
+        formula:
+            "x_{1,2}=\\frac{-1\\pm\\sqrt{25}}2",
+
+        soluzioni:
+            "x_1=-3,\\qquad x_2=2"
+    },
+
+    // g
+
+    {
+        lettera: "g",
+
+        testo:
+            "(x-3)^2+(5-x)^2=2x-6",
+
+        risultatoBreve:
+            "\\left[4\\;;\\;5\\right]",
+
+        sviluppo: [
+            "x^2-6x+9+x^2-10x+25=2x-6",
+            "2x^2-18x+40=0"
+        ],
+
+        normale: "x^2-9x+20=0",
+
+        a: 1,
+        b: -9,
+        c: 20,
+
+        delta:
+            "(-9)^2-4\\cdot1\\cdot20=1",
+
+        formula:
+            "x_{1,2}=\\frac{9\\pm\\sqrt1}2",
+
+        soluzioni:
+            "x_1=4,\\qquad x_2=5"
+    },
+
+    // h
+
+    {
+        lettera: "h",
+
+        testo:
+            "(x-3)(x+1)-(x-2)^2=(x+1)(x-3)",
+
+        risultatoBreve:
+            "\\left[2\\right]",
+
+        sviluppo: [
+            "x^2-2x-3-(x^2-4x+4)=x^2-2x-3",
+            "2x-7=x^2-2x-3",
+            "-x^2+4x-4=0"
+        ],
+
+        normale: "x^2-4x+4=0",
+
+        a: 1,
+        b: -4,
+        c: 4,
+
+        delta:
+            "(-4)^2-4\\cdot1\\cdot4=0",
+
+        formula:
+            "x=\\frac42",
+
+        soluzioni:
+            "x_1=x_2=2"
+    },
+
+    // i
+
+    {
+        lettera: "i",
+
+        testo:
+            "(x-1)(2x+1)+(x-2)^2=(3-x)(3+x)+3",
+
+        risultatoBreve:
+            "\\left[-1\\;;\\;\\frac94\\right]",
+
+        sviluppo: [
+            "2x^2-x-1+x^2-4x+4=9-x^2+3",
+            "3x^2-5x+3=12-x^2"
+        ],
+
+        normale: "4x^2-5x-9=0",
+
+        a: 4,
+        b: -5,
+        c: -9,
+
+        delta:
+            "(-5)^2-4\\cdot4\\cdot(-9)=169",
+
+        formula:
+            "x_{1,2}=\\frac{5\\pm\\sqrt{169}}8",
+
+        soluzioni:
+            "x_1=-1,\\qquad x_2=\\frac94"
+    },
+
+    // j
+
+    {
+        lettera: "j",
+
+        testo:
+            "(2x-3)^2+(2x+1)^2=-3x^2-(x-2)^2",
+
+        risultatoBreve:
+            "\\left[\\text{Impossibile}\\right]",
+
+        sviluppo: [
+            "4x^2-12x+9+4x^2+4x+1=" +
+            "-3x^2-x^2+4x-4"
+        ],
+
+        normale: "12x^2-12x+14=0",
+
+        a: 12,
+        b: -12,
+        c: 14,
+
+        delta:
+            "(-12)^2-4\\cdot12\\cdot14=-528",
+
+        formula: "",
+
+        soluzioni:
+            "\\text{Impossibile in }\\mathbb{R}"
+    },
+
+    // k
+
+    {
+        lettera: "k",
+
+        testo:
+            "4x^2+5(x+2)^2+24=(x+6)^2",
+
+        risultatoBreve:
+            "\\left[\\text{Impossibile}\\right]",
+
+        sviluppo: [
+            "4x^2+5(x^2+4x+4)+24=x^2+12x+36",
+            "4x^2+5x^2+20x+20+24=x^2+12x+36"
+        ],
+
+        normale: "8x^2+8x+8=0",
+
+        a: 8,
+        b: 8,
+        c: 8,
+
+        delta:
+            "8^2-4\\cdot8\\cdot8=-192",
+
+        formula: "",
+
+        soluzioni:
+            "\\text{Impossibile in }\\mathbb{R}"
+    }
+
+];
+
+
+// ==========================================
+// FUNZIONI PER LE SCHEDE
+// ==========================================
+
+function rigaMatematica(testo) {
+
+    const div = document.createElement("div");
+
+    div.className = "exercise-math";
+
+    div.textContent = "\\[" + testo + "\\]";
+
+    return div;
+
+}
+
+
+function creaEsercizio(es) {
+
+    const card = document.createElement("article");
+
+    card.className = "exercise-card";
+
+
+    // INTESTAZIONE
+
+    const intestazione = document.createElement("div");
+
+    intestazione.className = "exercise-heading";
+
+
+    // LETTERA ED EQUAZIONE
+
+    const sinistra = document.createElement("div");
+
+    sinistra.className = "exercise-left";
+
+    const lettera = document.createElement("strong");
+
+    lettera.className = "exercise-letter";
+
+    lettera.textContent = es.lettera + ".";
+
+    sinistra.appendChild(lettera);
+
+    const equazione = document.createElement("div");
+
+    equazione.className = "exercise-equation";
+
+    equazione.textContent = "\\(" + es.testo + "\\)";
+
+    sinistra.appendChild(equazione);
+
+    intestazione.appendChild(sinistra);
+
+
+    // RISULTATO A DESTRA
+
+    const risultatoBreve = document.createElement("div");
+
+    risultatoBreve.className = "exercise-short-result";
+
+    risultatoBreve.textContent =
+        "\\(" + es.risultatoBreve + "\\)";
+
+    intestazione.appendChild(risultatoBreve);
+
+    card.appendChild(intestazione);
+
+
+    // TENDINA MOSTRA SVOLGIMENTO
+
+    const tendina = document.createElement("details");
+
+    const titolo = document.createElement("summary");
+
+    titolo.textContent = "Mostra svolgimento";
+
+    tendina.appendChild(titolo);
+
+    const svolgimento = document.createElement("div");
+
+    svolgimento.className = "exercise-work";
+
+
+    // PASSO 1
+
+    const passo1 = document.createElement("p");
+
+    passo1.innerHTML =
+        "<strong>1. Svolgiamo i prodotti notevoli " +
+        "e le moltiplicazioni.</strong>";
+
+    svolgimento.appendChild(passo1);
+
+    es.sviluppo.forEach(function (passaggio) {
+
+        svolgimento.appendChild(
+            rigaMatematica(passaggio)
+        );
+
+    });
+
+
+    // PASSO 2
+
+    const passo2 = document.createElement("p");
+
+    passo2.innerHTML =
+        "<strong>2. Scriviamo l'equazione " +
+        "in forma normale.</strong>";
+
+    svolgimento.appendChild(passo2);
+
+    svolgimento.appendChild(
+        rigaMatematica(es.normale)
+    );
+
+
+    // PASSO 3
+
+    const passo3 = document.createElement("p");
+
+    passo3.innerHTML =
+        "<strong>3. Individuiamo i coefficienti.</strong>";
+
+    svolgimento.appendChild(passo3);
+
+    svolgimento.appendChild(
+        rigaMatematica(
+            "a=" + es.a +
+            ",\\quad b=" + es.b +
+            ",\\quad c=" + es.c
+        )
+    );
+
+
+    // PASSO 4
+
+    const passo4 = document.createElement("p");
+
+    passo4.innerHTML =
+        "<strong>4. Calcoliamo il discriminante.</strong>";
+
+    svolgimento.appendChild(passo4);
+
+    svolgimento.appendChild(
+        rigaMatematica(
+            "\\Delta=" + es.delta
+        )
+    );
+
+
+    // PASSO 5
+
+    const passo5 = document.createElement("p");
+
+    passo5.innerHTML =
+        "<strong>5. Troviamo le soluzioni.</strong>";
+
+    svolgimento.appendChild(passo5);
+
+    if (es.formula !== "") {
+
+        svolgimento.appendChild(
+            rigaMatematica(es.formula)
+        );
+
+    } else {
+
+        const impossibile = document.createElement("p");
+
+        impossibile.textContent =
+            "Il discriminante è negativo: " +
+            "l'equazione non ha soluzioni reali.";
+
+        svolgimento.appendChild(impossibile);
+
+    }
+
+
+    // RISULTATO FINALE VERDE
+
+    const risultato = document.createElement("div");
+
+    risultato.className = "exercise-result";
+
+    const etichetta = document.createElement("div");
+
+    etichetta.textContent = "Risultato";
+
+    risultato.appendChild(etichetta);
+
+    risultato.appendChild(
+        rigaMatematica(es.soluzioni)
+    );
+
+    svolgimento.appendChild(risultato);
+
+    tendina.appendChild(svolgimento);
+
+    card.appendChild(tendina);
+
+    return card;
+
+}
+
+
+// ==========================================
+// INSERIMENTO ESERCIZI
+// ==========================================
 
 const elenco = document.getElementById("elenco-equazioni");
 
@@ -1444,19 +2182,24 @@ equazioni.forEach(function (es) {
 });
 
 
-// ======================================
+// ==========================================
 // VISUALIZZAZIONE FORMULE
-// ======================================
+// ==========================================
 
-window.addEventListener("load", function () {
+function visualizzaFormule() {
 
-    if (window.MathJax && MathJax.typesetPromise) {
+    if (
+        window.MathJax &&
+        MathJax.typesetPromise
+    ) {
 
         MathJax.typesetPromise();
 
     }
 
-});
+}
+
+window.addEventListener("load", visualizzaFormule);
 
 document.querySelectorAll(
     "#elenco-equazioni details"
@@ -1479,6 +2222,7 @@ document.querySelectorAll(
 });
 
 </script>
+
 
 
 </main>
