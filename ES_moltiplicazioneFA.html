@@ -25,92 +25,129 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: #f8fafc;
-            color: #334155;
-            line-height: 1.6;
-        }
 
-        .navy-bg {
-            background: #0b2a4a;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: #f8fafc;
+    }
 
-        .navy-text {
-            color: #0b2a4a;
-        }
+    .navy-bg {
+        background-color: #0b2a4a;
+    }
+
+    .navy-text {
+        color: #0b2a4a;
+    }
+
+    /* SCHEDE DEGLI ESERCIZI */
+
+    .exercise-card {
+        background: white;
+        border: 1px solid #dbe3ec;
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* RISULTATO VERDE A DESTRA */
+
+    .result-box {
+        background-color: #ecfdf5;
+        border: 1px solid #86efac;
+        border-radius: 14px;
+        padding: 10px 18px;
+        color: #047857;
+        font-weight: 600;
+    }
+
+    /* LINEA E PULSANTE SVOLGIMENTO */
+
+    .solution-details {
+        margin-top: 18px;
+        border-top: 1px solid #dbe3ec;
+        padding-top: 14px;
+    }
+
+    .solution-title {
+        color: #2563eb;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    /* SVOLGIMENTO APERTO */
+
+    .solution-box {
+        margin-top: 18px;
+        padding: 22px;
+        border: 1px solid #dbe3ec;
+        border-radius: 14px;
+        background-color: white;
+    }
+
+    .solution-box[hidden] {
+        display: none;
+    }
+
+    .formula-step {
+        background-color: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        padding: 12px 16px;
+        margin: 14px 0;
+    }
+
+    .ce-line {
+        margin: 12px 0;
+        font-weight: 600;
+        color: #0b2a4a;
+    }
+
+    .guided-title {
+        font-weight: 700;
+        color: #0b2a4a;
+        margin-bottom: 10px;
+    }
+
+    .guided-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        margin: 8px 0;
+        color: #334155;
+    }
+
+    .guided-number {
+        flex: 0 0 auto;
+    }
+
+    .guided-formula {
+        margin-top: 5px;
+        color: #0b2a4a;
+        overflow-x: auto;
+    }
+
+    @media (max-width: 600px) {
 
         .exercise-card {
-            background: white;
-            border: 1px solid #dbe3ee;
-            border-radius: 18px;
-            padding: 28px;
-            margin-bottom: 22px;
-            box-shadow: 0 3px 10px rgba(11, 42, 74, .04);
+            padding: 18px;
         }
 
         .result-box {
-            background: #eafbf2;
-            border: 1px solid #86efac;
-            border-radius: 12px;
-            padding: 14px 20px;
-            color: #047857;
-            margin: 20px 0 16px;
+            padding: 10px 14px;
         }
 
-        .exercise-card details {
-            border-top: 1px solid #e5e7eb;
-            padding-top: 18px;
-        }
-
-        .exercise-card summary {
-            color: #2563eb;
-            font-weight: 650;
-            cursor: pointer;
-        }
-
-        .work-box {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 18px;
-            margin-top: 15px;
-        }
-
-        .work-box p {
-            margin: 14px 0;
-        }
-
-        .math-line {
-            overflow-x: auto;
-            padding: 8px 0;
-        }
-
-        .warning-box {
-            border-left: 5px solid #ef4444;
-            background: #fff1f2;
+        .solution-box {
             padding: 16px;
-            border-radius: 8px;
         }
 
-        @media print {
-            .no-print {
-                display: none !important;
-            }
+    }
 
-            .exercise-card {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            details .work-box {
-                display: block !important;
-            }
-
-            header {
-                padding: 20px !important;
-            }
-        }
-    </style>
+</style>
 
 </head>
 
