@@ -947,6 +947,410 @@
 
 </section>
 
+<!-- ==========================================
+     3. MOLTIPLICAZIONE
+     ========================================== -->
+
+<section class="mb-16">
+
+    <div class="flex items-center mb-4">
+
+        <span class="navy-bg text-white rounded-full h-10 w-10
+                     flex items-center justify-center font-bold
+                     mr-4 flex-shrink-0">
+            3
+        </span>
+
+        <h2 class="text-2xl font-bold navy-text">
+            Moltiplicazione di frazioni algebriche
+        </h2>
+
+    </div>
+
+    <button class="toggle-button no-print"
+            onclick="toggleTopic('moltiplicazione', this)">
+
+        <span class="toggle-text">Mostra spiegazione</span>
+        <span class="toggle-arrow">▼</span>
+
+    </button>
+
+    <div id="moltiplicazione" class="topic-content">
+
+        <!-- PROCEDIMENTO -->
+
+        <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
+
+            <div class="space-y-4">
+
+                <p>
+                    <strong>1.</strong>
+                    Scomponiamo tutti i polinomi in fattori.
+                </p>
+
+                <p>
+                    <strong>2.</strong>
+                    Calcoliamo le
+                    <strong>Condizioni di Esistenza (C.E.)</strong>
+                    ponendo tutti i denominatori iniziali
+                    diversi da zero.
+                </p>
+
+                <p>
+                    <strong>3.</strong>
+                    Semplifichiamo i fattori comuni
+                    tra numeratori e denominatori.
+                    <strong>Mai gli addendi!</strong>
+                </p>
+
+                <p>
+                    <strong>4.</strong>
+                    Moltiplichiamo
+                    <strong>numeratore con numeratore</strong>
+                    e
+                    <strong>denominatore con denominatore</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ESEMPIO -->
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Esempio
+                </div>
+
+                \[
+                    \frac{x^2-4}{x}
+                    \cdot
+                    \frac{x}{x+2}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                1. Scomponiamo tutti i polinomi.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    x^2-4=(x-2)(x+2)
+                \]
+
+                \[
+                    \frac{(x-2)(x+2)}{x}
+                    \cdot
+                    \frac{x}{x+2}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                2. Calcoliamo le C.E.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    x\neq0
+                    \qquad
+                    x+2\neq0
+                \]
+
+                \[
+                    \boxed{x\neq0,\quad x\neq-2}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                3. Semplifichiamo i fattori comuni.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    \frac{(x-2)\cancel{(x+2)}}{\cancel{x}}
+                    \cdot
+                    \frac{\cancel{x}}{\cancel{(x+2)}}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                4. Moltiplichiamo numeratori e denominatori.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    \frac{x-2}{1}
+                    =
+                    x-2
+                \]
+
+            </div>
+
+            <div class="example-box mt-6">
+
+                <div class="label label-example">
+                    Risultato
+                </div>
+
+                \[
+                    \boxed{x-2}
+                \]
+
+                \[
+                    \text{C.E.: }\quad
+                    x\neq0,\quad x\neq-2
+                \]
+
+            </div>
+
+        </div>
+
+        <div class="warning-box rounded-xl shadow-sm mt-8">
+
+            <div class="label label-warning text-lg mb-3">
+                ⚠ ATTENZIONE
+            </div>
+
+            <p class="font-bold text-red-700">
+                Si semplificano soltanto i FATTORI,
+                mai gli ADDENDI.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     4. DIVISIONE
+     ========================================== -->
+
+<section class="mb-16">
+
+    <div class="flex items-center mb-4">
+
+        <span class="navy-bg text-white rounded-full h-10 w-10
+                     flex items-center justify-center font-bold
+                     mr-4 flex-shrink-0">
+            4
+        </span>
+
+        <h2 class="text-2xl font-bold navy-text">
+            Divisione di frazioni algebriche
+        </h2>
+
+    </div>
+
+    <button class="toggle-button no-print"
+            onclick="toggleTopic('divisione', this)">
+
+        <span class="toggle-text">Mostra spiegazione</span>
+        <span class="toggle-arrow">▼</span>
+
+    </button>
+
+    <div id="divisione" class="topic-content">
+
+        <!-- PROCEDIMENTO -->
+
+        <div class="navy-bg text-white p-6 rounded-xl shadow-md mb-8">
+
+            <div class="space-y-4">
+
+                <p>
+                    <strong>1.</strong>
+                    Scomponiamo tutti i polinomi in fattori.
+                </p>
+
+                <p>
+                    <strong>2.</strong>
+                    Calcoliamo le
+                    <strong>Condizioni di Esistenza (C.E.)</strong>.
+                    Anche la frazione per cui dividiamo
+                    deve essere diversa da zero.
+                </p>
+
+                <p>
+                    <strong>3.</strong>
+                    Trasformiamo la divisione
+                    in moltiplicazione,
+                    <strong>capovolgendo la seconda frazione</strong>.
+                </p>
+
+                <p>
+                    <strong>4.</strong>
+                    Semplifichiamo soltanto i
+                    <strong>fattori comuni</strong>,
+                    mai gli addendi.
+                </p>
+
+                <p>
+                    <strong>5.</strong>
+                    Moltiplichiamo
+                    <strong>numeratore con numeratore</strong>
+                    e
+                    <strong>denominatore con denominatore</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ESEMPIO -->
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+
+            <div class="example-box">
+
+                <div class="label label-example">
+                    Esempio
+                </div>
+
+                \[
+                    \frac{x^2-4}{x}
+                    :
+                    \frac{x+2}{x}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                1. Scomponiamo tutti i polinomi.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    x^2-4=(x-2)(x+2)
+                \]
+
+                \[
+                    \frac{(x-2)(x+2)}{x}
+                    :
+                    \frac{x+2}{x}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                2. Calcoliamo le C.E.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    x\neq0
+                \]
+
+                \[
+                    x+2\neq0
+                \]
+
+                \[
+                    \boxed{x\neq0,\quad x\neq-2}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                3. Capovolgiamo la seconda frazione
+                e trasformiamo la divisione
+                in moltiplicazione.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    \frac{(x-2)(x+2)}{x}
+                    \cdot
+                    \frac{x}{x+2}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                4. Semplifichiamo i fattori comuni.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    \frac{(x-2)\cancel{(x+2)}}{\cancel{x}}
+                    \cdot
+                    \frac{\cancel{x}}{\cancel{(x+2)}}
+                \]
+
+            </div>
+
+            <p class="font-bold navy-text mt-6">
+                5. Moltiplichiamo numeratori e denominatori.
+            </p>
+
+            <div class="formula-box">
+
+                \[
+                    \frac{x-2}{1}
+                    =
+                    x-2
+                \]
+
+            </div>
+
+            <div class="example-box mt-6">
+
+                <div class="label label-example">
+                    Risultato
+                </div>
+
+                \[
+                    \boxed{x-2}
+                \]
+
+                \[
+                    \text{C.E.: }\quad
+                    x\neq0,\quad x\neq-2
+                \]
+
+            </div>
+
+        </div>
+
+        <div class="warning-box rounded-xl shadow-sm mt-8">
+
+            <div class="label label-warning text-lg mb-3">
+                ⚠ ATTENZIONE
+            </div>
+
+            <p class="font-bold text-red-700">
+                Nella divisione si capovolge
+                soltanto la SECONDA frazione.
+            </p>
+
+            <p class="mt-3">
+                Le C.E. devono essere calcolate
+                sull'espressione iniziale,
+                prima delle semplificazioni.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 </main>
 
