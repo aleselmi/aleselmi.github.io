@@ -736,7 +736,16 @@
             numero.className =
                 "navy-text pt-2";
 
-            numero.textContent = es.n + ".";
+
+const elenco = esercizi.filter(
+    esercizio => esercizio.tipo === es.tipo
+);
+
+const posizione = elenco.indexOf(es);
+
+numero.textContent =
+    String.fromCharCode(97 + posizione) + ".";
+
 
             intestazione.appendChild(numero);
 
