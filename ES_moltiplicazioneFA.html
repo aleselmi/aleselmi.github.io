@@ -131,14 +131,93 @@
         overflow-x: auto;
     }
 
+    /* OPERAZIONE A SINISTRA, RISULTATO A DESTRA */
+
+    .exercise-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .exercise-left {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .exercise-letter {
+        color: #0b2a4a;
+        font-size: 1.2rem;
+        font-weight: 700;
+        flex-shrink: 0;
+    }
+
+    .exercise-formula {
+        color: #0b2a4a;
+        font-size: 1.15rem;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .result-box {
+        flex: 0 0 auto;
+        margin-left: auto;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    /* TENDINA SEPARATA DA UNA LINEA */
+
+    .exercise-card details {
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid #dbe3ec;
+    }
+
+    .exercise-card summary {
+        color: #2563eb;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .work-box {
+        margin-top: 18px;
+        padding: 20px;
+        background: #f8fafc;
+        border-radius: 12px;
+        overflow-x: auto;
+    }
+
+    .math-line {
+        overflow-x: auto;
+    }
+
     @media (max-width: 600px) {
 
         .exercise-card {
             padding: 18px;
         }
 
+        .exercise-row {
+            gap: 10px;
+        }
+
+        .exercise-left {
+            gap: 10px;
+        }
+
+        .exercise-formula {
+            font-size: 0.95rem;
+        }
+
         .result-box {
-            padding: 10px 14px;
+            padding: 8px 10px;
+            font-size: 0.85rem;
         }
 
         .solution-box {
@@ -761,57 +840,39 @@
 
             card.className = "exercise-card";
 
-            // EQUAZIONE
+            // LETTERA, OPERAZIONE E RISULTATO SULLA STESSA RIGA
 
             const intestazione = document.createElement("div");
+            intestazione.className = "exercise-row";
 
-            intestazione.className =
-                "flex gap-5 items-start";
+            const sinistra = document.createElement("div");
+            sinistra.className = "exercise-left";
 
             const numero = document.createElement("strong");
+            numero.className = "exercise-letter";
 
-            numero.className =
-                "navy-text pt-2";
-
-
-const elenco = esercizi.filter(
-    esercizio => esercizio.tipo === es.tipo
-);
-
-const posizione = elenco.indexOf(es);
-
-numero.textContent =
-    String.fromCharCode(97 + posizione) + ".";
-
-
-            intestazione.appendChild(numero);
+            const elencoTipo = esercizi.filter(
+                esercizio => esercizio.tipo === es.tipo
+            );
+            const posizione = elencoTipo.indexOf(es);
+            numero.textContent = String.fromCharCode(97 + posizione) + ".";
+            sinistra.appendChild(numero);
 
             const operazione = document.createElement("div");
+            operazione.className = "exercise-formula";
+            operazione.textContent = "\\(" +
+                "\\displaystyle " + espressione(es) + "\\)";
+            sinistra.appendChild(operazione);
+            intestazione.appendChild(sinistra);
 
-            operazione.className = "math-line flex-1";
-
-            operazione.textContent =
-                "\\[" + espressione(es) + "\\]";
-
-            intestazione.appendChild(operazione);
+            // RIQUADRO VERDE A DESTRA (NON SOTTO)
+            const risultato = document.createElement("div");
+            risultato.className = "result-box";
+            risultato.textContent = "\\(\\displaystyle " +
+                es.risultato + "\\)";
+            intestazione.appendChild(risultato);
 
             card.appendChild(intestazione);
-
-
-            // RISULTATO VERDE
-
-            const risultato = document.createElement("div");
-
-            risultato.className = "result-box";
-
-            risultato.innerHTML =
-                "<strong>Risultato:</strong>";
-
-            risultato.appendChild(
-                formula(es.risultato)
-            );
-
-            card.appendChild(risultato);
 
 
             // TENDINA SVOLGIMENTO
