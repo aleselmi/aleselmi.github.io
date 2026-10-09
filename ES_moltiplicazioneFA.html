@@ -1,0 +1,959 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Frazioni algebriche: esercizi</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .navy-bg {
+            background: #0b2a4a;
+        }
+
+        .navy-text {
+            color: #0b2a4a;
+        }
+
+        .exercise-card {
+            background: white;
+            border: 1px solid #dbe3ee;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 10px rgba(11, 42, 74, .04);
+        }
+
+        .result-box {
+            background: #eafbf2;
+            border: 1px solid #86efac;
+            border-radius: 12px;
+            padding: 14px 20px;
+            color: #047857;
+            margin: 20px 0 16px;
+        }
+
+        .exercise-card details {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 18px;
+        }
+
+        .exercise-card summary {
+            color: #2563eb;
+            font-weight: 650;
+            cursor: pointer;
+        }
+
+        .work-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 15px;
+        }
+
+        .work-box p {
+            margin: 14px 0;
+        }
+
+        .math-line {
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .warning-box {
+            border-left: 5px solid #ef4444;
+            background: #fff1f2;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            .exercise-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            details .work-box {
+                display: block !important;
+            }
+
+            header {
+                padding: 20px !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="navy-bg text-white py-10 shadow-lg">
+
+        <div class="max-w-4xl mx-auto px-5">
+
+            <div class="flex flex-wrap gap-3 mb-7 no-print">
+
+                <a href="index.html"
+                   class="bg-white text-[#0b2a4a]
+                          rounded-lg px-4 py-2 font-semibold
+                          hover:bg-gray-100 transition">
+
+                    ← Home
+
+                </a>
+
+                <button onclick="window.print()"
+                        class="bg-white text-[#0b2a4a]
+                               rounded-lg px-4 py-2 font-semibold
+                               hover:bg-gray-100 transition">
+
+                    🖨 Stampa / Salva PDF
+
+                </button>
+
+            </div>
+
+            <h1 class="text-4xl font-extrabold">
+                Frazioni algebriche: esercizi
+            </h1>
+
+            <p class="text-xl mt-3 text-slate-200">
+                Moltiplicazione e divisione
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENUTO -->
+
+    <main class="max-w-4xl mx-auto px-5 py-12">
+
+        <h2 class="text-3xl font-bold navy-text mb-3">
+            Esercizi
+        </h2>
+
+        <p class="mb-7">
+            Scomponi in fattori, determina le C.E.
+            e riduci ai minimi termini.
+        </p>
+
+        <div class="warning-box mb-8">
+
+            <strong>Ricorda!</strong>
+
+            <p class="mt-2">
+                Si possono semplificare soltanto
+                i <strong>fattori</strong>,
+                mai gli <strong>addendi</strong>.
+            </p>
+
+            <p class="mt-2">
+                Nella divisione, oltre ai denominatori
+                delle due frazioni, anche il numeratore
+                della seconda frazione deve essere
+                diverso da zero.
+            </p>
+
+        </div>
+
+        <!-- MOLTIPLICAZIONE -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold navy-text mb-5">
+                Moltiplicazione
+            </h2>
+
+            <div id="moltiplicazioni"></div>
+
+        </section>
+
+        <!-- DIVISIONE -->
+
+        <section>
+
+            <h2 class="text-2xl font-bold navy-text mb-5">
+                Divisione
+            </h2>
+
+            <div id="divisioni"></div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="navy-bg text-white py-6">
+
+        <div class="text-center text-sm px-4">
+            Matematica al Pessina · Alessia Selmi · A.S. 2026–2027
+        </div>
+
+    </footer>
+
+    <!-- ESERCIZI E SVOLGIMENTI -->
+
+    <script>
+
+        /*
+         * Ogni esercizio contiene:
+         *
+         * n       = numero del libro
+         * tipo    = moltiplicazione o divisione
+         * a, b    = numeratore e denominatore
+         *           della prima frazione
+         * c, d    = numeratore e denominatore
+         *           della seconda frazione
+         * fa...fd = polinomi scomposti
+         * ce      = condizioni di esistenza
+         * risultato = risultato semplificato
+         */
+
+        const esercizi = [
+
+            // ============================
+            // MOLTIPLICAZIONE
+            // ============================
+
+            {
+                n: 413,
+                tipo: "moltiplicazione",
+
+                a: "x^3",
+                b: "x^2-4",
+                c: "x+2",
+                d: "x^2",
+
+                fa: "x^3",
+                fb: "(x-2)(x+2)",
+                fc: "x+2",
+                fd: "x^2",
+
+                ce: "x\\neq-2,\\;x\\neq0,\\;x\\neq2",
+
+                risultato: "\\frac{x}{x-2}"
+            },
+
+            {
+                n: 414,
+                tipo: "moltiplicazione",
+
+                a: "x^2-4",
+                b: "x+5",
+                c: "x^2-25",
+                d: "x-2",
+
+                fa: "(x-2)(x+2)",
+                fb: "x+5",
+                fc: "(x-5)(x+5)",
+                fd: "x-2",
+
+                ce: "x\\neq-5,\\;x\\neq2",
+
+                risultato: "(x+2)(x-5)"
+            },
+
+            {
+                n: 415,
+                tipo: "moltiplicazione",
+
+                a: "x^2-5x",
+                b: "x^2-25",
+                c: "x+5",
+                d: "2x",
+
+                fa: "x(x-5)",
+                fb: "(x-5)(x+5)",
+                fc: "x+5",
+                fd: "2x",
+
+                ce: "x\\neq-5,\\;x\\neq0,\\;x\\neq5",
+
+                risultato: "\\frac12"
+            },
+
+            {
+                n: 416,
+                tipo: "moltiplicazione",
+
+                a: "2x^2+4x",
+                b: "x+3",
+                c: "x^2-9",
+                d: "3x^2+6x",
+
+                fa: "2x(x+2)",
+                fb: "x+3",
+                fc: "(x-3)(x+3)",
+                fd: "3x(x+2)",
+
+                ce: "x\\neq-3,\\;x\\neq-2,\\;x\\neq0",
+
+                risultato: "\\frac{2(x-3)}3"
+            },
+
+            {
+                n: 417,
+                tipo: "moltiplicazione",
+
+                a: "x^2-x-6",
+                b: "x^2-4",
+                c: "2x-4",
+                d: "x^2-9",
+
+                fa: "(x-3)(x+2)",
+                fb: "(x-2)(x+2)",
+                fc: "2(x-2)",
+                fd: "(x-3)(x+3)",
+
+                ce: "x\\neq-3,\\;x\\neq-2,\\;x\\neq2,\\;x\\neq3",
+
+                risultato: "\\frac2{x+3}"
+            },
+
+            {
+                n: 418,
+                tipo: "moltiplicazione",
+
+                a: "x^2-16",
+                b: "2x+6",
+                c: "x+3",
+                d: "x-4",
+
+                fa: "(x-4)(x+4)",
+                fb: "2(x+3)",
+                fc: "x+3",
+                fd: "x-4",
+
+                ce: "x\\neq-3,\\;x\\neq4",
+
+                risultato: "\\frac{x+4}2"
+            },
+
+            {
+                n: 421,
+                tipo: "moltiplicazione",
+
+                a: "x^2+8x+16",
+                b: "2x^2+8x",
+                c: "4x^2",
+                d: "x^2-4",
+
+                fa: "(x+4)^2",
+                fb: "2x(x+4)",
+                fc: "4x^2",
+                fd: "(x-2)(x+2)",
+
+                ce: "x\\neq-4,\\;x\\neq-2,\\;x\\neq0,\\;x\\neq2",
+
+                risultato: "\\frac{2x(x+4)}{x^2-4}"
+            },
+
+            {
+                n: 422,
+                tipo: "moltiplicazione",
+
+                a: "6x^2+3x",
+                b: "2x^2-2x",
+                c: "x-1",
+                d: "8x^2+4x",
+
+                fa: "3x(2x+1)",
+                fb: "2x(x-1)",
+                fc: "x-1",
+                fd: "4x(2x+1)",
+
+                ce: "x\\neq-\\frac12,\\;x\\neq0,\\;x\\neq1",
+
+                risultato: "\\frac3{8x}"
+            },
+
+            {
+                n: 427,
+                tipo: "moltiplicazione",
+
+                a: "x^2+3x",
+                b: "x^2-x^4",
+                c: "x^2+x^3",
+                d: "x^3+6x^2+9x",
+
+                fa: "x(x+3)",
+                fb: "-x^2(x-1)(x+1)",
+                fc: "x^2(x+1)",
+                fd: "x(x+3)^2",
+
+                ce: "x\\neq-3,\\;x\\neq-1,\\;x\\neq0,\\;x\\neq1",
+
+                risultato: "\\frac1{(1-x)(x+3)}"
+            },
+
+            {
+                n: 430,
+                tipo: "moltiplicazione",
+
+                a: "x^4-x^2",
+                b: "x^2-4",
+                c: "x+2",
+                d: "x^3-x",
+
+                fa: "x^2(x-1)(x+1)",
+                fb: "(x-2)(x+2)",
+                fc: "x+2",
+                fd: "x(x-1)(x+1)",
+
+                ce: "x\\neq-2,\\;x\\neq-1,\\;x\\neq0,\\;x\\neq1,\\;x\\neq2",
+
+                risultato: "\\frac{x}{x-2}"
+            },
+
+            {
+                n: 431,
+                tipo: "moltiplicazione",
+
+                a: "x^2+3x-10",
+                b: "x^2-1",
+                c: "x^4-1",
+                d: "x^2-2x",
+
+                fa: "(x-2)(x+5)",
+                fb: "(x-1)(x+1)",
+                fc: "(x-1)(x+1)(x^2+1)",
+                fd: "x(x-2)",
+
+                ce: "x\\neq-1,\\;x\\neq0,\\;x\\neq1,\\;x\\neq2",
+
+                risultato: "\\frac{(x+5)(x^2+1)}x"
+            },
+
+            {
+                n: 433,
+                tipo: "moltiplicazione",
+
+                a: "x^2+5x-6",
+                b: "x^2-1",
+                c: "x^2+x",
+                d: "x^2+8x+12",
+
+                fa: "(x-1)(x+6)",
+                fb: "(x-1)(x+1)",
+                fc: "x(x+1)",
+                fd: "(x+2)(x+6)",
+
+                ce: "x\\neq-6,\\;x\\neq-2,\\;x\\neq-1,\\;x\\neq1",
+
+                risultato: "\\frac{x}{x+2}"
+            },
+
+            // ============================
+            // DIVISIONE
+            // ============================
+
+            {
+                n: 479,
+                tipo: "divisione",
+
+                a: "x^4+x^2",
+                b: "x^5-x^3",
+                c: "x^3+x",
+                d: "x^3+x^2",
+
+                fa: "x^2(x^2+1)",
+                fb: "x^3(x-1)(x+1)",
+                fc: "x(x^2+1)",
+                fd: "x^2(x+1)",
+
+                ce: "x\\neq-1,\\;x\\neq0,\\;x\\neq1",
+
+                risultato: "\\frac1{x-1}"
+            },
+
+            {
+                n: 480,
+                tipo: "divisione",
+
+                a: "x^2+4x",
+                b: "x-5",
+                c: "2x^2+8x",
+                d: "x^2-25",
+
+                fa: "x(x+4)",
+                fb: "x-5",
+                fc: "2x(x+4)",
+                fd: "(x-5)(x+5)",
+
+                ce: "x\\neq-5,\\;x\\neq-4,\\;x\\neq0,\\;x\\neq5",
+
+                risultato: "\\frac{x+5}2"
+            },
+
+            {
+                n: 481,
+                tipo: "divisione",
+
+                a: "x^2+4x+4",
+                b: "x^2+4x+3",
+                c: "2x+4",
+                d: "2x+6",
+
+                fa: "(x+2)^2",
+                fb: "(x+1)(x+3)",
+                fc: "2(x+2)",
+                fd: "2(x+3)",
+
+                ce: "x\\neq-3,\\;x\\neq-2,\\;x\\neq-1",
+
+                risultato: "\\frac{x+2}{x+1}"
+            },
+
+            {
+                n: 482,
+                tipo: "divisione",
+
+                a: "6x^2+3x",
+                b: "2x^2-4x",
+                c: "4x^2-1",
+                d: "2x^2-4x",
+
+                fa: "3x(2x+1)",
+                fb: "2x(x-2)",
+                fc: "(2x-1)(2x+1)",
+                fd: "2x(x-2)",
+
+                ce: "x\\neq-\\frac12,\\;x\\neq0,\\;x\\neq\\frac12,\\;x\\neq2",
+
+                risultato: "\\frac{3x}{2x-1}"
+            },
+
+            {
+                n: 483,
+                tipo: "divisione",
+
+                a: "9x^2-6x+1",
+                b: "x+4",
+                c: "3x^2-x",
+                d: "x^2-16",
+
+                fa: "(3x-1)^2",
+                fb: "x+4",
+                fc: "x(3x-1)",
+                fd: "(x-4)(x+4)",
+
+                ce: "x\\neq-4,\\;x\\neq0,\\;x\\neq\\frac13,\\;x\\neq4",
+
+                risultato: "\\frac{(x-4)(3x-1)}x"
+            },
+
+            {
+                n: 488,
+                tipo: "divisione",
+
+                a: "x^2-x",
+                b: "x^2+1",
+                c: "x^4-x^2",
+                d: "x^4+2x^2+1",
+
+                fa: "x(x-1)",
+                fb: "x^2+1",
+                fc: "x^2(x-1)(x+1)",
+                fd: "(x^2+1)^2",
+
+                ce: "x\\neq-1,\\;x\\neq0,\\;x\\neq1",
+
+                risultato: "\\frac{x^2+1}{x(x+1)}"
+            },
+
+            {
+                n: 491,
+                tipo: "divisione",
+
+                a: "x^3+x",
+                b: "x^2+4x-5",
+                c: "x^4+x^2",
+                d: "x^2+10x+25",
+
+                fa: "x(x^2+1)",
+                fb: "(x-1)(x+5)",
+                fc: "x^2(x^2+1)",
+                fd: "(x+5)^2",
+
+                ce: "x\\neq-5,\\;x\\neq0,\\;x\\neq1",
+
+                risultato: "\\frac{x+5}{x(x-1)}"
+            },
+
+            {
+                n: 492,
+                tipo: "divisione",
+
+                a: "x^3+4x^2+4x",
+                b: "x^4-x^3",
+                c: "x^3-2x^2",
+                d: "x^5-x^4",
+
+                fa: "x(x+2)^2",
+                fb: "x^3(x-1)",
+                fc: "x^2(x-2)",
+                fd: "x^4(x-1)",
+
+                ce: "x\\neq0,\\;x\\neq1,\\;x\\neq2",
+
+                risultato: "\\frac{(x+2)^2}{x-2}"
+            },
+
+            {
+                n: 493,
+                tipo: "divisione",
+
+                a: "x^2+5x-6",
+                b: "3x^2-12",
+                c: "x^2-1",
+                d: "x^2+2x",
+
+                fa: "(x-1)(x+6)",
+                fb: "3(x-2)(x+2)",
+                fc: "(x-1)(x+1)",
+                fd: "x(x+2)",
+
+                ce: "x\\neq-2,\\;x\\neq-1,\\;x\\neq0,\\;x\\neq1,\\;x\\neq2",
+
+                risultato: "\\frac{x(x+6)}{3(x-2)(x+1)}"
+            }
+
+        ];
+
+
+        // ==========================================
+        // FUNZIONI PER VISUALIZZARE GLI ESERCIZI
+        // ==========================================
+
+        function frazione(numeratore, denominatore) {
+
+            return "\\frac{" + numeratore +
+                   "}{" + denominatore + "}";
+
+        }
+
+
+        function espressione(es, scomposta = false) {
+
+            const a = scomposta ? es.fa : es.a;
+            const b = scomposta ? es.fb : es.b;
+            const c = scomposta ? es.fc : es.c;
+            const d = scomposta ? es.fd : es.d;
+
+            const simbolo =
+                es.tipo === "moltiplicazione"
+                    ? "\\cdot"
+                    : "\\div";
+
+            return frazione(a, b) +
+                   simbolo +
+                   frazione(c, d);
+        }
+
+
+        function dopoCapovolgimento(es) {
+
+            return frazione(es.fa, es.fb) +
+                   "\\cdot" +
+                   frazione(es.fd, es.fc);
+        }
+
+
+        function formula(testo) {
+
+            const div = document.createElement("div");
+
+            div.className = "math-line";
+
+            div.textContent = "\\[" + testo + "\\]";
+
+            return div;
+        }
+
+
+        function paragrafo(testo) {
+
+            const p = document.createElement("p");
+
+            const strong = document.createElement("strong");
+
+            strong.textContent = testo;
+
+            p.appendChild(strong);
+
+            return p;
+        }
+
+
+        function creaEsercizio(es) {
+
+            const card = document.createElement("article");
+
+            card.className = "exercise-card";
+
+            // EQUAZIONE
+
+            const intestazione = document.createElement("div");
+
+            intestazione.className =
+                "flex gap-5 items-start";
+
+            const numero = document.createElement("strong");
+
+            numero.className =
+                "navy-text pt-2";
+
+            numero.textContent = es.n + ".";
+
+            intestazione.appendChild(numero);
+
+            const operazione = document.createElement("div");
+
+            operazione.className = "math-line flex-1";
+
+            operazione.textContent =
+                "\\[" + espressione(es) + "\\]";
+
+            intestazione.appendChild(operazione);
+
+            card.appendChild(intestazione);
+
+
+            // RISULTATO VERDE
+
+            const risultato = document.createElement("div");
+
+            risultato.className = "result-box";
+
+            risultato.innerHTML =
+                "<strong>Risultato:</strong>";
+
+            risultato.appendChild(
+                formula(es.risultato)
+            );
+
+            card.appendChild(risultato);
+
+
+            // TENDINA SVOLGIMENTO
+
+            const tendina = document.createElement("details");
+
+            const titolo = document.createElement("summary");
+
+            titolo.textContent = "Mostra svolgimento";
+
+            tendina.appendChild(titolo);
+
+            const svolgimento = document.createElement("div");
+
+            svolgimento.className = "work-box";
+
+
+            // PASSO 1
+
+            svolgimento.appendChild(
+                paragrafo("1. Scomponiamo tutti i polinomi:")
+            );
+
+            svolgimento.appendChild(
+                formula(espressione(es, true))
+            );
+
+
+            // PASSO 2
+
+            svolgimento.appendChild(
+                paragrafo(
+                    "2. Calcoliamo le C.E. " +
+                    "sull'espressione iniziale:"
+                )
+            );
+
+            if (es.tipo === "divisione") {
+
+                const spiegazione = document.createElement("p");
+
+                spiegazione.textContent =
+                    "Poniamo diversi da zero i denominatori " +
+                    "delle due frazioni e il numeratore " +
+                    "della seconda frazione.";
+
+                svolgimento.appendChild(spiegazione);
+
+            } else {
+
+                const spiegazione = document.createElement("p");
+
+                spiegazione.textContent =
+                    "Poniamo diversi da zero " +
+                    "tutti i denominatori.";
+
+                svolgimento.appendChild(spiegazione);
+            }
+
+            svolgimento.appendChild(
+                formula("\\boxed{\\text{C.E.: }" + es.ce + "}")
+            );
+
+
+            // PASSO 3 DELLA DIVISIONE
+
+            if (es.tipo === "divisione") {
+
+                svolgimento.appendChild(
+                    paragrafo(
+                        "3. Capovolgiamo la seconda frazione " +
+                        "e trasformiamo la divisione " +
+                        "in moltiplicazione:"
+                    )
+                );
+
+                svolgimento.appendChild(
+                    formula(dopoCapovolgimento(es))
+                );
+
+                svolgimento.appendChild(
+                    paragrafo(
+                        "4. Semplifichiamo i fattori comuni " +
+                        "e moltiplichiamo numeratore con numeratore " +
+                        "e denominatore con denominatore:"
+                    )
+                );
+
+            } else {
+
+                svolgimento.appendChild(
+                    paragrafo(
+                        "3. Semplifichiamo i fattori comuni " +
+                        "e moltiplichiamo numeratore con numeratore " +
+                        "e denominatore con denominatore:"
+                    )
+                );
+
+            }
+
+
+            // RISULTATO FINALE
+
+            svolgimento.appendChild(
+                formula("\\boxed{" + es.risultato + "}")
+            );
+
+            const nota = document.createElement("p");
+
+            nota.className = "text-sm text-slate-600 mt-3";
+
+            nota.textContent =
+                "Le C.E. rimangono quelle calcolate " +
+                "prima delle semplificazioni.";
+
+            svolgimento.appendChild(nota);
+
+            tendina.appendChild(svolgimento);
+
+            card.appendChild(tendina);
+
+            return card;
+        }
+
+
+        // ==========================================
+        // INSERIMENTO NELLA PAGINA
+        // ==========================================
+
+        const contenitoreMoltiplicazioni =
+            document.getElementById("moltiplicazioni");
+
+        const contenitoreDivisioni =
+            document.getElementById("divisioni");
+
+        esercizi.forEach(function (es) {
+
+            const card = creaEsercizio(es);
+
+            if (es.tipo === "moltiplicazione") {
+
+                contenitoreMoltiplicazioni.appendChild(card);
+
+            } else {
+
+                contenitoreDivisioni.appendChild(card);
+
+            }
+
+        });
+
+
+        // Quando si apre una tendina,
+        // MathJax visualizza le formule matematiche.
+
+        document.querySelectorAll("details").forEach(
+            function (tendina) {
+
+                tendina.addEventListener("toggle", function () {
+
+                    if (tendina.open &&
+                        window.MathJax &&
+                        MathJax.typesetPromise) {
+
+                        MathJax.typesetPromise([tendina]);
+
+                    }
+
+                });
+
+            }
+        );
+
+
+        // Visualizzazione iniziale delle formule
+
+        window.addEventListener("load", function () {
+
+            if (window.MathJax &&
+                MathJax.typesetPromise) {
+
+                MathJax.typesetPromise();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
