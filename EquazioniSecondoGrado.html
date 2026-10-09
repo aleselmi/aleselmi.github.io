@@ -1449,65 +1449,75 @@ function creaEsercizio(es) {
      STILE ESERCIZI
      ========================================== -->
 
+
 <style>
 
     .exercise-card {
-        background: white;
-        border: 1px solid #dbe3ee;
-        border-radius: 14px;
-        padding: 22px;
-        margin-bottom: 20px;
-        box-shadow: 0 3px 10px rgba(11, 42, 74, 0.04);
+        background: #ffffff;
+        border: 1px solid #d7e1ee;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 24px;
     }
 
     .exercise-heading {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
-        flex-wrap: wrap;
+        gap: 24px;
+        min-height: 100px;
     }
 
     .exercise-left {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 28px;
         flex: 1;
         min-width: 0;
     }
 
     .exercise-letter {
         color: #0b2a4a;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 700;
         flex-shrink: 0;
     }
 
     .exercise-equation {
         color: #0b2a4a;
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.35rem;
+        font-weight: 500;
         overflow-x: auto;
         max-width: 100%;
     }
 
+    /* RISULTATO NEL RIQUADRO VERDE */
+
     .exercise-short-result {
-        color: #2563eb;
-        font-size: 1.15rem;
-        font-weight: 600;
+        color: #047857;
+        background: #ecfdf5;
+        border: 1px solid #86efac;
+        border-radius: 16px;
+        padding: 14px 22px;
+        font-size: 1.1rem;
+        font-weight: 700;
         white-space: nowrap;
-        margin-left: auto;
+        flex-shrink: 0;
+        text-align: center;
     }
 
+    /* LINEA DIVISORIA E TENDINA */
+
     .exercise-card details {
-        border-top: 1px solid #e5e7eb;
-        margin-top: 18px;
-        padding-top: 16px;
+        border-top: 1px solid #d7e1ee;
+        margin-top: 26px;
+        padding-top: 20px;
     }
 
     .exercise-card summary {
         color: #2563eb;
-        font-weight: 700;
+        font-size: 1.1rem;
+        font-weight: 600;
         cursor: pointer;
         list-style: none;
     }
@@ -1516,20 +1526,11 @@ function creaEsercizio(es) {
         display: none;
     }
 
-    .exercise-card summary::after {
-        content: " ▼";
-        font-size: 0.8rem;
-    }
-
-    .exercise-card details[open] summary::after {
-        content: " ▲";
-    }
-
     .exercise-work {
         background: #f8fafc;
         border-radius: 12px;
-        padding: 18px;
-        margin-top: 18px;
+        padding: 20px;
+        margin-top: 22px;
     }
 
     .exercise-work p {
@@ -1549,9 +1550,9 @@ function creaEsercizio(es) {
         background: #ecfdf5;
         border: 1px solid #86efac;
         color: #15803d;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 16px;
-        margin-top: 18px;
+        margin-top: 20px;
         text-align: center;
         font-weight: 700;
     }
@@ -1563,11 +1564,15 @@ function creaEsercizio(es) {
     @media (max-width: 600px) {
 
         .exercise-card {
-            padding: 16px;
+            padding: 20px;
         }
 
         .exercise-heading {
-            gap: 8px;
+            gap: 12px;
+        }
+
+        .exercise-left {
+            gap: 14px;
         }
 
         .exercise-equation {
@@ -1575,12 +1580,14 @@ function creaEsercizio(es) {
         }
 
         .exercise-short-result {
-            font-size: 1rem;
+            padding: 10px 14px;
+            font-size: 0.95rem;
         }
 
     }
 
 </style>
+
 
 
 <!-- ==========================================
