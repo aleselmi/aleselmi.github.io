@@ -818,6 +818,341 @@
         </div>
 
     </section>
+    
+<!-- ==========================================
+     ESERCIZI SULLA PARABOLA
+     Incollare prima di </main>
+     ========================================== -->
+
+<section class="section-card" id="esercizi-parabola">
+
+    <h2 class="section-title">
+        Esercizi sulla parabola
+    </h2>
+
+    <p class="mb-5">
+        Per ogni funzione calcola il vertice,
+        le intersezioni con l'asse x e
+        l'intersezione con l'asse y.
+        Apri la tendina per controllare i risultati.
+    </p>
+
+    <!-- PRIMA SERIE -->
+
+    <div class="mb-10">
+
+        <h3 class="text-xl font-bold text-[#15803d] mb-4">
+            1. Parabole in forma normale
+        </h3>
+
+        <div id="esercizi-normali"
+             class="space-y-3">
+        </div>
+
+    </div>
+
+    <!-- SECONDA SERIE -->
+
+    <div>
+
+        <h3 class="text-xl font-bold text-[#15803d] mb-4">
+            2. Parabole con prodotti notevoli
+        </h3>
+
+        <p class="mb-4">
+            Prima svolgi i prodotti e riduci
+            i termini simili, poi calcola
+            vertice e intersezioni.
+        </p>
+
+        <div id="esercizi-prodotti"
+             class="space-y-3">
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+(function () {
+
+    // PRIMA SERIE: FUNZIONI IN FORMA NORMALE
+
+    const normali = [
+        {
+            eq: "y = x² − 4x + 3",
+            v: "V(2; −1)",
+            ix: "(1; 0) e (3; 0)",
+            iy: "(0; 3)"
+        },
+        {
+            eq: "y = x² − 6x + 5",
+            v: "V(3; −4)",
+            ix: "(1; 0) e (5; 0)",
+            iy: "(0; 5)"
+        },
+        {
+            eq: "y = x² + 2x − 3",
+            v: "V(−1; −4)",
+            ix: "(−3; 0) e (1; 0)",
+            iy: "(0; −3)"
+        },
+        {
+            eq: "y = x² − 2x − 3",
+            v: "V(1; −4)",
+            ix: "(−1; 0) e (3; 0)",
+            iy: "(0; −3)"
+        },
+        {
+            eq: "y = 2x² − 4x + 1",
+            v: "V(1; −1)",
+            ix: "(1 − √2/2; 0) e (1 + √2/2; 0)",
+            iy: "(0; 1)"
+        },
+        {
+            eq: "y = x² + 4x + 2",
+            v: "V(−2; −2)",
+            ix: "(−2 − √2; 0) e (−2 + √2; 0)",
+            iy: "(0; 2)"
+        },
+        {
+            eq: "y = x² − 4x + 4",
+            v: "V(2; 0)",
+            ix: "(2; 0) — punto di tangenza",
+            iy: "(0; 4)"
+        },
+        {
+            eq: "y = x² + 6x + 8",
+            v: "V(−3; −1)",
+            ix: "(−4; 0) e (−2; 0)",
+            iy: "(0; 8)"
+        },
+        {
+            eq: "y = 2x² + 4x − 1",
+            v: "V(−1; −3)",
+            ix: "(−1 − √6/2; 0) e (−1 + √6/2; 0)",
+            iy: "(0; −1)"
+        },
+        {
+            eq: "y = x² − 2x + 2",
+            v: "V(1; 1)",
+            ix: "Nessuna intersezione reale",
+            iy: "(0; 2)"
+        }
+    ];
+
+
+    // SECONDA SERIE: PRODOTTI NOTEVOLI
+
+    const prodotti = [
+        {
+            eq: "y = (x + 2)² + (x − 3)(x + 1) − x²",
+            normale: "y = x² + 2x + 1",
+            v: "V(−1; 0)",
+            ix: "(−1; 0) — punto di tangenza",
+            iy: "(0; 1)"
+        },
+        {
+            eq: "y = 2(x − 1)² − (x + 2)(x − 2) + 3x",
+            normale: "y = x² − x + 6",
+            v: "V(1/2; 23/4)",
+            ix: "Nessuna intersezione reale",
+            iy: "(0; 6)"
+        },
+        {
+            eq: "y = (x − 3)² + 2(x + 1)(x − 2) − 2x²",
+            normale: "y = x² − 8x + 5",
+            v: "V(4; −11)",
+            ix: "(4 − √11; 0) e (4 + √11; 0)",
+            iy: "(0; 5)"
+        },
+        {
+            eq: "y = 3(x + 1)² − (x − 2)(x + 2) − x² − 4x",
+            normale: "y = x² + 2x + 7",
+            v: "V(−1; 6)",
+            ix: "Nessuna intersezione reale",
+            iy: "(0; 7)"
+        },
+        {
+            eq: "y = 2(x − 2)(x + 2) − (x − 1)² + 4x",
+            normale: "y = x² + 6x − 9",
+            v: "V(−3; −18)",
+            ix: "(−3 − 3√2; 0) e (−3 + 3√2; 0)",
+            iy: "(0; −9)"
+        },
+        {
+            eq: "y = (x + 4)(x − 2) + (x − 1)² − 3x + 2",
+            normale: "y = 2x² − 3x − 5",
+            v: "V(3/4; −49/8)",
+            ix: "(−1; 0) e (5/2; 0)",
+            iy: "(0; −5)"
+        },
+        {
+            eq: "y = 2(x + 2)² − (x − 1)(x + 3) − x²",
+            normale: "y = 6x + 11",
+            v: "Non esiste: la funzione è una retta",
+            ix: "(−11/6; 0)",
+            iy: "(0; 11)",
+            nota: "Il termine x² si annulla. Non è una parabola, ma una retta."
+        },
+        {
+            eq: "y = 3(x − 2)² − 2(x − 3)(x + 1) − 4x",
+            normale: "y = x² − 12x + 18",
+            v: "V(6; −18)",
+            ix: "(6 − 3√2; 0) e (6 + 3√2; 0)",
+            iy: "(0; 18)"
+        },
+        {
+            eq: "y = (x − 3)(x + 3) + 2(x + 1)² − 2x² + 4x",
+            normale: "y = x² + 8x − 7",
+            v: "V(−4; −23)",
+            ix: "(−4 − √23; 0) e (−4 + √23; 0)",
+            iy: "(0; −7)"
+        },
+        {
+            eq: "y = 2(x − 1)(x + 3) − (x + 2)² + 2x + 5",
+            normale: "y = x² + 2x − 5",
+            v: "V(−1; −6)",
+            ix: "(−1 − √6; 0) e (−1 + √6; 0)",
+            iy: "(0; −5)"
+        }
+    ];
+
+
+    // CREA LE CARD CON TENDINA
+
+    function creaEsercizi(id, esercizi, conFormaNormale) {
+
+        const contenitore = document.getElementById(id);
+
+        esercizi.forEach(function (es, indice) {
+
+            const card = document.createElement("details");
+
+            card.className =
+                "bg-white border-l-8 border-[#15803d] " +
+                "rounded-xl shadow-md overflow-hidden " +
+                "hover:shadow-lg transition";
+
+            const riepilogo = document.createElement("summary");
+
+            riepilogo.className =
+                "cursor-pointer p-5 font-semibold " +
+                "text-[#0b2a4a] flex items-center " +
+                "gap-4";
+
+            const numero = document.createElement("span");
+
+            numero.className =
+                "text-[#15803d] font-bold flex-shrink-0";
+
+            numero.textContent = (indice + 1) + ".";
+
+            const equazione = document.createElement("span");
+
+            equazione.className =
+                "text-lg break-words min-w-0";
+
+            equazione.textContent = es.eq;
+
+            riepilogo.appendChild(numero);
+            riepilogo.appendChild(equazione);
+
+            card.appendChild(riepilogo);
+
+            const soluzione = document.createElement("div");
+
+            soluzione.className =
+                "px-5 pb-5 pt-4 border-t border-gray-200 " +
+                "space-y-3";
+
+            if (conFormaNormale) {
+
+                const passaggio = document.createElement("p");
+
+                passaggio.className = "text-gray-700";
+
+                passaggio.textContent =
+                    "Svolgendo i calcoli otteniamo:";
+
+                soluzione.appendChild(passaggio);
+
+                const forma = document.createElement("div");
+
+                forma.className =
+                    "text-lg font-bold text-[#0b2a4a] " +
+                    "bg-slate-50 rounded-lg p-3 text-center";
+
+                forma.textContent = es.normale;
+
+                soluzione.appendChild(forma);
+            }
+
+            function aggiungiRisultato(titolo, valore) {
+
+                const riga = document.createElement("p");
+
+                const etichetta = document.createElement("strong");
+
+                etichetta.className = "text-[#15803d]";
+
+                etichetta.textContent = titolo + ": ";
+
+                riga.appendChild(etichetta);
+
+                riga.appendChild(
+                    document.createTextNode(valore)
+                );
+
+                soluzione.appendChild(riga);
+            }
+
+            aggiungiRisultato("Vertice", es.v);
+
+            aggiungiRisultato(
+                "Intersezione asse x", es.ix
+            );
+
+            aggiungiRisultato(
+                "Intersezione asse y", es.iy
+            );
+
+            if (es.nota) {
+
+                const nota = document.createElement("p");
+
+                nota.className =
+                    "bg-amber-50 border-l-4 " +
+                    "border-amber-500 p-3 rounded " +
+                    "text-sm text-gray-700";
+
+                nota.textContent = es.nota;
+
+                soluzione.appendChild(nota);
+            }
+
+            card.appendChild(soluzione);
+
+            contenitore.appendChild(card);
+        });
+    }
+
+    creaEsercizi(
+        "esercizi-normali",
+        normali,
+        false
+    );
+
+    creaEsercizi(
+        "esercizi-prodotti",
+        prodotti,
+        true
+    );
+
+})();
+</script>
+
 
 </main>
 
